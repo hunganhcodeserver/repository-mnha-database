@@ -1,0 +1,32 @@
+{
+  "timestamp": 1792670398353,
+  "lang": "cpp",
+  "file": "main.cpp",
+  "dir": "",
+  "origin": "https://github.com/hoangmanhkhiem/BTL_CTDL_64_002/blob/master/QuanLyDaySo/main.cpp",
+  "source": "\n#include \"QuanLyDaySo.hpp\"\n#include <iostream>\n\nusing namespace std;\n\nint main() {\n    QuanLyDaySo quanLyDaySo;\n    int choice;\n    do {\n        cout << \"\\n1. Tao danh sach so\\n\"\n                \"2. Them phan tu vao danh sach voi vi tri tu chon\\n\"\n                \"3. So luong phan tu bang k\\n\"\n                \"4. Kiem tra co bo ba so chan duong canh nhau\\n\"\n                \"5. Sap xep day so tang dan\\n\"\n                \"6. Xoa tat ca cac so nguyen to\\n\"\n                \"7. Xoa phan tu trung nhau\\n\"\n                \"8. Xuat danh sach so\\n\"\n                \"0. Thoat\\n\"\n\n                \"Chon chuc nang: \";\n        cin >> choice;\n        switch (choice) {\n            case 1:\n                quanLyDaySo.TaoDanhSachSo();\n                break;\n            case 2:\n                quanLyDaySo.ThemPhanTuVaoDanhSach_voiVitriTuChon();\n                break;\n            case 3:\n                cout << \"So luong phan tu bang k: \" << quanLyDaySo.SoLuongPhanTu_BangK() << endl;\n                break;\n            case 4:\n                if (!quanLyDaySo.KiemtraCoBoBaSoChanDuong_CanhNhau()) {\n                    cout << \"Khong co bo ba so chan duong canh nhau\" << endl;\n                }\n                break;\n            case 5:\n                quanLyDaySo.SapXepDaySo_TangDan();\n                break;\n            case 6:\n                quanLyDaySo.XoaTatCaCacSoNguyenTo();\n                break;\n            case 7:\n                quanLyDaySo.XoaPhanTuTrungNhau();\n                break;\n            case 8:\n                quanLyDaySo.XuatDanhSachSo();\n                break;\n            case 0:\n                cout << \"Ket thuc chuong trinh\" << endl;\n                break;\n            default:\n                cout << \"Chuc nang khong ton tai\" << endl;\n                break;\n        }\n    } while (choice != 0);\n    return 0;\n}",
+  "kind": "cpp",
+  "status": "error",
+  "compile": {
+    "ok": true,
+    "output": ""
+  },
+  "console": "\n1. Tao danh sach so\n2. Them phan tu vao danh sach voi vi tri tu chon\n3. So luong phan tu bang k\n4. Kiem tra co bo ba so chan duong canh nhau\n5. Sap xep day so tang dan\n6. Xoa tat ca cac so nguyen to\n7. Xoa phan tu trung nhau\n8. Xuat danh sach so\n0. Thoat\nChon chuc nang: 1\nNhap cac phan tu cua danh sach (nhap '#' de dung): 2 6 8 9 5\n3 6 8 5\n3 5 7 8\n",
+  "inputs": [
+    "1",
+    "2 6 8 9 5",
+    "3 6 8 5",
+    "3 5 7 8"
+  ],
+  "exitCode": null,
+  "signal": "SIGKILL",
+  "error": "Đã dừng bởi người dùng.",
+  "outputFiles": {},
+  "inputFiles": [
+    "QuanLyDaySo.hpp",
+    "SingleLinkedList.hpp"
+  ],
+  "startedAt": "2026-10-22T11:59:05.578Z",
+  "finishedAt": "2026-10-22T11:59:57.913Z",
+  "durationMs": 52335
+}
