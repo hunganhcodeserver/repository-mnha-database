@@ -1,0 +1,26 @@
+{
+  "timestamp": 1792645511651,
+  "lang": "cpp",
+  "file": "cpp1.cpp",
+  "dir": "test",
+  "source": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    // freopen(\"input.txt\", \"r\", stdin);\n    // freopen(\"output.txt\", \"w\", stdout);\n    int a, b;\n    cout << \"Nhap a, b: \";\n    cin >> a >> b;\n    cout << \"Tong = \" << a + b << endl;\n    return 0;\n}\n",
+  "kind": "cpp",
+  "status": "ok",
+  "compile": {
+    "ok": true,
+    "output": ""
+  },
+  "console": "Nhap a, b: 10\n12\nTong = 22\n",
+  "inputs": [
+    "10",
+    "12"
+  ],
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "outputFiles": {},
+  "inputFiles": [],
+  "startedAt": "2026-10-22T05:04:42.917Z",
+  "finishedAt": "2026-10-22T05:05:10.638Z",
+  "durationMs": 27721
+}
