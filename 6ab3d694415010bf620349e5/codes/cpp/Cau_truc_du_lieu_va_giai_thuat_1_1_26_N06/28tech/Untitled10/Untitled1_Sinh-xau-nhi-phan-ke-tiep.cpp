@@ -17,6 +17,9 @@ void sinh(){
         a[i] = 0;
         --i;
     }
+    if(i == 0){
+        
+    }
 }
 
 int main() {
