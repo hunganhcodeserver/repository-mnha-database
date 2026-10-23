@@ -1,0 +1,53 @@
+{
+  "timestamp": 1792773898880,
+  "lang": "emu8086",
+  "file": "Chuyen_doi_giua_thuong_va_hoa.asm",
+  "dir": "MySource",
+  "source": ".model small\n.stack 100h\n.data\n    s1 db \"Nhap ki tu: $\"\n    s2 db 10, 13, \"Ki tu sau khi chuyen: $\"\n.code\n    main proc\n        mov ax, @data\n        mov ds, ax\n        \n        mov ah, 9\n        lea dx, s1\n        int 21h\n        \n        mov ah, 1\n        int 21h\n    \n        cmp al, 90\n        jle hoathanhthuong\n        \n        sub al, 32\n        jmp xuat\n        \n        hoathanhthuong:\n        add al, 32\n        \n        xuat:\n        mov bl, al\n        mov ah, 9\n        lea dx, s2\n        int 21h\n        \n        mov dl, bl\n        mov ah, 2\n        int 21h\n        \n        mov ah, 4ch\n        int 21h    \n    main endp\nend main",
+  "kind": "emu8086",
+  "status": "ok",
+  "assemble": {
+    "ok": true,
+    "errors": []
+  },
+  "console": "Nhap ki tu: R\n\rKi tu sau khi chuyen: r",
+  "screen": [
+    "Nhap ki tu: R",
+    "Ki tu sau khi chuyen: r"
+  ],
+  "inputs": [
+    "R"
+  ],
+  "regs": {
+    "AX": "4C72",
+    "BX": "0072",
+    "CX": "0000",
+    "DX": "0072",
+    "SI": "0000",
+    "DI": "0000",
+    "BP": "0000",
+    "SP": "00FE",
+    "CS": "0713",
+    "DS": "0710",
+    "ES": "0700",
+    "SS": "0718",
+    "IP": "0015"
+  },
+  "flags": {
+    "CF": 0,
+    "PF": 1,
+    "AF": 0,
+    "ZF": 0,
+    "SF": 0,
+    "TF": 0,
+    "IF": 1,
+    "DF": 0,
+    "OF": 0
+  },
+  "steps": 18,
+  "exitCode": 114,
+  "error": null,
+  "startedAt": "2026-10-23T16:44:54.997Z",
+  "finishedAt": "2026-10-23T16:44:58.880Z",
+  "durationMs": 3883
+}
