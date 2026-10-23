@@ -1,22 +1,2360 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Trang của tôi</title>
-  <!-- CSS riêng: tạo file style.css cùng thư mục rồi bỏ comment dòng dưới -->
-  <!-- <link rel="stylesheet" href="style.css"> -->
-  <style>
-    body { font-family: system-ui, sans-serif; margin: 0; padding: 24px; background: #f8fafc; color: #0f172a; }
-    h1 { color: #4f46e5; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài giảng Lập trình hướng đối tượng</title>
+    <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
-  <h1>Xin chào, MNHA!</h1>
-  <p>Sửa code ở tab Code, bấm View để xem trang.</p>
-  <!-- Ảnh/âm thanh/video đã tải lên (cùng thư mục) nhúng như bình thường: -->
-  <!-- <img src="anh.png" alt="" width="300"> -->
-  <!-- <audio controls src="nhac.mp3"></audio> -->
-  <!-- <video controls src="phim.mp4" width="480"></video> -->
+
+    <!-- Shared SVG Marker Definition -->
+    <svg style="display:none;">
+        <defs>
+            <marker id="arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#cbd5e1"/>
+            </marker>
+            <marker id="arr-dark" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+            </marker>
+            <marker id="chalk-arr" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 8 5 L 0 8.5" fill="none" stroke="#f8fafc" stroke-width="2" stroke-linecap="round"/>
+            </marker>
+        </defs>
+    </svg>
+
+
+        <!------------------------------
+        ------------PHẦN 1--------------
+        ------------------------------->
+
+
+
+    <!-- SLIDE -10: Ví dụ (Xây dựng lớp) -->
+    <div class="slide-container" style="height: 750px;">
+        <div>
+            <div class="top-tag">VÍ DỤ</div>
+            <h1 class="slide-title">Ví dụ (Xây dựng lớp)</h1>
+
+            <div class="grid-2" style="margin-top:15px; align-items:stretch; gap:20px;">
+
+                <!-- Cột 1: Mã nguồn C++ -->
+                <div style="flex: 1.1; min-width:0;">
+                    <div class="highlight-card" style="background:#ffffff; padding:16px 20px; border-radius:8px; border:1px solid #e2e8f0; font-family:'Courier New', Courier, monospace; font-size:13.5px; line-height:1.7; color:#1e293b; overflow-x:auto;">
+                        <pre style="margin:0;"><span style="color:#be185d;">class</span> <span style="color:#0284c7;">Bicycle</span> {
+    <span style="color:#be185d;">private</span>:
+        <span style="color:#be185d;">float</span> speed;
+        <span style="color:#be185d;">float</span> cadence;
+        <span style="color:#be185d;">int</span> gear;
+    <span style="color:#be185d;">public</span>:
+        <span style="color:#be185d;">void</span> <span style="color:#0284c7;">change_gears</span>(<span style="color:#be185d;">int</span> gear);
+        <span style="color:#be185d;">void</span> <span style="color:#0284c7;">brake</span>();
+        <span style="color:#be185d;">void</span> <span style="color:#0284c7;">chage_cadence</span>(<span style="color:#be185d;">float</span> cadence);
+    };
+    ...
+    <span style="color:#0284c7;">Bicycle</span> b;
+    b.<span style="color:#0284c7;">brake</span>();
+    b.cadence = <span style="color:#f59e0b;">5</span>; <span style="color:#64748b;">// Error</span>
+    b.<span style="color:#0284c7;">change_cadence</span>(<span style="color:#f59e0b;">5</span>); <span style="color:#64748b;">// OK</span></pre>
+                    </div>
+                </div>
+
+                <!-- Cột 2: Hình vẽ minh họa (nhúng ảnh) -->
+                <div style="flex: 0.9; min-width:0; display:flex; align-items:center; justify-content:center; background:#ffffff; border-radius:8px; border:1px solid #e2e8f0; overflow:hidden; padding:10px;">
+                    <img src="1789297777.jpg" alt="Minh họa Xây dựng lớp" style="max-width:100%; max-height:100%; object-fit:contain; display:block;">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span>Ví dụ (Xây dựng lớp)</span>
+            <span>-10</span>
+        </div>
+    </div>
+
+
+
+    <!-- SLIDE -9: Con trỏ đối tượng -->
+    <div class="slide-container" style="height: 750px;">
+        <div>
+            <div class="top-tag">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</div>
+            <h1 class="slide-title">Con trỏ đối tượng</h1>
+
+            <div style="font-size:15px; line-height:1.8; color:#334155; margin-top:15px;">
+                <ul style="margin:0; padding-left:20px;">
+                    <li>Con trỏ đối tượng chứa địa chỉ của biến đối tượng</li>
+                    <li>Khai báo con trỏ đối tượng
+                        <div style="padding-left:20px; margin-top:4px; font-family:'Courier New', Courier, monospace; color:#be185d; font-weight:bold;">
+                            Tên_Lớp *Tên_con_trỏ;
+                        </div>
+                    </li>
+                    <li>Sử dụng con trỏ đối tượng
+                        <div style="padding-left:20px; margin-top:4px; font-family:'Courier New', Courier, monospace; color:#be185d; font-weight:bold;">
+                            Tên_con_trỏ -> Tên_thành_phần
+                        </div>
+                    </li>
+                    <li>Ví dụ:
+                        <div style="margin-top:8px;">
+                            <div class="highlight-card" style="background:#ffffff; padding:14px 20px; border-radius:8px; border:1px solid #e2e8f0; font-family:'Courier New', Courier, monospace; font-size:13.5px; line-height:1.7; color:#1e293b; display:inline-block;">
+                                <pre style="margin:0;"><span style="color:#0284c7;">A</span> x, *p;
+    x.<span style="color:#0284c7;">nhap</span>(); <span style="color:#64748b;">// Truy nhập vào thành phần thông qua đối tượng</span>
+    p = &amp;x;
+    p -&gt; <span style="color:#0284c7;">nhap</span>(); <span style="color:#64748b;">// Truy nhập vào thành phần qua con trỏ đ/t</span></pre>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span>Con trỏ đối tượng</span>
+            <span>-9</span>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- SLIDE -8: Ví dụ -->
+    <div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+            <h1 class="slide-title" style="text-align: center; margin-top: 15px; margin-bottom: 30px;">Ví dụ</h1>
+
+            <div style="display: flex; gap: 25px; justify-content: center; align-items: flex-start; max-width: 850px; margin: 0 auto;">
+                <!-- Cột 1: Khai báo lớp -->
+                <div class="highlight-card" style="flex: 1; background:#ffffff; padding:16px 20px; border-radius:8px; border:1px solid #e2e8f0; font-family:'Courier New', Courier, monospace; font-size:13.5px; line-height:1.7; color:#1e293b; overflow-x:auto;">
+                    <pre style="margin:0;"><span style="color:#64748b;">#include</span> <span style="color:#0284c7;">&lt;iostream&gt;</span>
+    <span style="color:#64748b;">using namespace</span> std;
+    <span style="color:#64748b;">// Khai báo lớp</span>
+    <span style="color:#be185d;">class</span> <span style="color:#0284c7;">Diem</span> {
+        <span style="color:#be185d;">int</span> x, y;
+        <span style="color:#be185d;">public</span>:
+            <span style="color:#be185d;">void</span> <span style="color:#0284c7;">nhap1</span>();
+            <span style="color:#be185d;">void</span> <span style="color:#0284c7;">hien</span>();
+    };</pre>
+                </div>
+
+                <!-- Cột 2: Hàm main -->
+                <div class="highlight-card" style="flex: 1; background:#ffffff; padding:16px 20px; border-radius:8px; border:1px solid #e2e8f0; font-family:'Courier New', Courier, monospace; font-size:13.5px; line-height:1.7; color:#1e293b; overflow-x:auto;">
+                    <pre style="margin:0;"><span style="color:#be185d;">int</span> <span style="color:#0284c7;">main</span>() {
+        <span style="color:#0284c7;">Diem</span> *p;
+        <span style="color:#be185d;">int</span> i, n;
+        cout &lt;&lt; <span style="color:#059669;">"So diem: "</span>;
+        cin &gt;&gt; n;
+        p = <span style="color:#be185d;">new</span> <span style="color:#0284c7;">DIEM</span>[n+1];
+        <span style="color:#be185d;">for</span> (i= 1; i&lt;= n; ++i)
+            p[i] -&gt; <span style="color:#0284c7;">nhap1</span>();
+        <span style="color:#be185d;">for</span> (i= 1; i&lt;= n; ++i)
+            p[i] -&gt; <span style="color:#0284c7;">hien</span>();
+    }</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span>Ví dụ</span>
+            <span>-8</span>
+        </div>
+    </div>
+
+
+
+
+    <!-- SLIDE -7: Con trỏ this -->
+    <div class="slide-container" style="height: 750px;">
+        <div>
+            <div class="top-tag">CON TRỎ THIS</div>
+            <h1 class="slide-title">Con trỏ this</h1>
+
+            <div style="font-size:15px; line-height:1.7; color:#334155; margin-top:15px;">
+                <ul style="margin:0; padding-left:20px; line-height:1.8;">
+                    <li>C++ cung cấp một từ khóa <b>this</b> để thể hiện
+                        <ul style="margin-top:6px; padding-left:20px; color:#475569;">
+                            <li>Để trỏ đến đối tượng hiện tại (current object) và nó được truyền như một đối ẩn tới các hàm thành phần của lớp</li>
+                            <li>Con trỏ <b>this</b> chứa địa chỉ bộ nhớ của đối tượng hiện tại</li>
+                            <li>Con trỏ <b>this</b> thường không được thể hiện tường minh</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="highlight-card" style="background:#ffffff; padding:20px 24px; border-radius:8px; border:1px solid #e2e8f0; font-family:'Courier New', Courier, monospace; font-size:14px; line-height:1.8; color:#1e293b; overflow-x:auto; margin-top:20px;">
+                <pre style="margin:0;">
+    <span style="color:#be185d;">void</span> <span style="color:#0284c7;">PS::nhap</span>() {
+        cout &lt;&lt; <span style="color:#059669;">"Nhap phan so: "</span>;
+        cin &gt;&gt; ts &gt;&gt; ms;    <span style="color:#64748b;">// cin &gt;&gt; this-&gt; ts &gt;&gt; this-&gt; ms;</span>
+    }
+                </pre>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span>Con trỏ this</span>
+            <span>-7</span>
+        </div>
+    </div>
+
+
+
+
+    <!-- SLIDE -6: Phạm vi của các thành phần trong lớp -->
+    <div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+            <div class="top-tag">PHẠM VI TRUY CẬP</div>
+            <h1 class="slide-title">Phạm vi của các thành phần trong lớp</h1>
+
+            <div style="font-size:15px; line-height:1.7; color:#334155; margin-top:10px;">
+                <ul style="margin:0; padding-left:20px; line-height:1.8;">
+                    <li><b>Thuộc tính thường là bí mật (private)</b> để đảm bảo tính bảo mật.</li>
+                    <li>Để truy nhập các thuộc tính của một lớp cần thông qua các phương thức của lớp đó.</li>
+                </ul>
+            </div>
+
+            <!-- Khung chứa code và chú thích -->
+            <div style="position:relative; width:100%; max-width:900px; height:340px; margin:20px auto 0 auto;">
+
+                <!-- Khung Code -->
+                <div class="highlight-card" style="position:absolute; top:0; left:0; width:560px; background:#ffffff; border-radius:8px; border:1px solid #e2e8f0; padding:16px 20px; color:#1e293b; font-family:'Courier New', Courier, monospace; font-size:13.5px; line-height:20.9px; box-sizing:border-box;">
+                    <pre style="margin:0;"><span style="color:#be185d;">class</span> <span style="color:#0284c7;">A</span> {
+        <span style="color:#be185d;">int</span> x;
+        <span style="color:#be185d;">public</span>:
+            <span style="color:#be185d;">void</span> <span style="color:#0284c7;">nhap</span>(){
+                cin &gt;&gt; x;
+            }
+            <span style="color:#be185d;">void</span> <span style="color:#0284c7;">xuat</span>(){
+                cout &lt;&lt; x;
+            }
+    };
+    <span style="color:#be185d;">int</span> <span style="color:#0284c7;">main</span>(){
+        <span style="color:#0284c7;">A</span> d;
+        d.<span style="color:#0284c7;">nhap</span>();
+        d.<span style="color:#0284c7;">xuat</span>();
+    }</pre>
+                </div>
+
+                <!-- Chú thích -->
+                <div style="position:absolute; top:225px; left:580px; width:280px; font-family:Arial, sans-serif; font-size:13.5px; color:#475569; line-height:1.6;">
+                    Truyền thông điệp (message passing)<br>
+                    <b>nhap()</b> và <b>xuat()</b> cho đối tượng <b>d</b>
+                </div>
+
+                <!-- Mũi tên chỉ vào code -->
+                <svg viewBox="0 0 900 340" style="position:absolute; inset:0; width:100%; height:100%; overflow:visible;">
+                    <defs>
+                        <marker id="annoArrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+                            <path d="M0,0 L7,3 L0,6 Z" fill="#64748b"></path>
+                        </marker>
+                    </defs>
+                    <!-- Mũi tên 1: từ dòng "Truyền thông điệp..." trỏ vào d.nhap(); -->
+                    <line x1="634" y1="243" x2="170" y2="290" stroke="#64748b" stroke-width="1.8" marker-end="url(#annoArrow)"></line>
+                    <!-- Mũi tên 2: từ dòng "nhap() và xuat()..." trỏ vào d.nhap(); (hội tụ gần điểm 1) -->
+                    <line x1="640" y1="267" x2="170" y2="315" stroke="#64748b" stroke-width="1.8" marker-end="url(#annoArrow)"></line>
+                </svg>
+
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span>Phạm vi của các thành phần trong lớp</span>
+            <span>-6</span>
+        </div>
+    </div>
+ 
+
+
+
+    <!-- SLIDE -5: Con trỏ this -->
+    <div class="slide-container" style="height: 750px;">
+        <div>
+            <div class="top-tag">CON TRỎ THIS</div>
+            <h1 class="slide-title">Con trỏ this</h1>
+
+            <div class="highlight-card" style="background:#ffffff; padding:20px 24px; border-radius:8px; border:1px solid #e2e8f0; font-family:'Courier New', Courier, monospace; font-size:14px; line-height:1.8; color:#1e293b; overflow-x:auto; margin-top:20px;">
+                <pre style="margin:0;">
+    <span style="color:#be185d;">#include</span> <span style="color:#0284c7;">&lt;iostream&gt;</span>
+    <span style="color:#be185d;">using namespace</span> std;
+    <span style="color:#be185d;">class</span> <span style="color:#0284c7;">Test</span> {
+        <span style="color:#be185d;">int</span> x;
+        <span style="color:#be185d;">public</span>:
+            <span style="color:#be185d;">void</span> <span style="color:#0284c7;">print</span>() {
+                cout &lt;&lt; <span style="color:#059669;">" x = "</span> &lt;&lt; x &lt;&lt; endl;
+                cout &lt;&lt; <span style="color:#059669;">" this-&gt;x = "</span> &lt;&lt; <span style="color:#be185d;">this</span>-&gt;x &lt;&lt;      endl;
+                cout &lt;&lt; <span style="color:#059669;">"(*this).x = "</span> &lt;&lt; (*<span style="color:#be185d;">this</span>).x;
+            }
+    };
+                </pre>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span>Con trỏ this</span>
+            <span>-5</span>
+        </div>
+    </div>
+
+
+
+
+    <!-- SLIDE -4: Ví dụ - Lớp Sinh viên -->
+    <div class="slide-container" style="height: 750px;">
+        <div>
+            <div class="top-tag">VÍ DỤ</div>
+            <h1 class="slide-title">Ví dụ</h1>
+
+            <div class="highlight-card" style="background:#ffffff; padding:20px 24px; border-radius:8px; border:1px solid #e2e8f0; color:#1e293b; margin-top:20px; font-size:15px; line-height:1.8;">
+                <ul style="margin:0; padding-left:20px; line-height:1.8;">
+                    <li>
+                        <b>Xây dựng lớp Sinh viên gồm hai thuộc tính:</b> mã sinh viên và điểm.
+                    </li>
+                    <li style="list-style-type: none; margin-top: 8px;">
+                        <ul style="margin:0; padding-left:20px;">
+                            <li>
+                                <b>–</b> Nhập vào 2 sinh viên, cho biết sinh viên nào có điểm cao hơn.
+                            </li>
+                            <li>
+                                <b>–</b> Cộng 1 điểm cho sinh viên thứ hai.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span>Ví dụ</span>
+            <span>-4</span>
+        </div>
+    </div>
+
+
+
+
+    <!-- SLIDE -3: Mã nguồn minh họa - Lớp Sinh viên -->
+    <div class="slide-container" style="height: 750px;">
+        <div>
+            <div class="top-tag">VÍ DỤ MINH HỌA</div>
+            <h1 class="slide-title">Phương thức nhập và xuất của lớp</h1>
+
+            <div class="highlight-card" style="background:#ffffff; padding:20px 24px; border-radius:8px; border:1px solid #e2e8f0; font-family:'Courier New', Courier, monospace; font-size:14px; line-height:1.8; color:#1e293b; overflow-x:auto; margin-top:20px;">
+                <pre style="margin:0;">
+    <span style="color:#64748b;">6</span>   <span style="color:#be185d;">string</span> ten;
+    <span style="color:#64748b;">7</span>   <span style="color:#be185d;">float</span> diem;
+    <span style="color:#64748b;">8</span>   <span style="color:#be185d;">public</span>:
+    <span style="color:#64748b;">9</span>       <span style="color:#be185d;">void</span> <span style="color:#0284c7;">nhap</span>(){
+    <span style="color:#64748b;">10</span>          cout&lt;&lt;<span style="color:#059669;">"Nhap ma: "</span>;
+    <span style="color:#64748b;">11</span>          cin&gt;&gt;<span style="color:#be185d;">this</span>-&gt;ma;
+    <span style="color:#64748b;">12</span>          cout&lt;&lt;<span style="color:#059669;">"Nhap ten: "</span>;
+    <span style="color:#64748b;">13</span>          cin.<span style="color:#0284c7;">ignore</span>();
+    <span style="color:#64748b;">14</span>          <span style="color:#0284c7;">getline</span>(cin, <span style="color:#be185d;">this</span>-&gt;ten);
+    <span style="color:#64748b;">15</span>          cout&lt;&lt;<span style="color:#059669;">"Nhap diem: "</span>;
+    <span style="color:#64748b;">16</span>          cin&gt;&gt;<span style="color:#be185d;">this</span>-&gt;diem;
+    <span style="color:#64748b;">17</span>      }
+    <span style="color:#64748b;">18</span>      <span style="color:#be185d;">void</span> <span style="color:#0284c7;">xuat</span>(){
+    <span style="color:#64748b;">19</span>          cout&lt;&lt;endl&lt;&lt;ma&lt;&lt;<span style="color:#059669;">" "</span>&lt;&lt;ten&lt;&lt;<span style="color:#059669;">" "</span>&lt;&lt;diem;
+    <span style="color:#64748b;">20</span>      }
+    <span style="color:#64748b;">21</span>  };
+    <span style="color:#64748b;">22</span>  <span style="color:#be185d;">int</span> <span style="color:#0284c7;">main</span>(){
+                </pre>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span>Ví dụ minh họa</span>
+            <span>-3</span>
+        </div>
+    </div>
+
+
+
+
+    <!-- SLIDE -2: Bài tập thực hành - Lớp Phân số -->
+    <div class="slide-container" style="height: 750px;">
+        <div>
+            <div class="top-tag">BÀI TẬP THỰC HÀNH</div>
+            <h1 class="slide-title">Xây dựng lớp Phân số</h1>
+
+            <div class="highlight-card" style="background:#ffffff; padding:20px 24px; border-radius:8px; border:1px solid #e2e8f0; color:#1e293b; margin-top:20px; font-size:15px; line-height:1.8;">
+                <p style="margin:0 0 12px 0;">
+                    <b>Yêu cầu 1:</b> Xây dựng lớp Phân số gồm các thuộc tính: tử số và mẫu số, các phương thức nhập, xuất, ...
+                </p>
+                <p style="margin:0 0 8px 0;">
+                    <b>Yêu cầu 2:</b> Viết hàm main:
+                </p>
+                <ul style="margin:0; padding-left:20px; line-height:1.8;">
+                    <li>Nhập vào 2 phân số, phân số thứ nhất dùng hàm tạo có đối, phân số thứ 2 dùng phương thức nhập</li>
+                    <li>Cộng 2 phân số</li>
+                    <li>So sánh 2 phân số vừa nhập</li>
+                    <li>Cho biết phân số tổng có lớn hơn 1 hay không</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span>Bài tập thực hành</span>
+            <span>-2</span>
+        </div>
+    </div>
+
+
+
+    <!-- SLIDE -1: Mã nguồn minh họa - Hàm thành viên -->
+    <div class="slide-container" style="height: 750px;">
+        <div>
+            <div class="top-tag">VÍ DỤ MINH HỌA</div>
+            <h1 class="slide-title">Hàm thành viên (Member Function)</h1>
+
+            <div class="highlight-card" style="background:#ffffff; padding:20px 24px; border-radius:8px; border:1px solid #e2e8f0; font-family:'Courier New', Courier, monospace; font-size:14px; line-height:1.8; color:#1e293b; overflow-x:auto; margin-top:20px;">
+                <pre style="margin:0;">
+    <span style="color:#64748b;">21</span>  }
+    <span style="color:#64748b;">22</span>  <span style="color:#be185d;">PS</span> <span style="color:#0284c7;">tong</span>(<span style="color:#be185d;">PS</span> ps){
+    <span style="color:#64748b;">23</span>      <span style="color:#be185d;">PS</span> t;
+    <span style="color:#64748b;">24</span>      t.ts = <span style="color:#be185d;">this</span>-&gt;ts * ps.ms + <span style="color:#be185d;">this</span>-&gt;ms * ps.ts;
+    <span style="color:#64748b;">25</span>      t.ms = <span style="color:#be185d;">this</span>-&gt;ms * ps.ms;
+    <span style="color:#64748b;">26</span>      <span style="color:#be185d;">return</span> t;
+    <span style="color:#64748b;">27</span>  }
+    <span style="color:#64748b;">28</span>  <span style="color:#be185d;">int</span> <span style="color:#0284c7;">getTS</span>(){
+    <span style="color:#64748b;">29</span>      <span style="color:#be185d;">return</span> ts;
+    <span style="color:#64748b;">30</span>  }
+    <span style="color:#64748b;">31</span>  <span style="color:#be185d;">int</span> <span style="color:#0284c7;">getMS</span>(){
+    <span style="color:#64748b;">32</span>      <span style="color:#be185d;">return</span> ms;
+    <span style="color:#64748b;">33</span>  }
+    <span style="color:#64748b;">34</span>  };
+                </pre>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span>Ví dụ minh họa</span>
+            <span>-1</span>
+        </div>
+    </div>
+
+
+
+
+    <!-- SLIDE 0: Mã nguồn minh họa -->
+    <div class="slide-container" style="height: 750px;">
+        <div>
+            <div class="top-tag">VÍ DỤ MINH HỌA</div>
+            <h1 class="slide-title">Hàm thành viên và Hàm toàn cục</h1>
+
+            <div class="highlight-card" style="background:#ffffff; padding:20px 24px; border-radius:8px; border:1px solid #e2e8f0; font-family:'Courier New', Courier, monospace; font-size:14px; line-height:1.8; color:#1e293b; overflow-x:auto; margin-top:20px;">
+                <pre style="margin:0;">
+    <span style="color:#64748b;">22</span>  <span style="color:#be185d;">PS</span> <span style="color:#0284c7;">tong</span>(<span style="color:#be185d;">PS</span> ps){
+    <span style="color:#64748b;">23</span>      <span style="color:#be185d;">PS</span> t;
+    <span style="color:#64748b;">24</span>      t.ts = <span style="color:#be185d;">this</span>-&gt;ts * ps.ms + <span style="color:#be185d;">this</span>-&gt;ms * ps.ts;
+    <span style="color:#64748b;">25</span>      t.ms = <span style="color:#be185d;">this</span>-&gt;ms * ps.ms;
+    <span style="color:#64748b;">26</span>      <span style="color:#be185d;">return</span> t;
+    <span style="color:#64748b;">27</span>  }
+    <span style="color:#64748b;">28</span>  <span style="color:#be185d;">int</span> <span style="color:#0284c7;">getTS</span>(){
+    <span style="color:#64748b;">29</span>      <span style="color:#be185d;">return</span> ts;
+    <span style="color:#64748b;">30</span>  }
+    <span style="color:#64748b;">31</span>  <span style="color:#be185d;">int</span> <span style="color:#0284c7;">getMS</span>(){
+    <span style="color:#64748b;">32</span>      <span style="color:#be185d;">return</span> ms;
+    <span style="color:#64748b;">33</span>  }
+    <span style="color:#64748b;">34</span>  };
+    <span style="color:#64748b;">35</span>  <span style="color:#be185d;">PS</span> <span style="color:#0284c7;">tong</span>(<span style="color:#be185d;">PS</span> ps1, <span style="color:#be185d;">PS</span> ps2){
+    <span style="color:#64748b;">36</span>      <span style="color:#be185d;">PS</span> t;
+    <span style="color:#64748b;">37</span>      t.ts = ps1.<span style="color:#0284c7;">getTS</span>() * ps2.<span style="color:#0284c7;">getMS</span>() + ps1.<span style="color:#0284c7;">getMS</span>() * ps2.<span style="color:#0284c7;">getTS</span>();
+    <span style="color:#64748b;">38</span>      t.ms = ps1.<span style="color:#0284c7;">getMS</span>() * ps2.<span style="color:#0284c7;">getMS</span>();
+    <span style="color:#64748b;">39</span>      <span style="color:#be185d;">return</span> t;
+    <span style="color:#64748b;">40</span>  }
+                </pre>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span>Ví dụ minh họa</span>
+            <span>0</span>
+        </div>
+    </div>
+    
+    
+    
+    
+    
+        <!-- SLIDE 1: HÀM BẠN (FRIEND FUNCTION) -->
+
+    <div class="slide-container">
+        <div>
+            <div class="top-tag">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</div>
+            <h1 class="slide-title">Hàm bạn (Friend Function)</h1>
+        <div style="margin-top:10px;">
+            <!-- Dẫn dắt -->
+            <div style="padding:10px 14px; background:#1e293b; border-radius:6px; color:#cbd5e1; font-size:13.5px;">
+                <b>Xây dựng hàm cộng hai số phức?</b> &rarr; Phương thức của lớp
+            </div>
+
+            <div class="grid-2" style="margin-top:12px; align-items: stretch;">
+                <!-- Cột 1: Vấn đề đặt ra -->
+                <div style="flex:1;">
+                    <div class="highlight-card" style="background:#334155; height:100%;">
+                        <div style="font-size:15px; font-weight:800; color:#f8fafc; margin-bottom:8px;">Vấn đề đặt ra</div>
+                        <ul style="margin:0; padding-left:18px; font-size:13px; line-height:1.65; color:#cbd5e1;">
+                            <li>Một hàm độc lập không thể truy nhập vào thành phần riêng (private/protected) của lớp.</li>
+                            <li>Phương thức của một lớp chỉ truy nhập vào thành phần riêng của chính lớp đó.</li>
+                            <li><b>Câu hỏi:</b> Làm sao để một hàm có thể truy nhập vào các thành phần riêng của nhiều lớp khác nhau?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Cột 2: Giải pháp -->
+                <div style="flex:1;">
+                    <div class="highlight-card" style="height:100%;">
+                        <div style="font-size:15px; font-weight:800; color:#ffffff; margin-bottom:8px;">Giải pháp: Dùng hàm bạn</div>
+                        <ul style="margin:0; padding-left:18px; font-size:13px; line-height:1.65; color:#cbd5e1;">
+                            <li>Hàm bạn là một <b>hàm độc lập</b>, không phải phương thức của lớp.</li>
+                            <li>Có thể <b>truy nhập vào các thành phần riêng</b> của lớp mà nó được khai báo làm bạn.</li>
+                        </ul>
+
+                        <!-- Cú pháp minh họa -->
+                        <div style="margin-top:10px; background:#0f172a; padding:10px 12px; border-radius:6px; font-family:'Courier New', Courier, monospace; font-size:12.5px; color:#38bdf8; border: 1px solid #334155;">
+                            <span style="color:#f43f5e;">class</span> A {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f43f5e;">friend</span> <span style="color:#38bdf8;">void</span> f(...); <span style="color:#64748b;">// f là bạn của lớp A</span><br>
+                            };
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-footer">
+        <span>Khái niệm Hàm bạn</span>
+        <span>1</span>
+    </div>
+    </div>
+
+
+
+    <!-- SLIDE 2: VÍ DỤ SỬ DỤNG HÀM BẠN -->
+    <div class="slide-container">
+        <div>
+            <div class="top-tag">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</div>
+            <h1 class="slide-title">Minh họa chương trình sử dụng hàm bạn</h1>
+
+            <div class="grid-2" style="margin-top:10px; align-items: stretch;">
+                <!-- Cột 1: Mã nguồn C++ -->
+                <div style="flex: 1.1;">
+                    <div class="highlight-card" style="background:#0f172a; border: 1px solid #334155; height:100%; padding:14px;">
+                        <div style="font-size:13px; font-weight:800; color:#cbd5e1; margin-bottom:8px; display:flex; justify-between; align-items:center;">
+                            <span>Hàm main() minh họa</span>
+                            <span style="font-size:11px; color:#38bdf8; font-family:monospace;">C++ Code</span>
+                        </div>
+                        <pre style="margin:0; font-family:'Courier New', Courier, monospace; font-size:12.5px; line-height:1.55; color:#f8fafc; overflow-x:auto;">
+    <span style="color:#f43f5e;">int</span> <span style="color:#38bdf8;">main</span>() {
+        <span style="color:#cbd5e1;">PS</span> ps1(<span style="color:#f59e0b;">5</span>, <span style="color:#f59e0b;">7</span>);
+        <span style="color:#cbd5e1;">PS</span> ps2(<span style="color:#f59e0b;">4</span>, <span style="color:#f59e0b;">8</span>);
+        
+        <span style="color:#cbd5e1;">PS</span> t = <span style="color:#38bdf8;">cong</span>(ps1, ps2);
+        t.<span style="color:#38bdf8;">xuat</span>();
+
+        <span style="color:#64748b;">// ps1.xuat();</span>
+        <span style="color:#64748b;">// ps2.nhap();</span>
+        <span style="color:#64748b;">// cout &lt;&lt; ps2; // ps2.xuat();</span>
+        <span style="color:#64748b;">// PS t = ps1 + ps2;</span>
+        <span style="color:#64748b;">// PS t2 = tong(ps1, ps2);</span>
+        <span style="color:#64748b;">// t.xuat();</span>
+        <span style="color:#64748b;">// t2.xuat();</span>
+    }</pre>
+                    </div>
+                </div>
+
+                <!-- Cột 2: Giải thích chi tiết -->
+                <div style="flex: 0.9; display:flex; flex-direction:column; gap:10px;">
+                    <div class="highlight-card" style="padding: 12px 16px;">
+                        <div style="font-size:14px; font-weight:800; color:#ffffff; margin-bottom:6px;">Gọi hàm bạn <code style="color:#38bdf8;">cong(ps1, ps2)</code></div>
+                        <div style="font-size:12.5px; line-height:1.6; color:#cbd5e1;">
+                            • Hàm <code style="color:#38bdf8;">cong()</code> nhận 2 đối tượng lớp <code style="color:#cbd5e1;">PS</code> làm tham số.<br>
+                            • Là một hàm độc lập (không gọi qua toán tử dấu chấm <code style="color:#f43f5e;">ps1.cong()</code>).<br>
+                            • Do được khai báo <code style="color:#f43f5e;">friend</code> trong lớp, hàm có thể truy cập trực tiếp tử số và mẫu số của <code style="color:#cbd5e1;">ps1</code>, <code style="color:#cbd5e1;">ps2</code>.
+                        </div>
+                    </div>
+
+                    <div class="highlight-card" style="background:#334155; padding: 12px 16px;">
+                        <div style="font-size:14px; font-weight:800; color:#f8fafc; margin-bottom:6px;">Các hướng mở rộng (Commented)</div>
+                        <div style="font-size:12.5px; line-height:1.6; color:#cbd5e1;">
+                            • Tái sử dụng các phương thức <code style="color:#38bdf8;">nhap()</code>, <code style="color:#38bdf8;">xuat()</code>.<br>
+                            • Chuẩn bị cho việc nạp chồng toán tử cộng <code style="color:#f43f5e;">operator+</code> và toán tử xuất <code style="color:#f43f5e;">operator&lt;&lt;</code>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span>Ví dụ Hàm bạn — Lớp Phân số</span>
+            <span>2</span>
+        </div>
+    </div>
+
+
+
+    <!-- SLIDE 3: VÍ DỤ (HÀM BẠN) -->
+    <div class="slide-container">
+        <div>
+            <div class="top-tag">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</div>
+            <h1 class="slide-title">Ví dụ: Hàm bạn cộng hai số phức</h1>
+
+            <div class="grid-2" style="margin-top:10px; align-items: stretch;">
+                <!-- Cột 1: Khai báo lớp & Cài đặt hàm bạn -->
+                <div style="flex: 1.1;">
+                    <div class="highlight-card" style="background:#0f172a; border: 1px solid #334155; height:100%; padding:12px 14px;">
+                        <div style="font-size:13px; font-weight:800; color:#cbd5e1; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center;">
+                            <span>Khai báo Lớp & Hàm bạn</span>
+                            <span style="font-size:11px; color:#38bdf8; font-family:monospace;">C++ Code</span>
+                        </div>
+                        <pre style="margin:0; font-family:'Courier New', Courier, monospace; font-size:12px; line-height:1.5; color:#f8fafc; overflow-x:auto;">
+    <span style="color:#64748b;">// cộng hai số phức là hàm friend</span>
+    <span style="color:#f43f5e;">class</span> <span style="color:#cbd5e1;">SP</span> {
+        <span style="color:#f43f5e;">double</span> a; <span style="color:#64748b;">// Phần thực</span>
+        <span style="color:#f43f5e;">double</span> b; <span style="color:#64748b;">// Phần ảo</span>
+    <span style="color:#f43f5e;">public</span>:
+        <span style="color:#f43f5e;">friend</span> <span style="color:#cbd5e1;">SP</span> <span style="color:#38bdf8;">cong</span>(<span style="color:#cbd5e1;">SP</span> u1, <span style="color:#cbd5e1;">SP</span> u2);
+    };
+
+    <span style="color:#cbd5e1;">SP</span> <span style="color:#38bdf8;">cong</span>(<span style="color:#cbd5e1;">SP</span> u1, <span style="color:#cbd5e1;">SP</span> u2) {
+        <span style="color:#cbd5e1;">SP</span> u;
+        u.a = u1.a + u2.a;
+        u.b = u1.b + u2.b;
+        <span style="color:#f43f5e;">return</span> u;
+    }</pre>
+                    </div>
+                </div>
+
+                <!-- Cột 2: Hàm main & Đánh giá -->
+                <div style="flex: 0.9; display:flex; flex-direction:column; gap:10px;">
+                    <!-- Code main -->
+                    <div class="highlight-card" style="background:#0f172a; border: 1px solid #334155; padding:12px 14px;">
+                        <div style="font-size:13px; font-weight:800; color:#cbd5e1; margin-bottom:6px;">Sử dụng trong <code style="color:#38bdf8;">main()</code></div>
+                        <pre style="margin:0; font-family:'Courier New', Courier, monospace; font-size:12px; line-height:1.5; color:#f8fafc;">
+    <span style="color:#f43f5e;">int</span> <span style="color:#38bdf8;">main</span>() {
+        <span style="color:#cbd5e1;">SP</span> u, u1, u2;
+        <span style="color:#64748b;">// ...</span>
+        u = <span style="color:#38bdf8;">cong</span>(u1, u2);
+        <span style="color:#64748b;">// ...</span>
+    }</pre>
+                    </div>
+
+                    <!-- Ghi chú phân tích -->
+                    <div class="highlight-card" style="background:#334155; padding: 12px 16px; flex:1;">
+                        <div style="font-size:14px; font-weight:800; color:#f8fafc; margin-bottom:6px;">Phân tích điểm chính</div>
+                        <div style="font-size:12px; line-height:1.6; color:#cbd5e1;">
+                            • Từ khóa <code style="color:#f43f5e;">friend</code> cho phép hàm <code style="color:#38bdf8;">cong()</code> truy cập trực tiếp các thuộc tính riêng tư <code style="color:#38bdf8;">a</code> (thực) và <code style="color:#38bdf8;">b</code> (ảo) của tham số <code style="color:#cbd5e1;">u1</code>, <code style="color:#cbd5e1;">u2</code>.<br>
+                            • Định nghĩa hàm <code style="color:#38bdf8;">cong()</code> bên ngoài không cần dùng toán tử phạm vi <code style="color:#f43f5e;">SP::</code>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span>Ví dụ Hàm bạn — Lớp Số phức (SP)</span>
+            <span>3</span>
+        </div>
+    </div>
+
+
+
+    <!-- SLIDE 4: SO SÁNH HÀM THƯỜNG VÀ HÀM BẠN -->
+    <div class="slide-container">
+        <div>
+            <div class="top-tag">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</div>
+            <h1 class="slide-title">So sánh: Hàm thông thường vs. Hàm bạn</h1>
+
+            <div class="grid-2" style="margin-top:10px; align-items:stretch; gap:12px;">
+
+                <!-- Cột 1: Cách dùng hàm thông thường / getter setter -->
+                <div style="flex:1; min-width:0;">
+                    <div class="highlight-card" style="background:#0f172a; border:1px solid #334155; height:100%; padding:10px 12px; display:flex; flex-direction:column; justify-content:space-between;">
+                        
+                        <div>
+                            <div style="font-size:13px; font-weight:800; color:#f43f5e; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center;">
+                                <span>1. Hàm phương thức (Dùng Getter/Setter)</span>
+                                <span style="font-size:11px; color:#94a3b8; font-family:monospace;">Phương thức</span>
+                            </div>
+
+                            <pre style="margin:0; font-family:'Courier New', Courier, monospace; font-size:11.5px; line-height:1.5; color:#f8fafc; white-space:pre-wrap; overflow-wrap:anywhere; word-break:break-word; overflow:hidden;"><span style="color:#cbd5e1;">PS</span> <span style="color:#38bdf8;">tong</span>(<span style="color:#cbd5e1;">PS</span> ps1, <span style="color:#cbd5e1;">PS</span> ps2) {
+        <span style="color:#cbd5e1;">PS</span> t;
+        t.<span style="color:#38bdf8;">setTS</span>(ps1.<span style="color:#38bdf8;">getTS</span>() * ps2.<span style="color:#38bdf8;">getMS</span>() + ps1.<span style="color:#38bdf8;">getMS</span>() * ps2.<span style="color:#38bdf8;">getTS</span>());
+        t.<span style="color:#38bdf8;">setMS</span>(ps1.<span style="color:#38bdf8;">getMS</span>() * ps2.<span style="color:#38bdf8;">getMS</span>());
+        <span style="color:#f43f5e;">return</span> t;
+    }</pre>
+                        </div>
+
+                        <div style="margin-top:8px; font-size:12px; line-height:1.5; color:#cbd5e1; background:#1e293b; padding:8px 10px; border-radius:6px;">
+                            • Bắt buộc dùng các hàm trung gian <code style="color:#38bdf8;">getTS()</code>, <code style="color:#38bdf8;">getMS()</code>, <code style="color:#38bdf8;">setTS()</code>, <code style="color:#38bdf8;">setMS()</code>.<br>
+                            • Cú pháp dài dòng, tốn chi phí gọi hàm.
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Cột 2: Cách dùng hàm bạn (Friend function) -->
+                <div style="flex:1; min-width:0;">
+                    <div class="highlight-card" style="background:#0f172a; border:1px solid #38bdf8; height:100%; padding:10px 12px; display:flex; flex-direction:column; justify-content:space-between;">
+                        
+                        <div>
+                            <div style="font-size:13px; font-weight:800; color:#38bdf8; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center;">
+                                <span>2. Dùng Hàm Bạn (Friend Function)</span>
+                                <span style="font-size:11px; color:#38bdf8; font-family:monospace;">Hàm bạn</span>
+                            </div>
+
+                            <pre style="margin:0; font-family:'Courier New', Courier, monospace; font-size:11.5px; line-height:1.5; color:#f8fafc; white-space:pre-wrap; overflow-wrap:anywhere; word-break:break-word; overflow:hidden;"><span style="color:#64748b;">// ham ban</span>
+    <span style="color:#cbd5e1;">PS</span> <span style="color:#38bdf8;">cong</span>(<span style="color:#cbd5e1;">PS</span> ps1, <span style="color:#cbd5e1;">PS</span> ps2) {
+        <span style="color:#cbd5e1;">PS</span> t;
+        t.ts = ps1.ts * ps2.ms + ps1.ms * ps2.ts;
+        t.ms = ps1.ms * ps2.ms;
+        <span style="color:#f43f5e;">return</span> t;
+    }</pre>
+                        </div>
+
+                        <div style="margin-top:8px; font-size:12px; line-height:1.5; color:#cbd5e1; background:#1e293b; padding:8px 10px; border-radius:6px;">
+                            • Truy cập <b>trực tiếp</b> các thuộc tính ẩn <code style="color:#38bdf8;">ts</code> (tử số) và <code style="color:#38bdf8;">ms</code> (mẫu số).<br>
+                            • Code ngắn gọn, trực quan, tốc độ thực thi tối ưu hơn.
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span>So sánh Hàm thông thường & Hàm bạn</span>
+            <span>4</span>
+        </div>
+    </div>
+
+
+
+    <!-- SLIDE 6: VÍ DỤ (HÀM LÀ BẠN CỦA NHIỀU LỚP) -->
+    <div class="slide-container" style="min-height:750px; height:auto;">
+        <div>
+            <div class="top-tag">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</div>
+            <h1 class="slide-title">Ví dụ: Hàm là bạn của nhiều lớp</h1>
+
+            <div class="grid-2" style="margin-top:10px; align-items:stretch; min-height:500px;">
+                <!-- Cột 1: Mã nguồn C++ -->
+                <div style="flex:1.15; min-width:0;">
+                    <div class="highlight-card" style="background:#0f172a; border:1px solid #334155; height:100%; padding:12px 14px;">
+                        <div style="font-size:13px; font-weight:800; color:#cbd5e1; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center;">
+                            <span>Khai báo & Cài đặt</span>
+                            <span style="font-size:11px; color:#38bdf8; font-family:monospace;">C++ Code</span>
+                        </div>
+                        <pre style="margin:0; font-family:'Courier New', Courier, monospace; font-size:11.5px; line-height:1.45; color:#f8fafc; white-space:pre-wrap; overflow-wrap:anywhere; word-break:break-word; overflow:hidden;">
+    <span style="color:#f43f5e;">#include</span> <span style="color:#38bdf8;">&lt;iostream&gt;</span>
+    <span style="color:#f43f5e;">using namespace</span> std;
+
+    <span style="color:#f43f5e;">class</span> <span style="color:#cbd5e1;">B</span>; <span style="color:#64748b;">// Forward declaration</span>
+
+    <span style="color:#f43f5e;">class</span> <span style="color:#cbd5e1;">A</span> {
+        <span style="color:#f43f5e;">float</span> X;
+    <span style="color:#f43f5e;">public</span>:
+        <span style="color:#38bdf8;">A</span>() { X = <span style="color:#f59e0b;">5.0</span>; }
+        <span style="color:#f43f5e;">friend float</span> <span style="color:#38bdf8;">Init</span>(<span style="color:#cbd5e1;">A</span>, <span style="color:#cbd5e1;">B</span>);
+    };
+
+    <span style="color:#f43f5e;">class</span> <span style="color:#cbd5e1;">B</span> {
+        <span style="color:#f43f5e;">float</span> Y;
+    <span style="color:#f43f5e;">public</span>:
+        <span style="color:#38bdf8;">B</span>() { Y = <span style="color:#f59e0b;">1.0</span>; }
+        <span style="color:#f43f5e;">friend float</span> <span style="color:#38bdf8;">Init</span>(<span style="color:#cbd5e1;">A</span>, <span style="color:#cbd5e1;">B</span>);
+    };
+
+    <span style="color:#f43f5e;">float</span> <span style="color:#38bdf8;">Init</span>(<span style="color:#cbd5e1;">A</span> a, <span style="color:#cbd5e1;">B</span> b) {
+        <span style="color:#f43f5e;">return</span> a.X + b.Y;
+    }</pre>
+                    </div>
+                </div>
+
+                <!-- Cột 2: Hàm main & Kết quả -->
+                <div style="flex:0.85; min-width:0; display:flex; flex-direction:column; gap:10px;">
+                    <!-- Main Code -->
+                    <div class="highlight-card" style="background:#0f172a; border:1px solid #334155; padding:12px 14px;">
+                        <div style="font-size:13px; font-weight:800; color:#cbd5e1; margin-bottom:6px;">
+                            Hàm <code style="color:#38bdf8;">main()</code>
+                        </div>
+                        <pre style="margin:0; font-family:'Courier New', Courier, monospace; font-size:12px; line-height:1.5; color:#f8fafc; white-space:pre-wrap; overflow-wrap:anywhere; word-break:break-word; overflow:hidden;">
+    <span style="color:#f43f5e;">int</span> <span style="color:#38bdf8;">main</span>() {
+        <span style="color:#cbd5e1;">A</span> a;
+        <span style="color:#cbd5e1;">B</span> b;
+        cout &lt;&lt; <span style="color:#38bdf8;">Init</span>(a, b);
+    }</pre>
+                    </div>
+
+                    <!-- Kết quả & Phân tích -->
+                    <div class="highlight-card" style="background:#334155; padding:12px 16px; flex:1;">
+                        <div style="font-size:14px; font-weight:800; color:#f8fafc; margin-bottom:6px;">
+                            Kết quả & Lưu ý
+                        </div>
+                        <div style="font-size:12px; line-height:1.6; color:#cbd5e1;">
+                            • <b>Kết quả in ra:</b> <span style="color:#38bdf8; font-weight:bold; font-size:14px;">6</span> (<code style="color:#f59e0b;">5.0</code> + <code style="color:#f59e0b;">1.0</code>).<br>
+                            • <b>Forward Declaration:</b> Khai báo trước <code style="color:#f43f5e;">class B;</code> là bắt buộc để lớp <code style="color:#cbd5e1;">A</code> biết đến kiểu dữ liệu <code style="color:#cbd5e1;">B</code> khi khai báo hàm bạn.<br>
+                            • Hàm <code style="color:#38bdf8;">Init()</code> có quyền truy cập trực tiếp các thành phần <code style="color:#f43f5e;">private</code> (<code style="color:#38bdf8;">X</code> của A và <code style="color:#38bdf8;">Y</code> của B).
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span>Hàm bạn của nhiều lớp</span>
+            <span>24</span>
+        </div>
+    </div>
+
+
+    <!-- SLIDE 7: SO SÁNH CÁCH GỌI HÀM BẠN VÀ PHƯƠNG THỨC -->
+    <div class="slide-container">
+        <div>
+            <div class="top-tag">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</div>
+            <h1 class="slide-title">So sánh cách gọi: Hàm bạn vs. Phương thức của lớp</h1>
+
+            <div class="grid-2" style="margin-top:10px; align-items: stretch;">
+                <!-- Cột 1: Mã nguồn C++ minh họa -->
+                <div style="flex: 1.1;">
+                    <div class="highlight-card" style="background:#0f172a; border: 1px solid #334155; height:100%; padding:12px 14px;">
+                        <div style="font-size:13px; font-weight:800; color:#cbd5e1; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center;">
+                            <span>Hàm main() minh họa</span>
+                            <span style="font-size:11px; color:#38bdf8; font-family:monospace;">C++ Code</span>
+                        </div>
+                        <pre style="margin:0; font-family:'Courier New', Courier, monospace; font-size:12px; line-height:1.55; color:#f8fafc; overflow-x:auto;">
+    <span style="color:#f43f5e;">int</span> <span style="color:#38bdf8;">main</span>() {
+        <span style="color:#cbd5e1;">PS</span> ps1(<span style="color:#f59e0b;">5</span>, <span style="color:#f59e0b;">7</span>);
+        <span style="color:#cbd5e1;">PS</span> ps2(<span style="color:#f59e0b;">4</span>, <span style="color:#f59e0b;">8</span>);
+
+        <span style="color:#cbd5e1;">PS</span> t = <span style="color:#38bdf8;">cong</span>(ps1, ps2);      <span style="color:#64748b;">// ham ban</span>
+        <span style="color:#cbd5e1;">PS</span> t2 = ps1.<span style="color:#38bdf8;">tong</span>(ps2);    <span style="color:#64748b;">// phuong thuc</span>
+
+        t.<span style="color:#38bdf8;">xuat</span>();
+
+        <span style="color:#64748b;">// ps1.xuat();</span>
+        <span style="color:#64748b;">// ps2.nhap();</span>
+        <span style="color:#64748b;">// cout &lt;&lt; ps2; // ps2.xuat();</span>
+        <span style="color:#64748b;">// PS t = ps1 + ps2;</span>
+    }</pre>
+                    </div>
+                </div>
+
+                <!-- Cột 2: Phân tích sự khác biệt -->
+                <div style="flex: 0.9; display:flex; flex-direction:column; gap:10px;">
+                    <div class="highlight-card" style="padding: 12px 16px;">
+                        <div style="font-size:14px; font-weight:800; color:#38bdf8; margin-bottom:6px;">1. Hàm bạn: <code style="color:#38bdf8;">cong(ps1, ps2)</code></div>
+                        <div style="font-size:12px; line-height:1.6; color:#cbd5e1;">
+                            • Đóng vai trò là một <b>hàm độc lập</b>.<br>
+                            • Gọi trực tiếp bằng tên hàm và truyền đầy đủ 2 đối tượng <code style="color:#cbd5e1;">ps1</code>, <code style="color:#cbd5e1;">ps2</code> làm tham số.<br>
+                            • Cú pháp thể hiện sự đối xứng rõ ràng giữa 2 toán hạng.
+                        </div>
+                    </div>
+
+                    <div class="highlight-card" style="background:#334155; padding: 12px 16px;">
+                        <div style="font-size:14px; font-weight:800; color:#f43f5e; margin-bottom:6px;">2. Phương thức: <code style="color:#38bdf8;">ps1.tong(ps2)</code></div>
+                        <div style="font-size:12px; line-height:1.6; color:#cbd5e1;">
+                            • Là <b>thành viên (member function)</b> thuộc về lớp.<br>
+                            • Được gọi thông qua đối tượng <code style="color:#cbd5e1;">ps1</code> nhờ toán tử dấu chấm (<code style="color:#f43f5e;">.</code>).<br>
+                            • Phải truyền thêm đối tượng còn lại <code style="color:#cbd5e1;">ps2</code> vào danh sách tham số.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span>So sánh Hàm bạn & Phương thức</span>
+            <span>7</span>
+        </div>
+    </div>
+
+
+    <!-- SLIDE 8: NẠP CHỒNG TOÁN TỬ CỘNG BẰNG PHƯƠNG THỨC -->
+    <div class="slide-container">
+        <div>
+            <div class="top-tag">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</div>
+            <h1 class="slide-title">Nạp chồng toán tử (Overloading Operator)</h1>
+
+            <div class="grid-2" style="margin-top:10px; align-items: stretch;">
+                <!-- Cột 1: Mã nguồn C++ cài đặt operator+ -->
+                <div style="flex: 1.1;">
+                    <div class="highlight-card" style="background:#0f172a; border: 1px solid #334155; height:100%; padding:12px 14px;">
+                        <div style="font-size:13px; font-weight:800; color:#cbd5e1; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center;">
+                            <span>Cài đặt toán tử cộng bằng Phương thức</span>
+                            <span style="font-size:11px; color:#38bdf8; font-family:monospace;">C++ Code</span>
+                        </div>
+                        <pre style="margin:0; font-family:'Courier New', Courier, monospace; font-size:12px; line-height:1.55; color:#f8fafc; overflow-x:auto;">
+    <span style="color:#64748b;">// chong toan tu</span>
+    <span style="color:#cbd5e1;">PS</span> <span style="color:#f43f5e;">operator</span> <span style="color:#38bdf8;">+</span>(<span style="color:#cbd5e1;">PS</span> ps) {
+        <span style="color:#cbd5e1;">PS</span> t;
+        t.ts = <span style="color:#f43f5e;">this</span>-&gt;ts * ps.ms + <span style="color:#f43f5e;">this</span>-&gt;ms * ps.ts;
+        t.ms = <span style="color:#f43f5e;">this</span>-&gt;ms * ps.ms;
+        <span style="color:#f43f5e;">return</span> t;
+    }</pre>
+                    </div>
+                </div>
+
+                <!-- Cột 2: Phân tích cơ chế & con trỏ this -->
+                <div style="flex: 0.9; display:flex; flex-direction:column; gap:10px;">
+                    <div class="highlight-card" style="padding: 12px 16px;">
+                        <div style="font-size:14px; font-weight:800; color:#38bdf8; margin-bottom:6px;">Sử dụng con trỏ <code style="color:#f43f5e;">this</code></div>
+                        <div style="font-size:12px; line-height:1.6; color:#cbd5e1;">
+                            • Con trỏ <code style="color:#f43f5e;">this</code> trỏ tới đối tượng ở <b>vế trái</b> của phép cộng (ví dụ: <code style="color:#cbd5e1;">ps1</code> trong <code style="color:#cbd5e1;">ps1 + ps2</code>).<br>
+                            • Tham số truyền vào <code style="color:#cbd5e1;">ps</code> tương ứng với đối tượng ở <b>vế phải</b> (ví dụ: <code style="color:#cbd5e1;">ps2</code>).
+                        </div>
+                    </div>
+
+                    <div class="highlight-card" style="background:#334155; padding: 12px 16px;">
+                        <div style="font-size:14px; font-weight:800; color:#f8fafc; margin-bottom:6px;">Cách gọi tương đương trong main()</div>
+                        <div style="font-size:12px; line-height:1.6; color:#cbd5e1;">
+                            • Sử dụng cú pháp tự nhiên: <code style="color:#38bdf8;">PS t = ps1 + ps2;</code><br>
+                            • Trình biên dịch sẽ hiểu ngầm thành lời gọi phương thức: <code style="color:#38bdf8;">PS t = ps1.operator+(ps2);</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span>Nạp chồng toán tử cộng (+)</span>
+            <span>8</span>
+        </div>
+    </div>
+
+
+
+    <!-- SLIDE 9: NẠP CHỒNG TOÁN TỬ MỘT NGÔI (!) -->
+    <div class="slide-container">
+        <div>
+            <div class="top-tag">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</div>
+            <h1 class="slide-title">Nạp chồng toán tử đảo ngược (!) cho Phân số</h1>
+
+            <div class="grid-2" style="margin-top:10px; align-items: stretch;">
+                <!-- Cột 1: Cách 1 - Thay đổi trực tiếp (void) -->
+                <div style="flex: 1;">
+                    <div class="highlight-card" style="background:#0f172a; border: 1px solid #334155; height:100%; padding:12px 14px; display:flex; flex-direction:column; justify-content:space-between;">
+                        <div>
+                            <div style="font-size:13px; font-weight:800; color:#f43f5e; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center;">
+                                <span>Cách 1: Đảo ngược trực tiếp</span>
+                                <span style="font-size:11px; color:#94a3b8; font-family:monospace;">void operator!</span>
+                            </div>
+                            <pre style="margin:0; font-family:'Courier New', Courier, monospace; font-size:12px; line-height:1.5; color:#f8fafc; overflow-x:auto;">
+    <span style="color:#64748b;">// chong toan tu ! la dao nguoc PS</span>
+    <span style="color:#f43f5e;">void</span> <span style="color:#f43f5e;">operator</span> <span style="color:#38bdf8;">!</span> () {
+        <span style="color:#f43f5e;">int</span> t = ts;
+        ts = ms;
+        ms = t;
+    }</pre>
+                        </div>
+                        <div style="margin-top:10px; font-size:12px; line-height:1.5; color:#cbd5e1; background:#1e293b; padding:8px 10px; border-radius:6px;">
+                            • <b>Tác động:</b> Thay đổi trực tiếp giá trị tử số (<code style="color:#38bdf8;">ts</code>) và mẫu số (<code style="color:#38bdf8;">ms</code>) của chính đối tượng hiện tại.<br>
+                            • <b>Sử dụng:</b> <code style="color:#38bdf8;">!ps1;</code> (không trả về giá trị).
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cột 2: Cách 2 - Trả về phân số mới (PS) -->
+                <div style="flex: 1;">
+                    <div class="highlight-card" style="background:#0f172a; border: 1px solid #38bdf8; height:100%; padding:12px 14px; display:flex; flex-direction:column; justify-content:space-between;">
+                        <div>
+                            <div style="font-size:13px; font-weight:800; color:#38bdf8; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center;">
+                                <span>Cách 2: Trả về Phân số mới</span>
+                                <span style="font-size:11px; color:#38bdf8; font-family:monospace;">PS operator!</span>
+                            </div>
+                            <pre style="margin:0; font-family:'Courier New', Courier, monospace; font-size:12px; line-height:1.5; color:#f8fafc; overflow-x:auto;">
+    <span style="color:#cbd5e1;">PS</span> <span style="color:#f43f5e;">operator</span> <span style="color:#38bdf8;">!</span> () {
+        <span style="color:#cbd5e1;">PS</span> t;
+        t.ts = ms;
+        t.ms = ts;
+        <span style="color:#f43f5e;">return</span> t;
+    }</pre>
+                        </div>
+                        <div style="margin-top:10px; font-size:12px; line-height:1.5; color:#cbd5e1; background:#1e293b; padding:8px 10px; border-radius:6px;">
+                            • <b>Tác động:</b> Tạo và trả về một phân số mới là nghịch đảo của đối tượng hiện tại (đối tượng cũ giữ nguyên).<br>
+                            • <b>Sử dụng:</b> <code style="color:#38bdf8;">PS p2 = !ps1;</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span>Nạp chồng toán tử một ngôi (!)</span>
+            <span>9</span>
+        </div>
+    </div>
+
+
+
+
+    <!-- SLIDE 10: HÀM TOÁN TỬ LÀ PHƯƠNG THỨC CỦA LỚP -->
+    <div class="slide-container">
+        <div>
+            <div class="top-tag">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</div>
+            <h1 class="slide-title">Hàm toán tử là phương thức của lớp</h1>
+
+            <div class="grid-2" style="margin-top:10px; align-items: stretch;">
+                <!-- Cột 1: Đắc điểm chính -->
+                <div style="flex: 1;">
+                    <div class="highlight-card" style="background:#0f172a; border: 1px solid #38bdf8; height:100%; padding:14px; display:flex; flex-direction:column; justify-content:space-between;">
+                        <div>
+                            <div style="font-size:15px; font-weight:800; color:#38bdf8; margin-bottom:10px;">Đặc điểm của Hàm toán tử</div>
+                            <ul style="margin:0; padding-left:18px; font-size:12.5px; line-height:1.7; color:#cbd5e1;">
+                                <li>Con trỏ <code style="color:#38bdf8;">this</code> đóng vai trò là <b>đối ẩn</b> thể hiện cho toán hạng thứ nhất (vế trái).</li>
+                                <li><b>Phương thức toán tử một ngôi:</b> Không nhận tham số đầu vào (ví dụ: <code style="color:#38bdf8;">operator!()</code>).</li>
+                                <li><b>Phương thức toán tử hai ngôi:</b> Chỉ nhận duy nhất <b>1 đối số</b> (ví dụ: <code style="color:#38bdf8;">operator+(PS ps)</code>).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cột 2: Hạn chế -->
+                <div style="flex: 1;">
+                    <div class="highlight-card" style="background:#334155; height:100%; padding:14px; display:flex; flex-direction:column; justify-content:space-between;">
+                        <div>
+                            <div style="font-size:15px; font-weight:800; color:#f43f5e; margin-bottom:10px;">Hạn chế của phương thức toán tử</div>
+                            <div style="font-size:12.5px; line-height:1.65; color:#cbd5e1; margin-bottom:10px;">
+                                • <b>Không xử lý được khi hai toán hạng thuộc hai lớp khác nhau</b> (hoặc toán hạng vế trái không thuộc về lớp đang định nghĩa).
+                            </div>
+                            <div style="background:#0f172a; padding:10px 12px; border-radius:6px; font-family:'Courier New', Courier, monospace; font-size:12px; border-left:3px solid #f43f5e;">
+                                <span style="color:#cbd5e1;">PS p;</span><br>
+                                <span style="color:#f43f5e;">cout</span> &lt;&lt; p; <span style="color:#64748b;">// Báo lỗi!</span>
+                            </div>
+                            <div style="font-size:11.5px; line-height:1.5; color:#94a3b8; margin-top:8px;">
+                                <i>Giải thích:</i> Do vế trái là <code style="color:#38bdf8;">cout</code> (thuộc lớp <code style="color:#cbd5e1;">ostream</code>), không thể định nghĩa phương thức toán tử <code style="color:#38bdf8;">&lt;&lt;</code> trong lớp <code style="color:#cbd5e1;">PS</code>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span>Hàm toán tử là phương thức & Hạn chế</span>
+            <span>10</span>
+        </div>
+    </div>
+
+
+
+    <!-- SLIDE 11: ĐỊNH NGHĨA TOÁN TỬ VÀO/RA -->
+    <div class="slide-container">
+        <div>
+            <div class="top-tag">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</div>
+            <h1 class="slide-title">Định nghĩa toán tử vào/ra (&gt;&gt; / &lt;&lt;)</h1>
+
+            <div class="grid-2" style="margin-top:10px; align-items: stretch;">
+                <!-- Cột 1: Lý thuyết & Nhắc lại -->
+                <div style="flex: 1;">
+                    <div class="highlight-card" style="background:#0f172a; border: 1px solid #38bdf8; height:100%; padding:14px; display:flex; flex-direction:column; justify-content:space-between;">
+                        <div>
+                            <div style="font-size:15px; font-weight:800; color:#38bdf8; margin-bottom:10px;">[Nhắc lại] Khái niệm cơ bản</div>
+                            <ul style="margin:0; padding-left:18px; font-size:12.5px; line-height:1.65; color:#cbd5e1;">
+                                <li><b>Mục đích sử dụng:</b> Khi muốn thực hiện nhập/xuất dữ liệu cho một lớp theo cách đơn giản, tự nhiên như với các kiểu dữ liệu cơ bản (<code style="color:#38bdf8;">cin &gt;&gt; x;</code>, <code style="color:#38bdf8;">cout &lt;&lt; x;</code>).</li>
+                                <li><b>Bản chất toán tử:</b>
+                                    <ul style="margin-top:4px; padding-left:16px; color:#94a3b8;">
+                                        <li>Là toán tử <b>hai ngôi</b>.</li>
+                                        <li>Hai toán hạng thuộc <b>hai kiểu khác nhau</b> (stream và đối tượng).</li>
+                                    </ul>
+                                </li>
+                                <li><b>Giải pháp:</b> Cần phải định nghĩa như là <b>hàm bạn (friend function)</b> của lớp.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cột 2: Ví dụ minh họa -->
+                <div style="flex: 1;">
+                    <div class="highlight-card" style="background:#334155; height:100%; padding:14px; display:flex; flex-direction:column; justify-content:space-between;">
+                        <div>
+                            <div style="font-size:15px; font-weight:800; color:#f8fafc; margin-bottom:10px;">Ví dụ áp dụng</div>
+                            <div style="font-size:12.5px; line-height:1.6; color:#cbd5e1; margin-bottom:12px;">
+                                Xây dựng lớp <b>Đa thức (DT)</b>, trong đó có định nghĩa các toán tử:
+                            </div>
+                            <ul style="margin:0; padding-left:18px; font-size:12.5px; line-height:1.7; color:#cbd5e1;">
+                                <li><code style="color:#38bdf8; font-weight:bold;">&gt;&gt;</code> : Toán tử nhập đa thức từ luồng vào (<code style="color:#cbd5e1;">istream</code>).</li>
+                                <li><code style="color:#38bdf8; font-weight:bold;">&lt;&lt;</code> : Toán tử xuất đa thức ra luồng ra (<code style="color:#cbd5e1;">ostream</code>).</li>
+                                <li><code style="color:#38bdf8; font-weight:bold;">=</code> : Toán tử gán đa thức.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span>Định nghĩa toán tử vào/ra</span>
+            <span>11</span>
+        </div>
+    </div>
+
+
+
+    <!-- SLIDE 12: CÀI ĐẶT TOÁN TỬ NHẬP (>>) BẰNG HÀM BẠN -->
+    <div class="slide-container">
+        <div>
+            <div class="top-tag">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</div>
+            <h1 class="slide-title">Cài đặt toán tử nhập (&gt;&gt;) bằng hàm bạn</h1>
+
+            <div class="grid-2" style="margin-top:10px; align-items: stretch;">
+                <!-- Cột 1: Phương thức nhap() truyền thống -->
+                <div style="flex: 1;">
+                    <div class="highlight-card" style="background:#0f172a; border: 1px solid #334155; height:100%; padding:12px 14px; display:flex; flex-direction:column; justify-content:space-between;">
+                        <div>
+                            <div style="font-size:13px; font-weight:800; color:#f43f5e; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center;">
+                                <span>1. Phương thức nhập (Member Function)</span>
+                                <span style="font-size:11px; color:#94a3b8; font-family:monospace;">void nhap()</span>
+                            </div>
+                            <pre style="margin:0; font-family:'Courier New', Courier, monospace; font-size:12px; line-height:1.5; color:#f8fafc; overflow-x:auto;">
+    <span style="color:#64748b;">// Phương thức</span>
+    <span style="color:#f43f5e;">void</span> <span style="color:#38bdf8;">nhap</span>() {
+        cout &lt;&lt; <span style="color:#f59e0b;">"\nNhap phan so: "</span>;
+        cin &gt;&gt; ts &gt;&gt; ms;
+    }</pre>
+                        </div>
+                        <div style="margin-top:10px; font-size:12px; line-height:1.5; color:#cbd5e1; background:#1e293b; padding:8px 10px; border-radius:6px;">
+                            • Bắt buộc gọi thông qua đối tượng: <code style="color:#38bdf8;">ps.nhap();</code><br>
+                            • Không hỗ trợ nhập liên tiếp nhiều đối tượng trên cùng một dòng lệnh.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cột 2: Nạp chồng toán tử nhập >> -->
+                <div style="flex: 1;">
+                    <div class="highlight-card" style="background:#0f172a; border: 1px solid #38bdf8; height:100%; padding:12px 14px; display:flex; flex-direction:column; justify-content:space-between;">
+                        <div>
+                            <div style="font-size:13px; font-weight:800; color:#38bdf8; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center;">
+                                <span>2. Nạp chồng toán tử nhập (Friend Function)</span>
+                                <span style="font-size:11px; color:#38bdf8; font-family:monospace;">operator&gt;&gt;</span>
+                            </div>
+                            <pre style="margin:0; font-family:'Courier New', Courier, monospace; font-size:12px; line-height:1.5; color:#f8fafc; overflow-x:auto;">
+    <span style="color:#64748b;">// chong toan tu</span>
+    <span style="color:#f43f5e;">friend</span> <span style="color:#cbd5e1;">istream</span>&amp; <span style="color:#f43f5e;">operator</span> <span style="color:#38bdf8;">&gt;&gt;</span>(<span style="color:#cbd5e1;">istream</span> &amp;is, <span style="color:#cbd5e1;">PS</span> &amp;ps) {
+        cout &lt;&lt; <span style="color:#f59e0b;">"\nNhap phan so: "</span>;
+        is &gt;&gt; ps.ts &gt;&gt; ps.ms;
+        <span style="color:#f43f5e;">return</span> is;
+    }</pre>
+                        </div>
+                        <div style="margin-top:10px; font-size:12px; line-height:1.5; color:#cbd5e1; background:#1e293b; padding:8px 10px; border-radius:6px;">
+                            • Cho phép viết tự nhiên: <code style="color:#38bdf8;">cin &gt;&gt; ps;</code><br>
+                            • Trả về <code style="color:#cbd5e1;">istream&amp;</code> để hỗ trợ chuỗi nhập liên tiếp: <code style="color:#38bdf8;">cin &gt;&gt; a &gt;&gt; b;</code><br>
+                            • Cần khai báo <code style="color:#f43f5e;">friend</code> để truy cập trực tiếp thuộc tính private <code style="color:#38bdf8;">ts</code>, <code style="color:#38bdf8;">ms</code>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span>Toán tử nhập (&gt;&gt;) — Hàm bạn</span>
+            <span>12</span>
+        </div>
+    </div>
+
+
+
+    <!-- SLIDE 13: CÀI ĐẶT TOÁN TỬ XUẤT (<<) BẰNG HÀM BẠN -->
+    <div class="slide-container">
+        <div>
+            <div class="top-tag">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</div>
+            <h1 class="slide-title">Cài đặt toán tử xuất (&lt;&lt;) bằng hàm bạn</h1>
+
+            <div class="grid-2" style="margin-top:10px; align-items: stretch;">
+                <!-- Cột 1: Phương thức xuat() truyền thống -->
+                <div style="flex: 1;">
+                    <div class="highlight-card" style="background:#0f172a; border: 1px solid #334155; height:100%; padding:12px 14px; display:flex; flex-direction:column; justify-content:space-between;">
+                        <div>
+                            <div style="font-size:13px; font-weight:800; color:#f43f5e; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center;">
+                                <span>1. Phương thức xuất (Member Function)</span>
+                                <span style="font-size:11px; color:#94a3b8; font-family:monospace;">void xuat()</span>
+                            </div>
+                            <pre style="margin:0; font-family:'Courier New', Courier, monospace; font-size:12px; line-height:1.5; color:#f8fafc; overflow-x:auto;">
+    <span style="color:#f43f5e;">void</span> <span style="color:#38bdf8;">xuat</span>() {
+        cout &lt;&lt; endl &lt;&lt; ts &lt;&lt; <span style="color:#f59e0b;">"/"</span> &lt;&lt; ms;
+    }</pre>
+                        </div>
+                        <div style="margin-top:10px; font-size:12px; line-height:1.5; color:#cbd5e1; background:#1e293b; padding:8px 10px; border-radius:6px;">
+                            • Bắt buộc gọi thông qua đối tượng: <code style="color:#38bdf8;">ps.xuat();</code><br>
+                            • Không thể viết chuỗi xuất liên tiếp (ví dụ: <code style="color:#38bdf8;">cout &lt;&lt; ps1 &lt;&lt; ps2;</code>).
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cột 2: Nạp chồng toán tử xuất << -->
+                <div style="flex: 1;">
+                    <div class="highlight-card" style="background:#0f172a; border: 1px solid #38bdf8; height:100%; padding:12px 14px; display:flex; flex-direction:column; justify-content:space-between;">
+                        <div>
+                            <div style="font-size:13px; font-weight:800; color:#38bdf8; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center;">
+                                <span>2. Nạp chồng toán tử xuất (Friend Function)</span>
+                                <span style="font-size:11px; color:#38bdf8; font-family:monospace;">operator&lt;&lt;</span>
+                            </div>
+                            <pre style="margin:0; font-family:'Courier New', Courier, monospace; font-size:12px; line-height:1.5; color:#f8fafc; overflow-x:auto;">
+    <span style="color:#f43f5e;">friend</span> <span style="color:#cbd5e1;">ostream</span>&amp; <span style="color:#f43f5e;">operator</span> <span style="color:#38bdf8;">&lt;&lt;</span>(<span style="color:#cbd5e1;">ostream</span> &amp;os, <span style="color:#cbd5e1;">PS</span> ps) {
+        os &lt;&lt; endl &lt;&lt; ps.ts &lt;&lt; <span style="color:#f59e0b;">"/"</span> &lt;&lt; ps.ms;
+        <span style="color:#f43f5e;">return</span> os;
+    }</pre>
+                        </div>
+                        <div style="margin-top:10px; font-size:12px; line-height:1.5; color:#cbd5e1; background:#1e293b; padding:8px 10px; border-radius:6px;">
+                            • Cho phép viết tự nhiên: <code style="color:#38bdf8;">cout &lt;&lt; ps;</code><br>
+                            • Trả về <code style="color:#cbd5e1;">ostream&amp;</code> để hỗ trợ chuỗi xuất liên tiếp: <code style="color:#38bdf8;">cout &lt;&lt; a &lt;&lt; b;</code><br>
+                            • Cần khai báo <code style="color:#f43f5e;">friend</code> để truy cập trực tiếp thuộc tính private <code style="color:#38bdf8;">ts</code>, <code style="color:#38bdf8;">ms</code>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span>Toán tử xuất (&lt;&lt;) — Hàm bạn</span>
+            <span>13</span>
+        </div>
+    </div>
+
+
+
+    <!-- SLIDE 14: BẢNG SO SÁNH HÀM BẠN VÀ PHƯƠNG THỨC CỦA LỚP -->
+    <div class="slide-container" style="min-height:850px; height:auto;">
+        <div>
+            <div class="top-tag">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</div>
+            <h1 class="slide-title">Bảng so sánh: Hàm bạn vs. Phương thức của lớp</h1>
+
+            <div class="highlight-card" style="background:#0f172a; border:1px solid #334155; padding:12px 14px; margin-top:10px; overflow:visible;">
+                <table style="width:100%; border-collapse:collapse; font-size:12px; line-height:1.5; color:#cbd5e1;">
+                    <thead>
+                        <tr style="background:#1e293b; border-bottom:2px solid #334155;">
+                            <th style="padding:8px 10px; text-align:left; width:50%; color:#38bdf8; font-weight:800; font-size:13px;">
+                                Hàm bạn (Friend Function)
+                            </th>
+                            <th style="padding:8px 10px; text-align:left; width:50%; color:#f43f5e; font-weight:800; font-size:13px;">
+                                Phương thức của lớp (Member Function)
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr style="border-bottom:1px solid #1e293b;">
+                            <td style="padding:7px 10px; vertical-align:top;">
+                                Có thể được khai báo là bạn trong <b>bất kỳ số lượng lớp nào</b> bằng từ khóa <code style="color:#38bdf8;">friend</code>.
+                            </td>
+                            <td style="padding:7px 10px; vertical-align:top;">
+                                Chỉ có thể được khai báo trong phạm vi <b>private, public hoặc protected</b> của một lớp cụ thể.
+                            </td>
+                        </tr>
+
+                        <tr style="border-bottom:1px solid #1e293b; background:#0f172a;">
+                            <td style="padding:7px 10px; vertical-align:top;">
+                                Có thể truy cập tất cả các thành phần <b>private và protected</b> của (các) lớp khai báo nó là bạn.
+                            </td>
+                            <td style="padding:7px 10px; vertical-align:top;">
+                                Chỉ có thể truy cập các thành phần <b>private và protected</b> của chính lớp đó.
+                            </td>
+                        </tr>
+
+                        <tr style="border-bottom:1px solid #1e293b;">
+                            <td style="padding:7px 10px; vertical-align:top;">
+                                Có thể gọi trong hàm <code style="color:#38bdf8;">main()</code> mà <b>không cần tạo đối tượng</b>.
+                            </td>
+                            <td style="padding:7px 10px; vertical-align:top;">
+                                Phải tạo một <b>đối tượng</b> của lớp để gọi phương thức.
+                            </td>
+                        </tr>
+
+                        <tr style="border-bottom:1px solid #1e293b; background:#0f172a;">
+                            <td style="padding:7px 10px; vertical-align:top;">
+                                Sử dụng từ khóa <code style="color:#f43f5e;">friend</code> để khai báo.
+                            </td>
+                            <td style="padding:7px 10px; vertical-align:top;">
+                                Không cần từ khóa đặc biệt khi khai báo.
+                            </td>
+                        </tr>
+
+                        <tr style="border-bottom:1px solid #1e293b;">
+                            <td style="padding:7px 10px; vertical-align:top;">
+                                Được gọi như một <b>hàm thông thường</b>, định nghĩa bên ngoài lớp.
+                            </td>
+                            <td style="padding:7px 10px; vertical-align:top;">
+                                Có <b>nguyên mẫu (prototype)</b> trong định nghĩa lớp, thao tác trên đối tượng của lớp.
+                            </td>
+                        </tr>
+
+                        <tr style="border-bottom:1px solid #1e293b; background:#0f172a;">
+                            <td style="padding:7px 10px; vertical-align:top;">
+                                Thường dùng để <b>truy cập/sửa đổi</b> dữ liệu private/protected giữa nhiều lớp.
+                            </td>
+                            <td style="padding:7px 10px; vertical-align:top;">
+                                Thường dùng để cải thiện <b>tính tái sử dụng</b> và bảo trì mã nguồn.
+                            </td>
+                        </tr>
+
+                        <tr style="border-bottom:1px solid #1e293b;">
+                            <td style="padding:7px 10px; vertical-align:top;">
+                                Toán tử hai ngôi nhận <b>2 tham số tường minh</b> (vế trái và vế phải).
+                            </td>
+                            <td style="padding:7px 10px; vertical-align:top;">
+                                Toán tử hai ngôi chỉ nhận <b>1 tham số tường minh</b> (vế phải, vế trái là <code style="color:#f43f5e;">this</code>).
+                            </td>
+                        </tr>
+
+                        <tr style="border-bottom:1px solid #1e293b; background:#0f172a;">
+                            <td style="padding:7px 10px; vertical-align:top;">
+                                Toán tử một ngôi nhận <b>ít nhất 1 tham số tường minh</b>.
+                            </td>
+                            <td style="padding:7px 10px; vertical-align:top;">
+                                Toán tử một ngôi <b>không nhận tham số tường minh</b>.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding:7px 10px; vertical-align:top;">
+                                <b>Không phải</b> là thành phần của lớp.
+                            </td>
+                            <td style="padding:7px 10px; vertical-align:top;">
+                                <b>Là thành phần</b> của lớp và được gọi thông qua đối tượng cụ thể.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span>So sánh chi tiết Hàm bạn & Phương thức</span>
+            <span>14</span>
+        </div>
+    </div>
+
+
+    <!-- SLIDE 15: Khái niệm thừa kế -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+        <!-- Header -->
+        <div class="top-tag">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</div>
+        <h1 class="slide-title" style="margin-bottom: 20px;">Khái niệm thừa kế</h1>
+
+        <!-- Nội dung chính -->
+        <div style="font-size: 16px; color: #1e293b; line-height: 1.8; padding-left: 10px;">
+            
+            <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+                <li style="margin-bottom: 10px;">
+                    Trong lập trình cấu trúc ta có cơ chế sử dụng lại?
+                </li>
+                <li style="margin-bottom: 15px;">
+                    Khả năng sử dụng lại trong OOP tốt hơn ở chỗ nào?
+                </li>
+                <li style="margin-bottom: 10px;">
+                    Thừa kế nhằm xây dựng một lớp mới bằng từ các lớp đã có
+                    <ul style="margin-top: 8px; padding-left: 20px; list-style-type: circle;">
+                        <li style="margin-bottom: 8px;">
+                            Một lớp có thể được thừa kế từ một hoặc nhiều lớp khác và là cơ sở của một hoặc nhiều lớp khác
+                        </li>
+                        <li style="margin-bottom: 8px;">
+                            Lớp ban đầu gọi là lớp cơ sở (base class) hoặc lớp cha
+                        </li>
+                        <li>
+                            Lớp kế thừa gọi là lớp dẫn xuất (derived class) hoặc lớp con
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Sử dụng lại những gì đã có từ lớp cơ sở?
+                    <ul style="margin-top: 8px; padding-left: 20px; list-style-type: circle;">
+                        <li style="margin-bottom: 8px;">Các thành phần dữ liệu</li>
+                        <li>Các phương thức</li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+        <span>Lập trình hướng đối tượng</span>
+        <span>15</span>
+    </div>
+</div>
+
+
+<!-- SLIDE 16: Ví dụ (thừa kế) -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+        <!-- Header -->
+        <div class="top-tag">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</div>
+        <h1 class="slide-title" style="margin-bottom: 20px;">Ví dụ (thừa kế)</h1>
+
+        <!-- Nội dung chính: Sơ đồ thừa kế -->
+        <div class="highlight-card" style="background: #ffffff; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px rgba(0,0,0,0.02); display: flex; justify-content: center; align-items: center; height: 450px; box-sizing: border-box; margin-top: 10px;">
+            <svg width="100%" height="100%" viewBox="0 0 800 400" style="overflow: visible;">
+                <!-- Định nghĩa mũi tên -->
+                <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+                        <path d="M 0 0 L 10 5 L 0 10 Z" fill="#64748b" />
+                    </marker>
+                </defs>
+
+                <!-- Các đường nối (Inheritance Lines) -->
+                <g stroke="#64748b" stroke-width="1.5" fill="none">
+                    <!-- Shape <- TwoDimensionalShape -->
+                    <line x1="200" y1="140" x2="400" y2="60" marker-end="url(#arrow)" />
+                    <!-- Shape <- ThreeDimensionalShape -->
+                    <line x1="600" y1="140" x2="400" y2="60" marker-end="url(#arrow)" />
+
+                    <!-- TwoDimensionalShape <- Circle -->
+                    <line x1="90" y1="270" x2="200" y2="180" marker-end="url(#arrow)" />
+                    <!-- TwoDimensionalShape <- Square -->
+                    <line x1="200" y1="270" x2="200" y2="180" marker-end="url(#arrow)" />
+                    <!-- TwoDimensionalShape <- Triangle -->
+                    <line x1="310" y1="270" x2="200" y2="180" marker-end="url(#arrow)" />
+
+                    <!-- ThreeDimensionalShape <- Sphere -->
+                    <line x1="520" y1="270" x2="600" y2="180" marker-end="url(#arrow)" />
+                    <!-- ThreeDimensionalShape <- Cube -->
+                    <line x1="620" y1="270" x2="600" y2="180" marker-end="url(#arrow)" />
+                    <!-- ThreeDimensionalShape <- Tetrahedron -->
+                    <line x1="730" y1="270" x2="600" y2="180" marker-end="url(#arrow)" />
+                </g>
+
+                <!-- Các hộp (Boxes) -->
+                <g>
+                    <!-- Shape -->
+                    <rect x="350" y="20" width="100" height="40" rx="4" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1.5" />
+                    <text x="400" y="45" font-size="15" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">Shape</text>
+
+                    <!-- TwoDimensionalShape -->
+                    <rect x="80" y="140" width="240" height="40" rx="4" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1.5" />
+                    <text x="200" y="165" font-size="15" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">TwoDimensionalShape</text>
+
+                    <!-- ThreeDimensionalShape -->
+                    <rect x="480" y="140" width="240" height="40" rx="4" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1.5" />
+                    <text x="600" y="165" font-size="15" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">ThreeDimensionalShape</text>
+
+                    <!-- Circle -->
+                    <rect x="50" y="270" width="80" height="40" rx="4" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1.5" />
+                    <text x="90" y="295" font-size="15" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">Circle</text>
+
+                    <!-- Square -->
+                    <rect x="160" y="270" width="80" height="40" rx="4" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1.5" />
+                    <text x="200" y="295" font-size="15" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">Square</text>
+
+                    <!-- Triangle -->
+                    <rect x="270" y="270" width="80" height="40" rx="4" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1.5" />
+                    <text x="310" y="295" font-size="15" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">Triangle</text>
+
+                    <!-- Sphere -->
+                    <rect x="480" y="270" width="80" height="40" rx="4" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1.5" />
+                    <text x="520" y="295" font-size="15" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">Sphere</text>
+
+                    <!-- Cube -->
+                    <rect x="580" y="270" width="80" height="40" rx="4" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1.5" />
+                    <text x="620" y="295" font-size="15" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">Cube</text>
+
+                    <!-- Tetrahedron -->
+                    <rect x="680" y="270" width="100" height="40" rx="4" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1.5" />
+                    <text x="730" y="295" font-size="15" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">Tetrahedron</text>
+                </g>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+        <span>Lập trình hướng đối tượng</span>
+        <span>16</span>
+    </div>
+</div>
+
+
+<!-- SLIDE 17: Tác dụng của thừa kế -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+        <!-- Header -->
+        <div class="top-tag">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</div>
+        <h1 class="slide-title" style="margin-bottom: 20px;">Tác dụng của thừa kế</h1>
+
+        <!-- Hình ảnh minh họa (Thay thế sơ đồ cũ) -->
+        <div class="highlight-card" style="background: #ffffff; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px rgba(0,0,0,0.02); display: flex; justify-content: center; align-items: center; height: 520px; box-sizing: border-box; margin-top: 10px;">
+            <img src="image-slide/Gemini_Generated_Image_xomp83xomp83xomp.png" 
+                 alt="Sơ đồ tác dụng của thừa kế" 
+                 style="max-width: 100%; max-height: 100%; object-fit: contain; display: block;">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+        <span>Lập trình hướng đối tượng</span>
+        <span>17</span>
+    </div>
+</div>
+
+
+<!-- SLIDE 18: Xây dựng lớp dẫn xuất -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+        <!-- Header -->
+        <div class="top-tag">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</div>
+        <h1 class="slide-title" style="margin-bottom: 25px;">Xây dựng lớp dẫn xuất</h1>
+
+        <!-- Nội dung chính -->
+        <div style="font-size: 16px; color: #1e293b; line-height: 1.8; padding-left: 10px;">
+            <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+                <li style="margin-bottom: 15px;">
+                    Xây dựng lớp D kế thừa từ các lớp A và B
+                </li>
+            </ul>
+        </div>
+
+        <!-- Khung code C++ -->
+        <div class="highlight-card" style="background: #334155; color: #f8fafc; padding: 24px 28px; border-radius: 8px; font-family: 'Courier New', Courier, monospace; font-size: 15px; line-height: 1.7; width: 80%; margin: 30px auto 0 auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+<pre style="margin: 0;">
+<span style="color:#be185d;">class</span> <span style="color:#38bdf8;">D</span> : <span style="color:#be185d;">public</span> <span style="color:#38bdf8;">A</span>, <span style="color:#be185d;">public</span> <span style="color:#38bdf8;">B</span>
+{
+    <span style="color:#64748b;">// Khai báo thuộc tính</span>
+<span style="color:#be185d;">public</span>:
+    <span style="color:#64748b;">// Khai báo phương thức</span>
+};</pre>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+        <span>Lập trình hướng đối tượng</span>
+        <span>18</span>
+    </div>
+</div>
+
+
+<!-- SLIDE 19: Các kiểu thừa kế -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+        <!-- Header -->
+        <div class="top-tag">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</div>
+        <h1 class="slide-title" style="margin-bottom: 25px;">Các kiểu thừa kế</h1>
+
+        <!-- Nội dung chính -->
+        <div style="font-size: 16px; color: #1e293b; line-height: 1.8; padding-left: 10px;">
+            <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+                
+                <!-- Mục 1 -->
+                <li style="margin-bottom: 15px;">
+                    <b>Phạm vi truy nhập</b>
+                    <ul style="margin-top: 8px; padding-left: 20px; list-style-type: circle; color: #334155;">
+                        <li style="margin-bottom: 4px;">private</li>
+                        <li style="margin-bottom: 4px;">public</li>
+                        <li>protected</li>
+                    </ul>
+                </li>
+
+                <!-- Mục 2 -->
+                <li style="margin-bottom: 15px;">
+                    <b>Lớp D kế thừa lớp B thì đối tượng lớp D bao gồm</b>
+                    <ul style="margin-top: 8px; padding-left: 20px; list-style-type: circle; color: #334155;">
+                        <li style="margin-bottom: 4px;">Các thành phần (dữ liệu, phương thức) được kế thừa từ lớp B</li>
+                        <li>Các thành phần của riêng của lớp D</li>
+                    </ul>
+                </li>
+
+                <!-- Mục 3 -->
+                <li>
+                    <b>Có thể truy cập vào các thành phần riêng của lớp B từ lớp D?</b>
+                    <ul style="margin-top: 8px; padding-left: 20px; list-style-type: circle; color: #334155;">
+                        <li style="margin-bottom: 4px;">Trong D gồm cả các dữ liệu riêng của lớp B</li>
+                        <li>Dữ liệu riêng của lớp B chỉ có thể truy nhập được từ trong lớp D <u>thông qua các phương thức của B</u></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+        <span>Lập trình hướng đối tượng</span>
+        <span>19</span>
+    </div>
+</div>
+
+
+<!-- SLIDE 20: Bài tập thừa kế -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+        <!-- Header -->
+        <div class="top-tag">BÀI TẬP THỰC HÀNH</div>
+        <h1 class="slide-title" style="margin-bottom: 25px;">Bài tập thừa kế</h1>
+
+        <!-- Nội dung chính -->
+        <div style="font-size: 17px; color: #1e293b; line-height: 2; padding-left: 15px;">
+            <ul style="margin: 0; padding-left: 20px; list-style-type: none;">
+                <li style="margin-bottom: 18px;">
+                    <span style="color: #0284c7; font-weight: bold; margin-right: 8px;">•</span>
+                    Xây dựng lớp <b>Người</b>, gồm các thuộc tính: họ tên và năm sinh
+                </li>
+                <li style="margin-bottom: 18px;">
+                    <span style="color: #0284c7; font-weight: bold; margin-right: 8px;">•</span>
+                    Xây dựng lớp <b>Sinh viên</b> kế thừa lớp <b>Người</b>, bổ sung thêm thuộc tính điểm
+                </li>
+                <li style="margin-bottom: 18px;">
+                    <span style="color: #0284c7; font-weight: bold; margin-right: 8px;">•</span>
+                    Xây dựng lớp <b>Nhân viên</b> kế thừa lớp <b>Người</b>, bổ sung thêm thuộc tính hệ số lương
+                </li>
+                <li style="margin-bottom: 18px;">
+                    <span style="color: #0284c7; font-weight: bold; margin-right: 8px;">•</span>
+                    Nhập vào danh sách sinh viên, cho biết các sinh viên qua môn (điểm >= 6)
+                </li>
+                <li>
+                    <span style="color: #0284c7; font-weight: bold; margin-right: 8px;">•</span>
+                    Nhập vào danh sách nhân viên, cho biết lương của các nhân viên. Lương = hệ số lương * 2570
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+        <span>Lập trình hướng đối tượng</span>
+        <span>20</span>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- SLIDE 21: Thừa kế nhiều mức và sự trùng tên -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+        <!-- Header -->
+        <div class="top-tag">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</div>
+        <h1 class="slide-title" style="margin-bottom: 30px;">Thừa kế nhiều mức và sự trùng tên</h1>
+
+        <!-- Nội dung chính -->
+        <div style="font-size: 16px; color: #1e293b; line-height: 1.8; padding-left: 10px;">
+            
+            <!-- Phần 1: Đa kế thừa -->
+            <div style="margin-bottom: 40px;">
+                <div style="font-weight: 700; margin-bottom: 20px;">▪ Đa kế thừa</div>
+                
+                <div style="display: flex; justify-content: center; margin-left: -50px;">
+                    <svg width="400" height="140" viewBox="0 0 400 140" style="overflow: visible;">
+                        <!-- Box B -->
+                        <rect x="80" y="10" width="110" height="36" fill="none" stroke="#334155" stroke-width="2.5" stroke-dasharray="2,2" />
+                        <text x="135" y="34" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">B</text>
+
+                        <!-- Box C -->
+                        <rect x="210" y="10" width="110" height="36" fill="none" stroke="#334155" stroke-width="2.5" stroke-dasharray="2,2" />
+                        <text x="265" y="34" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">C</text>
+
+                        <!-- Box D -->
+                        <rect x="145" y="90" width="110" height="36" fill="none" stroke="#334155" stroke-width="2.5" stroke-dasharray="2,2" />
+                        <text x="200" y="114" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">D</text>
+
+                        <!-- Mũi tên D -> B -->
+                        <line x1="185" y1="90" x2="146" y2="56" stroke="#334155" stroke-width="2.5" />
+                        <polygon points="136,47 152,52 143,62" fill="#334155" />
+                        <!-- Mũi tên D -> C -->
+                        <line x1="215" y1="90" x2="254" y2="56" stroke="#334155" stroke-width="2.5" />
+                        <polygon points="264,47 257,62 248,52" fill="#334155" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Phần 2: Câu hỏi -->
+            <div>
+                <div style="font-weight: 700; margin-bottom: 20px;">▪ Chuyện gì sẽ xảy ra trong trường hợp sau?</div>
+                
+                <div style="display: flex; justify-content: center; margin-left: -50px;">
+                    <svg width="400" height="220" viewBox="0 0 400 220" style="overflow: visible;">
+                        <!-- Box A -->
+                        <rect x="145" y="5" width="110" height="36" fill="none" stroke="#334155" stroke-width="2.5" stroke-dasharray="2,2" />
+                        <text x="200" y="29" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">A</text>
+
+                        <!-- Box B -->
+                        <rect x="70" y="85" width="115" height="36" fill="none" stroke="#334155" stroke-width="2.5" stroke-dasharray="2,2" />
+                        <text x="127" y="109" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">B</text>
+
+                        <!-- Box C -->
+                        <rect x="215" y="85" width="115" height="36" fill="none" stroke="#334155" stroke-width="2.5" stroke-dasharray="2,2" />
+                        <text x="272" y="109" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">C</text>
+
+                        <!-- Box D -->
+                        <rect x="145" y="170" width="115" height="36" fill="none" stroke="#334155" stroke-width="2.5" stroke-dasharray="2,2" />
+                        <text x="202" y="194" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">D</text>
+
+                        <!-- B -> A -->
+                        <line x1="125" y1="85" x2="178" y2="51" stroke="#334155" stroke-width="2.5" />
+                        <polygon points="190,43 182,58 172,48" fill="#334155" />
+                        <!-- C -> A -->
+                        <line x1="275" y1="85" x2="222" y2="51" stroke="#334155" stroke-width="2.5" />
+                        <polygon points="210,43 228,48 218,58" fill="#334155" />
+                        <!-- D -> B -->
+                        <line x1="175" y1="170" x2="134" y2="131" stroke="#334155" stroke-width="2.5" />
+                        <polygon points="124,122 142,126 132,138" fill="#334155" />
+                        <!-- D -> C -->
+                        <line x1="230" y1="170" x2="271" y2="131" stroke="#334155" stroke-width="2.5" />
+                        <polygon points="281,122 272,138 262,126" fill="#334155" />
+                    </svg>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+        <span>September 5, 2016 |</span>
+        <span>Lập trình hướng đối tượng</span>
+        <span>21</span>
+    </div>
+</div>
+
+
+
+
+
+<!-- SLIDE 22: Ví dụ (thừa kế nhiều mức) -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+        <!-- Header -->
+        <div class="top-tag">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</div>
+        
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+            <h1 class="slide-title" style="margin: 0;">Ví dụ (thừa kế nhiều mức)</h1>
+            
+            <!-- Sơ đồ thừa kế -->
+            <div style="margin-top: -10px; margin-right: 20px;">
+                <svg width="220" height="120" viewBox="0 0 220 120" style="overflow: visible;">
+                    <defs>
+                        <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                            <path d="M0,0 L6,3 L0,6 Z" fill="#64748b" />
+                        </marker>
+                    </defs>
+                    
+                    <!-- Box A -->
+                    <rect x="80" y="5" width="60" height="25" fill="#ffffff" stroke="#64748b" stroke-width="1.5" />
+                    <text x="110" y="22" font-size="14" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">A</text>
+                    
+                    <!-- Box B -->
+                    <rect x="20" y="55" width="60" height="25" fill="#ffffff" stroke="#64748b" stroke-width="1.5" />
+                    <text x="50" y="72" font-size="14" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">B</text>
+                    
+                    <!-- Box C -->
+                    <rect x="140" y="55" width="60" height="25" fill="#ffffff" stroke="#64748b" stroke-width="1.5" />
+                    <text x="170" y="72" font-size="14" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">C</text>
+                    
+                    <!-- Box D -->
+                    <rect x="80" y="100" width="60" height="25" fill="#ffffff" stroke="#64748b" stroke-width="1.5" />
+                    <text x="110" y="117" font-size="14" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">D</text>
+
+                    <!-- Arrows (From B -> A, C -> A, D -> B, D -> C) -->
+                    <!-- B -> A -->
+                    <line x1="50" y1="55" x2="95" y2="30" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)" />
+                    <!-- C -> A -->
+                    <line x1="170" y1="55" x2="125" y2="30" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)" />
+                    <!-- D -> B -->
+                    <line x1="95" y1="100" x2="65" y2="80" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)" />
+                    <!-- D -> C -->
+                    <line x1="125" y1="100" x2="155" y2="80" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- Nội dung chính: 2 cột Code -->
+        <div style="display: flex; gap: 20px; align-items: stretch; margin-top: 10px;">
+            
+            <!-- Cột trái: Khai báo lớp -->
+            <div style="flex: 1;">
+                <div class="highlight-card" style="background: #1e293b; border: 1px solid #334155; padding: 16px 20px; border-radius: 8px; font-family: 'Courier New', Courier, monospace; font-size: 14px; line-height: 1.6; color: #f8fafc; box-shadow: 0 4px 12px rgba(0,0,0,0.15); height: 100%; box-sizing: border-box;">
+<pre style="margin: 0; white-space: pre-wrap;">
+<span style="color:#be185d;">class</span> <span style="color:#38bdf8;">A</span>
+{
+    <span style="color:#be185d;">public</span>: <span style="color:#be185d;">int</span> a;
+};
+<span style="color:#be185d;">class</span> <span style="color:#38bdf8;">B</span>: <span style="color:#be185d;">public</span> <span style="color:#38bdf8;">A</span>
+{
+    <span style="color:#be185d;">public</span>: <span style="color:#be185d;">int</span> b;
+};
+<span style="color:#be185d;">class</span> <span style="color:#38bdf8;">C</span>: <span style="color:#be185d;">public</span> <span style="color:#38bdf8;">A</span>
+{
+    <span style="color:#be185d;">public</span>: <span style="color:#be185d;">int</span> c;
+};
+
+<span style="color:#be185d;">class</span> <span style="color:#38bdf8;">D</span>: <span style="color:#be185d;">public</span> <span style="color:#38bdf8;">B</span>, <span style="color:#be185d;">public</span> <span style="color:#38bdf8;">C</span>
+{
+    <span style="color:#be185d;">public</span>: <span style="color:#be185d;">int</span> d;
+};</pre>
+                </div>
+            </div>
+
+            <!-- Cột phải: Hàm main -->
+            <div style="flex: 1;">
+                <div class="highlight-card" style="background: #1e293b; border: 1px solid #334155; padding: 16px 20px; border-radius: 8px; font-family: 'Courier New', Courier, monospace; font-size: 14px; line-height: 1.6; color: #f8fafc; box-shadow: 0 4px 12px rgba(0,0,0,0.15); height: 100%; box-sizing: border-box;">
+<pre style="margin: 0; white-space: pre-wrap;">
+<span style="color:#be185d;">int</span> <span style="color:#38bdf8;">main</span>()
+{
+    <span style="color:#38bdf8;">D</span> h;
+    h.d= <span style="color:#f59e0b;">4</span>;
+    cout&lt;&lt;h.d&lt;&lt;endl;      <span style="color:#64748b;">// 4</span>
+
+    h.c= <span style="color:#f59e0b;">3</span>;
+    cout&lt;&lt;h.c&lt;&lt;endl;      <span style="color:#64748b;">// 3</span>
+
+    h.b= <span style="color:#f59e0b;">6</span>;
+    cout&lt;&lt;h.b&lt;&lt;endl;      <span style="color:#64748b;">// 6</span>
+
+    h.B::a= <span style="color:#f59e0b;">7</span>;
+    cout&lt;&lt;h.B::a&lt;&lt;endl;   <span style="color:#64748b;">// 7</span>
+    
+    <span style="display: inline-block; border: 2px solid #f43f5e; padding: 2px 8px; margin-top: 5px; border-radius: 4px;">
+        cout&lt;&lt;h.a;          <span style="color:#64748b;">// lỗi!</span>
+    </span>
+}</pre>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+        <span>Lập trình hướng đối tượng</span>
+        <span>22</span>
+    </div>
+</div>
+
+
+
+
+<!-- SLIDE 23: Ví dụ (tiếp) -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+        <!-- Header -->
+        <div class="top-tag">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</div>
+        <h1 class="slide-title" style="margin-bottom: 25px;">Ví dụ (tiếp)</h1>
+
+        <!-- Nội dung chính -->
+        <div style="font-size: 16px; color: #1e293b; line-height: 1.8; padding-left: 10px;">
+            
+            <!-- Lệnh gây lỗi -->
+            <div style="margin-bottom: 20px;">
+                ▪ Lệnh <code style="font-family:'Courier New',monospace; background:#f1f5f9; padding: 2px 6px; border-radius: 4px; color: #be185d;">cout << h.a</code> gây lỗi
+            </div>
+
+            <!-- Thông báo lỗi -->
+            <div style="font-family: 'Courier New', Courier, monospace; font-size: 17px; font-weight: 700; color: #475569; margin-bottom: 10px; padding-left: 20px;">
+                Request for member 'a' is ambiguous
+            </div>
+
+            <!-- Giải thích -->
+            <div style="margin-bottom: 35px;">
+                Trình biên dịch không thể biết được thuộc tính ‘a’ thừa kế thông qua B<br>hay thông qua C
+            </div>
+
+            <!-- Sơ đồ minh họa -->
+            <div style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
+                <svg width="400" height="280" viewBox="0 0 400 280" style="overflow: visible;">
+                    <defs>
+                        <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                            <path d="M0,0 L8,4 L0,8 Z" fill="#64748b" />
+                        </marker>
+                    </defs>
+
+                    <!-- Box A -->
+                    <rect x="160" y="10" width="80" height="60" fill="#ffffff" stroke="#64748b" stroke-width="1.5" />
+                    <text x="200" y="28" font-size="16" fill="#334155" text-anchor="middle" font-family="Arial, sans-serif">A</text>
+                    <rect x="180" y="35" width="40" height="25" fill="none" stroke="#64748b" stroke-width="1" />
+                    <text x="200" y="53" font-size="14" fill="#334155" text-anchor="middle" font-family="Arial, sans-serif">a</text>
+
+                    <!-- Box B -->
+                    <rect x="80" y="110" width="120" height="80" fill="#ffffff" stroke="#64748b" stroke-width="1.5" />
+                    <text x="140" y="128" font-size="16" fill="#334155" text-anchor="middle" font-family="Arial, sans-serif">B</text>
+                    <!-- Inner a (dashed) -->
+                    <rect x="95" y="145" width="45" height="35" fill="#ffffff" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4,3" />
+                    <text x="117.5" y="168" font-size="14" fill="#334155" text-anchor="middle" font-family="Arial, sans-serif">a</text>
+                    <!-- Inner b -->
+                    <rect x="150" y="145" width="35" height="35" fill="#ffffff" stroke="#64748b" stroke-width="1.5" />
+                    <text x="167.5" y="168" font-size="14" fill="#334155" text-anchor="middle" font-family="Arial, sans-serif">b</text>
+
+                    <!-- Box C -->
+                    <rect x="220" y="110" width="120" height="80" fill="#ffffff" stroke="#64748b" stroke-width="1.5" />
+                    <text x="280" y="128" font-size="16" fill="#334155" text-anchor="middle" font-family="Arial, sans-serif">C</text>
+                    <!-- Inner a (dashed) -->
+                    <rect x="235" y="145" width="45" height="35" fill="#ffffff" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4,3" />
+                    <text x="257.5" y="168" font-size="14" fill="#334155" text-anchor="middle" font-family="Arial, sans-serif">a</text>
+                    <!-- Inner c -->
+                    <rect x="290" y="145" width="35" height="35" fill="#ffffff" stroke="#64748b" stroke-width="1.5" />
+                    <text x="307.5" y="168" font-size="14" fill="#334155" text-anchor="middle" font-family="Arial, sans-serif">c</text>
+
+                    <!-- Box D -->
+                    <rect x="160" y="230" width="80" height="50" fill="#ffffff" stroke="#64748b" stroke-width="1.5" />
+                    <text x="200" y="260" font-size="16" fill="#334155" text-anchor="middle" font-family="Arial, sans-serif">D</text>
+
+                    <!-- Arrows -->
+                    <line x1="120" y1="110" x2="170" y2="70" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)" />
+                    <line x1="280" y1="110" x2="230" y2="70" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)" />
+                    <line x1="170" y1="230" x2="140" y2="190" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)" />
+                    <line x1="230" y1="230" x2="260" y2="190" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)" />
+                </svg>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+        <span>Lập trình hướng đối tượng</span>
+        <span>23</span>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- SLIDE 24: Cách xử lý đa kế thừa -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+        <!-- Header -->
+        <div class="top-tag">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</div>
+        <h1 class="slide-title" style="margin-bottom: 25px;">Cách xử lý đa kế thừa</h1>
+
+        <!-- Nội dung chính -->
+        <div style="font-size: 16px; color: #1e293b; line-height: 1.8; padding-left: 10px;">
+            
+            <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+                <li style="margin-bottom: 10px;">
+                    <b>Biến lớp A trở thành lớp cơ sở ảo</b>
+                    <ul style="margin-top: 5px; padding-left: 20px; list-style-type: circle; color: #334155;">
+                        <li>Các lớp cơ sở ảo sẽ được kết hợp để tạo một lớp cơ sở duy nhất</li>
+                        <li>Lớp D sẽ chỉ có một lớp cơ sở A duy nhất</li>
+                    </ul>
+                </li>
+                <li style="margin-bottom: 10px;">
+                    <b>Để thực hiện được điều trên:</b>
+                    <ul style="margin-top: 5px; padding-left: 20px; list-style-type: circle; color: #334155;">
+                        <li>Thêm từ khóa <code style="font-family:'Courier New',monospace; color: #be185d; font-weight: bold; background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">virtual</code> khi khai báo B và C</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- Sơ đồ minh họa -->
+            <div style="display: flex; justify-content: center; align-items: center; margin-top: 30px;">
+                <svg width="450" height="250" viewBox="0 0 450 250" style="overflow: visible;">
+                    <!-- Box A -->
+                    <rect x="160" y="5" width="130" height="50" fill="none" stroke="#334155" stroke-width="2.5" />
+                    <text x="225" y="28" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">A</text>
+
+                    <!-- Box B -->
+                    <rect x="60" y="100" width="130" height="50" fill="none" stroke="#334155" stroke-width="2.5" />
+                    <text x="125" y="123" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">B</text>
+
+                    <!-- Box C -->
+                    <rect x="260" y="100" width="130" height="50" fill="none" stroke="#334155" stroke-width="2.5" />
+                    <text x="325" y="123" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">C</text>
+
+                    <!-- Box D -->
+                    <rect x="160" y="195" width="130" height="50" fill="none" stroke="#334155" stroke-width="2.5" />
+                    <text x="225" y="218" font-size="16" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">D</text>
+
+                    <!-- B -> A -->
+                    <line x1="150" y1="100" x2="200" y2="66" stroke="#334155" stroke-width="2.5" />
+                    <polygon points="212,58 203,74 192,63" fill="#334155" />
+                    <!-- C -> A -->
+                    <line x1="300" y1="100" x2="250" y2="66" stroke="#334155" stroke-width="2.5" />
+                    <polygon points="238,58 258,63 247,74" fill="#334155" />
+
+                    <!-- D -> B -->
+                    <line x1="210" y1="195" x2="140" y2="162" stroke="#334155" stroke-width="2.5" />
+                    <polygon points="128,156 148,157 140,171" fill="#334155" />
+                    <!-- D -> C -->
+                    <line x1="240" y1="195" x2="310" y2="162" stroke="#334155" stroke-width="2.5" />
+                    <polygon points="322,156 310,171 302,157" fill="#334155" />
+
+                    <!-- Text "virtual" -->
+                    <text x="140" y="78" font-size="14" font-weight="700" fill="#9a3412" text-anchor="middle" font-family="Arial, sans-serif">virtual</text>
+                    <text x="320" y="78" font-size="14" font-weight="700" fill="#9a3412" text-anchor="middle" font-family="Arial, sans-serif">virtual</text>
+                </svg>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+        <span>Lập trình hướng đối tượng</span>
+        <span>24</span>
+    </div>
+</div>
+
+
+
+
+
+<!-- SLIDE 25: Ví dụ (lớp cơ sở ảo) -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+        <!-- Thanh kẻ xanh trên cùng -->
+        <div style="height: 10px; background: #a3e635; width: 100%; margin-bottom: 20px; border-radius: 4px;"></div>
+
+        <!-- Header & Sơ đồ -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+            <h1 class="slide-title" style="margin: 0;">Ví dụ (lớp cơ sở ảo)</h1>
+            
+            <!-- Sơ đồ thừa kế -->
+            <div style="margin-top: -10px; margin-right: 20px;">
+                <svg width="220" height="150" viewBox="0 0 220 150" style="overflow: visible;">
+                    <defs>
+                        <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                            <path d="M0,0 L6,3 L0,6 Z" fill="#64748b" />
+                        </marker>
+                    </defs>
+                    
+                    <!-- Box A -->
+                    <rect x="80" y="5" width="60" height="35" fill="#ffffff" stroke="#64748b" stroke-width="1.5" />
+                    <text x="110" y="22" font-size="14" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">A</text>
+                    <rect x="95" y="25" width="30" height="15" fill="none" stroke="#64748b" stroke-width="1" />
+                    <text x="110" y="36" font-size="11" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">a</text>
+
+                    <!-- Box B -->
+                    <rect x="20" y="65" width="60" height="45" fill="#ffffff" stroke="#64748b" stroke-width="1.5" />
+                    <text x="50" y="80" font-size="14" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">B</text>
+                    <rect x="28" y="90" width="20" height="15" fill="none" stroke="#64748b" stroke-width="1" />
+                    <text x="38" y="101" font-size="11" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">a</text>
+                    <rect x="52" y="90" width="20" height="15" fill="none" stroke="#64748b" stroke-width="1" />
+                    <text x="62" y="101" font-size="11" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">b</text>
+
+                    <!-- Box C -->
+                    <rect x="140" y="65" width="60" height="45" fill="#ffffff" stroke="#64748b" stroke-width="1.5" />
+                    <text x="170" y="80" font-size="14" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">C</text>
+                    <rect x="148" y="90" width="20" height="15" fill="none" stroke="#64748b" stroke-width="1" />
+                    <text x="158" y="101" font-size="11" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">a</text>
+                    <rect x="172" y="90" width="20" height="15" fill="none" stroke="#64748b" stroke-width="1" />
+                    <text x="182" y="101" font-size="11" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">c</text>
+
+                    <!-- Box D -->
+                    <rect x="80" y="130" width="60" height="30" fill="#ffffff" stroke="#64748b" stroke-width="1.5" />
+                    <text x="110" y="149" font-size="14" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">D</text>
+
+                    <!-- Arrows -->
+                    <line x1="50" y1="65" x2="95" y2="40" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)" />
+                    <line x1="170" y1="65" x2="125" y2="40" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)" />
+                    <line x1="95" y1="130" x2="60" y2="110" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)" />
+                    <line x1="125" y1="130" x2="160" y2="110" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- Nội dung chính: 2 cột Code -->
+        <div style="display: flex; gap: 20px; align-items: stretch; flex: 1;">
+            
+            <!-- Cột trái: Khai báo lớp -->
+            <div style="flex: 1.1;">
+                <div class="highlight-card" style="background: #1e293b; border: 1px solid #334155; padding: 16px 20px; border-radius: 8px; font-family: 'Courier New', Courier, monospace; font-size: 13.5px; line-height: 1.6; color: #f8fafc; box-shadow: 0 4px 12px rgba(0,0,0,0.15); height: 100%; box-sizing: border-box;">
+<pre style="margin: 0; white-space: pre-wrap;">
+<span style="color:#64748b;">// Đã sửa A thành lớp cơ sở ảo</span>
+<span style="color:#be185d;">#include</span> <span style="color:#38bdf8;">&lt;iostream&gt;</span>
+<span style="color:#be185d;">class</span> <span style="color:#38bdf8;">A</span> {
+<span style="color:#be185d;">public</span>:
+    <span style="color:#be185d;">int</span> a;
+};
+<span style="color:#be185d;">class</span> <span style="color:#38bdf8;">B</span>: <span style="color:#be185d;">virtual public</span> <span style="color:#38bdf8;">A</span>
+{
+    <span style="color:#be185d;">public</span>: <span style="color:#be185d;">int</span> b;
+};
+<span style="color:#be185d;">class</span> <span style="color:#38bdf8;">C</span>: <span style="color:#be185d;">virtual public</span> <span style="color:#38bdf8;">A</span>
+{
+    <span style="color:#be185d;">public</span>: <span style="color:#be185d;">int</span> c;
+};
+<span style="color:#be185d;">class</span> <span style="color:#38bdf8;">D</span>: <span style="color:#be185d;">public</span> <span style="color:#38bdf8;">B</span>, <span style="color:#be185d;">public</span> <span style="color:#38bdf8;">C</span> {
+    <span style="color:#be185d;">public</span>: <span style="color:#be185d;">int</span> d;
+};</pre>
+                </div>
+            </div>
+
+            <!-- Cột phải: Hàm main -->
+            <div style="flex: 1;">
+                <div class="highlight-card" style="background: #1e293b; border: 1px solid #334155; padding: 16px 20px; border-radius: 8px; font-family: 'Courier New', Courier, monospace; font-size: 13.5px; line-height: 1.6; color: #f8fafc; box-shadow: 0 4px 12px rgba(0,0,0,0.15); height: 100%; box-sizing: border-box;">
+<pre style="margin: 0; white-space: pre-wrap;">
+<span style="color:#be185d;">void</span> <span style="color:#38bdf8;">main</span>()
+{
+    <span style="color:#38bdf8;">D</span> h;
+    h.d=<span style="color:#f59e0b;">4</span> ;
+    cout&lt;&lt;h.d&lt;&lt;endl;      <span style="color:#64748b;">// 4</span>
+    h.c=<span style="color:#f59e0b;">5</span>;
+    cout&lt;&lt;h.c&lt;&lt;endl;      <span style="color:#64748b;">// 5</span>
+    h.b=<span style="color:#f59e0b;">6</span> ;
+    cout&lt;&lt;h.b&lt;&lt;endl;      <span style="color:#64748b;">// 6</span>
+    
+    <span style="display: inline-block; border: 2px solid #94a3b8; padding: 8px; border-radius: 8px; margin-top: 8px;">
+    h.B::a= <span style="color:#f59e0b;">7</span>;
+    cout&lt;&lt;h.B::a&lt;&lt;endl; <span style="color:#64748b;">// 7</span>
+    cout&lt;&lt;h.C::a;       <span style="color:#64748b;">// 7</span>
+
+    cout&lt;&lt;h.a;          <span style="color:#64748b;">// 7</span>
+    </span>
+}</pre>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+        <span>Lập trình hướng đối tượng</span>
+        <span>25</span>
+    </div>
+</div>
+
+
+
+
+<!-- SLIDE 26: Khái niệm tương ứng bội -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+        <!-- Thanh kẻ xanh trên cùng -->
+        <div style="height: 10px; background: #a3e635; width: 100%; margin-bottom: 20px; border-radius: 4px;"></div>
+
+        <!-- Header -->
+        <h1 class="slide-title" style="margin-bottom: 25px;">Khái niệm tương ứng bội</h1>
+
+        <!-- Nội dung chính: 2 cột -->
+        <div style="display: flex; gap: 20px; align-items: flex-start; margin-top: 10px;">
+            
+            <!-- Cột trái: Giải thích -->
+            <div style="flex: 1.3; font-size: 15.5px; color: #1e293b; line-height: 1.8;">
+                <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+                    <li style="margin-bottom: 10px;">
+                        <b>Tương ứng bội (Polymorphism)</b>
+                        <ul style="margin-top: 5px; padding-left: 20px; list-style-type: circle; color: #334155;">
+                            <li>Còn gọi là “Tính đa hình”</li>
+                            <li>Là một trong các “trụ cột” của OOP: PIE</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Tác dụng của tương ứng bội?</b>
+                        <ul style="margin-top: 5px; padding-left: 20px; list-style-type: circle; color: #334155;">
+                            <li>Xử lý các đối tượng của các lớp có liên quan theo một cách chung</li>
+                            <li>Chương trình tổng quát và dễ hiểu hơn</li>
+                            <li>Chương trình có khả năng mở rộng hiệu quả hơn</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Cột phải: Chữ POLY MORPH -->
+            <div style="flex: 0.7; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 10px;">
+                <div style="font-size: 38px; font-weight: 800; color: #64748b; letter-spacing: 1px; line-height: 1;">
+                    POLY MORPH
+                </div>
+                <div style="font-size: 18px; color: #94a3b8; display: flex; width: 100%; justify-content: space-around; margin-top: 5px; padding: 0 10px;">
+                    <span style="margin-left: 10px;">many</span>
+                    <span style="margin-right: 10px;">forms</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Hình vẽ minh họa (Bottom) -->
+        <div style="display: flex; justify-content: center; align-items: center; margin-top: 35px;">
+            <svg width="500" height="170" viewBox="0 0 500 170" style="overflow: visible;">
+                <!-- Đỉnh (Top Node) -->
+                <circle cx="250" cy="15" r="11" fill="#1e293b" />
+
+                <!-- Các đường nối -->
+                <g stroke="#334155" stroke-width="2.5" fill="none">
+                    <line x1="240" y1="22" x2="90" y2="97" />
+                    <line x1="250" y1="26" x2="250" y2="86" />
+                    <line x1="260" y1="22" x2="400" y2="86" />
+                </g>
+                <!-- Đầu mũi tên -->
+                <g fill="#334155">
+                    <polygon points="80,104 91,90 97,102" />
+                    <polygon points="250,100 243,85 257,85" />
+                    <polygon points="412,92 395,80 391,94" />
+                </g>
+
+                <!-- Hình chữ nhật (Trái) xanh nhạt -->
+                <rect x="55" y="105" width="110" height="52" fill="#a5d8e0" stroke="#334155" stroke-width="2.5" />
+                <text x="110" y="137" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">draw()</text>
+
+                <!-- Hình tam giác (Giữa) tím nhạt -->
+                <polygon points="250,95 175,160 325,160" fill="#d8b4e2" stroke="#334155" stroke-width="2.5" />
+                <text x="250" y="152" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">draw()</text>
+
+                <!-- Hình ellipse (Phải) vàng -->
+                <ellipse cx="410" cy="125" rx="65" ry="28" fill="#e5e44a" stroke="#334155" stroke-width="2.5" />
+                <text x="410" y="131" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">draw()</text>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+        <span>Lập trình hướng đối tượng</span>
+        <span>26</span>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- SLIDE 27: Phương thức tĩnh và động -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+        <!-- Header -->
+        <div class="top-tag">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</div>
+        <h1 class="slide-title" style="margin-bottom: 25px;">Phương thức tĩnh và động</h1>
+
+        <!-- Nội dung chính -->
+        <div class="highlight-card" style="background: #ffffff; padding: 30px 40px; border-radius: 8px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px rgba(0,0,0,0.02); margin-top: 10px;">
+            
+            <div style="font-size: 16.5px; color: #1e293b; line-height: 1.8;">
+                <!-- Mục 1: Phương thức tĩnh -->
+                <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+                    <li style="margin-bottom: 12px;">
+                        <b>Phương thức tĩnh</b>
+                        <ul style="margin-top: 8px; padding-left: 20px; list-style-type: circle; color: #334155;">
+                            <li style="margin-bottom: 6px;">Compile-time, Early binding</li>
+                            <li>
+                                Lời gọi xuất phát từ một đối tượng (hoặc con trỏ) của lớp nào &rarr; phương thức của lớp đó sẽ được gọi
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- Mục 2: Phương thức động -->
+                <ul style="margin: 20px 0 0 0; padding-left: 20px; list-style-type: disc;">
+                    <li style="margin-bottom: 12px;">
+                        <b>Phương thức động (phương thức ảo)</b>
+                        <ul style="margin-top: 8px; padding-left: 20px; list-style-type: circle; color: #334155;">
+                            <li style="margin-bottom: 6px;">Run-time, Late binding</li>
+                            <li style="margin-bottom: 6px;">Lời gọi tới phương thức ảo từ một con trỏ biết rõ phương thức nào sẽ được gọi</li>
+                            <li>
+                                Điều này phụ thuộc vào đối tượng cụ thể mà con trỏ đang trỏ tới
+                                <ul style="margin-top: 6px; padding-left: 20px; list-style-type: square; color: #475569;">
+                                    <li>Con trỏ đang trỏ tới đối tượng của lớp nào thì phương thức của lớp đó được gọi</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+        <!-- <span>HMT Lab | Huy D. Le | lehuydip@gmail.com</span> -->
+        <span>Lập trình hướng đối tượng</span>
+        <span>27</span>
+    </div>
+</div>
+
+
+
+
+<!-- SLIDE 28: Ví dụ (xử lý các lớp theo cách chung) -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+        <!-- Thanh kẻ xanh trên cùng -->
+        <div style="height: 10px; background: #a3e635; width: 100%; margin-bottom: 20px; border-radius: 4px;"></div>
+
+        <!-- Header -->
+        <h1 class="slide-title" style="margin-bottom: 30px;">Ví dụ (xử lý các lớp theo cách chung)</h1>
+
+        <!-- Nội dung chính: 2 cột -->
+        <div style="display: flex; gap: 20px; align-items: flex-start; margin-top: 10px;">
+            
+            <!-- Cột trái: Code block -->
+            <div style="flex: 1.2;">
+                <div class="highlight-card" style="background: #1e293b; border: 1px solid #334155; padding: 20px 24px; border-radius: 8px; font-family: 'Courier New', Courier, monospace; font-size: 15px; line-height: 1.8; color: #f8fafc; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+<pre style="margin: 0; white-space: pre-wrap;">
+<span style="color:#38bdf8;">Shape</span>* shapes[<span style="color:#f59e0b;">10</span>];
+<span style="color:#be185d;">for</span> (i = <span style="color:#f59e0b;">0</span>; i &lt; numShapes; i++)
+{
+    shapes[i]-&gt;<span style="color:#38bdf8;">draw</span>();
+}</pre>
+                </div>
+            </div>
+
+            <!-- Cột phải: Sơ đồ minh họa -->
+            <div style="flex: 1.5; display: flex; justify-content: center; align-items: center; padding-top: 10px;">
+                <svg width="100%" height="340" viewBox="0 0 500 340" style="overflow: visible;">
+                    <!-- Khung nền chứa các hình -->
+                    <rect x="60" y="10" width="420" height="230" fill="none" stroke="#334155" stroke-width="2.5" />
+
+                    <!-- Hình chữ nhật -->
+                    <rect x="200" y="60" width="95" height="75" fill="#a5d8e0" stroke="#334155" stroke-width="2.5" />
+                    <text x="130" y="85" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">“draw”</text>
+
+                    <!-- Hình tam giác -->
+                    <polygon points="385,60 340,150 440,150" fill="#d8b4e2" stroke="#334155" stroke-width="2.5" />
+                    <text x="445" y="45" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">“draw”</text>
+
+                    <!-- Hình ellipse -->
+                    <ellipse cx="270" cy="190" rx="55" ry="38" fill="#e5e44a" stroke="#334155" stroke-width="2.5" />
+                    <text x="270" y="200" font-size="17" font-weight="700" fill="#1e293b" text-anchor="middle" font-family="Arial, sans-serif">“draw”</text>
+
+                    <!-- Mảng con trỏ -->
+                    <text x="200" y="295" font-size="18" font-weight="700" fill="#1e293b" font-family="'Courier New', monospace" text-anchor="end">Shape* shapes[10]</text>
+                    <g fill="none" stroke="#334155" stroke-width="2.5">
+                        <line x1="210" y1="265" x2="480" y2="265" />
+                        <line x1="210" y1="305" x2="480" y2="305" />
+                        <rect x="210" y="265" width="35" height="40" />
+                        <rect x="245" y="265" width="35" height="40" />
+                        <rect x="280" y="265" width="35" height="40" />
+                    </g>
+                    <text x="340" y="292" font-size="18" font-weight="700" fill="#334155" font-family="Arial, sans-serif">......</text>
+
+                    <!-- Các đường mũi tên -->
+                    <g stroke="#334155" stroke-width="2.5" fill="none">
+                        <line x1="227" y1="265" x2="227" y2="148" />
+                        <line x1="262" y1="265" x2="268" y2="240" />
+                        <line x1="297" y1="265" x2="370" y2="165" />
+                    </g>
+                    <g fill="#334155">
+                        <polygon points="227,138 220,152 234,152" />
+                        <polygon points="270,230 261,243 275,244" />
+                        <polygon points="378,153 363,162 375,172" />
+                    </g>
+                </svg>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+        <span>Lập trình hướng đối tượng</span>
+        <span>28</span>
+    </div>
+</div>
+
+
+
 </body>
+<!-- MATHJAX: đặt trước </body> nếu file chưa có --> 
+ <script> 
+    window.MathJax = { 
+        tex: { 
+            inlineMath: [['\\(', '\\)']], 
+            displayMath: [['\\[', '\\]']], 
+            processEscapes: true 
+            }, 
+            svg: { 
+                fontCache: 'global' 
+                } 
+                }; 
+    </script> 
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </html>
