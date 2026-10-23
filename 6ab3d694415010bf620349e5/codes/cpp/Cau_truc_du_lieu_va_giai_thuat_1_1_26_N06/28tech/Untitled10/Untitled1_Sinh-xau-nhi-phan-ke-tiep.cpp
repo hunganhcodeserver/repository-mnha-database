@@ -12,6 +12,11 @@ void ktao(){
 
 void sinh(){
     //Bat dau tu bit cuoi cung
+    int i = n;
+    while(i >= 1 && a[i] == 1){
+        a[i] = 0;
+        --i;
+    }
 }
 
 int main() {
