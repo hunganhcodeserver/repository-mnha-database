@@ -27,14 +27,15 @@ void sinh(){
 int main() {
     freopen("input1.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
-    cin >> n;
-    ktao();
-    while(final == 0){
-        for(int i = 1; i <= n; i++){
-            cout << a[i] << " ";
-        }
-        cout << endl;
-        sinh();
+    string s; cin >> s;
+    int i =  s.size() - 1;
+    while(i >= 0 && s[i] == '1'){
+        s[i] = 0;
+        --i;
     }
+    if(i != -1){
+        s[i] = 1;
+    }
+    cout << s << endl;
     return 0;
 }
