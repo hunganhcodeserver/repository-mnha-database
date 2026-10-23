@@ -6,8 +6,6 @@ int n, a[1000];
 bool ok; 
 
 
-
-
 void ktao(){
     for(int i = 1; i <= n; i++){
         a[i] = 0;
