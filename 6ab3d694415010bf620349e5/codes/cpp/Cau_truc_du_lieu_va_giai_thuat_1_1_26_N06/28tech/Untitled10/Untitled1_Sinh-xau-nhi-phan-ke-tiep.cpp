@@ -20,7 +20,7 @@ void sinh(){
 }
 
 int main() {
-    // freopen("input.txt", "r", stdin);
+    freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
     int a, b;
     cout << "Nhap a, b: ";
