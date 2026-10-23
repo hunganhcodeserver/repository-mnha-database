@@ -18,16 +18,23 @@ void sinh(){
         --i;
     }
     if(i == 0){
-        
+        final = 1;
+    } else {
+        a[1] = 1;
     }
 }
 
 int main() {
     freopen("input1.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
-    int a, b;
-    cout << "Nhap a, b: ";
-    cin >> a >> b;
-    cout << "Tong = " << a + b << endl;
+    cin >> n;
+    ktao();
+    while(final == 0){
+        for(int i = 1; i <= n; i++){
+            cout << a[i] << " ";
+        }
+        cout << endl;
+        sinh();
+    }
     return 0;
 }
