@@ -29,6 +29,14 @@ void sinh(){
 int main() {
     freopen("input2.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
-    
+    cin >> n;
+    ktao();
+    while(final == 0){
+        for(int i = 1; i <= n; i++){
+            if(a[i] == 0) cout << "B";
+            else cout << "A";
+        sinh();
+        }
+    }
     return 0;
 }
