@@ -22,7 +22,7 @@ void sinh(){
     if(i == 0){
         ok = false;      // đã là cấu hình cuối (111...1)
     } else {
-        a[1] = 1;
+        a[i] = 1;
     }
 }
 
@@ -35,8 +35,9 @@ int main() {
         for(int i = 1; i <= n; i++){
             if(a[i] == 0) cout << "B";
             else cout << "A";
-        sinh();
         }
+        cout << endl;
+        sinh();
     }
     return 0;
 }
