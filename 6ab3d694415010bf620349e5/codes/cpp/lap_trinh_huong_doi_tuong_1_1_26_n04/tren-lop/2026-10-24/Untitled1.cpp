@@ -62,7 +62,7 @@ int main() {
         cout << "Xe thu " << i + 1 << ":\n";
         int loai;
         do {
-            cout << "Chon loai (1: Car, 2: Bicycle, 3: Motorcycle): "
+            cout << "Chon loai (1: Car, 2: Bicycle, 3: Motorcycle): ";
             cin >> loai;
 		    if (loai == 1) ds[i] = new Car;
 		    else if (loai == 2) ds[i] = new Bicycle;
