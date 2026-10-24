@@ -13,15 +13,27 @@ class Diem {
             is >> d.y;
             cout << "Nhap hoanh do (x): ";
             is >> d.x;
+            return is;
+        }
+        friend ostream& operator <<(ostream &os, Diem d){
+            os << "(x, y) = (" << d.x << ", " << d.y << ")";
+            return os;
+        }
+        double getX() const {
+            return d.x;
+        }
+        double getY() const {
+            return d.y;
         }
 };
 
 int main() {
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
-    int a, b;
-    cout << "Nhap a, b: ";
-    cin >> a >> b;
-    cout << "Tong = " << a + b << endl;
+    int n;
+    cout << "Nhap so n_diem = ";
+    cin >> n;
+    vector <Diem*> d(n);
+    for(int i = 0; i < n; i ++)    delete d[n];
     return 0;
 }
