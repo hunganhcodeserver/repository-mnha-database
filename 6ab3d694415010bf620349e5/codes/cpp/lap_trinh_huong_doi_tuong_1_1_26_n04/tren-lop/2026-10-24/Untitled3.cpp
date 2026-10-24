@@ -9,10 +9,10 @@ class Diem {
         double y;
     public:
         friend istream& operator >>(istream &is, Diem &d){
-            cout << "Nhap tung do (y): ";
-            is >> d.y;
             cout << "Nhap hoanh do (x): ";
             is >> d.x;
+            cout << "Nhap tung do (y): ";
+            is >> d.y;
             return is;
         }
         friend ostream& operator <<(ostream &os, Diem d){
