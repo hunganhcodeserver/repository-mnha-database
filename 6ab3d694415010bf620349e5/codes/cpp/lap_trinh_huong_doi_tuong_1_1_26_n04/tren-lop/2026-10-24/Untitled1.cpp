@@ -19,6 +19,9 @@ class Vehicle{
             cout << "Vui long nhap toc do: ";
             cin >> speed;
         }
+        virtual void move(){
+            cout << "Xe di chuyen bang: ";
+        }
         void xuat(){
             cout << "Hang: " << brand << " | Toc do: " << speed;
         }
