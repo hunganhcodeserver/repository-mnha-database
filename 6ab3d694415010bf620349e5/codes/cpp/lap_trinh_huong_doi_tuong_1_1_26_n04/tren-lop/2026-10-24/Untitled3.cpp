@@ -55,6 +55,5 @@ int main() {
         cout << d[i];
     }
     inKhoangCach(d);
-    for(int i = 0; i < n; i ++)    delete d[i];
     return 0;
 }
