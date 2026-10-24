@@ -27,6 +27,10 @@ class Diem {
         }
 };
 
+void khoangCach(Diem d[], int n){
+    
+}
+
 int main() {
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
@@ -34,6 +38,15 @@ int main() {
     cout << "Nhap so n_diem = ";
     cin >> n;
     vector <Diem*> d(n);
+    cout << "\nVUI LONG NHAP TUNG DIEM:\n";
+    for(int i = 0; i < n; i++){
+        cin >> d[i];
+    }
+    cout << "\nTUNG DIEM SAU KHI NHAP DU LIEU:\n";
+    for(int i = 0; i < n; i++){
+        cout << d[i];
+    }
+    
     for(int i = 0; i < n; i ++)    delete d[n];
     return 0;
 }
