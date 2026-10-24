@@ -48,6 +48,7 @@ int main() {
     vector <Diem> d(n);
     cout << "\nVUI LONG NHAP TUNG DIEM:\n";
     for(int i = 0; i < n; i++){
+        cout << "Diem " << i+1 << ":\n";
         cin >> d[i];
     }
     cout << "\nTUNG DIEM SAU KHI NHAP DU LIEU:\n";
