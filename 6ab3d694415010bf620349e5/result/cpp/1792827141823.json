@@ -1,0 +1,25 @@
+{
+  "timestamp": 1792827141823,
+  "lang": "cpp",
+  "file": "Untitled3.cpp",
+  "dir": "lap_trinh_huong_doi_tuong_1_1_26_n04/tren-lop/2026-10-24",
+  "source": "#include <bits/stdc++.h>\nusing namespace std;\n\nusing ll = long long;\n\nclass Diem {\n    private:\n        double x;\n        double y;\n    public:\n        friend istream& operator >>(istream &is, Diem &d){\n            cout << \"Nhap tung do (y): \";\n            is >> d.y;\n            cout << \"Nhap hoanh do (x): \";\n            is >> d.x;\n            return is;\n        }\n        friend ostream& operator <<(ostream &os, Diem d){\n            os << \"(x, y) = (\" << d.x << \", \" << d.y << \")\";\n            return os;\n        }\n        double khoangCach() const {\n            return sqrt(x * x + y * y);\n        }\n};\n\nvoid inKhoangCach(vector<Diem> d){\n    int n = d.size();\n    sort(d.begin(), d.end(), [](const Diem &a, const Diem &b){\n        return a.khoangCach() < b.khoangCach();\n    });\n    cout << \"\\nCAC DIEM THEO KHOANG CACH DEN GOC TOA DO (TANG DAN):\\n\";\n    double dem = 0;\n    for(int i = 0; i < n; i++){\n        cout << d[i] << \" -> khoang cach = \" << d[i].khoangCach() << \"\\n\";\n        dem += d[i].khoangCach();\n    }\n    cout << \"\\n=> DIEM GAN GOC TOA DO NHAT: \" << d[0] << \" -> khoang cach = \" << d[0].khoangCach() << \"\\n\";\n    cout << \"\\n=> TONG KHOANG CACH CAC DIEM = \" << fixed << setprecision(2) << dem;\n}\n\nint main() {\n    // freopen(\"input.txt\", \"r\", stdin);\n    // freopen(\"output.txt\", \"w\", stdout);\n    int n;\n    cout << \"Nhap so n_diem = \";\n    cin >> n;\n    vector <Diem> d(n);\n    cout << \"\\nVUI LONG NHAP TUNG DIEM:\\n\";\n    for(int i = 0; i < n; i++){\n        cin >> d[i];\n    }\n    cout << \"\\nTUNG DIEM SAU KHI NHAP DU LIEU:\\n\";\n    for(int i = 0; i < n; i++){\n        cout << d[i];\n    }\n    inKhoangCach(d);\n    return 0;\n}\n",
+  "kind": "cpp",
+  "status": "error",
+  "compile": {
+    "ok": true,
+    "output": ""
+  },
+  "console": "Nhap so n_diem = 3\n\nVUI LONG NHAP TUNG DIEM:\nNhap tung do (y): ",
+  "inputs": [
+    "3"
+  ],
+  "exitCode": null,
+  "signal": "SIGKILL",
+  "error": "Đã dừng bởi người dùng.",
+  "outputFiles": {},
+  "inputFiles": [],
+  "startedAt": "2026-10-24T07:31:52.755Z",
+  "finishedAt": "2026-10-24T07:32:21.513Z",
+  "durationMs": 28758
+}
