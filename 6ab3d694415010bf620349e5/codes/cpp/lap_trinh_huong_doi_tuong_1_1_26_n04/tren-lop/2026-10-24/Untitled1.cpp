@@ -58,23 +58,14 @@ int main() {
     cout << "Vui long nhap n: ";
     cin >> n;
     vector<Vehicle*> ds(n);
-    for (int i = 0; i < n; i++) {
-        cout << "--- Xe " << i + 1 << " ---\n";
+    for(int i = 0; i < n; i++){
+        cout << "Xe thu " << i + 1 << ":\n";
         int loai;
-		do {
-		    cout << "Chon loai (1: Car, 2: Bicycle, 3: Motorcycle): ";
-		    cin >> loai;
-		    if (loai == 1) ds[i] = new Car;
-		    else if (loai == 2) ds[i] = new Bicycle;
-		    else if (loai == 3) ds[i] = new Motorcycle;
-		    else cout << "Vui long chon lai!\n";
-		} while (loai < 1 || loai > 3);   // chon sai thi lap lai
-        ds[i]->nhap();
+        do {
+            cout << "Chon loai (1: Car, 2: Bicycle, 3: Motorcycle): "
+            cin >> loai;
+            
+        } while(loai < 1 || loai > 3);
     }
-    cout << "\n===== DANH SACH XE =====\n";
-    for (int i = 0; i < n; i++) {
-        ds[i]->xuat();
-    }
-    for (int i = 0; i < n; i++) delete ds[i];
     return 0;
 }
