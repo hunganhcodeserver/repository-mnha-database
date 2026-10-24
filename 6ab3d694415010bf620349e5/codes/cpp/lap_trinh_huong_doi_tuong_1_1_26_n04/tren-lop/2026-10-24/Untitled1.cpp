@@ -57,8 +57,7 @@ int main() {
     int n;
     cout << "Vui long nhap n: ";
     cin >> n;
-    vector<Vehicle*> ds(n); // chuan CPP
-//    Vehicle* ds[n]; //khong chuan CPP
+    vector<Vehicle*> ds(n);
     for (int i = 0; i < n; i++) {
         cout << "--- Xe " << i + 1 << " ---\n";
         int loai;
