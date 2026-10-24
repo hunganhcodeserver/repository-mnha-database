@@ -19,16 +19,24 @@ class Diem {
             os << "(x, y) = (" << d.x << ", " << d.y << ")";
             return os;
         }
-        double getX() const {
-            return d.x;
-        }
-        double getY() const {
-            return d.y;
+        double khoangCach() const {
+            return sqrt(x * x + y * y);
         }
 };
 
-void khoangCach(Diem d[], int n){
-    
+void inKhoangCach(vector<Diem> d){
+    int n = d.size();
+    sort(d.begin(), d.end(), [](const Diem &a, const Diem &b){
+        return a.khoangCach() < b.khoangCach();
+    });
+    cout << "\nCAC DIEM THEO KHOANG CACH DEN GOC TOA DO (TANG DAN):\n";
+    double dem = 0;
+    for(int i = 0; i < n; i++){
+        cout << d[i] << " -> khoang cach = " << d[i].khoangCach() << "\n";
+        dem += d[i].khoangCach();
+    }
+    cout << "\n=> DIEM GAN GOC TOA DO NHAT: " << d[0] << " -> khoang cach = " << d[0].khoangCach() << "\n";
+    cout << "\n=> TONG KHOANG CACH CAC DIEM = " << fixed << setprecision(2) << dem;
 }
 
 int main() {
@@ -37,7 +45,7 @@ int main() {
     int n;
     cout << "Nhap so n_diem = ";
     cin >> n;
-    vector <Diem*> d(n);
+    vector <Diem> d(n);
     cout << "\nVUI LONG NHAP TUNG DIEM:\n";
     for(int i = 0; i < n; i++){
         cin >> d[i];
@@ -46,7 +54,7 @@ int main() {
     for(int i = 0; i < n; i++){
         cout << d[i];
     }
-    
-    for(int i = 0; i < n; i ++)    delete d[n];
+    inKhoangCach(d);
+    for(int i = 0; i < n; i ++)    delete d[i];
     return 0;
 }
