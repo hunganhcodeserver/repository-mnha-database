@@ -12,11 +12,15 @@ class Vehicle{
             brand = "";
             speed = 0.0;
         }
+        virtual ~Vehicle(){}
         void nhap(){
             cout << "Vui long nhap hang: ";
             getline(cin >> ws, brand);
             cout << "Vui long nhap toc do: ";
             cin >> speed;
+        }
+        void xuat(){
+            cout << "Hang: " << brand << " | Toc do: " << speed;
         }
 };
 
