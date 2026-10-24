@@ -23,7 +23,9 @@ class Vehicle{
             cout << "Xe di chuyen bang: ";
         }
         void xuat(){
-            cout << "Hang: " << brand << " | Toc do: " << speed;
+            cout << "Hang: " << brand << " | Toc do: " << speed << "| ";
+            move();
+            cout << endl;
         }
 };
 
