@@ -69,6 +69,7 @@ int main() {
 		    else if (loai == 3) ds[i] = new Motorcycle;
 		    else cout << "Vui long chon lai!\n";
         } while(loai < 1 || loai > 3);
+        ds[i]->nhap();
     }
     cout << "\n===== DANH SACH XE =====\n";
     for (int i = 0; i < n; i++) {
@@ -76,4 +77,5 @@ int main() {
     }
     for (int i = 0; i < n; i++) delete ds[i];
     return 0;
+
 }
