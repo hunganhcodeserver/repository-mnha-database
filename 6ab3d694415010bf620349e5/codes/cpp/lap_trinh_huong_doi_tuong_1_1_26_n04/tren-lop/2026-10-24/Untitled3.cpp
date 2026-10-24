@@ -8,6 +8,10 @@ class Diem {
         double x;
         double y;
     public:
+        Diem(){
+            x = 0.0;
+            y = 0.0;
+        }
         friend istream& operator >>(istream &is, Diem &d){
             cout << "Nhap hoanh do (x): ";
             is >> d.x;
