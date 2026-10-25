@@ -12,7 +12,20 @@ class Xe {
             bienSoXe = "";
             trongLuong = 0.0;
         }
-        friend 
+        virtual ~Xe(){}
+        void nhap(){
+            cout << "Vui long nhap bien so xe: ";
+            getline(cin >> ws, bienSoXe);
+            cout << "Vui long nhap trong luong: ";
+            cin >> trongLuong;
+        }
+        void xuat() {
+            cout << "Bien so: " << bienSoXe << " | Trong luong: " << trongLuong << " tan";
+        }
+        double getTrongLuong() const{
+            return trongLuong;
+        }
+        virtual int demChoNgoi() = 0;
 };
 
 int main() {
