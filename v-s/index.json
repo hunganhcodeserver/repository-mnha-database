@@ -77,9 +77,22 @@
       "keyHint": "df32",
       "createdBy": "data-node",
       "updatedAt": "2026-10-25T11:04:56.860Z"
+    },
+    {
+      "id": "data-node-6",
+      "url": "https://repository-mnha-data-7-vercel.vercel.app",
+      "createdAt": "2026-10-25T11:09:48.048Z",
+      "enabled": true,
+      "health": null,
+      "name": "data-node-6",
+      "note": "",
+      "keyEnc": "v2.lKH993OgVMAjxC1j.w7ELp5QiC61Izl5I46Xm4A.GAEnZ93tziJy7dIGsTG1-9Wn7vArzJTkpuUMf31HCSKf3XPxPJl2xgH1YZvEGGejMiGtjMNsmHvj9V9Md8PYxlzujMIA8gdZBzsOaffGkAw",
+      "keyHint": "bea2",
+      "createdBy": "data-node",
+      "updatedAt": "2026-10-25T11:09:48.048Z"
     }
   ],
   "v": 1,
   "createdAt": "2026-10-25T10:07:15.197Z",
-  "updatedAt": "2026-10-25T11:04:56.927Z"
+  "updatedAt": "2026-10-25T11:09:48.048Z"
 }
