@@ -33,8 +33,8 @@ FONT_CANDIDATES = [
 ]
 FONT_NAME = "VNFont"
 FONT_SIZE = 10                             # cỡ chữ tối đa (tên dài sẽ tự thu nhỏ cho vừa trang)
-MARGIN_RIGHT = 30                          # cách mép phải (pt)
-MARGIN_BOTTOM = 20                         # cách mép dưới (pt)
+MARGIN_RIGHT = 2                           # cách mép phải (pt) - càng nhỏ càng sát góc
+MARGIN_BOTTOM = 2                          # cách mép dưới (pt) - càng nhỏ càng sát góc
 # ======================
 
 PATTERN = re.compile(r"^\s*(\d+)\s*\.\s*.*\.pdf$", re.IGNORECASE)
@@ -62,18 +62,22 @@ def register_font():
     sys.exit(1)
 
 
-def make_stamp(text: str, width: float, height: float) -> PdfReader:
-    """Tạo 1 trang PDF trong suốt chỉ chứa dòng chữ ở góc phải dưới."""
+def make_stamp(text: str, box) -> PdfReader:
+    """Tạo 1 trang PDF trong suốt chỉ chứa dòng chữ ở sát góc phải dưới của trang."""
+    left, bottom = float(box.left), float(box.bottom)
+    right, top = float(box.right), float(box.top)
+
     # Tự thu nhỏ cỡ chữ nếu tên quá dài so với bề rộng trang
     size = FONT_SIZE
-    max_w = width - MARGIN_RIGHT * 2
+    max_w = (right - left) - MARGIN_RIGHT * 2
     while size > 5 and pdfmetrics.stringWidth(text, FONT_NAME, size) > max_w:
         size -= 0.5
 
     buf = io.BytesIO()
-    c = canvas.Canvas(buf, pagesize=(width, height))
+    c = canvas.Canvas(buf, pagesize=(right, top))
     c.setFont(FONT_NAME, size)
-    c.drawRightString(width - MARGIN_RIGHT, MARGIN_BOTTOM, text)
+    # Tính cả trường hợp trang có gốc toạ độ khác (0,0)
+    c.drawRightString(right - MARGIN_RIGHT, bottom + MARGIN_BOTTOM, text)
     c.save()
     buf.seek(0)
     return PdfReader(buf)
@@ -105,9 +109,7 @@ def main():
             if (page.get("/Rotate") or 0) % 360 != 0:
                 page.transfer_rotation_to_content()
 
-            w = float(page.mediabox.width)
-            h = float(page.mediabox.height)
-            stamp_page = make_stamp(label, w, h).pages[0]
+            stamp_page = make_stamp(label, page.mediabox).pages[0]
             page.merge_page(stamp_page)
 
             writer.add_page(page)
