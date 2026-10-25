@@ -1,0 +1,48 @@
+{
+  "v": 1,
+  "files": {
+    "Bai_10_website_khoahocgiahoi_com_zalo_0583953426.mp4": {
+      "name": "Bai_10_website_khoahocgiahoi_com_zalo_0583953426.mp4",
+      "id": "Bai_10_website_khoahocgiahoi_com_zalo_0583953426_mp4",
+      "kind": "video",
+      "mode": "hls-video",
+      "mime": "video/mp4",
+      "segExt": "ts",
+      "size": 397954881,
+      "durs": [
+        9.92,
+        9.92,
+        9.92,
+        9.92,
+        9.92,
+        9.92,
+        9.92,
+        9.92
+      ],
+      "sizes": [
+        700112,
+        596712,
+        619460,
+        966132,
+        711204,
+        750120,
+        892812,
+        722108
+      ],
+      "done": 8,
+      "createdAt": "2026-10-25T00:05:28.276Z",
+      "drm": {
+        "method": "AES-128",
+        "key": "TU5IQUVOQzEB3/iWA+i+EI/qYALJQItkzwAAABArAgS6jcD1ZYopzj5V98vIjfaJwicgQy2EsxFV/p+ZI9Xq4OdWSk1SQQ6CQA=="
+      },
+      "src": {
+        "name": "Bài 10 (website khoahocgiahoi.com zalo 0583953426).mp4",
+        "size": 397954881,
+        "lastModified": 1792886654319
+      },
+      "uploadId": "671eb51bcc02605407a4f36998a73424",
+      "updatedAt": "2026-10-25T00:05:28.278Z",
+      "state": "uploading"
+    }
+  }
+}
