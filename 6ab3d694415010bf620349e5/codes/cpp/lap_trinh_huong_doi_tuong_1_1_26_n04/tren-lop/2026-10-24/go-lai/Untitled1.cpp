@@ -28,6 +28,10 @@ class Xe {
         virtual int demChoNgoi() = 0;
 };
 
+// ================================
+// ===========DANG GO==============
+// ================================
+
 int main() {
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
