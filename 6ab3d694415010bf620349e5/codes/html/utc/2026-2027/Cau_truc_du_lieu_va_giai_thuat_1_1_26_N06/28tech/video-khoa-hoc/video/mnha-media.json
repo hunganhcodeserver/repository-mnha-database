@@ -1371,8 +1371,11 @@
         "lastModified": 1792886654319
       },
       "uploadId": "671eb51bcc02605407a4f36998a73424",
-      "updatedAt": "2026-10-25T00:15:36.702Z",
-      "state": "uploading"
+      "updatedAt": "2026-10-25T00:15:39.181Z",
+      "state": "ready",
+      "total": 673,
+      "duration": 6677,
+      "playlist": "_media/Bai_10_website_khoahocgiahoi_com_zalo_0583953426_mp4/index.m3u8"
     }
   }
 }
