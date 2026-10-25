@@ -6,12 +6,12 @@
       "repo": "mnha-media-20261025-112258",
       "branch": "main",
       "createdAt": "2026-10-25T11:23:00.969Z",
-      "bytes": 68981200,
+      "bytes": 77695008,
       "full": false,
       "fullAt": "2026-10-25T11:23:03.558Z",
       "note": "",
       "private": false,
-      "updatedAt": "2026-10-25T11:33:44.840Z"
+      "updatedAt": "2026-10-25T11:34:17.192Z"
     },
     {
       "id": "mnha-media-20261025-112257",
@@ -42,5 +42,5 @@
   "v": 1,
   "createdAt": "2026-10-25T11:23:01.061Z",
   "active": "mnha-media-20261025-112258",
-  "updatedAt": "2026-10-25T11:33:44.840Z"
+  "updatedAt": "2026-10-25T11:34:17.192Z"
 }
