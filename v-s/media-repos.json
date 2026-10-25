@@ -1,0 +1,21 @@
+{
+  "repos": [
+    {
+      "id": "mnha-media-20261025-112258",
+      "owner": "hunganhcodeserver-data",
+      "repo": "mnha-media-20261025-112258",
+      "branch": "main",
+      "createdAt": "2026-10-25T11:23:00.969Z",
+      "bytes": 0,
+      "full": false,
+      "fullAt": "2026-10-25T11:23:01.062Z",
+      "note": "",
+      "private": false
+    }
+  ],
+  "limitBytes": 524288000,
+  "v": 1,
+  "createdAt": "2026-10-25T11:23:01.061Z",
+  "active": "mnha-media-20261025-112258",
+  "updatedAt": "2026-10-25T11:23:01.062Z"
+}
