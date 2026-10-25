@@ -1,0 +1,20 @@
+{
+  "nodes": [
+    {
+      "id": "data-node",
+      "url": "https://repository-mnha-data-1-vercel.vercel.app",
+      "createdAt": "2026-10-25T10:07:15.197Z",
+      "enabled": true,
+      "health": null,
+      "name": "data-node",
+      "note": "",
+      "keyEnc": "v2.BZWcbPP5o7hWOKPu.YCeMhx9XixGxAQmPg3Z3Wg.M96WxWk0NWKixNVg8OAeyhH_bFwKB-KyNZY-3lpOSZGUGdOwZ_bgwIFo6egPf7N6jD9LalqBGuR-DZg6qjzgSpHt3RFTdf_aKrdh15aeIew",
+      "keyHint": "ff17",
+      "createdBy": "data-node",
+      "updatedAt": "2026-10-25T10:07:15.197Z"
+    }
+  ],
+  "v": 1,
+  "createdAt": "2026-10-25T10:07:15.197Z",
+  "updatedAt": "2026-10-25T10:07:15.270Z"
+}
