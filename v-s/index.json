@@ -12,9 +12,22 @@
       "keyHint": "ff17",
       "createdBy": "data-node",
       "updatedAt": "2026-10-25T10:07:15.197Z"
+    },
+    {
+      "id": "data-node-1",
+      "url": "https://repository-mnha-data-2-vercel.vercel.app",
+      "createdAt": "2026-10-25T10:38:28.277Z",
+      "enabled": true,
+      "health": null,
+      "name": "data-node-1",
+      "note": "",
+      "keyEnc": "v2.BcBBJtvabWBxVjTU.Xqp9LFc0nYgEEmMG6A0qIQ.hL3cOKjgGLBepYVQxZW2Auq1fF7WOOWjobbsqzZlypkfoW-RZr_mOjdRXTQ8Pw78WYxLFZmvqiO7wKMv85LVqx5u7D_JzWGw-Z3pPKNOsW0",
+      "keyHint": "f2dc",
+      "createdBy": "data-node",
+      "updatedAt": "2026-10-25T10:38:28.277Z"
     }
   ],
   "v": 1,
   "createdAt": "2026-10-25T10:07:15.197Z",
-  "updatedAt": "2026-10-25T10:07:15.270Z"
+  "updatedAt": "2026-10-25T10:38:28.337Z"
 }
