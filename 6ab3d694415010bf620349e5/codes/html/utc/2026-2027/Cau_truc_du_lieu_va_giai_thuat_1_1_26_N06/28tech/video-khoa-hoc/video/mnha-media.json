@@ -2053,7 +2053,9 @@
         9.92,
         9.92,
         9.92,
-        9.92
+        9.92,
+        9.92,
+        2.4
       ],
       "sizes": [
         895068,
@@ -2723,9 +2725,11 @@
         725116,
         656684,
         742036,
-        481092
+        481092,
+        502900,
+        182172
       ],
-      "done": 668,
+      "done": 670,
       "createdAt": "2026-10-25T11:25:22.989Z",
       "drm": {
         "method": "AES-128",
@@ -2737,8 +2741,11 @@
         "lastModified": 1792927306218
       },
       "uploadId": "dc414639c3f8209d3dad98df201b9d84",
-      "updatedAt": "2026-10-25T12:04:02.549Z",
-      "state": "uploading"
+      "updatedAt": "2026-10-25T12:04:06.348Z",
+      "state": "ready",
+      "total": 670,
+      "duration": 6638.88,
+      "playlist": "_media/Bai_11_website_khoahocgiahoi_com_zalo_0583953426_mp4/index.m3u8"
     }
   }
 }
