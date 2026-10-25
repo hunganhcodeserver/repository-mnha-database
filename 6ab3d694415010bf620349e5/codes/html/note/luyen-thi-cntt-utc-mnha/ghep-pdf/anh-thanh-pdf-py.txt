@@ -1,2 +1,107 @@
+"""
+Gộp ảnh slide_01.png ... slide_n.png trong từng thư mục "<tên>.pdf" thành 1 file PDF thật:
+    ROOT\\<tên>.pdf\\slide_01.png ...   ->   ROOT\\<stt>. <tên>.pdf
+Sau khi tạo PDF thành công thì xoá thư mục ảnh (nếu DELETE_SOURCE = True).
 
-hap-du-lieu-input-vao-day
+Dừng quét ảnh trong 1 thư mục khi gặp lỗi/thiếu ảnh liên tiếp MAX_ERRORS lần (5/5).
+
+Cài thư viện:  pip install pillow
+Chạy:          python images_to_pdf.py
+"""
+
+import re
+import shutil
+from pathlib import Path
+
+from PIL import Image
+
+# ====== CẤU HÌNH ======
+ROOT = Path(r"C:\Users\Admin\Downloads\slide-dstt")
+IMAGE_PREFIX = "slide_"          # tên ảnh: slide_01.png, slide_02.png, ...
+IMAGE_EXT = ".png"
+MAX_ERRORS = 5                   # lỗi liên tiếp tối đa (5/5 thì dừng)
+DELETE_SOURCE = True             # xoá thư mục ảnh sau khi tạo PDF thành công
+RESOLUTION = 150.0               # DPI khi lưu PDF
+# ======================
+
+
+def natural_key(s: str):
+    return [int(t) if t.isdigit() else t.lower() for t in re.split(r"(\d+)", s)]
+
+
+def find_image(folder: Path, i: int):
+    """Thử slide_01.png, slide_1.png, slide_001.png."""
+    for name in (f"{IMAGE_PREFIX}{i:02d}{IMAGE_EXT}",
+                 f"{IMAGE_PREFIX}{i}{IMAGE_EXT}",
+                 f"{IMAGE_PREFIX}{i:03d}{IMAGE_EXT}"):
+        p = folder / name
+        if p.is_file():
+            return p
+    return None
+
+
+def load_rgb(path: Path) -> Image.Image:
+    img = Image.open(path)
+    if img.mode in ("RGBA", "LA", "P"):
+        img = img.convert("RGBA")
+        bg = Image.new("RGB", img.size, (255, 255, 255))
+        bg.paste(img, mask=img.split()[-1])
+        return bg
+    return img.convert("RGB")
+
+
+def collect_images(folder: Path):
+    images, errors, i = [], 0, 1
+    while errors < MAX_ERRORS:
+        p = find_image(folder, i)
+        if p is None:
+            errors += 1
+            print(f"    [lỗi {errors}/{MAX_ERRORS}] thiếu ảnh số {i}")
+        else:
+            try:
+                images.append(load_rgb(p))
+                errors = 0                      # đọc được thì reset bộ đếm lỗi
+            except Exception as e:
+                errors += 1
+                print(f"    [lỗi {errors}/{MAX_ERRORS}] {p.name}: {e}")
+        i += 1
+    print(f"    Gặp {MAX_ERRORS}/{MAX_ERRORS} lỗi liên tiếp -> dừng, đọc được {len(images)} ảnh.")
+    return images
+
+
+def main():
+    folders = sorted(
+        (d for d in ROOT.iterdir() if d.is_dir() and d.name.lower().endswith(".pdf")),
+        key=lambda d: natural_key(d.name),
+    )
+    if not folders:
+        print("Không tìm thấy thư mục nào có đuôi .pdf trong", ROOT)
+        return
+
+    for idx, folder in enumerate(folders, start=1):
+        print(f"[{idx}/{len(folders)}] {folder.name}")
+        out_path = ROOT / f"{idx}. {folder.name}"
+        if out_path.exists():
+            print("    Đã có file PDF, bỏ qua.")
+            continue
+
+        images = collect_images(folder)
+        if not images:
+            print("    Không có ảnh nào, bỏ qua (không xoá).")
+            continue
+
+        images[0].save(out_path, "PDF", resolution=RESOLUTION,
+                       save_all=True, append_images=images[1:])
+        for im in images:
+            im.close()
+        print(f"    -> {out_path.name} ({len(images)} trang)")
+
+        if DELETE_SOURCE and out_path.is_file() and out_path.stat().st_size > 0:
+            shutil.rmtree(folder)
+            print("    Đã xoá thư mục ảnh.")
+
+    print("Xong!")
+
+
+if __name__ == "__main__":
+    main()
