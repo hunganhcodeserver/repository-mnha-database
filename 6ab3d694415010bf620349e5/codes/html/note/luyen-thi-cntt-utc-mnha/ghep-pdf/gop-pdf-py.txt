@@ -1,2 +1,94 @@
+"""
+Nối các file PDF có tên dạng "1. abc.pdf", "2. xyz.pdf", ... "n. ....pdf"
+(cùng thư mục với file script) theo thứ tự số, rồi đánh dấu số trang
+ở góc phải dưới cùng, dạng:  "<số trang> - MNHA"
 
-hap-du-lieu-input-vao-day
+Cài thư viện:  pip install pypdf reportlab
+Chạy:          python merge_pdf.py
+"""
+
+import io
+import re
+import sys
+from pathlib import Path
+
+from pypdf import PdfReader, PdfWriter
+from reportlab.pdfgen import canvas
+
+# ====== CẤU HÌNH ======
+FOLDER = Path(__file__).resolve().parent   # thư mục chứa PDF (mặc định: cùng thư mục script)
+OUTPUT_NAME = "merged_MNHA.pdf"            # tên file kết quả
+NOTE = " - MNHA"                           # ghi chú thêm sau số trang
+FONT_NAME = "Helvetica"
+FONT_SIZE = 10
+MARGIN_RIGHT = 30                          # cách mép phải (pt)
+MARGIN_BOTTOM = 20                         # cách mép dưới (pt)
+# ======================
+
+PATTERN = re.compile(r"^\s*(\d+)\s*\.\s*.*\.pdf$", re.IGNORECASE)
+
+
+def find_pdfs(folder: Path):
+    """Lấy các file '<số>. *.pdf' và sắp xếp theo số."""
+    files = []
+    for f in folder.iterdir():
+        if not f.is_file() or f.name == OUTPUT_NAME:
+            continue
+        m = PATTERN.match(f.name)
+        if m:
+            files.append((int(m.group(1)), f))
+    files.sort(key=lambda x: x[0])
+    return [f for _, f in files]
+
+
+def make_stamp(text: str, width: float, height: float) -> PdfReader:
+    """Tạo 1 trang PDF trong suốt chỉ chứa dòng chữ ở góc phải dưới."""
+    buf = io.BytesIO()
+    c = canvas.Canvas(buf, pagesize=(width, height))
+    c.setFont(FONT_NAME, FONT_SIZE)
+    c.drawRightString(width - MARGIN_RIGHT, MARGIN_BOTTOM, text)
+    c.save()
+    buf.seek(0)
+    return PdfReader(buf)
+
+
+def main():
+    pdfs = find_pdfs(FOLDER)
+    if not pdfs:
+        print('Không tìm thấy file nào dạng "1. *.pdf", "2. *.pdf", ...')
+        sys.exit(1)
+
+    print("Thứ tự nối file:")
+    for p in pdfs:
+        print("  ", p.name)
+
+    writer = PdfWriter()
+    page_no = 0
+
+    for pdf_path in pdfs:
+        reader = PdfReader(str(pdf_path))
+        if reader.is_encrypted:
+            reader.decrypt("")
+        for page in reader.pages:
+            page_no += 1
+
+            # Nếu trang bị xoay thì "đóng" góc xoay vào nội dung để toạ độ góc phải dưới luôn đúng
+            if (page.get("/Rotate") or 0) % 360 != 0:
+                page.transfer_rotation_to_content()
+
+            w = float(page.mediabox.width)
+            h = float(page.mediabox.height)
+            stamp_page = make_stamp(f"{page_no}{NOTE}", w, h).pages[0]
+            page.merge_page(stamp_page)
+
+            writer.add_page(page)
+
+    out_path = FOLDER / OUTPUT_NAME
+    with open(out_path, "wb") as f:
+        writer.write(f)
+
+    print(f"\nXong! {len(pdfs)} file, {page_no} trang -> {out_path}")
+
+
+if __name__ == "__main__":
+    main()
