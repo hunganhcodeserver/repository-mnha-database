@@ -20,17 +20,17 @@
       "days": {
         "2026-10-26": {
           "in": 0,
-          "out": 2010,
+          "out": 3015,
           "originIn": 0,
           "originOut": 0,
-          "req": 2,
+          "req": 3,
           "cfUp": 0,
           "cfDown": 0,
           "cfReq": 0,
           "fbUp": 0
         }
       },
-      "updatedAt": "2026-10-26T04:21:49.471Z"
+      "updatedAt": "2026-10-26T16:20:50.291Z"
     },
     "data-node": {
       "days": {
@@ -53,5 +53,5 @@
   "week": 43,
   "from": "2026-10-26",
   "to": "2026-11-01",
-  "updatedAt": "2026-10-26T14:50:47.806Z"
+  "updatedAt": "2026-10-26T16:20:50.291Z"
 }
