@@ -3,7 +3,7 @@
   "docs": {
     "De thi giua ki 20183.docx": {
       "title": "De thi giua ki 20183",
-      "public": false,
+      "public": true,
       "page": {
         "size": "Letter",
         "orientation": "portrait",
@@ -19,7 +19,7 @@
       },
       "size": 41549,
       "images": {},
-      "updatedAt": "2026-10-26T14:47:30.153Z"
+      "updatedAt": "2026-10-26T14:47:36.581Z"
     }
   }
 }
