@@ -1,29 +1,4 @@
 {
   "version": 1,
-  "docs": {
-    "HUST_De thi giua ki 20183.docx": {
-      "title": "HUST De thi giua ki 20183",
-      "public": false,
-      "page": {
-        "size": "Letter",
-        "orientation": "portrait",
-        "margin": "custom",
-        "marginsPx": {
-          "top": 96,
-          "right": 120,
-          "bottom": 96,
-          "left": 120
-        },
-        "widthPx": 816,
-        "heightPx": 1056,
-        "color": "#ffffff",
-        "columns": 1,
-        "watermark": ""
-      },
-      "size": 41549,
-      "images": {},
-      "pageCount": 0,
-      "updatedAt": "2026-10-26T23:18:37.507Z"
-    }
-  }
+  "docs": {}
 }
