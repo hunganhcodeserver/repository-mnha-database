@@ -4181,5 +4181,71 @@
 
 
 
+<!-- SLIDE 67: Phương pháp nhân tử Lagrange -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+        <!-- Header -->
+        <div class="top-tag">5.4 • NHÂN TỬ LAGRANGE</div>
+        <h1 class="slide-title" style="margin-bottom: 25px;">Phương pháp nhân tử Lagrange</h1>
+
+        <!-- Khung công thức -->
+        <div class="highlight-card" style="background: #ffffff; padding: 22px 24px; border-radius: 8px; border: 1px solid #e2e8f0; box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 35px;">
+            <div style="font-family:'Cambria Math', 'Times New Roman', serif; font-size: 18px; color: #1e293b; text-align: center;">
+                \(L(x, \lambda) = f(x) + \sum_i \lambda_i g_i(x), \quad \text{với } g_i(x)=0 \text{ (chỉ ràng buộc đẳng thức)}\)
+            </div>
+        </div>
+
+        <!-- Các bước thực hiện -->
+        <div style="display: flex; flex-direction: column; gap: 20px; padding: 0 10px;">
+            
+            <!-- Bước 1 -->
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <div style="flex: 0 0 110px; background: #94a3b8; color: #ffffff; padding: 12px 0; border-radius: 6px; text-align: center; font-weight: 600; font-size: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    Bước 1
+                </div>
+                <div style="font-size: 16px; color: #334155;">
+                    Lập hàm Lagrange \(L(x, \lambda)\)
+                </div>
+            </div>
+
+            <!-- Bước 2 -->
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <div style="flex: 0 0 110px; background: #94a3b8; color: #ffffff; padding: 12px 0; border-radius: 6px; text-align: center; font-weight: 600; font-size: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    Bước 2
+                </div>
+                <div style="font-size: 16px; color: #334155;">
+                    Tìm điểm dừng: giải \(\partial L/\partial x_j = 0\) và \(\partial L/\partial \lambda_i = 0\) (tức \(g_i(x)=0\))
+                </div>
+            </div>
+
+            <!-- Bước 3 -->
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <div style="flex: 0 0 110px; background: #94a3b8; color: #ffffff; padding: 12px 0; border-radius: 6px; text-align: center; font-weight: 600; font-size: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    Bước 3
+                </div>
+                <div style="font-size: 16px; color: #334155;">
+                    Kiểm tra điều kiện đủ bậc 2: \(d^2L < 0 \rightarrow\) cực đại; \(d^2L > 0 \rightarrow\) cực tiểu
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Ghi chú mờ -->
+        <div style="margin-top: 40px; font-size: 14.5px; color: #94a3b8; font-style: italic; line-height: 1.6; padding-left: 10px;">
+            \(\lambda\) đo "độ nhạy" của giá trị tối ưu khi nới lỏng ràng buộc \(g_i(x)=0\) — liên hệ ý nghĩa giá bóng (shadow price) như biến đối ngẫu ở Chương 4.
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+        <span>HMT Lab | Huy D. Le | lehuydip@gmail.com</span>
+        <span>Chương 5 - Lý thuyết tối ưu</span>
+        <span>67</span>
+    </div>
+</div>
+
+
+
+
 </body>
 </html>
