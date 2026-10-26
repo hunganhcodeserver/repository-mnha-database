@@ -4051,5 +4051,74 @@
 
 
 
+<!-- SLIDE 65: Ví dụ: giải hệ điều kiện KKT -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+        <!-- Header -->
+        <div class="top-tag">5.2 • VÍ DỤ</div>
+        <h1 class="slide-title" style="margin-bottom: 25px;">Ví dụ: giải hệ điều kiện KKT</h1>
+
+        <!-- Khung đề bài -->
+        <div class="highlight-card" style="background: #ffffff; padding: 18px 24px; border-radius: 8px; border: 1px solid #e2e8f0; box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 30px; text-align: center; font-family:'Cambria Math', 'Times New Roman', serif; font-size: 18px; color: #1e293b;">
+            min \(f(x) = (x_1 - 1)^2 + (x_2 - 2)^2\) với \(g(x) = x_1 + x_2 - 2 \le 0\)
+        </div>
+
+        <!-- Các bước giải -->
+        <div style="display: flex; flex-direction: column; gap: 20px; padding: 0 10px;">
+            
+            <!-- Bước 1 -->
+            <div style="display: flex; gap: 15px; align-items: flex-start;">
+                <div style="width: 70px; font-weight: 700; color: #64748b; font-size: 15.5px; flex-shrink: 0;">Bước 1</div>
+                <div style="flex: 1; font-size: 15px; color: #334155; line-height: 1.6; font-family: 'Cambria Math', serif;">
+                    Cực tiểu không ràng buộc (1,2): \(g(1,2)=1>0 \rightarrow\) vi phạm \(\rightarrow\) ràng buộc chắc chắn chặt
+                </div>
+            </div>
+
+            <!-- Bước 2 -->
+            <div style="display: flex; gap: 15px; align-items: flex-start;">
+                <div style="width: 70px; font-weight: 700; color: #64748b; font-size: 15.5px; flex-shrink: 0;">Bước 2</div>
+                <div style="flex: 1; font-size: 15px; color: #334155; line-height: 1.6; font-family: 'Cambria Math', serif;">
+                    Hệ KKT: \(2(x_1 - 1) + \mu = 0\); \(2(x_2 - 2) + \mu = 0\); \(\mu(x_1 + x_2 - 2) = 0, \mu \ge 0\)
+                </div>
+            </div>
+
+            <!-- Bước 3 -->
+            <div style="display: flex; gap: 15px; align-items: flex-start;">
+                <div style="width: 70px; font-weight: 700; color: #64748b; font-size: 15.5px; flex-shrink: 0;">Bước 3</div>
+                <div style="flex: 1; font-size: 15px; color: #334155; line-height: 1.6; font-family: 'Cambria Math', serif;">
+                    Thử \(\mu > 0\) (chặt): \(x_1 + x_2 = 2\) và \(x_1 - 1 = x_2 - 2 \Rightarrow x_2 = 1,5; x_1 = 0,5\)
+                </div>
+            </div>
+
+            <!-- Bước 4 -->
+            <div style="display: flex; gap: 15px; align-items: flex-start;">
+                <div style="width: 70px; font-weight: 700; color: #64748b; font-size: 15.5px; flex-shrink: 0;">Bước 4</div>
+                <div style="flex: 1; font-size: 15px; color: #334155; line-height: 1.6; font-family: 'Cambria Math', serif;">
+                    \(\mu = -2(x_1 - 1) = 1 \ge 0 \checkmark \rightarrow x^* = (0,5; 1,5), f(x^*) = 0,5\)
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Khung ghi chú -->
+        <div style="margin-top: 40px; padding: 16px 20px; background: #f1f5f9; border: 1px dashed #94a3b8; border-radius: 8px;">
+            <div style="font-size: 14.5px; color: #64748b; font-style: italic; line-height: 1.6;">
+                \(x^*\) thỏa KKT \(\Rightarrow\) chỉ là ỨNG VIÊN cực tiểu (chưa chắc chắn) — cần mục 5.3 để kết luận chắc chắn
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+        <!-- <span>HMT Lab | Huy D. Le | lehuydip@gmail.com</span> -->
+        <span>Chương 5 - Lý thuyết tối ưu</span>
+        <span>65</span>
+    </div>
+</div>
+
+
+
+
+
 </body>
 </html>
