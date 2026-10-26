@@ -1,25 +1,4 @@
 {
   "version": 1,
-  "docs": {
-    "De thi giua ki 20183.docx": {
-      "title": "De thi giua ki 20183",
-      "public": true,
-      "page": {
-        "size": "Letter",
-        "orientation": "portrait",
-        "margin": "custom",
-        "marginsPx": {
-          "top": 96,
-          "right": 120,
-          "bottom": 96,
-          "left": 120
-        },
-        "widthPx": 816,
-        "heightPx": 1056
-      },
-      "size": 41549,
-      "images": {},
-      "updatedAt": "2026-10-26T14:47:36.581Z"
-    }
-  }
+  "docs": {}
 }
