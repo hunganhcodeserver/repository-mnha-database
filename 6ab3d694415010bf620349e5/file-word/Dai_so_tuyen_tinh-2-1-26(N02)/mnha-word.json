@@ -1,25 +1,4 @@
 {
   "version": 1,
-  "docs": {
-    "bai-tap-chuong-4-va-5.docx": {
-      "title": "bai-tap-chuong-4-va-5",
-      "public": true,
-      "page": {
-        "size": "Letter",
-        "orientation": "portrait",
-        "margin": "custom",
-        "marginsPx": {
-          "top": 76,
-          "right": 51,
-          "bottom": 76,
-          "left": 95
-        },
-        "widthPx": 816,
-        "heightPx": 1056
-      },
-      "size": 60001,
-      "images": {},
-      "updatedAt": "2026-10-26T07:40:23.441Z"
-    }
-  }
+  "docs": {}
 }
