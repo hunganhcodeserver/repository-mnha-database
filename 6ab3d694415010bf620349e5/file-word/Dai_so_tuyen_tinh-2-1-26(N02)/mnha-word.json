@@ -3,7 +3,7 @@
   "docs": {
     "bai-tap-chuong-4-va-5.docx": {
       "title": "bai-tap-chuong-4-va-5",
-      "public": false,
+      "public": true,
       "page": {
         "size": "Letter",
         "orientation": "portrait",
@@ -19,7 +19,7 @@
       },
       "size": 109118,
       "images": {},
-      "updatedAt": "2026-10-26T08:56:21.234Z"
+      "updatedAt": "2026-10-26T08:56:51.263Z"
     }
   }
 }
