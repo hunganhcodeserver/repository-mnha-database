@@ -4370,5 +4370,94 @@
 </div>
 
 
+
+
+
+
+<!-- SLIDE 70: Phương pháp hàm phạt -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+        <!-- Header -->
+        <div class="top-tag">5.5 • BỔ TRỢ</div>
+        <h1 class="slide-title" style="margin-bottom: 20px;">Phương pháp hàm phạt</h1>
+
+        <!-- Ý tưởng -->
+        <div style="font-size: 16px; color: #334155; line-height: 1.6; margin-bottom: 30px;">
+            Ý tưởng: biến bài toán CÓ ràng buộc thành một dãy bài toán KHÔNG ràng buộc, để tái dùng Gradient/Newton (Chương 3).
+        </div>
+
+        <!-- Nội dung chính: 2 cột -->
+        <div style="display: flex; gap: 25px; align-items: stretch; margin-top: 10px;">
+            
+            <!-- Cột trái: Phương pháp điểm NGOÀI -->
+            <div style="flex: 1; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 24px 28px; box-sizing: border-box;">
+                <div style="font-size: 17px; font-weight: 700; color: #475569; margin-bottom: 20px;">
+                    Phương pháp điểm NGOÀI
+                </div>
+                
+                <!-- Công thức -->
+                <div style="font-family:'Cambria Math', 'Times New Roman', serif; font-size: 19px; color: #1e293b; text-align: center; margin-bottom: 25px;">
+                    \[
+                    T(x,t) = f(x) + P(t) \cdot \varphi(x) \rightarrow \min
+                    \]
+                </div>
+
+                <!-- Gạch đầu dòng -->
+                <ul style="margin: 0; padding-left: 20px; font-size: 14.5px; color: #475569; line-height: 1.8; list-style-type: disc;">
+                    <li style="margin-bottom: 10px;">
+                        Xuất phát từ điểm NGOÀI miền D
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        \(\varphi(x)=0\) nếu \(x \in D\); \(\varphi(x)>0\) nếu vi phạm
+                    </li>
+                    <li>
+                        \(t\) tăng dần \(\rightarrow\) nghiệm tiến vào D từ bên ngoài
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Cột phải: Phương pháp điểm TRONG -->
+            <div style="flex: 1; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 24px 28px; box-sizing: border-box;">
+                <div style="font-size: 17px; font-weight: 700; color: #475569; margin-bottom: 20px;">
+                    Phương pháp điểm TRONG
+                </div>
+                
+                <!-- Công thức -->
+                <div style="font-family:'Cambria Math', 'Times New Roman', serif; font-size: 19px; color: #1e293b; text-align: center; margin-bottom: 25px;">
+                    \[
+                    U(x,r) = f(x) + S(r) \cdot I(x) \rightarrow \min
+                    \]
+                </div>
+
+                <!-- Gạch đầu dòng -->
+                <ul style="margin: 0; padding-left: 20px; font-size: 14.5px; color: #475569; line-height: 1.8; list-style-type: disc;">
+                    <li style="margin-bottom: 10px;">
+                        Xuất phát từ điểm TRONG miền D
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        \(I(x) \rightarrow +\infty\) khi \(x\) tiến tới biên (hàm chắn)
+                    </li>
+                    <li>
+                        \(r\) giảm dần \(\rightarrow\) nghiệm tiến tới biên từ bên trong, luôn chấp nhận được
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+        <span>HMT Lab | Huy D. Le | lehuydip@gmail.com</span>
+        <span>Chương 5 - Lý thuyết tối ưu</span>
+        <span>70</span>
+    </div>
+</div>
+
+
+
+
+
+
 </body>
 </html>
