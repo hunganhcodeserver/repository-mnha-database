@@ -4761,5 +4761,135 @@
 
 
 
+
+<!-- SLIDE 74: 2. Biểu diễn BTVT -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+        <!-- Header -->
+        <div class="top-tag">CHƯƠNG 5: BÀI TOÁN VẬN TẢI</div>
+        <h1 class="slide-title" style="margin-bottom: 25px;">2. Biểu diễn BTVT</h1>
+
+        <!-- Nội dung chính: 2 cột -->
+        <div style="display: flex; gap: 30px; align-items: flex-start; margin-top: 10px;">
+
+            <!-- Cột trái: Text mô tả -->
+            <div style="flex: 1; font-size: 15.5px; color: #1e293b; line-height: 1.8;">
+                <p style="margin: 0 0 15px 0;">Giả sử ta có 1 p.án x.</p>
+                <p style="margin: 0 0 15px 0;">Lập bảng T gồm m hàng và n cột.</p>
+                
+                <div style="margin-bottom: 10px;">
+                    ô đầu hàng ghi \(a_i\), \(i = 1, 2, \dots, m\)
+                </div>
+                <div style="margin-bottom: 15px;">
+                    ô đầu cột ghi \(b_j\), \(j = 1, 2, \dots, n\)
+                </div>
+
+                <div style="margin-bottom: 5px;">ô \((i,j)\):</div>
+                <ul style="margin: 0 0 20px 0; padding-left: 20px; list-style-type: disc;">
+                    <li style="margin-bottom: 5px;">ghi \(c_{ij}\) vào góc ô</li>
+                    <li>ghi \(x_{ij}\) vào chính giữa ô.</li>
+                </ul>
+            </div>
+
+            <!-- Cột phải: Bảng BTVT -->
+            <div style="flex: 1.2; display: flex; justify-content: center;">
+                <table style="border-collapse: collapse; font-family:'Cambria Math', 'Times New Roman', serif; font-size: 15px; color: #1e293b; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                    <!-- Hàng tiêu đề cột -->
+                    <tr>
+                        <!-- Ô chéo góc -->
+                        <th style="border: 1px solid #64748b; width: 70px; height: 70px; padding: 0; position: relative;">
+                            <svg width="100%" height="100%" style="position: absolute; top: 0; left: 0; pointer-events: none;">
+                                <line x1="0" y1="0" x2="100%" y2="100%" stroke="#64748b" stroke-width="1" />
+                            </svg>
+                            <div style="position: absolute; top: 2px; right: 6px; font-size: 13px; font-weight: normal;">\(b_j\)</div>
+                            <div style="position: absolute; bottom: 2px; left: 6px; font-size: 13px; font-weight: normal;">\(a_i\)</div>
+                        </th>
+                        <!-- Các cột b_j -->
+                        <th style="border: 1px solid #64748b; width: 90px; height: 70px; font-weight: normal;">70</th>
+                        <th style="border: 1px solid #64748b; width: 90px; height: 70px; font-weight: normal;">20</th>
+                        <th style="border: 1px solid #64748b; width: 90px; height: 70px; font-weight: normal;">60</th>
+                        <th style="border: 1px solid #64748b; width: 90px; height: 70px; font-weight: normal;">80</th>
+                    </tr>
+                    
+                    <!-- Hàng 1 -->
+                    <tr>
+                        <th style="border: 1px solid #64748b; height: 70px; font-weight: normal;">40</th>
+                        <td style="border: 1px solid #64748b; position: relative;">
+                            <span style="position: absolute; bottom: 4px; right: 6px; font-size: 13px;">15</span>
+                        </td>
+                        <td style="border: 1px solid #64748b; position: relative;">
+                            <span style="position: absolute; bottom: 4px; right: 6px; font-size: 13px;">12</span>
+                        </td>
+                        <td style="border: 1px solid #64748b; position: relative;">
+                            <span style="position: absolute; bottom: 4px; right: 6px; font-size: 13px;">6</span>
+                        </td>
+                        <td style="border: 1px solid #64748b; position: relative;">
+                            <span style="position: absolute; bottom: 4px; right: 6px; font-size: 13px;">3</span>
+                        </td>
+                    </tr>
+
+                    <!-- Hàng 2 -->
+                    <tr>
+                        <th style="border: 1px solid #64748b; height: 70px; font-weight: normal;">70</th>
+                        <td style="border: 1px solid #64748b; position: relative;">
+                            <span style="position: absolute; bottom: 4px; right: 6px; font-size: 13px;">12</span>
+                        </td>
+                        <td style="border: 1px solid #64748b; position: relative;">
+                            <span style="position: absolute; bottom: 4px; right: 6px; font-size: 13px;">9</span>
+                        </td>
+                        <td style="border: 1px solid #64748b; position: relative;">
+                            <span style="position: absolute; bottom: 4px; right: 6px; font-size: 13px;">6</span>
+                        </td>
+                        <td style="border: 1px solid #64748b; position: relative;">
+                            <span style="position: absolute; bottom: 4px; right: 6px; font-size: 13px;">8</span>
+                        </td>
+                    </tr>
+
+                    <!-- Hàng 3 -->
+                    <tr>
+                        <th style="border: 1px solid #64748b; height: 70px; font-weight: normal;">120</th>
+                        <td style="border: 1px solid #64748b; position: relative;">
+                            <span style="position: absolute; bottom: 4px; right: 6px; font-size: 13px;">12</span>
+                        </td>
+                        <td style="border: 1px solid #64748b; position: relative;">
+                            <span style="position: absolute; bottom: 4px; right: 6px; font-size: 13px;">9</span>
+                        </td>
+                        <td style="border: 1px solid #64748b; position: relative;">
+                            <span style="position: absolute; bottom: 4px; right: 6px; font-size: 13px;">9</span>
+                        </td>
+                        <td style="border: 1px solid #64748b; position: relative;">
+                            <span style="position: absolute; bottom: 4px; right: 6px; font-size: 13px;">18</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+        <!-- Text dưới cùng -->
+        <div style="margin-top: 35px; font-size: 15.5px; color: #1e293b; line-height: 1.8;">
+            <p style="margin: 0 0 8px 0;">ô \((i,j)\) ứng với \(x_{ij} > 0\) gọi là ô sử dụng.</p>
+            <p style="margin: 0;">Kí hiệu tập các ô sử dụng là \(G = \{(i,j) \in T \mid x_{ij} > 0\}\)</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+        <!-- <span>HMT Lab | Huy D. Le | lehuydip@gmail.com</span> -->
+        <span>Chương 5 - Lý thuyết tối ưu</span>
+        <span>74</span>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
