@@ -5115,5 +5115,87 @@
 
 
 
+<!-- SLIDE 77: Phương pháp thế vị -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+        <!-- Header -->
+        <div class="top-tag">5.6 - THUẬT TOÁN</div>
+        <h1 class="slide-title" style="margin-bottom: 25px;">Phương pháp thế vị</h1>
+
+        <!-- Khung công thức -->
+        <div class="highlight-card" style="background: #64748b; padding: 18px 24px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+            <div style="font-family:'Cambria Math', 'Times New Roman', serif; font-size: 18px; color: #ffffff; text-align: center;">
+                Tối ưu \(\Leftrightarrow \exists u_i, v_j : u_i+v_j \le c_{ij}\) (mọi ô) &nbsp;&nbsp; và &nbsp;&nbsp; \(u_i+v_j = c_{ij}\) (ô sử dụng)
+            </div>
+        </div>
+
+        <!-- Bảng quy trình -->
+        <div style="border-radius: 8px; overflow: hidden; border: 1px solid #cbd5e1; box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 20px;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 14.5px; text-align: left;">
+                <thead>
+                    <tr style="background: #64748b; color: #ffffff;">
+                        <th style="padding: 12px 16px; font-weight: 700; border-right: 1px solid #94a3b8; width: 10%; text-align: center;">Bước</th>
+                        <th style="padding: 12px 16px; font-weight: 700; width: 90%;">Nội dung</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- B1 -->
+                    <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+                        <td style="padding: 12px 16px; text-align: center; font-weight: 700; color: #1e40af; border-right: 1px solid #e2e8f0;">B1</td>
+                        <td style="padding: 12px 16px; color: #334155;">
+                            Tìm phương án cực biên xuất phát (1 trong 4 phương pháp)
+                        </td>
+                    </tr>
+                    <!-- B2 -->
+                    <tr style="border-bottom: 1px solid #e2e8f0; background: #ffffff;">
+                        <td style="padding: 12px 16px; text-align: center; font-weight: 700; color: #1e40af; border-right: 1px solid #e2e8f0;">B2</td>
+                        <td style="padding: 12px 16px; color: #334155;">
+                            Đặt \(u_1 = 0\), giải \(u_i+v_j = c_{ij}\) trên các ô sử dụng (cần \(|G| = m+n-1\); nếu thoái hóa, thêm ô tải lượng 0)
+                        </td>
+                    </tr>
+                    <!-- B3 -->
+                    <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+                        <td style="padding: 12px 16px; text-align: center; font-weight: 700; color: #1e40af; border-right: 1px solid #e2e8f0;">B3</td>
+                        <td style="padding: 12px 16px; color: #334155;">
+                            Tính \(\Delta_{ij} = u_i+v_j-c_{ij}\) cho ô chưa dùng. Mọi \(\Delta_{ij} \le 0 \Rightarrow\) TỐI ƯU, dừng
+                        </td>
+                    </tr>
+                    <!-- B4 -->
+                    <tr style="border-bottom: 1px solid #e2e8f0; background: #ffffff;">
+                        <td style="padding: 12px 16px; text-align: center; font-weight: 700; color: #1e40af; border-right: 1px solid #e2e8f0;">B4</td>
+                        <td style="padding: 12px 16px; color: #334155;">
+                            Chọn \(\Delta_{i^*j^*} = \max \Delta_{ij} > 0\); thêm ô \((i^*,j^*)\) vào G \(\Rightarrow\) xuất hiện chu trình K, ô \((i^*,j^*) \in K^+\)
+                        </td>
+                    </tr>
+                    <!-- B5 -->
+                    <tr style="background: #f8fafc;">
+                        <td style="padding: 12px 16px; text-align: center; font-weight: 700; color: #1e40af; border-right: 1px solid #e2e8f0;">B5</td>
+                        <td style="padding: 12px 16px; color: #334155;">
+                            \(\theta = \min\{x_{ij} : (i,j) \in K^-\}\); cộng \(\theta\) vào \(K^+\), trừ \(\theta\) ở \(K^-\); ô \(K^-\) đạt min rời G. Quay lại B2
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Ghi chú dưới cùng -->
+        <div style="background: #f1f5f9; padding: 16px 20px; border-radius: 8px; font-size: 14.5px; color: #475569; line-height: 1.7; border: 1px solid #e2e8f0;">
+            Mỗi vòng, chi phí giảm \(\theta \cdot \Delta\). Chú ý: tối ưu khi \(\Delta_{ij} \le 0\) — ngược dấu với bảng đơn hình ở 4.4.
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+        <!-- <span>HMT Lab | Huy D. Le | lehuydip@gmail.com</span> -->
+        <span>Chương 5 - Lý thuyết tối ưu</span>
+        <span>77</span>
+    </div>
+</div>
+
+
+
+
+
+
 </body>
 </html>
