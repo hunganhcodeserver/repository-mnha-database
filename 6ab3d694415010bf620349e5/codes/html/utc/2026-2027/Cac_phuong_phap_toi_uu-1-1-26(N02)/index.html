@@ -5330,5 +5330,205 @@
 
 
 
+
+<!-- SLIDE 79: Bảng thế vị và tính Delta_ij -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+        <!-- Header -->
+        <div class="top-tag">5.6 - VÍ DỤ MINH HỌA</div>
+        <h1 class="slide-title" style="margin-bottom: 20px;">Bảng thế vị và tính \(\Delta_{ij}\)</h1>
+
+        <!-- Chalkboard container -->
+        <div style="position: relative; background: #2d4a3e; border: 8px solid #5c4033; border-radius: 8px; padding: 20px 30px; box-shadow: 0 6px 16px rgba(0,0,0,0.15); overflow: hidden;">
+            
+            <!-- SVG Overlay cho các đường ngoặc -->
+            <svg width="100%" height="100%" style="position: absolute; top: 0; left: 0; pointer-events: none; z-index: 1;">
+                <defs>
+                    <marker id="arrowChalk" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                        <path d="M0,0 L8,4 L0,8 Z" fill="#f8fafc" />
+                    </marker>
+                </defs>
+                
+                <!-- Các đường ngoặc (tượng trưng) -->
+                <!-- u1 -> c14 -->
+                <path d="M 600 70 Q 620 70 620 90 L 620 100 Q 620 110 600 110" fill="none" stroke="#f8fafc" stroke-width="1.5" />
+                <!-- u2 -> c24 -->
+                <path d="M 600 140 Q 620 140 620 150 L 620 170 Q 620 180 600 180" fill="none" stroke="#f8fafc" stroke-width="1.5" />
+                <!-- u3 -> c34 -->
+                <path d="M 600 220 Q 620 220 620 230 L 620 240 Q 620 250 600 250" fill="none" stroke="#f8fafc" stroke-width="1.5" />
+                
+                <!-- Các mũi tên chỉ vị trí (đơn giản hóa) -->
+                <!-- Từ u1 = 0 -->
+                <path d="M 590 85 L 490 85" fill="none" stroke="#a7f3d0" stroke-width="1.5" marker-end="url(#arrowChalk)" />
+                <!-- Từ u2 = 5 -->
+                <path d="M 590 155 L 490 155" fill="none" stroke="#a7f3d0" stroke-width="1.5" marker-end="url(#arrowChalk)" />
+                <!-- Từ u3 = 15 -->
+                <path d="M 590 230 L 490 230" fill="none" stroke="#a7f3d0" stroke-width="1.5" marker-end="url(#arrowChalk)" />
+            </svg>
+
+            <!-- Table -->
+            <table style="width: 100%; border-collapse: collapse; font-family:'Cambria Math', 'Times New Roman', serif; font-size: 16px; color: #f8fafc; text-align: center; position: relative; z-index: 2;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #f8fafc; padding: 10px; width: 8%;">
+                            <div style="position: relative; width: 100%; height: 100%;">
+                                <svg width="100%" height="100%" style="position: absolute; top:0; left:0; pointer-events:none;">
+                                    <line x1="0" y1="0" x2="100%" y2="100%" stroke="#f8fafc" stroke-width="1" />
+                                </svg>
+                                <span style="position: absolute; top: -5px; right: 2px; font-size: 12px;">b</span>
+                                <span style="position: absolute; bottom: -5px; left: 2px; font-size: 12px;">a</span>
+                            </div>
+                        </th>
+                        <th style="border: 1px solid #f8fafc; padding: 10px; width: 18%;">70</th>
+                        <th style="border: 1px solid #f8fafc; padding: 10px; width: 18%;">20</th>
+                        <th style="border: 1px solid #f8fafc; padding: 10px; width: 18%;">60</th>
+                        <th style="border: 1px solid #f8fafc; padding: 10px; width: 18%;">80</th>
+                        <th style="border: none; width: 20%;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Hàng 1 -->
+                    <tr>
+                        <td style="border: 1px solid #f8fafc; padding: 10px; font-weight: 700;">40</td>
+                        <td style="border: 1px solid #f8fafc; padding: 10px; position: relative;">
+                            <span style="font-size: 12px; color: #cbd5e1; position: absolute; bottom: 2px; right: 5px;">(15)</span>
+                            <!-- Ngoặc tay -->
+                            <svg width="100%" height="100%" style="position: absolute; top:0; left:0; pointer-events:none;">
+                                <path d="M 5 15 Q 15 15 15 30 Q 15 45 5 45" fill="none" stroke="#f8fafc" stroke-width="1" />
+                            </svg>
+                        </td>
+                        <td style="border: 1px solid #f8fafc; padding: 10px; position: relative;">
+                            <span style="font-size: 12px; color: #cbd5e1; position: absolute; bottom: 2px; right: 5px;">(12)</span>
+                            <svg width="100%" height="100%" style="position: absolute; top:0; left:0; pointer-events:none;">
+                                <path d="M 5 15 Q 15 15 15 30 Q 15 45 5 45" fill="none" stroke="#f8fafc" stroke-width="1" />
+                            </svg>
+                        </td>
+                        <td style="border: 1px solid #f8fafc; padding: 10px; position: relative;">
+                            <span style="font-size: 12px; color: #cbd5e1; position: absolute; bottom: 2px; right: 5px;">(6)</span>
+                        </td>
+                        <td style="border: 1px solid #f8fafc; padding: 10px; position: relative; font-weight: 700;">
+                            40
+                            <span style="font-size: 12px; color: #cbd5e1; position: absolute; bottom: 2px; right: 5px;">(3)</span>
+                        </td>
+                        <td style="border: none; padding: 10px; text-align: left; font-size: 16px; font-family: Arial, sans-serif;">
+                            \(u_1 = 0\)
+                        </td>
+                    </tr>
+                    <!-- Hàng 2 -->
+                    <tr>
+                        <td style="border: 1px solid #f8fafc; padding: 10px; font-weight: 700;">70</td>
+                        <td style="border: 1px solid #f8fafc; padding: 10px; position: relative;">
+                            <span style="font-size: 12px; color: #cbd5e1; position: absolute; bottom: 2px; right: 5px;">(12)</span>
+                            <svg width="100%" height="100%" style="position: absolute; top:0; left:0; pointer-events:none;">
+                                <path d="M 5 15 Q 15 15 15 30 Q 15 45 5 45" fill="none" stroke="#f8fafc" stroke-width="1" />
+                            </svg>
+                        </td>
+                        <td style="border: 1px solid #f8fafc; padding: 10px; position: relative;">
+                            <span style="font-size: 12px; color: #cbd5e1; position: absolute; bottom: 2px; right: 5px;">(9)</span>
+                            <svg width="100%" height="100%" style="position: absolute; top:0; left:0; pointer-events:none;">
+                                <path d="M 5 15 Q 15 15 15 30 Q 15 45 5 45" fill="none" stroke="#f8fafc" stroke-width="1" />
+                            </svg>
+                        </td>
+                        <td style="border: 1px solid #f8fafc; padding: 10px; position: relative; font-weight: 700;">
+                            60
+                            <span style="font-size: 12px; color: #cbd5e1; position: absolute; bottom: 2px; right: 5px;">(6)</span>
+                            <svg width="100%" height="100%" style="position: absolute; top:0; left:0; pointer-events:none;">
+                                <path d="M 5 15 Q 15 15 15 30 Q 15 45 5 45" fill="none" stroke="#f8fafc" stroke-width="1" />
+                            </svg>
+                        </td>
+                        <td style="border: 1px solid #f8fafc; padding: 10px; position: relative; font-weight: 700;">
+                            10
+                            <span style="font-size: 12px; color: #cbd5e1; position: absolute; bottom: 2px; right: 5px;">(8)</span>
+                            <svg width="100%" height="100%" style="position: absolute; top:0; left:0; pointer-events:none;">
+                                <path d="M 5 15 Q 15 15 15 30 Q 15 45 5 45" fill="none" stroke="#f8fafc" stroke-width="1" />
+                            </svg>
+                        </td>
+                        <td style="border: none; padding: 10px; text-align: left; font-size: 16px; font-family: Arial, sans-serif;">
+                            \(u_2 = 5\)
+                        </td>
+                    </tr>
+                    <!-- Hàng 3 -->
+                    <tr>
+                        <td style="border: 1px solid #f8fafc; padding: 10px; font-weight: 700;">120</td>
+                        <td style="border: 1px solid #f8fafc; padding: 10px; position: relative; font-weight: 700;">
+                            70
+                            <span style="font-size: 12px; color: #cbd5e1; position: absolute; bottom: 2px; right: 5px;">(12)</span>
+                            <svg width="100%" height="100%" style="position: absolute; top:0; left:0; pointer-events:none;">
+                                <path d="M 5 15 Q 15 15 15 30 Q 15 45 5 45" fill="none" stroke="#f8fafc" stroke-width="1" />
+                            </svg>
+                        </td>
+                        <td style="border: 1px solid #f8fafc; padding: 10px; position: relative; font-weight: 700;">
+                            20
+                            <span style="font-size: 12px; color: #cbd5e1; position: absolute; bottom: 2px; right: 5px;">(9)</span>
+                            <svg width="100%" height="100%" style="position: absolute; top:0; left:0; pointer-events:none;">
+                                <path d="M 5 15 Q 15 15 15 30 Q 15 45 5 45" fill="none" stroke="#f8fafc" stroke-width="1" />
+                            </svg>
+                        </td>
+                        <td style="border: 1px solid #f8fafc; padding: 10px; position: relative;">
+                            <span style="font-size: 12px; color: #cbd5e1; position: absolute; bottom: 2px; right: 5px;">(9)</span>
+                            <svg width="100%" height="100%" style="position: absolute; top:0; left:0; pointer-events:none;">
+                                <path d="M 5 15 Q 15 15 15 30 Q 15 45 5 45" fill="none" stroke="#f8fafc" stroke-width="1" />
+                            </svg>
+                        </td>
+                        <td style="border: 1px solid #f8fafc; padding: 10px; position: relative; font-weight: 700;">
+                            30
+                            <span style="font-size: 12px; color: #cbd5e1; position: absolute; bottom: 2px; right: 5px;">(18)</span>
+                            <svg width="100%" height="100%" style="position: absolute; top:0; left:0; pointer-events:none;">
+                                <path d="M 5 15 Q 15 15 15 30 Q 15 45 5 45" fill="none" stroke="#f8fafc" stroke-width="1" />
+                            </svg>
+                        </td>
+                        <td style="border: none; padding: 10px; text-align: left; font-size: 16px; font-family: Arial, sans-serif;">
+                            \(u_3 = 15\)
+                        </td>
+                    </tr>
+                    <!-- Hàng v_j -->
+                    <tr>
+                        <td style="border: none; padding: 10px;"></td>
+                        <td style="border: none; padding: 10px; text-align: center; font-size: 16px; font-family: Arial, sans-serif;">
+                            \(v_1 = -3\)
+                        </td>
+                        <td style="border: none; padding: 10px; text-align: center; font-size: 16px; font-family: Arial, sans-serif;">
+                            \(v_2 = -6\)
+                        </td>
+                        <td style="border: none; padding: 10px; text-align: center; font-size: 16px; font-family: Arial, sans-serif;">
+                            \(v_3 = 1\)
+                        </td>
+                        <td style="border: none; padding: 10px; text-align: center; font-size: 16px; font-family: Arial, sans-serif;">
+                            \(v_4 = 3\)
+                        </td>
+                        <td style="border: none;"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Phần tính toán dưới cùng -->
+        <div style="margin-top: 25px; display: flex; justify-content: space-between; align-items: flex-start; padding: 0 10px;">
+            <!-- Công thức chung -->
+            <div style="font-family:'Cambria Math', 'Times New Roman', serif; font-size: 17px; color: #1e293b; line-height: 1.8;">
+                <div style="margin-bottom: 10px;">\(u_i + v_j = c_{ij} \Rightarrow \Delta_{ij} = u_i + v_j - c_{ij}\)</div>
+                <div style="margin-bottom: 5px; padding-left: 20px;">\(\Delta_{11} = u_1 + v_1 - c_{11}\)</div>
+                <div style="padding-left: 20px;">\(\Delta_{12} = u_1 + v_2 - c_{12}\)</div>
+            </div>
+
+            <!-- Kết quả max Delta -->
+            <div style="font-family:'Cambria Math', 'Times New Roman', serif; font-size: 18px; color: #1e293b; text-align: right; padding-right: 20px;">
+                <div style="margin-bottom: 10px;">\((i^*, j^*) = (3,3)\)</div>
+                <div style="font-weight: 700; color: #be185d;">\(\Delta_{33} = 7\)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+        <!-- <span>HMT Lab | Huy D. Le | lehuydip@gmail.com</span> -->
+        <span>Chương 5 - Lý thuyết tối ưu</span>
+        <span>79</span>
+    </div>
+</div>
+
+
+
+
 </body>
 </html>
