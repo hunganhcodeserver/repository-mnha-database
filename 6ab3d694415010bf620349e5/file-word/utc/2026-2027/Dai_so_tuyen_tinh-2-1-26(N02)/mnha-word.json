@@ -1,4 +1,37 @@
 {
   "version": 1,
-  "docs": {}
+  "docs": {
+    "bai-tap-chuong-4-va-5.docx": {
+      "title": "bai-tap-chuong-4-va-5",
+      "public": false,
+      "page": {
+        "size": "Letter",
+        "orientation": "portrait",
+        "margin": "custom",
+        "marginsPx": {
+          "top": 76,
+          "right": 51,
+          "bottom": 76,
+          "left": 95
+        },
+        "widthPx": 816,
+        "heightPx": 1056,
+        "color": "#ffffff",
+        "columns": 1,
+        "watermark": ""
+      },
+      "size": 119860,
+      "images": {
+        "anh-001.svg": "66ab548200b97471d470b2c4b57201e1e4f2f24dd8c410ad9a3827edcbd7ed32",
+        "anh-002.svg": "97e360a3eb8716953c88fd1765374e10d79521c0cd4b27f408e0797ab64e59ed",
+        "anh-003.svg": "dcc43ecb64502998d6126842299f6ecc9b09433835ab0433e5aefc80332b85de",
+        "anh-004.svg": "02e5f060c23fa37da2b206f53797dd3265bc37dbfce70cd62c3a8de84cb0d070",
+        "anh-005.svg": "0e0efbcdcdab73b18016a46a35b911424a0269f9d1e903195317d811d038f709",
+        "anh-006.svg": "a97efea4c8790a9b2e17394c33fc94e9ec303f76208a6d09dd9a2fca96be3c3b",
+        "anh-007.png": "cd6fd082bb839cb4f1cb2a9ebde2123c6d4e3b3060625735d6d60fdb3fc4e0a4"
+      },
+      "pageCount": 0,
+      "updatedAt": "2026-10-27T04:11:45.579Z"
+    }
+  }
 }
