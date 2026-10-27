@@ -4565,7 +4565,7 @@
             <!-- ================================================= -->
 
             <div style="
-                width:42%;
+                width:40%;
                 flex-shrink:0;
                 box-sizing:border-box;
             ">
@@ -4636,336 +4636,107 @@
 
 
             <!-- CỘT PHẢI: HỆ PHƯƠNG TRÌNH KHAI TRIỂN -->
-            <div style="
-                flex: 1;
-                min-width: 0;
-                box-sizing: border-box;
-            ">
-
+            <div style="flex:1 1 0; min-width:0; box-sizing:border-box;">
                 <div style="
-                    background: #f8fafc;
-                    border: 1px solid #64748b;
-                    border-radius: 4px;
-                    padding: 14px 12px;
-                    width: 100%;
-                    box-sizing: border-box;
-                    overflow: hidden;
-                    color: #1e293b;
+                    background:#f8fafc;
+                    border:1px solid #64748b;
+                    border-radius:4px;
+                    padding:14px 12px;
+                    width:100%;
+                    box-sizing:border-box;
+                    color:#1e293b;
                 ">
-
-                    <!--
-                        TOÀN BỘ HỆ DÙNG CHUNG 1 GRID.
-                        Vì vậy tất cả các dòng có cùng trục căn.
-                    -->
-
-                    <div style="
-                        display: grid;
-
-                        /*
-                            9 cột cố định:
-
-                            1: x11 / x21 / xm1
-                            2: +
-                            3: x12 / x22 / xm2
-                            4: +
-                            5: ... + xn
-                            6: =
-                            7: a/b
-                            8: khoảng cách
-                            9: số thứ tự
-                        */
-
-                        grid-template-columns:
-                            72px
-                            18px
-                            72px
-                            18px
-                            minmax(70px, 1fr)
-                            18px
-                            45px
-                            8px
-                            42px;
-
-                        align-items: center;
-                        justify-content: stretch;
-
-                        width: 100%;
-                        box-sizing: border-box;
-
-                        font-family: 'Cambria Math', 'Times New Roman', serif;
-                        font-size: 14px;
-                        line-height: 1;
+                    <!-- Bảng dùng chung cột để các dấu bằng và số thứ tự thẳng hàng -->
+                    <table style="
+                        width:100%;
+                        table-layout:fixed;
+                        border-collapse:collapse;
+                        font-family:'Cambria Math','Times New Roman',serif;
+                        font-size:13px;
+                        line-height:1.2;
                     ">
-
-
-                        <!-- ========================================== -->
-                        <!-- NHÓM HÀNG -->
-                        <!-- ========================================== -->
-
-                        <!-- x11 + x12 + ... + x1n = a1 (1) -->
-
-                        <div style="text-align:center;">
-                            \(x_{11}\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(+\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(x_{12}\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(+\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(\cdots+x_{1n}\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(=\)
-                        </div>
-
-                        <div style="text-align:center; white-space:nowrap;">
-                            \(a_1\)
-                        </div>
-
-                        <div></div>
-
-                        <div style="text-align:center;">
-                            (1)
-                        </div>
-
-
-                        <!-- x21 + x22 + ... + x2n = a2 (2) -->
-
-                        <div style="
-                            text-align:center;
-                            transform:translateX(22px);
-                        ">
-                            \(x_{21}\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(+\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(x_{22}\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(+\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(\cdots+x_{2n}\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(=\)
-                        </div>
-
-                        <div style="text-align:center; white-space:nowrap;">
-                            \(a_2\)
-                        </div>
-
-                        <div></div>
-
-                        <div style="text-align:center;">
-                            (2)
-                        </div>
-
-
-                        <!-- DẤU CHẤM -->
-
-                        <div style="grid-column:1 / 10; text-align:center; height:24px;">
-                            \(\vdots\)
-                        </div>
-
-
-                        <!-- xm1 + xm2 + ... + xmn = am (m) -->
-
-                        <div style="
-                            text-align:center;
-                            transform:translateX(22px);
-                        ">
-                            \(x_{m1}\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(+\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(x_{m2}\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(+\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(\cdots+x_{mn}\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(=\)
-                        </div>
-
-                        <div style="text-align:center; white-space:nowrap;">
-                            \(a_m\)
-                        </div>
-
-                        <div></div>
-
-                        <div style="text-align:center;">
-                            (m)
-                        </div>
-
-
-                        <!-- ========================================== -->
-                        <!-- KHOẢNG CÁCH -->
-                        <!-- ========================================== -->
-
-                        <div style="
-                            grid-column:1 / 10;
-                            height:7px;
-                        "></div>
-
-
-                        <!-- ========================================== -->
-                        <!-- NHÓM CỘT -->
-                        <!-- ========================================== -->
-
-                        <!-- x11 + x21 + ... + xm1 = b1 (m+1) -->
-
-                        <div style="text-align:center;">
-                            \(x_{11}\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(+\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(x_{21}\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(+\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(\cdots+x_{m1}\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(=\)
-                        </div>
-
-                        <div style="text-align:center; white-space:nowrap;">
-                            \(b_1\)
-                        </div>
-
-                        <div></div>
-
-                        <div style="text-align:center; white-space:nowrap;">
-                            (m+1)
-                        </div>
-
-
-                        <!-- x12 + x22 + ... + xm2 = b2 (m+2) -->
-
-                        <div style="
-                            text-align:center;
-                            transform:translateX(10px);
-                        ">
-                            \(x_{12}\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(+\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(x_{22}\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(+\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(\cdots+x_{m2}\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(=\)
-                        </div>
-
-                        <div style="text-align:center; white-space:nowrap;">
-                            \(b_2\)
-                        </div>
-
-                        <div></div>
-
-                        <div style="text-align:center; white-space:nowrap;">
-                            (m+2)
-                        </div>
-
-
-                        <!-- DẤU CHẤM -->
-
-                        <div style="grid-column:1 / 10; text-align:center; height:24px;">
-                            \(\vdots\)
-                        </div>
-
-
-                        <!-- x1n + x2n + ... + xmn = bn (m+n) -->
-
-                        <div style="text-align:center;">
-                            \(x_{1n}\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(+\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(x_{2n}\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(+\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(\cdots+x_{mn}\)
-                        </div>
-
-                        <div style="text-align:center;">
-                            \(=\)
-                        </div>
-
-                        <div style="text-align:center; white-space:nowrap;">
-                            \(b_n\)
-                        </div>
-
-                        <div></div>
-
-                        <div style="text-align:center; white-space:nowrap;">
-                            (m+n)
-                        </div>
-
-                    </div>
-
+                        <colgroup>
+                            <col style="width:15%;">
+                            <col style="width:4%;">
+                            <col style="width:15%;">
+                            <col style="width:4%;">
+                            <col style="width:25%;">
+                            <col style="width:5%;">
+                            <col style="width:12%;">
+                            <col style="width:20%;">
+                        </colgroup>
+                        <tbody>
+                            <tr style="height:42px;">
+                                <td style="text-align:center;white-space:nowrap;">\(x_{11}\)</td>
+                                <td style="text-align:center;">+</td>
+                                <td style="text-align:center;white-space:nowrap;">\(x_{12}\)</td>
+                                <td style="text-align:center;">+</td>
+                                <td style="text-align:center;white-space:nowrap;">\(\cdots+x_{1n}\)</td>
+                                <td style="text-align:center;">=</td>
+                                <td style="text-align:center;white-space:nowrap;">\(a_1\)</td>
+                                <td style="text-align:center;white-space:nowrap;">(1)</td>
+                            </tr>
+                            <tr style="height:42px;">
+                                <td colspan="2" style="text-align:center;white-space:nowrap;">\(x_{21}\)</td>
+                                <td style="text-align:center;white-space:nowrap;">\(+\ x_{22}\)</td>
+                                <td style="text-align:center;">+</td>
+                                <td style="text-align:center;white-space:nowrap;">\(\cdots+x_{2n}\)</td>
+                                <td style="text-align:center;">=</td>
+                                <td style="text-align:center;white-space:nowrap;">\(a_2\)</td>
+                                <td style="text-align:center;white-space:nowrap;">(2)</td>
+                            </tr>
+                            <tr style="height:28px;">
+                                <td colspan="8" style="text-align:center;">\(\vdots\)</td>
+                            </tr>
+                            <tr style="height:42px;">
+                                <td colspan="2" style="text-align:center;white-space:nowrap;">\(x_{m1}\)</td>
+                                <td style="text-align:center;white-space:nowrap;">\(+\ x_{m2}\)</td>
+                                <td style="text-align:center;">+</td>
+                                <td style="text-align:center;white-space:nowrap;">\(\cdots+x_{mn}\)</td>
+                                <td style="text-align:center;">=</td>
+                                <td style="text-align:center;white-space:nowrap;">\(a_m\)</td>
+                                <td style="text-align:center;white-space:nowrap;">(m)</td>
+                            </tr>
+                            <tr style="height:12px;"><td colspan="8"></td></tr>
+                            <tr style="height:42px;">
+                                <td style="text-align:center;white-space:nowrap;">\(x_{11}\)</td>
+                                <td style="text-align:center;">+</td>
+                                <td style="text-align:center;white-space:nowrap;">\(x_{21}\)</td>
+                                <td style="text-align:center;">+</td>
+                                <td style="text-align:center;white-space:nowrap;">\(\cdots+x_{m1}\)</td>
+                                <td style="text-align:center;">=</td>
+                                <td style="text-align:center;white-space:nowrap;">\(b_1\)</td>
+                                <td style="text-align:center;white-space:nowrap;">(m+1)</td>
+                            </tr>
+                            <tr style="height:42px;">
+                                <td style="text-align:center;white-space:nowrap;">\(x_{12}\)</td>
+                                <td style="text-align:center;">+</td>
+                                <td style="text-align:center;white-space:nowrap;">\(x_{22}\)</td>
+                                <td style="text-align:center;">+</td>
+                                <td style="text-align:center;white-space:nowrap;">\(\cdots+x_{m2}\)</td>
+                                <td style="text-align:center;">=</td>
+                                <td style="text-align:center;white-space:nowrap;">\(b_2\)</td>
+                                <td style="text-align:center;white-space:nowrap;">(m+2)</td>
+                            </tr>
+                            <tr style="height:28px;">
+                                <td colspan="8" style="text-align:center;">\(\vdots\)</td>
+                            </tr>
+                            <tr style="height:42px;">
+                                <td style="text-align:center;white-space:nowrap;">\(x_{1n}\)</td>
+                                <td style="text-align:center;">+</td>
+                                <td style="text-align:center;white-space:nowrap;">\(x_{2n}\)</td>
+                                <td style="text-align:center;">+</td>
+                                <td style="text-align:center;white-space:nowrap;">\(\cdots+x_{mn}\)</td>
+                                <td style="text-align:center;">=</td>
+                                <td style="text-align:center;white-space:nowrap;">\(b_n\)</td>
+                                <td style="text-align:center;white-space:nowrap;">(m+n)</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-
             </div>
 
+        </div>
 
         <!-- ================================================= -->
         <!-- ĐỊNH LÝ -->
