@@ -1,45 +1,4 @@
 {
   "version": 1,
-  "docs": {
-    "HUST_De thi giua ki 20183.docx": {
-      "title": "HUST De thi giua ki 20183",
-      "public": false,
-      "page": {
-        "size": "Letter",
-        "orientation": "portrait",
-        "margin": "custom",
-        "marginsPx": {
-          "top": 96,
-          "right": 120,
-          "bottom": 96,
-          "left": 120
-        },
-        "widthPx": 816,
-        "heightPx": 1056,
-        "color": "#ffffff",
-        "columns": 1,
-        "watermark": ""
-      },
-      "size": 49360,
-      "images": {
-        "anh-001.svg": "3229ee44cbbcc5a62adbb894e8f3a01dea07a2d6dd0811941b18f26c79404a1b",
-        "anh-002.svg": "ada46a7791b59f424344494d62ba10eaf8129f3f8c8c52ed1a7365f311c1d080",
-        "anh-003.svg": "d283fae59e601c1ce27b4ea2c490880dc25a40d47c5a94772681fc4ca8c72c79",
-        "anh-004.svg": "be80369e3d6299a94b352505e137b21fb712c046740ec07149461e7c1d9899e5",
-        "anh-005.svg": "6b79967922165dc78782e2e84fb096ee29a7a219e39a5f741dbbf053b6b77e71",
-        "anh-006.svg": "75d343d9240b82ba9aae3a9a73e602519b690ba8d644985107bdd4e6e22d375e",
-        "anh-007.svg": "1cd5b9017e71f3c8215217598574156b42df97a53cc6e10ab4d48ee4a614349f",
-        "anh-008.svg": "8ccaaf41a23e73e75598eaf215c1a92e4d5e2fea990dc1e06c3d0a7041dd82c6",
-        "anh-009.svg": "c620b2d227ec8e40becbb66f52cbf285663d13323bbc18a53c4fba3c79b1462e",
-        "anh-010.svg": "a1962a9bb2f8549bafe4b5afb055952b79f516371cd482abcd8d241bd51a78a1",
-        "anh-011.svg": "3fdb5800e7c401df21e310bb8feea3e0b4886368842c7d86363e508114a380bd",
-        "anh-012.svg": "9b1a6a1e100c485def36d0400f7d537a92bf9c342e399a18f785c59263468789",
-        "anh-013.svg": "797bd304ce618560e2220f0a7b7eb1dd12dd52f79595c7577a9e238b42516cc1",
-        "anh-014.svg": "56724041621641d5a9839d7dd1642334696354a9b4ca3ed8a324a3da0d54156c",
-        "anh-015.svg": "caa3bfca8b307363504b9f2cfc47caef6a9df110776007ce8b8f8a3d7b69ce69"
-      },
-      "pageCount": 0,
-      "updatedAt": "2026-10-27T04:18:56.101Z"
-    }
-  }
+  "docs": {}
 }
