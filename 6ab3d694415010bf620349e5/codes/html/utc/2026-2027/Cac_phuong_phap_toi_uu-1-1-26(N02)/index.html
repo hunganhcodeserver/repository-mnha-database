@@ -4528,81 +4528,322 @@
 
 
 <!-- SLIDE 73: 1. Phát biểu bài toán -->
-<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+<div class="slide-container" style="
+    height:750px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    overflow:hidden;
+">
+
     <div>
+
         <!-- Header -->
         <div class="top-tag">CHƯƠNG 5: BÀI TOÁN VẬN TẢI</div>
-        <h1 class="slide-title" style="margin-bottom: 25px;">1. Phát biểu bài toán</h1>
 
-        <!-- Nội dung chính: 2 cột -->
-        <div style="display: flex; gap: 30px; align-items: stretch; margin-top: 10px;">
+        <h1 class="slide-title" style="margin-bottom:18px;">
+            1. Phát biểu bài toán
+        </h1>
 
-            <!-- Cột trái: Mô hình tổng quát -->
-            <div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-start;">
+
+        <!-- ================================================= -->
+        <!-- NỘI DUNG CHÍNH -->
+        <!-- ================================================= -->
+
+        <div style="
+            display:flex;
+            gap:28px;
+            align-items:flex-start;
+            width:100%;
+            box-sizing:border-box;
+        ">
+
+
+            <!-- ================================================= -->
+            <!-- CỘT TRÁI -->
+            <!-- ================================================= -->
+
+            <div style="
+                width:42%;
+                flex-shrink:0;
+                box-sizing:border-box;
+            ">
 
                 <!-- Hàm mục tiêu -->
-                <div style="font-family:'Cambria Math', 'Times New Roman', serif; font-size: 18px; text-align: center; margin-bottom: 20px; color: #1e293b;">
+                <div style="
+                    font-family:'Cambria Math','Times New Roman',serif;
+                    font-size:18px;
+                    text-align:center;
+                    color:#1e293b;
+                    margin-bottom:18px;
+                    white-space:nowrap;
+                ">
                     \[
-                    \sum_{i=1}^m \sum_{j=1}^n c_{ij}x_{ij} \rightarrow \min
+                    \sum_{i=1}^{m}\sum_{j=1}^{n}c_{ij}x_{ij}\rightarrow\min
                     \]
                 </div>
 
+
                 <!-- Hệ ràng buộc -->
-                <div style="font-family:'Cambria Math', 'Times New Roman', serif; font-size: 16px; color: #1e293b; margin-bottom: 25px;">
+                <div style="
+                    font-family:'Cambria Math','Times New Roman',serif;
+                    font-size:15px;
+                    color:#1e293b;
+                    margin-bottom:18px;
+                ">
                     \[
                     \begin{cases}
-                    \sum_{j=1}^n x_{ij} = a_i, & i = \overline{1,m} \\[10pt]
-                    \sum_{i=1}^m x_{ij} = b_j, & j = \overline{1,n} \\[10pt]
-                    x_{ij} \ge 0, & i = \overline{1,m},\ j = \overline{1,n}
+                    \displaystyle
+                    \sum_{j=1}^{n}x_{ij}=a_i,
+                    & i=\overline{1,m}\\[8pt]
+
+                    \displaystyle
+                    \sum_{i=1}^{m}x_{ij}=b_j,
+                    & j=\overline{1,n}\\[8pt]
+
+                    x_{ij}\geq0,
+                    & i=\overline{1,m},\ j=\overline{1,n}
                     \end{cases}
                     \]
                 </div>
 
+
                 <!-- Điều kiện cân bằng -->
-                <div style="font-family:'Cambria Math', 'Times New Roman', serif; font-size: 18px; text-align: center; color: #1e293b; margin-bottom: 10px;">
+                <div style="
+                    font-family:'Cambria Math','Times New Roman',serif;
+                    font-size:17px;
+                    text-align:center;
+                    color:#1e293b;
+                    margin-top:10px;
+                ">
                     \[
-                    \sum_{i=1}^m a_i = \sum_{j=1}^n b_j
+                    \sum_{i=1}^{m}a_i=\sum_{j=1}^{n}b_j
                     \]
                 </div>
-                <div style="font-size: 14px; text-align: center; color: #475569; font-style: italic;">
+
+                <div style="
+                    font-size:13px;
+                    text-align:center;
+                    color:#475569;
+                    font-style:italic;
+                    margin-top:2px;
+                ">
                     (điều kiện cân bằng thu phát)
                 </div>
 
             </div>
 
-            <!-- Cột phải: Hệ phương trình khai triển -->
-            <div style="flex: 1.3; min-width: 0;">
-                <div class="highlight-card" style="background: #f8fafc; border: 1px solid #64748b; border-radius: 4px; padding: 16px 8px; height: 100%; box-sizing: border-box; display: flex; align-items: center; justify-content: center; overflow-x: auto; color: #1e293b;">
-                    \[
-                    \footnotesize \rm
-                    \begin{array}{@{}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\;\;}l@{\;\;}r@{}}
-                    x_{11}&{}+x_{12}&{}+\cdots&{}+x_{1n}&&&&&&&&&=a_1&(1)\\[8pt]
-                    &&&&x_{21}&{}+x_{22}&{}+\cdots&{}+x_{2n}&&&&&=a_2&(2)\\[8pt]
-                    \multicolumn{12}{c}{\cdots\cdots}&&\\[8pt]
-                    &&&&&&&&x_{m1}&{}+x_{m2}&{}+\cdots&{}+x_{mn}&=a_m&(m)\\[8pt]
-                    x_{11}&&&&{}+x_{21}&{}+\cdots&&&{}+x_{m1}&&&&=b_1&(m+1)\\[8pt]
-                    &x_{12}&&&&{}+x_{22}&{}+\cdots&&&{}+x_{m2}&&&=b_2&(m+2)\\[8pt]
-                    \multicolumn{12}{c}{\cdots\cdots}&&\\[8pt]
-                    &&&x_{1n}&&&&{}+x_{2n}&{}+\cdots&&&{}+x_{mn}&=b_n&(m+n)
-                    \end{array}
-                    \]
+
+            <!-- ================================================= -->
+            <!-- CỘT PHẢI -->
+            <!-- ================================================= -->
+
+            <div style="
+                width:58%;
+                min-width:0;
+                box-sizing:border-box;
+            ">
+
+                <div style="
+                    background:#f8fafc;
+                    border:1px solid #64748b;
+                    border-radius:4px;
+                    padding:18px 20px;
+                    width:100%;
+                    box-sizing:border-box;
+                    overflow:hidden;
+                    color:#1e293b;
+                ">
+
+                    <!--
+                        KHÔNG dùng array nhiều cột.
+                        Mỗi phương trình là một dòng riêng.
+                    -->
+
+                    <div style="
+                        font-family:'Cambria Math','Times New Roman',serif;
+                        font-size:15px;
+                        line-height:1.35;
+                        width:100%;
+                        box-sizing:border-box;
+                    ">
+
+                        <div style="
+                            display:flex;
+                            justify-content:center;
+                            align-items:center;
+                            white-space:nowrap;
+                        ">
+                            \[
+                            x_{11}+x_{12}+\cdots+x_{1n}=a_1
+                            \]
+                            <span style="
+                                font-family:'Times New Roman',serif;
+                                font-size:13px;
+                                margin-left:12px;
+                            ">(1)</span>
+                        </div>
+
+
+                        <div style="
+                            display:flex;
+                            justify-content:center;
+                            align-items:center;
+                            white-space:nowrap;
+                        ">
+                            \[
+                            x_{21}+x_{22}+\cdots+x_{2n}=a_2
+                            \]
+                            <span style="
+                                font-family:'Times New Roman',serif;
+                                font-size:13px;
+                                margin-left:12px;
+                            ">(2)</span>
+                        </div>
+
+
+                        <div style="
+                            text-align:center;
+                            font-family:'Cambria Math','Times New Roman',serif;
+                            margin:2px 0;
+                        ">
+                            \[
+                            \vdots
+                            \]
+                        </div>
+
+
+                        <div style="
+                            display:flex;
+                            justify-content:center;
+                            align-items:center;
+                            white-space:nowrap;
+                        ">
+                            \[
+                            x_{m1}+x_{m2}+\cdots+x_{mn}=a_m
+                            \]
+                            <span style="
+                                font-family:'Times New Roman',serif;
+                                font-size:13px;
+                                margin-left:12px;
+                            ">(m)</span>
+                        </div>
+
+
+                        <!-- Đường phân cách -->
+                        <div style="
+                            border-top:1px solid #cbd5e1;
+                            margin:8px 10px;
+                        "></div>
+
+
+                        <div style="
+                            display:flex;
+                            justify-content:center;
+                            align-items:center;
+                            white-space:nowrap;
+                        ">
+                            \[
+                            x_{11}+x_{21}+\cdots+x_{m1}=b_1
+                            \]
+                            <span style="
+                                font-family:'Times New Roman',serif;
+                                font-size:13px;
+                                margin-left:12px;
+                            ">(m+1)</span>
+                        </div>
+
+
+                        <div style="
+                            display:flex;
+                            justify-content:center;
+                            align-items:center;
+                            white-space:nowrap;
+                        ">
+                            \[
+                            x_{12}+x_{22}+\cdots+x_{m2}=b_2
+                            \]
+                            <span style="
+                                font-family:'Times New Roman',serif;
+                                font-size:13px;
+                                margin-left:12px;
+                            ">(m+2)</span>
+                        </div>
+
+
+                        <div style="
+                            text-align:center;
+                            font-family:'Cambria Math','Times New Roman',serif;
+                            margin:2px 0;
+                        ">
+                            \[
+                            \vdots
+                            \]
+                        </div>
+
+
+                        <div style="
+                            display:flex;
+                            justify-content:center;
+                            align-items:center;
+                            white-space:nowrap;
+                        ">
+                            \[
+                            x_{1n}+x_{2n}+\cdots+x_{mn}=b_n
+                            \]
+                            <span style="
+                                font-family:'Times New Roman',serif;
+                                font-size:13px;
+                                margin-left:12px;
+                            ">(m+n)</span>
+                        </div>
+
+                    </div>
+
                 </div>
+
             </div>
 
         </div>
 
-        <!-- Định lý dưới cùng -->
-        <div style="text-align: center; margin-top: 35px; font-size: 17px; font-weight: 700; color: #1e293b; font-family:'Cambria Math', 'Times New Roman', serif;">
+
+        <!-- ================================================= -->
+        <!-- ĐỊNH LÝ -->
+        <!-- ================================================= -->
+
+        <div style="
+            text-align:center;
+            margin-top:25px;
+            font-size:17px;
+            font-weight:700;
+            color:#1e293b;
+            font-family:'Cambria Math','Times New Roman',serif;
+        ">
             Định lý: BTVT luôn có phương án tối ưu.
         </div>
+
     </div>
 
-    <!-- Footer -->
-    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
-        <!-- <span>HMT Lab | Huy D. Le | lehuydip@gmail.com</span> -->
+
+    <!-- ================================================= -->
+    <!-- FOOTER -->
+    <!-- ================================================= -->
+
+    <div class="slide-footer" style="
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        font-size:11px;
+        color:#94a3b8;
+        padding-top:10px;
+        border-top:1px solid rgba(148,163,184,0.2);
+        margin-top:15px;
+    ">
+        <span>HMT Lab | Huy D. Le | lehuydip@gmail.com</span>
         <span>Chương 5 - Lý thuyết tối ưu</span>
         <span>73</span>
     </div>
+
 </div>
 
 
