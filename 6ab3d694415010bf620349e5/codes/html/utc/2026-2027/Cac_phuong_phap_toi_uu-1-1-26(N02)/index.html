@@ -4646,7 +4646,8 @@
                     box-sizing:border-box;
                     color:#1e293b;
                 ">
-                    <!-- Bảng dùng chung cột để các dấu bằng và số thứ tự thẳng hàng -->
+                    <!-- Bố cục bám sát ảnh mẫu: các biểu thức được thụt theo từng hàng/cột,
+                         còn dấu bằng, vế phải và số thứ tự căn theo các trục cố định. -->
                     <table style="
                         width:100%;
                         table-layout:fixed;
@@ -4656,76 +4657,106 @@
                         line-height:1.2;
                     ">
                         <colgroup>
-                            <col style="width:15%;">
-                            <col style="width:4%;">
-                            <col style="width:15%;">
-                            <col style="width:4%;">
-                            <col style="width:25%;">
-                            <col style="width:5%;">
-                            <col style="width:12%;">
-                            <col style="width:20%;">
+                            <col style="width:6.25%;">
+                            <col style="width:6.25%;">
+                            <col style="width:6.25%;">
+                            <col style="width:6.25%;">
+                            <col style="width:6.25%;">
+                            <col style="width:6.25%;">
+                            <col style="width:6.25%;">
+                            <col style="width:6.25%;">
+                            <col style="width:6.25%;">
+                            <col style="width:6.25%;">
+                            <col style="width:6.25%;">
+                            <col style="width:6.25%;">
+                            <col style="width:6.25%;">
+                            <col style="width:6.25%;">
+                            <col style="width:6.25%;">
+                            <col style="width:6.25%;">
                         </colgroup>
                         <tbody>
+                            <!-- Hàng 1: bắt đầu sát mép trái -->
                             <tr style="height:42px;">
                                 <td style="text-align:center;white-space:nowrap;">\(x_{11}\)</td>
                                 <td style="text-align:center;">+</td>
                                 <td style="text-align:center;white-space:nowrap;">\(x_{12}\)</td>
                                 <td style="text-align:center;">+</td>
-                                <td style="text-align:center;white-space:nowrap;">\(\cdots+x_{1n}\)</td>
+                                <td colspan="3" style="text-align:center;white-space:nowrap;">\(\cdots+x_{1n}\)</td>
+                                <td colspan="5"></td>
                                 <td style="text-align:center;">=</td>
                                 <td style="text-align:center;white-space:nowrap;">\(a_1\)</td>
                                 <td style="text-align:center;white-space:nowrap;">(1)</td>
                             </tr>
+                            <!-- Hàng 2: thụt vào khoảng 2 cột -->
                             <tr style="height:42px;">
-                                <td colspan="2" style="text-align:center;white-space:nowrap;">\(x_{21}\)</td>
-                                <td style="text-align:center;white-space:nowrap;">\(+\ x_{22}\)</td>
+                                <td></td><td></td>
+                                <td style="text-align:center;white-space:nowrap;">\(x_{21}\)</td>
                                 <td style="text-align:center;">+</td>
-                                <td style="text-align:center;white-space:nowrap;">\(\cdots+x_{2n}\)</td>
+                                <td style="text-align:center;white-space:nowrap;">\(x_{22}\)</td>
+                                <td style="text-align:center;">+</td>
+                                <td colspan="2" style="text-align:center;white-space:nowrap;">\(\cdots+x_{2n}\)</td>
+                                <td colspan="4"></td>
                                 <td style="text-align:center;">=</td>
                                 <td style="text-align:center;white-space:nowrap;">\(a_2\)</td>
                                 <td style="text-align:center;white-space:nowrap;">(2)</td>
                             </tr>
                             <tr style="height:28px;">
-                                <td colspan="8" style="text-align:center;">\(\vdots\)</td>
+                                <td colspan="15" style="text-align:center;">\(\vdots\)</td>
                             </tr>
+                            <!-- Hàng m: bắt đầu gần giữa khung -->
                             <tr style="height:42px;">
-                                <td colspan="2" style="text-align:center;white-space:nowrap;">\(x_{m1}\)</td>
-                                <td style="text-align:center;white-space:nowrap;">\(+\ x_{m2}\)</td>
+                                <td colspan="6"></td>
+                                <td style="text-align:center;white-space:nowrap;">\(x_{m1}\)</td>
                                 <td style="text-align:center;">+</td>
-                                <td style="text-align:center;white-space:nowrap;">\(\cdots+x_{mn}\)</td>
+                                <td style="text-align:center;white-space:nowrap;">\(x_{m2}\)</td>
+                                <td style="text-align:center;">+</td>
+                                <td colspan="2" style="text-align:center;white-space:nowrap;">\(\cdots+x_{mn}\)</td>
                                 <td style="text-align:center;">=</td>
                                 <td style="text-align:center;white-space:nowrap;">\(a_m\)</td>
                                 <td style="text-align:center;white-space:nowrap;">(m)</td>
                             </tr>
-                            <tr style="height:12px;"><td colspan="8"></td></tr>
+                            <tr style="height:12px;"><td colspan="15"></td></tr>
+                            <!-- Tổng cột 1 -->
                             <tr style="height:42px;">
                                 <td style="text-align:center;white-space:nowrap;">\(x_{11}\)</td>
                                 <td style="text-align:center;">+</td>
+                                <td colspan="2"></td>
                                 <td style="text-align:center;white-space:nowrap;">\(x_{21}\)</td>
                                 <td style="text-align:center;">+</td>
+                                <td colspan="2"></td>
                                 <td style="text-align:center;white-space:nowrap;">\(\cdots+x_{m1}\)</td>
+                                <td colspan="3"></td>
                                 <td style="text-align:center;">=</td>
                                 <td style="text-align:center;white-space:nowrap;">\(b_1\)</td>
                                 <td style="text-align:center;white-space:nowrap;">(m+1)</td>
                             </tr>
+                            <!-- Tổng cột 2: thụt vào nhẹ -->
                             <tr style="height:42px;">
+                                <td></td>
                                 <td style="text-align:center;white-space:nowrap;">\(x_{12}\)</td>
                                 <td style="text-align:center;">+</td>
+                                <td></td>
                                 <td style="text-align:center;white-space:nowrap;">\(x_{22}\)</td>
                                 <td style="text-align:center;">+</td>
+                                <td></td>
                                 <td style="text-align:center;white-space:nowrap;">\(\cdots+x_{m2}\)</td>
+                                <td colspan="4"></td>
                                 <td style="text-align:center;">=</td>
                                 <td style="text-align:center;white-space:nowrap;">\(b_2\)</td>
                                 <td style="text-align:center;white-space:nowrap;">(m+2)</td>
                             </tr>
                             <tr style="height:28px;">
-                                <td colspan="8" style="text-align:center;">\(\vdots\)</td>
+                                <td colspan="15" style="text-align:center;">\(\vdots\)</td>
                             </tr>
+                            <!-- Tổng cột n: các hạng tử tiến dần về phía phải -->
                             <tr style="height:42px;">
+                                <td colspan="3"></td>
                                 <td style="text-align:center;white-space:nowrap;">\(x_{1n}\)</td>
                                 <td style="text-align:center;">+</td>
+                                <td colspan="2"></td>
                                 <td style="text-align:center;white-space:nowrap;">\(x_{2n}\)</td>
                                 <td style="text-align:center;">+</td>
+                                <td colspan="2"></td>
                                 <td style="text-align:center;white-space:nowrap;">\(\cdots+x_{mn}\)</td>
                                 <td style="text-align:center;">=</td>
                                 <td style="text-align:center;white-space:nowrap;">\(b_n\)</td>
