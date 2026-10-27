@@ -4546,11 +4546,7 @@
             1. Phát biểu bài toán
         </h1>
 
-
-        <!-- ================================================= -->
         <!-- NỘI DUNG CHÍNH -->
-        <!-- ================================================= -->
-
         <div style="
             display:flex;
             gap:28px;
@@ -4559,11 +4555,7 @@
             box-sizing:border-box;
         ">
 
-
-            <!-- ================================================= -->
             <!-- CỘT TRÁI -->
-            <!-- ================================================= -->
-
             <div style="
                 width:40%;
                 flex-shrink:0;
@@ -4583,7 +4575,6 @@
                     \sum_{i=1}^{m}\sum_{j=1}^{n}c_{ij}x_{ij}\rightarrow\min
                     \]
                 </div>
-
 
                 <!-- Hệ ràng buộc -->
                 <div style="
@@ -4607,7 +4598,6 @@
                     \end{cases}
                     \]
                 </div>
-
 
                 <!-- Điều kiện cân bằng -->
                 <div style="
@@ -4634,145 +4624,81 @@
 
             </div>
 
-
             <!-- CỘT PHẢI: HỆ PHƯƠNG TRÌNH KHAI TRIỂN -->
             <div style="flex:1 1 0; min-width:0; box-sizing:border-box;">
-                <div style="
-                    background:#f8fafc;
-                    border:1px solid #64748b;
-                    border-radius:4px;
-                    padding:14px 12px;
-                    width:100%;
-                    box-sizing:border-box;
-                    color:#1e293b;
-                ">
-                    <!-- Bố cục bám sát ảnh mẫu: các biểu thức được thụt theo từng hàng/cột,
-                         còn dấu bằng, vế phải và số thứ tự căn theo các trục cố định. -->
-                    <table style="
+                <style>
+                    .eq-box{
+                        background:#f8fafc;
+                        border:1px solid #64748b;
+                        border-radius:4px;
+                        padding:10px 0;
                         width:100%;
-                        table-layout:fixed;
-                        border-collapse:collapse;
+                        box-sizing:border-box;
+                        color:#1e293b;
                         font-family:'Cambria Math','Times New Roman',serif;
                         font-size:13px;
-                        line-height:1.2;
-                    ">
-                        <colgroup>
-                            <col style="width:6.25%;">
-                            <col style="width:6.25%;">
-                            <col style="width:6.25%;">
-                            <col style="width:6.25%;">
-                            <col style="width:6.25%;">
-                            <col style="width:6.25%;">
-                            <col style="width:6.25%;">
-                            <col style="width:6.25%;">
-                            <col style="width:6.25%;">
-                            <col style="width:6.25%;">
-                            <col style="width:6.25%;">
-                            <col style="width:6.25%;">
-                            <col style="width:6.25%;">
-                            <col style="width:6.25%;">
-                            <col style="width:6.25%;">
-                            <col style="width:6.25%;">
-                        </colgroup>
-                        <tbody>
-                            <!-- Hàng 1: bắt đầu sát mép trái -->
-                            <tr style="height:42px;">
-                                <td style="text-align:center;white-space:nowrap;">\(x_{11}\)</td>
-                                <td style="text-align:center;">+</td>
-                                <td style="text-align:center;white-space:nowrap;">\(x_{12}\)</td>
-                                <td style="text-align:center;">+</td>
-                                <td colspan="3" style="text-align:center;white-space:nowrap;">\(\cdots+x_{1n}\)</td>
-                                <td colspan="5"></td>
-                                <td style="text-align:center;">=</td>
-                                <td style="text-align:center;white-space:nowrap;">\(a_1\)</td>
-                                <td style="text-align:center;white-space:nowrap;">(1)</td>
-                            </tr>
-                            <!-- Hàng 2: thụt vào khoảng 2 cột -->
-                            <tr style="height:42px;">
-                                <td></td><td></td>
-                                <td style="text-align:center;white-space:nowrap;">\(x_{21}\)</td>
-                                <td style="text-align:center;">+</td>
-                                <td style="text-align:center;white-space:nowrap;">\(x_{22}\)</td>
-                                <td style="text-align:center;">+</td>
-                                <td colspan="2" style="text-align:center;white-space:nowrap;">\(\cdots+x_{2n}\)</td>
-                                <td colspan="4"></td>
-                                <td style="text-align:center;">=</td>
-                                <td style="text-align:center;white-space:nowrap;">\(a_2\)</td>
-                                <td style="text-align:center;white-space:nowrap;">(2)</td>
-                            </tr>
-                            <tr style="height:28px;">
-                                <td colspan="15" style="text-align:center;">\(\vdots\)</td>
-                            </tr>
-                            <!-- Hàng m: bắt đầu gần giữa khung -->
-                            <tr style="height:42px;">
-                                <td colspan="6"></td>
-                                <td style="text-align:center;white-space:nowrap;">\(x_{m1}\)</td>
-                                <td style="text-align:center;">+</td>
-                                <td style="text-align:center;white-space:nowrap;">\(x_{m2}\)</td>
-                                <td style="text-align:center;">+</td>
-                                <td colspan="2" style="text-align:center;white-space:nowrap;">\(\cdots+x_{mn}\)</td>
-                                <td style="text-align:center;">=</td>
-                                <td style="text-align:center;white-space:nowrap;">\(a_m\)</td>
-                                <td style="text-align:center;white-space:nowrap;">(m)</td>
-                            </tr>
-                            <tr style="height:12px;"><td colspan="15"></td></tr>
-                            <!-- Tổng cột 1 -->
-                            <tr style="height:42px;">
-                                <td style="text-align:center;white-space:nowrap;">\(x_{11}\)</td>
-                                <td style="text-align:center;">+</td>
-                                <td colspan="2"></td>
-                                <td style="text-align:center;white-space:nowrap;">\(x_{21}\)</td>
-                                <td style="text-align:center;">+</td>
-                                <td colspan="2"></td>
-                                <td style="text-align:center;white-space:nowrap;">\(\cdots+x_{m1}\)</td>
-                                <td colspan="3"></td>
-                                <td style="text-align:center;">=</td>
-                                <td style="text-align:center;white-space:nowrap;">\(b_1\)</td>
-                                <td style="text-align:center;white-space:nowrap;">(m+1)</td>
-                            </tr>
-                            <!-- Tổng cột 2: thụt vào nhẹ -->
-                            <tr style="height:42px;">
-                                <td></td>
-                                <td style="text-align:center;white-space:nowrap;">\(x_{12}\)</td>
-                                <td style="text-align:center;">+</td>
-                                <td></td>
-                                <td style="text-align:center;white-space:nowrap;">\(x_{22}\)</td>
-                                <td style="text-align:center;">+</td>
-                                <td></td>
-                                <td style="text-align:center;white-space:nowrap;">\(\cdots+x_{m2}\)</td>
-                                <td colspan="4"></td>
-                                <td style="text-align:center;">=</td>
-                                <td style="text-align:center;white-space:nowrap;">\(b_2\)</td>
-                                <td style="text-align:center;white-space:nowrap;">(m+2)</td>
-                            </tr>
-                            <tr style="height:28px;">
-                                <td colspan="15" style="text-align:center;">\(\vdots\)</td>
-                            </tr>
-                            <!-- Tổng cột n: các hạng tử tiến dần về phía phải -->
-                            <tr style="height:42px;">
-                                <td colspan="3"></td>
-                                <td style="text-align:center;white-space:nowrap;">\(x_{1n}\)</td>
-                                <td style="text-align:center;">+</td>
-                                <td colspan="2"></td>
-                                <td style="text-align:center;white-space:nowrap;">\(x_{2n}\)</td>
-                                <td style="text-align:center;">+</td>
-                                <td colspan="2"></td>
-                                <td style="text-align:center;white-space:nowrap;">\(\cdots+x_{mn}\)</td>
-                                <td style="text-align:center;">=</td>
-                                <td style="text-align:center;white-space:nowrap;">\(b_n\)</td>
-                                <td style="text-align:center;white-space:nowrap;">(m+n)</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    }
+                    /* mỗi hàng: khung định vị, các hạng tử đặt theo % chiều ngang */
+                    .eq-row{ position:relative; height:42px; }
+                    .eq-row.dots{ height:30px; }
+                    .eq-row.gap{ height:14px; }
+                    .eq-row span{ position:absolute; top:50%; transform:translateY(-50%); white-space:nowrap; }
+                    /* trục cố định cho dấu =, vế phải, số thứ tự */
+                    .eq-row .eq { left:79%; }
+                    .eq-row .rhs{ left:83%; }
+                    .eq-row .idx{ left:90%; }
+                </style>
+
+                <div class="eq-box">
+
+                    <!-- Phương trình hàng i -->
+                    <div class="eq-row">
+                        <span style="left:3%;">\(x_{11}+x_{12}+\cdots+x_{1n}\)</span>
+                        <span class="eq">\(=\)</span><span class="rhs">\(a_1\)</span><span class="idx">(1)</span>
+                    </div>
+                    <div class="eq-row">
+                        <span style="left:24%;">\(x_{21}+x_{22}+\cdots+x_{2n}\)</span>
+                        <span class="eq">\(=\)</span><span class="rhs">\(a_2\)</span><span class="idx">(2)</span>
+                    </div>
+                    <div class="eq-row dots">
+                        <span style="left:40%;">\(\vdots\)</span>
+                    </div>
+                    <div class="eq-row">
+                        <span style="left:46%;">\(x_{m1}+x_{m2}+\cdots+x_{mn}\)</span>
+                        <span class="eq">\(=\)</span><span class="rhs">\(a_m\)</span><span class="idx">(m)</span>
+                    </div>
+
+                    <div class="eq-row gap"></div>
+
+                    <!-- Phương trình cột j -->
+                    <div class="eq-row">
+                        <span style="left:3%;">\(x_{11}\)</span>
+                        <span style="left:24%;">\(+\,x_{21}+\cdots\)</span>
+                        <span style="left:52%;">\(+\,x_{m1}\)</span>
+                        <span class="eq">\(=\)</span><span class="rhs">\(b_1\)</span><span class="idx">(m+1)</span>
+                    </div>
+                    <div class="eq-row">
+                        <span style="left:9%;">\(x_{12}+\)</span>
+                        <span style="left:30%;">\(+\,x_{22}+\cdots\)</span>
+                        <span style="left:57%;">\(+\,x_{m2}\)</span>
+                        <span class="eq">\(=\)</span><span class="rhs">\(b_2\)</span><span class="idx">(m+2)</span>
+                    </div>
+                    <div class="eq-row dots">
+                        <span style="left:40%;">\(\vdots\)</span>
+                    </div>
+                    <div class="eq-row">
+                        <span style="left:17%;">\(x_{1n}\)</span>
+                        <span style="left:38%;">\(+\,x_{2n}+\cdots\)</span>
+                        <span style="left:63%;">\(+\,x_{mn}\)</span>
+                        <span class="eq">\(=\)</span><span class="rhs">\(b_n\)</span><span class="idx">(m+n)</span>
+                    </div>
+
                 </div>
             </div>
 
         </div>
 
-        <!-- ================================================= -->
         <!-- ĐỊNH LÝ -->
-        <!-- ================================================= -->
-
         <div style="
             text-align:center;
             margin-top:25px;
@@ -4786,11 +4712,7 @@
 
     </div>
 
-
-    <!-- ================================================= -->
     <!-- FOOTER -->
-    <!-- ================================================= -->
-
     <div class="slide-footer" style="
         display:flex;
         justify-content:space-between;
@@ -4801,12 +4723,14 @@
         border-top:1px solid rgba(148,163,184,0.2);
         margin-top:15px;
     ">
-        <!-- <span>HMT Lab | Huy D. Le | lehuydip@gmail.com</span> -->
         <span>Chương 5 - Lý thuyết tối ưu</span>
         <span>73</span>
     </div>
 
 </div>
+
+
+
 
 
 
