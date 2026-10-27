@@ -4634,168 +4634,329 @@
             </div>
 
 
-            <!-- ================================================= -->
-            <!-- CỘT PHẢI -->
-            <!-- ================================================= -->
-
+            <!-- CỘT PHẢI: HỆ PHƯƠNG TRÌNH KHAI TRIỂN -->
             <div style="
-                width:58%;
-                min-width:0;
-                box-sizing:border-box;
+                flex: 1;
+                min-width: 0;
+                box-sizing: border-box;
             ">
 
                 <div style="
-                    background:#f8fafc;
-                    border:1px solid #64748b;
-                    border-radius:4px;
-                    padding:18px 20px;
-                    width:100%;
-                    box-sizing:border-box;
-                    overflow:hidden;
-                    color:#1e293b;
+                    background: #f8fafc;
+                    border: 1px solid #64748b;
+                    border-radius: 4px;
+                    padding: 14px 12px;
+                    width: 100%;
+                    box-sizing: border-box;
+                    overflow: hidden;
+                    color: #1e293b;
                 ">
 
                     <!--
-                        KHÔNG dùng array nhiều cột.
-                        Mỗi phương trình là một dòng riêng.
+                        TOÀN BỘ HỆ DÙNG CHUNG 1 GRID.
+                        Vì vậy tất cả các dòng có cùng trục căn.
                     -->
 
                     <div style="
-                        font-family:'Cambria Math','Times New Roman',serif;
-                        font-size:15px;
-                        line-height:1.35;
-                        width:100%;
-                        box-sizing:border-box;
+                        display: grid;
+
+                        /*
+                            9 cột cố định:
+
+                            1: x11 / x21 / xm1
+                            2: +
+                            3: x12 / x22 / xm2
+                            4: +
+                            5: ... + xn
+                            6: =
+                            7: a/b
+                            8: khoảng cách
+                            9: số thứ tự
+                        */
+
+                        grid-template-columns:
+                            72px
+                            18px
+                            72px
+                            18px
+                            minmax(70px, 1fr)
+                            18px
+                            45px
+                            8px
+                            42px;
+
+                        align-items: center;
+                        justify-content: stretch;
+
+                        width: 100%;
+                        box-sizing: border-box;
+
+                        font-family: 'Cambria Math', 'Times New Roman', serif;
+                        font-size: 14px;
+                        line-height: 1;
                     ">
 
-                        <div style="
-                            display:flex;
-                            justify-content:center;
-                            align-items:center;
-                            white-space:nowrap;
-                        ">
-                            \[
-                            x_{11}+x_{12}+\cdots+x_{1n}=a_1
-                            \]
-                            <span style="
-                                font-family:'Times New Roman',serif;
-                                font-size:13px;
-                                margin-left:12px;
-                            ">(1)</span>
+
+                        <!-- ========================================== -->
+                        <!-- NHÓM HÀNG -->
+                        <!-- ========================================== -->
+
+                        <!-- x11 + x12 + ... + x1n = a1 (1) -->
+
+                        <div style="text-align:center;">
+                            \(x_{11}\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(+\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(x_{12}\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(+\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(\cdots+x_{1n}\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(=\)
+                        </div>
+
+                        <div style="text-align:center; white-space:nowrap;">
+                            \(a_1\)
+                        </div>
+
+                        <div></div>
+
+                        <div style="text-align:center;">
+                            (1)
                         </div>
 
 
-                        <div style="
-                            display:flex;
-                            justify-content:center;
-                            align-items:center;
-                            white-space:nowrap;
-                        ">
-                            \[
-                            x_{21}+x_{22}+\cdots+x_{2n}=a_2
-                            \]
-                            <span style="
-                                font-family:'Times New Roman',serif;
-                                font-size:13px;
-                                margin-left:12px;
-                            ">(2)</span>
-                        </div>
-
+                        <!-- x21 + x22 + ... + x2n = a2 (2) -->
 
                         <div style="
                             text-align:center;
-                            font-family:'Cambria Math','Times New Roman',serif;
-                            margin:2px 0;
+                            transform:translateX(22px);
                         ">
-                            \[
-                            \vdots
-                            \]
+                            \(x_{21}\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(+\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(x_{22}\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(+\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(\cdots+x_{2n}\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(=\)
+                        </div>
+
+                        <div style="text-align:center; white-space:nowrap;">
+                            \(a_2\)
+                        </div>
+
+                        <div></div>
+
+                        <div style="text-align:center;">
+                            (2)
                         </div>
 
 
-                        <div style="
-                            display:flex;
-                            justify-content:center;
-                            align-items:center;
-                            white-space:nowrap;
-                        ">
-                            \[
-                            x_{m1}+x_{m2}+\cdots+x_{mn}=a_m
-                            \]
-                            <span style="
-                                font-family:'Times New Roman',serif;
-                                font-size:13px;
-                                margin-left:12px;
-                            ">(m)</span>
+                        <!-- DẤU CHẤM -->
+
+                        <div style="grid-column:1 / 10; text-align:center; height:24px;">
+                            \(\vdots\)
                         </div>
 
 
-                        <!-- Đường phân cách -->
+                        <!-- xm1 + xm2 + ... + xmn = am (m) -->
+
                         <div style="
-                            border-top:1px solid #cbd5e1;
-                            margin:8px 10px;
+                            text-align:center;
+                            transform:translateX(22px);
+                        ">
+                            \(x_{m1}\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(+\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(x_{m2}\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(+\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(\cdots+x_{mn}\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(=\)
+                        </div>
+
+                        <div style="text-align:center; white-space:nowrap;">
+                            \(a_m\)
+                        </div>
+
+                        <div></div>
+
+                        <div style="text-align:center;">
+                            (m)
+                        </div>
+
+
+                        <!-- ========================================== -->
+                        <!-- KHOẢNG CÁCH -->
+                        <!-- ========================================== -->
+
+                        <div style="
+                            grid-column:1 / 10;
+                            height:7px;
                         "></div>
 
 
-                        <div style="
-                            display:flex;
-                            justify-content:center;
-                            align-items:center;
-                            white-space:nowrap;
-                        ">
-                            \[
-                            x_{11}+x_{21}+\cdots+x_{m1}=b_1
-                            \]
-                            <span style="
-                                font-family:'Times New Roman',serif;
-                                font-size:13px;
-                                margin-left:12px;
-                            ">(m+1)</span>
+                        <!-- ========================================== -->
+                        <!-- NHÓM CỘT -->
+                        <!-- ========================================== -->
+
+                        <!-- x11 + x21 + ... + xm1 = b1 (m+1) -->
+
+                        <div style="text-align:center;">
+                            \(x_{11}\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(+\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(x_{21}\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(+\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(\cdots+x_{m1}\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(=\)
+                        </div>
+
+                        <div style="text-align:center; white-space:nowrap;">
+                            \(b_1\)
+                        </div>
+
+                        <div></div>
+
+                        <div style="text-align:center; white-space:nowrap;">
+                            (m+1)
                         </div>
 
 
-                        <div style="
-                            display:flex;
-                            justify-content:center;
-                            align-items:center;
-                            white-space:nowrap;
-                        ">
-                            \[
-                            x_{12}+x_{22}+\cdots+x_{m2}=b_2
-                            \]
-                            <span style="
-                                font-family:'Times New Roman',serif;
-                                font-size:13px;
-                                margin-left:12px;
-                            ">(m+2)</span>
-                        </div>
-
+                        <!-- x12 + x22 + ... + xm2 = b2 (m+2) -->
 
                         <div style="
                             text-align:center;
-                            font-family:'Cambria Math','Times New Roman',serif;
-                            margin:2px 0;
+                            transform:translateX(10px);
                         ">
-                            \[
-                            \vdots
-                            \]
+                            \(x_{12}\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(+\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(x_{22}\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(+\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(\cdots+x_{m2}\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(=\)
+                        </div>
+
+                        <div style="text-align:center; white-space:nowrap;">
+                            \(b_2\)
+                        </div>
+
+                        <div></div>
+
+                        <div style="text-align:center; white-space:nowrap;">
+                            (m+2)
                         </div>
 
 
-                        <div style="
-                            display:flex;
-                            justify-content:center;
-                            align-items:center;
-                            white-space:nowrap;
-                        ">
-                            \[
-                            x_{1n}+x_{2n}+\cdots+x_{mn}=b_n
-                            \]
-                            <span style="
-                                font-family:'Times New Roman',serif;
-                                font-size:13px;
-                                margin-left:12px;
-                            ">(m+n)</span>
+                        <!-- DẤU CHẤM -->
+
+                        <div style="grid-column:1 / 10; text-align:center; height:24px;">
+                            \(\vdots\)
+                        </div>
+
+
+                        <!-- x1n + x2n + ... + xmn = bn (m+n) -->
+
+                        <div style="text-align:center;">
+                            \(x_{1n}\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(+\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(x_{2n}\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(+\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(\cdots+x_{mn}\)
+                        </div>
+
+                        <div style="text-align:center;">
+                            \(=\)
+                        </div>
+
+                        <div style="text-align:center; white-space:nowrap;">
+                            \(b_n\)
+                        </div>
+
+                        <div></div>
+
+                        <div style="text-align:center; white-space:nowrap;">
+                            (m+n)
                         </div>
 
                     </div>
@@ -4803,8 +4964,6 @@
                 </div>
 
             </div>
-
-        </div>
 
 
         <!-- ================================================= -->
@@ -4839,7 +4998,7 @@
         border-top:1px solid rgba(148,163,184,0.2);
         margin-top:15px;
     ">
-        <span>HMT Lab | Huy D. Le | lehuydip@gmail.com</span>
+        <!-- <span>HMT Lab | Huy D. Le | lehuydip@gmail.com</span> -->
         <span>Chương 5 - Lý thuyết tối ưu</span>
         <span>73</span>
     </div>
