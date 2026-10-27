@@ -4527,5 +4527,125 @@
 
 
 
+<!-- SLIDE 73: 1. Phát biểu bài toán -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+        <!-- Header -->
+        <div class="top-tag">CHƯƠNG 5: BÀI TOÁN VẬN TẢI</div>
+        <h1 class="slide-title" style="margin-bottom: 25px;">1. Phát biểu bài toán</h1>
+
+        <!-- Nội dung chính: 2 cột -->
+        <div style="display: flex; gap: 30px; align-items: stretch; margin-top: 10px;">
+
+            <!-- Cột trái: Mô hình tổng quát -->
+            <div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-start;">
+                
+                <!-- Hàm mục tiêu -->
+                <div style="font-family:'Cambria Math', 'Times New Roman', serif; font-size: 18px; text-align: center; margin-bottom: 20px; color: #1e293b;">
+                    \[
+                    \sum_{i=1}^m \sum_{j=1}^n c_{ij}x_{ij} \rightarrow \min
+                    \]
+                </div>
+
+                <!-- Hệ ràng buộc -->
+                <div style="font-family:'Cambria Math', 'Times New Roman', serif; font-size: 16px; color: #1e293b; margin-bottom: 25px;">
+                    \[
+                    \begin{cases}
+                    \sum_{j=1}^n x_{ij} = a_i, & i = \overline{1,m} \\[10pt]
+                    \sum_{i=1}^m x_{ij} = b_j, & j = \overline{1,n} \\[10pt]
+                    x_{ij} \ge 0, & i = \overline{1,m}, j = \overline{1,n}
+                    \end{cases}
+                    \]
+                </div>
+
+                <!-- Điều kiện cân bằng -->
+                <div style="font-family:'Cambria Math', 'Times New Roman', serif; font-size: 18px; text-align: center; color: #1e293b; margin-bottom: 10px;">
+                    \[
+                    \sum_{i=1}^m a_i = \sum_{j=1}^n b_j
+                    \]
+                </div>
+                <div style="font-size: 14px; text-align: center; color: #475569; font-style: italic;">
+                    (điều kiện cân bằng thu phát)
+                </div>
+
+            </div>
+
+            <!-- Cột phải: Hệ phương trình khai triển -->
+            <div style="flex: 1.3;">
+                <div class="highlight-card" style="background: #f8fafc; border: 1px solid #64748b; border-radius: 4px; padding: 20px 15px; height: 100%; box-sizing: border-box; display: flex; align-items: center;">
+                    <table style="width: 100%; border-collapse: collapse; font-family:'Cambria Math', 'Times New Roman', serif; font-size: 15px; line-height: 2; color: #1e293b;">
+                        <tbody>
+                            <!-- Dòng 1 -->
+                            <tr>
+                                <td style="padding: 2px 0; white-space: nowrap;">\(x_{11} + x_{12} + \dots + x_{1n}\)</td>
+                                <td style="text-align: right; padding-right: 15px; white-space: nowrap;">\(= a_1\)</td>
+                                <td style="width: 40px; text-align: right;">(1)</td>
+                            </tr>
+                            <!-- Dòng 2 -->
+                            <tr>
+                                <td style="padding: 2px 0 2px 40px; white-space: nowrap;">\(x_{21} + x_{22} + \dots + x_{2n}\)</td>
+                                <td style="text-align: right; padding-right: 15px; white-space: nowrap;">\(= a_2\)</td>
+                                <td style="text-align: right;">(2)</td>
+                            </tr>
+                            <!-- Dòng ... -->
+                            <tr>
+                                <td colspan="3" style="text-align: center; padding: 2px 0;">\(\dots\)</td>
+                            </tr>
+                            <!-- Dòng m -->
+                            <tr>
+                                <td style="padding: 2px 0 2px 120px; white-space: nowrap;">\(x_{m1} + x_{m2} + \dots + x_{mn}\)</td>
+                                <td style="text-align: right; padding-right: 15px; white-space: nowrap;">\(= a_m\)</td>
+                                <td style="text-align: right;">(m)</td>
+                            </tr>
+                            
+                            <!-- Dòng m+1 -->
+                            <tr>
+                                <td style="padding: 2px 0; white-space: nowrap;">\(x_{11} \quad\quad + x_{21} + \dots + x_{m1}\)</td>
+                                <td style="text-align: right; padding-right: 15px; white-space: nowrap;">\(= b_1\)</td>
+                                <td style="text-align: right;">(m+1)</td>
+                            </tr>
+                            <!-- Dòng m+2 -->
+                            <tr>
+                                <td style="padding: 2px 0 2px 40px; white-space: nowrap;">\(x_{12} \quad + x_{22} + \dots + x_{m2}\)</td>
+                                <td style="text-align: right; padding-right: 15px; white-space: nowrap;">\(= b_2\)</td>
+                                <td style="text-align: right;">(m+2)</td>
+                            </tr>
+                            <!-- Dòng ... -->
+                            <tr>
+                                <td colspan="3" style="text-align: center; padding: 2px 0;">\(\dots\)</td>
+                            </tr>
+                            <!-- Dòng m+n -->
+                            <tr>
+                                <td style="padding: 2px 0 2px 120px; white-space: nowrap;">\(x_{1n} + x_{2n} + \dots + x_{mn}\)</td>
+                                <td style="text-align: right; padding-right: 15px; white-space: nowrap;">\(= b_n\)</td>
+                                <td style="text-align: right;">(m+n)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Định lý dưới cùng -->
+        <div style="text-align: center; margin-top: 35px; font-size: 17px; font-weight: 700; color: #1e293b; font-family:'Cambria Math', 'Times New Roman', serif;">
+            Định lý: BTVT luôn có phương án tối ưu.
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+        <span>HMT Lab | Huy D. Le | lehuydip@gmail.com</span>
+        <span>Chương 5 - Lý thuyết tối ưu</span>
+        <span>73</span>
+    </div>
+</div>
+
+
+
+
+
+
+
 </body>
 </html>
