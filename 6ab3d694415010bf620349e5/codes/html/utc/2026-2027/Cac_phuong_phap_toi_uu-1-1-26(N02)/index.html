@@ -4636,7 +4636,7 @@
                         box-sizing:border-box;
                         color:#1e293b;
                         font-family:'Cambria Math','Times New Roman',serif;
-                        font-size:13px;
+                        font-size:12px;
                     }
                     /* mỗi hàng: khung định vị, các hạng tử đặt theo % chiều ngang */
                     .eq-row{ position:relative; height:42px; }
@@ -4644,52 +4644,76 @@
                     .eq-row.gap{ height:14px; }
                     .eq-row span{ position:absolute; top:50%; transform:translateY(-50%); white-space:nowrap; }
                     /* trục cố định cho dấu =, vế phải, số thứ tự */
-                    .eq-row .eq { left:79%; }
-                    .eq-row .rhs{ left:83%; }
-                    .eq-row .idx{ left:90%; }
+                    .eq-row .eq { left:81%; }
+                    .eq-row .rhs{ left:85%; }
+                    .eq-row .idx{ left:90.5%; }
                 </style>
 
                 <div class="eq-box">
 
-                    <!-- Phương trình hàng i -->
                     <div class="eq-row">
-                        <span style="left:3%;">\(x_{11}+x_{12}+\cdots+x_{1n}\)</span>
+                        <span style="left:1.5%;">\(x_{11}\)</span>
+                        <span style="left:5.5%;">\(+\)</span>
+                        <span style="left:7.7%;">\(x_{12}\)</span>
+                        <span style="left:11.9%;">\(+\)</span>
+                        <span style="left:13.9%;">\(\cdots\)</span>
+                        <span style="left:17.9%;">\(+\)</span>
+                        <span style="left:20.1%;">\(x_{1n}\)</span>
                         <span class="eq">\(=\)</span><span class="rhs">\(a_1\)</span><span class="idx">(1)</span>
                     </div>
                     <div class="eq-row">
-                        <span style="left:24.5%;">\(x_{21}+x_{22}+\cdots+x_{2n}\)</span>
+                        <span style="left:27.0%;">\(x_{21}\)</span>
+                        <span style="left:31.0%;">\(+\)</span>
+                        <span style="left:33.2%;">\(x_{22}\)</span>
+                        <span style="left:37.4%;">\(+\)</span>
+                        <span style="left:39.4%;">\(\cdots\)</span>
+                        <span style="left:43.4%;">\(+\)</span>
+                        <span style="left:45.6%;">\(x_{2n}\)</span>
                         <span class="eq">\(=\)</span><span class="rhs">\(a_2\)</span><span class="idx">(2)</span>
                     </div>
-                    <div class="eq-row dots">
-                        <span style="left:40%;">\(\vdots\)</span>
-                    </div>
+                    <div class="eq-row dots"><span style="left:38%;">\(\vdots\)</span></div>
                     <div class="eq-row">
-                        <span style="left:46%;">\(x_{m1}+x_{m2}+\cdots+x_{mn}\)</span>
+                        <span style="left:53.0%;">\(x_{m1}\)</span>
+                        <span style="left:57.0%;">\(+\)</span>
+                        <span style="left:59.2%;">\(x_{m2}\)</span>
+                        <span style="left:63.4%;">\(+\)</span>
+                        <span style="left:65.4%;">\(\cdots\)</span>
+                        <span style="left:69.4%;">\(+\)</span>
+                        <span style="left:71.6%;">\(x_{mn}\)</span>
                         <span class="eq">\(=\)</span><span class="rhs">\(a_m\)</span><span class="idx">(m)</span>
                     </div>
 
                     <div class="eq-row gap"></div>
 
-                    <!-- Phương trình cột j -->
                     <div class="eq-row">
-                        <span style="left:3%;">\(x_{11}\)</span>
-                        <span style="left:25%;">\(+\,x_{21}+\cdots\)</span>
-                        <span style="left:49%;">\(+\,x_{m1}\)</span>
+                        <span style="left:1.5%;">\(x_{11}\)</span>
+                        <span style="left:24.0%;">\(+\)</span>
+                        <span style="left:27.0%;">\(x_{21}\)</span>
+                        <span style="left:31.6%;">\(+\)</span>
+                        <span style="left:40.6%;">\(\cdots\)</span>
+                        <span style="left:50.0%;">\(+\)</span>
+                        <span style="left:53.0%;">\(x_{m1}\)</span>
                         <span class="eq">\(=\)</span><span class="rhs">\(b_1\)</span><span class="idx">(m+1)</span>
                     </div>
                     <div class="eq-row">
-                        <span style="left:9%;">\(x_{12}+\)</span>
-                        <span style="left:31%;">\(+\,x_{22}+\cdots\)</span>
-                        <span style="left:55%;">\(+\,x_{m2}\)</span>
+                        <span style="left:7.7%;">\(x_{12}\)</span>
+                        <span style="left:30.2%;">\(+\)</span>
+                        <span style="left:33.2%;">\(x_{22}\)</span>
+                        <span style="left:37.8%;">\(+\)</span>
+                        <span style="left:46.8%;">\(\cdots\)</span>
+                        <span style="left:56.2%;">\(+\)</span>
+                        <span style="left:59.2%;">\(x_{m2}\)</span>
                         <span class="eq">\(=\)</span><span class="rhs">\(b_2\)</span><span class="idx">(m+2)</span>
                     </div>
-                    <div class="eq-row dots">
-                        <span style="left:40%;">\(\vdots\)</span>
-                    </div>
+                    <div class="eq-row dots"><span style="left:38%;">\(\vdots\)</span></div>
                     <div class="eq-row">
-                        <span style="left:15%;">\(x_{1n}\)</span>
-                        <span style="left:37%;">\(+\,x_{2n}+\cdots\)</span>
-                        <span style="left:61%;">\(+\,x_{mn}\)</span>
+                        <span style="left:20.1%;">\(x_{1n}\)</span>
+                        <span style="left:42.6%;">\(+\)</span>
+                        <span style="left:45.6%;">\(x_{2n}\)</span>
+                        <span style="left:50.2%;">\(+\)</span>
+                        <span style="left:59.2%;">\(\cdots\)</span>
+                        <span style="left:68.6%;">\(+\)</span>
+                        <span style="left:71.6%;">\(x_{mn}\)</span>
                         <span class="eq">\(=\)</span><span class="rhs">\(b_n\)</span><span class="idx">(m+n)</span>
                     </div>
 
