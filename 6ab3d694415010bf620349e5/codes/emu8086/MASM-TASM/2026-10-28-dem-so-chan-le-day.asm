@@ -23,8 +23,13 @@ main proc
     xor bx, bx       ; bx = số ký tự đã nhập
     
 nhap:
+    mov ah, 1        ; đọc 1 ký tự, kết quả trong AL
+    int 21h
+    cmp al, 13       ; Enter thì dừng
+    ;INT 21H ===> AH = 01H => trả mã ASCII ký tự đó vào AL
+    je xong          ;Jump if Equal - Nhảy nếu bằng (điều kiện: cmp al, 13)
     
-    
+xong:    
     mov ah, 4ch
     int 21h
 main endp
