@@ -17,7 +17,10 @@ main proc
     mov ah, 9
     int 21h
     
-    lea 
+    ;tao s[i]
+    lea si, s        ; si trỏ đầu mảng s
+    mov cx, 20       ; tối đa 20 ký tự
+    xor bx, bx       ; bx = số ký tự đã nhập
     
 nhap:
     
