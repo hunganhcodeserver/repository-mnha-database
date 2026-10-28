@@ -50,6 +50,10 @@ xong:
     lea si, s        ; SI quay lại đầu mảng s
     
 xuat:
+    mov dl, [si]     ; DL = s[SI]
+    add dl, 48       ; số -> ký tự ASCII
+    mov ah, 2        ; in ký tự trong DL
+    
 
 thoat:
     mov ah, 4ch
