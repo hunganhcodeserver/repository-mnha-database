@@ -8,6 +8,7 @@
 
 
 <style id="print-style">
+    /* Nút in (chỉ hiện trên màn hình) */
     #print-btn {
         position: fixed; top: 16px; right: 16px; z-index: 9999;
         padding: 10px 18px; background: #1e293b; color: #fff;
@@ -18,17 +19,31 @@
 
     @media print {
         #print-btn { display: none !important; }
-        @page { size: A4 landscape; margin: 8mm; }
+        
         html, body {
-            margin: 0 !important; padding: 0 !important; background: #fff !important;
+            display: block !important;
+            margin: 0 !important; padding: 0 !important;
+            width: auto !important; height: auto !important; min-height: 0 !important;
+            overflow: visible !important;
+            background: #fff !important;
             -webkit-print-color-adjust: exact; print-color-adjust: exact;
         }
-        .slide-container, .slide {
-            break-after: page; page-break-after: always;
-            break-inside: avoid; page-break-inside: avoid;
-            margin: 0 auto !important; box-shadow: none !important;
+        .part2-wrapper {
+            display: block !important;
+            margin: 0 !important; padding: 0 !important; gap: 0 !important;
+            width: auto !important; max-width: none !important;
+            background: none !important; transform: none !important;
         }
-        .print-last { break-after: auto !important; page-break-after: auto !important; }
+        .slide-container, .slide {
+            box-sizing: border-box !important;
+            margin: 0 !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            overflow: hidden !important;
+            break-inside: avoid; page-break-inside: avoid;
+            break-after: page; page-break-after: always;
+        }
+        [data-print-last] { break-after: auto !important; page-break-after: auto !important; }
     }
 </style>
 </head>
@@ -8271,10 +8286,50 @@
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
 <script id="print-script">
+/*
+ * In mỗi slide = 1 trang PDF.
+ * Trước khi in, đo kích thước thật của từng slide rồi thu/phóng cho vừa
+ * đúng 1 trang A4 ngang và căn giữa, nên slide không bị cắt, không tràn,
+ * không bị chia làm 2 trang.
+ */
+function cleanupPrint() {
+    const old = document.getElementById('print-dyn');
+    if (old) old.remove();
+    document.querySelectorAll('[data-ps]').forEach(el => {
+        el.removeAttribute('data-ps');
+        el.removeAttribute('data-print-last');
+    });
+}
+
+function preparePrint() {
+    cleanupPrint();
+    // Khổ giấy: A4 ngang (297 x 210 mm), đơn vị px ở 96 dpi
+    const PW = 1122, PH = 790;   // chừa dư vài px để không sinh trang trắng
+    const slides = Array.from(document.querySelectorAll('.slide-container, .slide'));
+    let rules = '';
+    slides.forEach((el, i) => {
+        const w = Math.ceil(Math.max(el.offsetWidth, el.scrollWidth));
+        const h = Math.ceil(Math.max(el.offsetHeight, el.scrollHeight));
+        const k = Math.min(PW / w, PH / h);            // tỉ lệ thu/phóng để vừa 1 trang
+        const dx = Math.max(0, (PW - w * k) / 2) / k;  // căn giữa ngang
+        const dy = Math.max(0, (PH - h * k) / 2) / k;  // căn giữa dọc
+        el.setAttribute('data-ps', i);
+        rules += '[data-ps="' + i + '"] { width: ' + w + 'px !important; height: ' + h + 'px !important;'
+               + ' zoom: ' + k.toFixed(4) + '; position: relative !important;'
+               + ' left: ' + dx.toFixed(2) + 'px; top: ' + dy.toFixed(2) + 'px; }\n';
+    });
+    if (slides.length) slides[slides.length - 1].setAttribute('data-print-last', '');
+    const st = document.createElement('style');
+    st.id = 'print-dyn';
+    st.textContent = '@page { size: A4 landscape; margin: 0; }\n@media print {\n' + rules + '}';
+    document.head.appendChild(st);
+}
+
+window.addEventListener('beforeprint', preparePrint);
+window.addEventListener('afterprint', cleanupPrint);
+
 function printSlides() {
-    const slides = document.querySelectorAll('.slide-container, .slide');
-    slides.forEach(s => s.classList.remove('print-last'));
-    if (slides.length) slides[slides.length - 1].classList.add('print-last');
+    // Đợi MathJax render xong công thức rồi mới in
     if (window.MathJax && MathJax.startup && MathJax.startup.promise) {
         MathJax.startup.promise.then(() => window.print());
     } else {
