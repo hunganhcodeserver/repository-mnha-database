@@ -8618,6 +8618,95 @@
 
 
 
+
+<!-- SLIDE 115: Phần tử tối đại & tối tiểu -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+        <!-- Header -->
+        <div class="top-tag">5.7 - QUAN HỆ THỨ TỰ & DÀN</div>
+        <h1 class="slide-title" style="margin-bottom: 25px;">Phần tử tối đại & tối tiểu</h1>
+
+        <div style="display: flex; gap: 24px; padding: 0 10px; align-items: center;">
+
+            <!-- Cột trái: sơ đồ Hasse (tọa độ đo từ ảnh gốc) -->
+            <div style="flex: 1.15; display: flex; justify-content: center;">
+                <svg viewBox="160 500 820 550" width="100%" style="max-width: 560px;" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Cạnh -->
+                    <g stroke="#8fa6c8" stroke-width="4" stroke-linecap="round">
+                        <line x1="301" y1="554" x2="218" y2="757"/> <!-- 20-4 -->
+                        <line x1="301" y1="554" x2="416" y2="757"/> <!-- 20-10 -->
+                        <line x1="637" y1="554" x2="218" y2="757"/> <!-- 12-4 -->
+                        <line x1="637" y1="554" x2="416" y2="757"/> <!-- 12-10 (đúng như ảnh gốc) -->
+                        <line x1="218" y1="757" x2="411" y2="992"/> <!-- 4-2 -->
+                        <line x1="416" y1="757" x2="411" y2="992"/> <!-- 10-2 -->
+                        <line x1="416" y1="757" x2="847" y2="992"/> <!-- 10-5 -->
+                        <line x1="917" y1="553" x2="847" y2="992"/> <!-- 25-5 -->
+                    </g>
+
+                    <!-- Đỉnh: cam = tối đại/tối tiểu, xám xanh = còn lại -->
+                    <g fill="#d98a63">
+                        <circle cx="301" cy="554" r="45"/> <!-- 20 -->
+                        <circle cx="637" cy="554" r="45"/> <!-- 12 -->
+                        <circle cx="917" cy="553" r="45"/> <!-- 25 -->
+                        <circle cx="411" cy="992" r="45"/> <!-- 2 -->
+                        <circle cx="847" cy="992" r="45"/> <!-- 5 -->
+                    </g>
+                    <g fill="#4b5668">
+                        <circle cx="218" cy="757" r="45"/> <!-- 4 -->
+                        <circle cx="416" cy="757" r="45"/> <!-- 10 -->
+                    </g>
+
+                    <!-- Nhãn -->
+                    <g fill="#fff" font-size="42" font-weight="700" text-anchor="middle" font-family="'Calibri','Segoe UI',Arial,sans-serif">
+                        <text x="301" y="569">20</text>
+                        <text x="637" y="569">12</text>
+                        <text x="917" y="568">25</text>
+                        <text x="218" y="772">4</text>
+                        <text x="416" y="772">10</text>
+                        <text x="411" y="1007">2</text>
+                        <text x="847" y="1007">5</text>
+                    </g>
+                </svg>
+            </div>
+
+            <!-- Cột phải: Kết quả -->
+            <div style="flex: 1; background-color: #f1ede9; border-radius: 10px; padding: 26px 28px; border: 1px solid #e7e0d8;">
+                <div style="font-size: 19px; font-weight: 700; color: #c2703f; margin-bottom: 12px;">Kết quả</div>
+
+                <div style="font-size: 16.5px; color: #334155; line-height: 1.7; margin-bottom: 18px;">
+                    Tối đại: {12, 20, 25}<br>
+                    <span style="font-size: 15.5px;">(không phần tử nào chia hết cho chúng)</span>
+                </div>
+
+                <div style="font-size: 16.5px; color: #334155; line-height: 1.7; margin-bottom: 18px;">
+                    Tối tiểu: {2, 5}<br>
+                    <span style="font-size: 15.5px;">(không phần tử nào là ước của chúng)</span>
+                </div>
+
+                <div style="font-size: 16.5px; color: #334155; line-height: 1.7;">
+                    ⚠ Poset này KHÔNG có phần tử lớn nhất (vì có nhiều hơn 1 phần tử tối đại).
+                </div>
+            </div>
+        </div>
+
+        <!-- Poset -->
+        <div style="padding: 0 10px; margin-top: 22px;">
+            <span style="display: inline-block; background-color: #dde96a; padding: 4px 10px; font-family: 'Courier New', monospace; font-size: 20px; font-weight: 700; color: #475569;">
+                poset ({2,4,5,10,12,20,25}, |)
+            </span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+        <span>Chương 5 - Lý thuyết quan hệ</span>
+        <span>115</span>
+    </div>
+</div>
+
+
+
+
 </body>
 <!-- MATHJAX: đặt trước </body> nếu file chưa có --> 
  <script> 
