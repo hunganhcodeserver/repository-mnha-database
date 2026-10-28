@@ -1,0 +1,30 @@
+{
+  "timestamp": 1793197930169,
+  "lang": "emu8086",
+  "file": "2026-10-28-dem-so-chan-le-day.asm",
+  "dir": "",
+  "origin": "https://github.com/hunganhcodeserver/repository-mnha-database-1/blob/main/6ab3d694415010bf620349e5/codes/emu8086/MASM-TASM/2026-10-28-dem-so-chan-le-day.asm",
+  "source": "; Emu8086 - Hello\n.model small\n.stack 100h\n.data\n    ms1 db 'Nhap day so: $'\n    ms2 db 10, 13, 'Day so vua nhap: $'\n    ms3 db 10, 13, 'Tong chu so chan: $'\n    ms4 db 10, 13 'Tong chu so le: $'\n    s db 20 dup(?)\n.code\nmain proc\n    mov ax, @data\n    mov ds, ax\n    \n    lea dx, ms1\n    mov ah, 9\n    int 21h\n    \n    \n    \n    mov ah, 4ch\n    int 21h\nmain endp\nend main\n",
+  "kind": "emu8086",
+  "status": "error",
+  "assemble": {
+    "ok": false,
+    "errors": [
+      {
+        "line": 8,
+        "message": "unexpected: 'Tong chu so le: $'"
+      }
+    ]
+  },
+  "console": "",
+  "screen": [],
+  "inputs": [],
+  "regs": null,
+  "flags": null,
+  "steps": 0,
+  "exitCode": null,
+  "error": "Lỗi dịch hợp ngữ",
+  "startedAt": "2026-10-28T14:32:10.163Z",
+  "finishedAt": "2026-10-28T14:32:10.169Z",
+  "durationMs": 6
+}
