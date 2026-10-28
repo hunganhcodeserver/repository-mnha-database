@@ -64,17 +64,17 @@
         },
         "2026-10-28": {
           "in": 0,
-          "out": 1005,
-          "originIn": 0,
+          "out": 8542,
+          "originIn": 14000,
           "originOut": 0,
-          "req": 1,
+          "req": 4,
           "cfUp": 0,
           "cfDown": 0,
           "cfReq": 0,
           "fbUp": 0
         }
       },
-      "updatedAt": "2026-10-28T05:34:00.651Z"
+      "updatedAt": "2026-10-28T14:54:28.208Z"
     },
     "data-node": {
       "days": {
@@ -119,5 +119,5 @@
   "week": 43,
   "from": "2026-10-26",
   "to": "2026-11-01",
-  "updatedAt": "2026-10-28T14:51:02.838Z"
+  "updatedAt": "2026-10-28T14:54:28.208Z"
 }
