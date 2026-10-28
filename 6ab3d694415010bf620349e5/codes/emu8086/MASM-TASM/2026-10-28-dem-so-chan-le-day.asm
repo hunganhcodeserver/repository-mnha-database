@@ -53,7 +53,9 @@ xuat:
     mov dl, [si]     ; DL = s[SI]
     add dl, 48       ; số -> ký tự ASCII
     mov ah, 2        ; in ký tự trong DL
-    
+    int 21h
+    inc si           ; SI++
+    loop xuat        ; CX--, khác 0 thì in tiếp
 
 thoat:
     mov ah, 4ch
