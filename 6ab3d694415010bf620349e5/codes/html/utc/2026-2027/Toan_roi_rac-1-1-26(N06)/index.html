@@ -8707,6 +8707,187 @@
 
 
 
+
+<!-- SLIDE 116: Giới thiệu dàn (Lattice) -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+        <!-- Header -->
+        <div class="top-tag">5.7 - QUAN HỆ THỨ TỰ & DÀN</div>
+        <h1 class="slide-title" style="margin-bottom: 25px;">Giới thiệu dàn (Lattice)</h1>
+
+        <!-- Định nghĩa -->
+        <div style="padding: 22px 28px; margin: 0 10px 40px 10px; background-color: #f1f5f9; border-radius: 8px; border: 1px solid #e2e8f0;">
+            <div style="font-size: 18px; font-weight: 700; color: #475569; margin-bottom: 12px;">
+                Định nghĩa
+            </div>
+            <div style="font-size: 16.5px; color: #334155; line-height: 1.8;">
+                Một poset \((S, \preceq)\) là <b>DÀN</b> nếu mọi cặp phần tử của S đều có cả <b>cận trên nhỏ nhất</b> (least upper bound) và <b>cận dưới lớn nhất</b> (greatest lower bound).<br>
+                Ví dụ: \((\mathbb{Z}^+, \mid)\) là một dàn — với a, b, cận dưới lớn nhất là \(\gcd(a,b)\), cận trên nhỏ nhất là \(\operatorname{lcm}(a,b)\).
+            </div>
+        </div>
+
+        <!-- Ứng dụng CNTT -->
+        <div style="display: flex; gap: 28px; align-items: flex-start; padding: 0 10px;">
+            <!-- Icon lịch -->
+            <div style="flex-shrink: 0; width: 76px; height: 76px; border-radius: 50%; background-color: #e0946a; display: flex; align-items: center; justify-content: center; margin-top: 4px;">
+                <svg viewBox="0 0 40 40" width="38" height="38" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="4" y="7" width="32" height="28" rx="4" fill="#e8eef7"/>
+                    <rect x="4" y="7" width="32" height="8" rx="4" fill="#5b8fd6"/>
+                    <g fill="#5b8fd6">
+                        <rect x="9"  y="19" width="5" height="4" rx="1"/>
+                        <rect x="17.5" y="19" width="5" height="4" rx="1"/>
+                        <rect x="26" y="19" width="5" height="4" rx="1"/>
+                        <rect x="9"  y="26" width="5" height="4" rx="1"/>
+                        <rect x="17.5" y="26" width="5" height="4" rx="1"/>
+                        <rect x="26" y="26" width="5" height="4" rx="1"/>
+                    </g>
+                </svg>
+            </div>
+
+            <div style="flex: 1;">
+                <div style="font-size: 22px; font-weight: 700; color: #475569; margin-bottom: 14px;">
+                    Ứng dụng CNTT: lập lịch dự án
+                </div>
+                <div style="font-size: 16.5px; color: #334155; line-height: 1.8;">
+                    Quan hệ "công việc A phải hoàn thành trước công việc B" là quan hệ thứ tự bộ phận; biểu đồ Hasse của quan hệ này chính là <b>sơ đồ phụ thuộc công việc</b> (dependency graph) trong quản lý dự án phần mềm.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+        <span>Chương 5 - Lý thuyết quan hệ</span>
+        <span>116</span>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- SLIDE 117: Dàn hay không phải dàn? -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+        <!-- Header -->
+        <div class="top-tag">5.7 - QUAN HỆ THỨ TỰ & DÀN</div>
+        <h1 class="slide-title" style="margin-bottom: 20px;">Dàn hay không phải dàn?</h1>
+
+        <div style="display: flex; gap: 20px; padding: 0 10px;">
+
+            <!-- Khối: LÀ dàn -->
+            <div style="flex: 1; background-color: #e0f2fe; border: 1px solid #bae6fd; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column;">
+                <div style="font-size: 18px; font-weight: 700; color: #475569; margin-bottom: 6px;">
+                    <span style="color:#16a34a;">✓</span> Là dàn: \((\{1,2,3,4,6,12\}, \mid)\)
+                </div>
+
+                <div style="display: flex; justify-content: center; flex: 1; align-items: center;">
+                    <svg viewBox="400 735 370 425" width="100%" style="max-width: 300px;" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Cạnh -->
+                        <g stroke="#8b97a6" stroke-width="5" stroke-linecap="round">
+                            <line x1="585" y1="782"  x2="462" y2="894"/>  <!-- 12-4 -->
+                            <line x1="585" y1="782"  x2="706" y2="889"/>  <!-- 12-6 -->
+                            <line x1="462" y1="894"  x2="460" y2="1004"/> <!-- 4-2 -->
+                            <line x1="706" y1="889"  x2="704" y2="1001"/> <!-- 6-3 -->
+                            <line x1="706" y1="889"  x2="460" y2="1004"/> <!-- 6-2 -->
+                            <line x1="460" y1="1004" x2="580" y2="1114"/> <!-- 2-1 -->
+                            <line x1="704" y1="1001" x2="580" y2="1114"/> <!-- 3-1 -->
+                        </g>
+                        <!-- Đỉnh -->
+                        <g fill="#5f6b7c">
+                            <circle cx="585" cy="782"  r="38"/>
+                            <circle cx="462" cy="894"  r="38"/>
+                            <circle cx="706" cy="889"  r="38"/>
+                            <circle cx="460" cy="1004" r="38"/>
+                            <circle cx="704" cy="1001" r="38"/>
+                            <circle cx="580" cy="1114" r="38"/>
+                        </g>
+                        <!-- Nhãn -->
+                        <g fill="#fff" font-size="30" font-weight="700" text-anchor="middle" font-family="'Calibri','Segoe UI',Arial,sans-serif">
+                            <text x="585" y="793">12</text>
+                            <text x="462" y="905">4</text>
+                            <text x="706" y="900">6</text>
+                            <text x="460" y="1015">2</text>
+                            <text x="704" y="1012">3</text>
+                            <text x="580" y="1125">1</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <div style="font-size: 15px; color: #334155; line-height: 1.7;">
+                    <b>Mọi cặp đều có lub và glb.</b> VD: lub(4,6) = 12, glb(4,6) = 2; lub(2,3) = 6, glb(2,3) = 1.
+                </div>
+            </div>
+
+            <!-- Khối: KHÔNG là dàn -->
+            <div style="flex: 1; background-color: #fdf0e6; border: 1px solid #f5dcc6; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column;">
+                <div style="font-size: 18px; font-weight: 700; color: #c2703f; margin-bottom: 6px;">
+                    ✗ KHÔNG là dàn: \((\{1,2,3,4,6,8,12\}, \mid)\)
+                </div>
+
+                <div style="display: flex; justify-content: center; flex: 1; align-items: center;">
+                    <svg viewBox="1280 715 500 440" width="100%" style="max-width: 340px;" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Cạnh -->
+                        <g stroke="#8b97a6" stroke-width="5" stroke-linecap="round">
+                            <line x1="1331" y1="765"  x2="1461" y2="875"/>  <!-- 8-4 -->
+                            <line x1="1591" y1="757"  x2="1461" y2="875"/>  <!-- 12-4 -->
+                            <line x1="1591" y1="757"  x2="1725" y2="869"/>  <!-- 12-6 -->
+                            <line x1="1461" y1="875"  x2="1461" y2="989"/>  <!-- 4-2 -->
+                            <line x1="1725" y1="869"  x2="1726" y2="984"/>  <!-- 6-3 -->
+                            <line x1="1725" y1="869"  x2="1461" y2="989"/>  <!-- 6-2 -->
+                            <line x1="1461" y1="989"  x2="1593" y2="1102"/> <!-- 2-1 -->
+                            <line x1="1726" y1="984"  x2="1593" y2="1102"/> <!-- 3-1 -->
+                        </g>
+                        <!-- Đỉnh cam: 8, 12 -->
+                        <g fill="#e8a070">
+                            <circle cx="1331" cy="765" r="40"/>
+                            <circle cx="1591" cy="757" r="40"/>
+                        </g>
+                        <!-- Đỉnh xám -->
+                        <g fill="#5f6b7c">
+                            <circle cx="1461" cy="875"  r="40"/>
+                            <circle cx="1725" cy="869"  r="40"/>
+                            <circle cx="1461" cy="989"  r="40"/>
+                            <circle cx="1726" cy="984"  r="40"/>
+                            <circle cx="1593" cy="1102" r="40"/>
+                        </g>
+                        <!-- Nhãn -->
+                        <g fill="#fff" font-size="30" font-weight="700" text-anchor="middle" font-family="'Calibri','Segoe UI',Arial,sans-serif">
+                            <text x="1331" y="776">8</text>
+                            <text x="1591" y="768">12</text>
+                            <text x="1461" y="886">4</text>
+                            <text x="1725" y="880">6</text>
+                            <text x="1461" y="1000">2</text>
+                            <text x="1726" y="995">3</text>
+                            <text x="1593" y="1113">1</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <div style="font-size: 15px; color: #334155; line-height: 1.7;">
+                    <b style="color:#c2703f;">8 và 12 không có cận trên chung:</b> mọi cận trên phải chia hết cho 24 mà \(24 \notin\) tập ⇒ không có lub. (Tương tự cặp (3,8), (6,8).)
+                </div>
+            </div>
+        </div>
+
+        <!-- Kết luận -->
+        <div style="padding: 0 10px; margin-top: 20px; font-size: 16.5px; color: #334155; line-height: 1.7;">
+            <b>Chỉ cần MỘT cặp thiếu lub hoặc glb là poset không phải dàn.</b>
+            <span style="color: #94a3b8;">Đối chiếu Rosen §9.6, Ví dụ 21–24.</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+        <span>Chương 5 - Lý thuyết quan hệ</span>
+        <span>117</span>
+    </div>
+</div>
+
+
+
+
 </body>
 <!-- MATHJAX: đặt trước </body> nếu file chưa có --> 
  <script> 
