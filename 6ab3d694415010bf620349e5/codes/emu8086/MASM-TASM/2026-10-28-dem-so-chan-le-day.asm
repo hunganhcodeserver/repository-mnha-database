@@ -66,4 +66,5 @@ end main
 ; CX        | Bộ đếm của loop, đếm ngược từ 20      | KHÔNG, không cho biết đã nhập bao nhiêu   |
 ; SI        | Địa chỉ ô nhớ đang trỏ tới            | KHÔNG, SI là địa chỉ, không phải số lượng |
 ; AL        | Ký tự vừa gõ gần nhất (Enter = 13)    | KHÔNG, AL chỉ là phím cuối cùng           |
+; DL        | Ký tự cần in ra (hàm 02h, add dl, 48) | KHÔNG, DL chỉ là 1 ký tự đang in          |
 ; ----------------------------------------------------------------------------------------------
