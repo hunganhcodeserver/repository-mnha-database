@@ -5,8 +5,10 @@
     ms1 db 'Nhap day so: $'
     ms2 db 10, 13, 'Day so vua nhap: $'
     ms3 db 10, 13, 'So chu so chan: $'
-    ms4 db 10, 13 'So chu so le: $'
+    ms4 db 10, 13, 'So chu so le: $'
     s db 21 dup(?)
+    dem_chan db 0          ; so chu so chan
+    dem_le   db 0          ; so chu so le
 .code
 main proc
     mov ax, @data
@@ -35,8 +37,33 @@ nhap:
     loop nhap        ; CX = 20 - 1 = 19, khác 0 -> quay lại nhap
     ; Trạng thái sau lần lặp 1: AL = 1, SI = 1, BX = 1, CX = 19, s = [1, ?, ?, ...]
     
-xong:    
+xong:   
+    ;thong bao xuat
+    lea dx, ms2
+    mov ah, 9
+    int 21h
+    
+    ;xuat s[i]
+    cmp bx, 0        ; không nhập gì thì khỏi in
+    je thoat
+    mov cx, bx       ; CX = số phần tử cần in
+    lea si, s        ; SI quay lại đầu mảng s
+    
+xuat:
+
+thoat:
     mov ah, 4ch
     int 21h
 main endp
 end main
+
+
+
+; ----------------------------------------------------------------------------------------------
+; Thanh ghi | Đang giữ gì                           | Dùng kiểm tra "có nhập gì không"?         |
+; ----------------------------------------------------------------------------------------------
+; BX        | Số ký tự đã nhập (inc bx mỗi lần lưu) | CÓ, BX = 0 là chưa nhập ký tự nào         |
+; CX        | Bộ đếm của loop, đếm ngược từ 20      | KHÔNG, không cho biết đã nhập bao nhiêu   |
+; SI        | Địa chỉ ô nhớ đang trỏ tới            | KHÔNG, SI là địa chỉ, không phải số lượng |
+; AL        | Ký tự vừa gõ gần nhất (Enter = 13)    | KHÔNG, AL chỉ là phím cuối cùng           |
+; ----------------------------------------------------------------------------------------------
