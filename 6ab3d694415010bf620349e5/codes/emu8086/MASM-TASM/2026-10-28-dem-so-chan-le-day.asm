@@ -45,6 +45,9 @@ xong:
     lea dx, ms2
     mov ah, 9
     int 21h
+    lea dx, s
+    mov ah, 9
+    int 21h
     
     ;xuat s[i]
     cmp bx, 0        ; không nhập gì thì khỏi in
