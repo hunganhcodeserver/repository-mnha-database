@@ -49,6 +49,10 @@ xong:
     mov ah, 9
     int 21h
     
+    ;duyet s, dem chan / le
+    xor bx, bx           ; BL = so chan = 0, BH = so le = 0
+    lea si, s            ; SI quay ve dau mang
+    
     ;xuat s[i]
     cmp bx, 0        ; không nhập gì thì khỏi in
     je thoat
