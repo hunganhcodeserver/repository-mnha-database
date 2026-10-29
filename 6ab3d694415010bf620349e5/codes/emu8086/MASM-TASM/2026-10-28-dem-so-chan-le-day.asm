@@ -38,6 +38,9 @@ nhap:
     ; Trạng thái sau lần lặp 1: AL = 1, SI = 1, BX = 1, CX = 19, s = [1, ?, ?, ...]
     
 xong:   
+    mov al, '$'          ; AL = '$'
+    mov [si], al         ; them '$' vao cuoi mang (SI dang tro o trong)
+
     ;thong bao xuat
     lea dx, ms2
     mov ah, 9
