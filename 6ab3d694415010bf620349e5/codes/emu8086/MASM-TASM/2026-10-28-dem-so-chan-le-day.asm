@@ -65,12 +65,17 @@ end main
 
 
 
-; ----------------------------------------------------------------------------------------------
-; Thanh ghi | Đang giữ gì                           | Dùng kiểm tra "có nhập gì không"?         |
-; ----------------------------------------------------------------------------------------------
-; BX        | Số ký tự đã nhập (inc bx mỗi lần lưu) | CÓ, BX = 0 là chưa nhập ký tự nào         |
-; CX        | Bộ đếm của loop, đếm ngược từ 20      | KHÔNG, không cho biết đã nhập bao nhiêu   |
-; SI        | Địa chỉ ô nhớ đang trỏ tới            | KHÔNG, SI là địa chỉ, không phải số lượng |
-; AL        | Ký tự vừa gõ gần nhất (Enter = 13)    | KHÔNG, AL chỉ là phím cuối cùng           |
-; DL        | Ký tự cần in ra (hàm 02h, add dl, 48) | KHÔNG, DL chỉ là 1 ký tự đang in          |
-; ----------------------------------------------------------------------------------------------
+; ----------------------------------------------------------------------------------------------------------
+; Thanh ghi | Đang giữ gì                                         | Dùng kiểm tra "có nhập gì không"?
+; ----------------------------------------------------------------------------------------------------------
+; SI        | Địa chỉ ô nhớ đang trỏ tới (ô ghi tiếp / ô '$')     | KHÔNG, SI là địa chỉ, không phải số lượng
+; CX        | Bộ đếm của loop, đếm ngược từ 20                    | KHÔNG, không cho biết đã nhập bao nhiêu
+; AL        | Ký tự vừa gõ (Enter = 13) / ký tự đang xét          | CÓ khi duyệt, AL = '$' ngay lần đầu là
+;           | trong s / thương của DIV                            | chưa nhập gì
+; AH        | Chọn hàm (01h, 09h, 02h); sau DIV là số dư          | KHÔNG, AH chỉ là số hiệu hàm hoặc số dư
+; BL        | Số chữ số CHẴN đã đếm (inc bl)                      | KHÔNG, BL chỉ đếm chẵn, không đếm ký tự
+; BH        | Số chữ số LẺ đã đếm (inc bh)                        | KHÔNG, BH chỉ đếm lẻ, không đếm ký tự
+; DH        | Hàng đơn vị cất tạm khi in số                       | KHÔNG, DH chỉ là 1 chữ số cất tạm
+; DL        | Ký tự cần in ra (hàm 02h, add dl, 30h)              | KHÔNG, DL chỉ là 1 ký tự đang in
+; DX        | Địa chỉ chuỗi cần in (hàm 09h, lea dx, ...)         | KHÔNG, DX là địa chỉ chuỗi
+; ----------------------------------------------------------------------------------------------------------
