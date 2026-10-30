@@ -2377,22 +2377,24 @@
 
 
 
+
 <!-- SLIDE 29: Ví dụ (hàm hủy - đúng) -->
-<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between;">
-    <div>
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden;">
+    <div style="flex: 1; min-height: 0;">
+
         <!-- Thanh kẻ xanh trên cùng -->
-        <div style="height: 10px; background: #a3e635; width: 100%; margin-bottom: 20px; border-radius: 4px;"></div>
+        <div style="height: 10px; background: #a3e635; width: 100%; margin-bottom: 18px; border-radius: 4px;"></div>
 
         <!-- Header -->
-        <h1 class="slide-title" style="margin-bottom: 30px;">Ví dụ (hàm hủy - đúng)</h1>
+        <h1 class="slide-title" style="margin-bottom: 22px;">Ví dụ (hàm hủy - đúng)</h1>
 
         <!-- Nội dung chính -->
-        <div style="display: flex; gap: 22px; align-items: flex-start; margin-top: 10px;">
+        <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px; align-items: start;">
 
             <!-- Cột trái: Code -->
-            <div style="flex: 1.15; min-width: 0;">
-                <div class="highlight-card" style="background: #1e293b; border: 1px solid #334155; padding: 20px 18px; border-radius: 8px; font-family: 'Courier New', Courier, monospace; font-size: 14px; line-height: 1.85; color: #f8fafc; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-<pre style="margin: 0; white-space: pre-wrap; overflow-wrap: anywhere;"><span style="color:#38bdf8;">class</span> DIEM
+            <div style="min-width: 0;">
+                <div class="highlight-card" style="background: #1e293b; border: 1px solid #334155; padding: 16px 18px; border-radius: 8px; font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 1.65; color: #f8fafc; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+<pre style="margin: 0; white-space: pre; overflow-x: auto;"><span style="color:#38bdf8;">class</span> DIEM
 {
 <span style="color:#38bdf8;">public:</span>
     DIEM();
@@ -2421,46 +2423,49 @@
                 </div>
             </div>
 
-            <!-- Cột phải: Giải thích -->
-            <div style="flex: 1; display: flex; flex-direction: column; gap: 18px; padding-top: 5px;">
+            <!-- Cột phải -->
+            <div style="min-width: 0; display: flex; flex-direction: column; gap: 14px;">
 
                 <!-- Khung giải thích -->
-                <div style="border: 2px solid #64748b; border-radius: 8px; padding: 18px; color: #334155; font-size: 15px; line-height: 1.8; background: rgba(148,163,184,0.06);">
-                    <div style="font-weight: 700; font-size: 17px; margin-bottom: 12px; color: #1e293b;">
+                <div style="border: 2px solid #94a3b8; border-radius: 8px; padding: 15px; color: #334155; font-size: 13px; line-height: 1.65; background: #f8fafc;">
+
+                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 10px; color: #1e293b;">
                         Kết quả của chương trình?
                     </div>
 
-                    <div style="margin-bottom: 12px;">
-                        ➜ Khi khai báo hàm hủy của lớp cơ sở <b>DIEM</b> có từ khóa <b>virtual</b>, chương trình sẽ gọi đúng hàm hủy của đối tượng thực tế.
+                    <div style="margin-bottom: 9px;">
+                        ➜ Hàm hủy của lớp cơ sở <b>DIEM</b> được khai báo với từ khóa <b>virtual</b>.
                     </div>
 
-                    <div style="margin-bottom: 12px;">
-                        ➜ Khi thực hiện <b>delete p2</b>, đối tượng DIEM_MAU sẽ được hủy trước, sau đó đến đối tượng DIEM.
+                    <div style="margin-bottom: 9px;">
+                        ➜ Khi thực hiện <b>delete p2</b>, hàm hủy của lớp <b>DIEM_MAU</b> được gọi trước, sau đó đến hàm hủy của lớp <b>DIEM</b>.
                     </div>
 
                     <div>
-                        ➜ Khi thực hiện <b>delete p1</b>, chỉ hàm hủy của DIEM được gọi.
+                        ➜ Khi thực hiện <b>delete p1</b>, chỉ hàm hủy của lớp <b>DIEM</b> được gọi.
                     </div>
                 </div>
 
                 <!-- Sơ đồ minh họa -->
-                <div style="border: 2px solid #94a3b8; border-radius: 8px; padding: 15px; background: #f8fafc;">
-                    <div style="font-weight: 700; color: #1e293b; font-size: 16px; margin-bottom: 15px; text-align: center;">
+                <div style="border: 2px solid #94a3b8; border-radius: 8px; padding: 13px 15px; background: #f8fafc;">
+
+                    <div style="font-weight: 700; color: #1e293b; font-size: 16px; margin-bottom: 12px; text-align: center;">
                         Thứ tự gọi hàm hủy
                     </div>
 
-                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-                        <div style="background: #d8b4e2; border: 2px solid #7e22ce; border-radius: 6px; padding: 10px; width: 85%; text-align: center; color: #581c87; font-weight: 700;">
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
+
+                        <div style="background: #d8b4e2; border: 2px solid #7e22ce; border-radius: 6px; padding: 9px; width: 85%; text-align: center; color: #581c87; font-weight: 700; font-size: 14px;">
                             ~DIEM_MAU()
                         </div>
 
-                        <div style="font-size: 23px; color: #475569;">↓</div>
+                        <div style="font-size: 22px; color: #475569;">↓</div>
 
-                        <div style="background: #a5d8e0; border: 2px solid #0e7490; border-radius: 6px; padding: 10px; width: 85%; text-align: center; color: #164e63; font-weight: 700;">
+                        <div style="background: #a5d8e0; border: 2px solid #0e7490; border-radius: 6px; padding: 9px; width: 85%; text-align: center; color: #164e63; font-weight: 700; font-size: 14px;">
                             ~DIEM()
                         </div>
 
-                        <div style="font-size: 12px; color: #64748b; font-style: italic;">
+                        <div style="font-size: 12px; color: #64748b; font-style: italic; margin-top: 3px;">
                             delete p2;
                         </div>
                     </div>
@@ -2470,17 +2475,19 @@
         </div>
 
         <!-- Kết luận -->
-        <div style="margin-top: 20px; padding: 14px 18px; background: #ecfccb; border-left: 5px solid #84cc16; border-radius: 5px; color: #365314; font-size: 15px; line-height: 1.6;">
-            <b>Ghi nhớ:</b> Khi sử dụng tính đa hình và có thể xóa đối tượng lớp dẫn xuất thông qua con trỏ lớp cơ sở, cần khai báo hàm hủy lớp cơ sở là <b>virtual</b>.
+        <div style="margin-top: 16px; padding: 11px 15px; background: #ecfccb; border-left: 5px solid #84cc16; border-radius: 5px; color: #365314; font-size: 13px; line-height: 1.6;">
+            <b>Ghi nhớ:</b> Khi sử dụng tính đa hình và xóa đối tượng lớp dẫn xuất thông qua con trỏ lớp cơ sở, cần khai báo hàm hủy lớp cơ sở là <b>virtual</b>.
         </div>
+
     </div>
 
     <!-- Footer -->
-    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 20px;">
+    <div class="slide-footer" style="display:flex; justify-content:space-between; align-items:center; flex-shrink: 0; font-size:11px; color:#94a3b8; padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.2); margin-top: 12px;">
         <span>Lập trình hướng đối tượng</span>
         <span>29</span>
     </div>
 </div>
+
 
 
 
