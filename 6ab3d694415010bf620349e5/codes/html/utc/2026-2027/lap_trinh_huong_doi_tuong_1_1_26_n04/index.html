@@ -2454,6 +2454,65 @@
 
 
 
+<!-- SLIDE 30: Tại sao cần phương thức ảo? -->
+<div class="slide-container" style="height: 750px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden;">
+    <div style="flex: 1; min-height: 0;">
+        <!-- Thanh kẻ xanh trên cùng -->
+        <div style="height: 10px; background: #a3e635; width: 100%; margin-bottom: 18px; border-radius: 4px;"></div>
+
+        <!-- Header -->
+        <h1 class="slide-title" style="margin-bottom: 22px;">Tại sao cần phương thức ảo?</h1>
+
+        <!-- Nội dung chính -->
+        <div style="display: flex; flex-direction: column; gap: 18px; color: #334155; font-size: 15px; line-height: 1.7;">
+
+            <!-- Khối 1 -->
+            <div style="border-left: 5px solid #84cc16; background: #f8fafc; border-radius: 6px; padding: 12px 18px;">
+                <div style="font-weight: 700; font-size: 17px; color: #1e293b;">
+                    ▪ "One interface, multiple methods"
+                </div>
+            </div>
+
+            <!-- Khối 2 -->
+            <div style="border-left: 5px solid #84cc16; background: #f8fafc; border-radius: 6px; padding: 12px 18px;">
+                <div style="font-weight: 700; font-size: 17px; color: #1e293b; margin-bottom: 6px;">
+                    ▪ Xem <span style="font-family: 'Courier New', Courier, monospace; color: #0e7490;">poly_hinh.cpp</span>
+                </div>
+                <div style="padding-left: 22px;">
+                    <div>• Interface: <span style="font-family: 'Courier New', Courier, monospace; color: #0e7490;">show_area()</span></div>
+                    <div>• Methods: nội dung khác nhau tùy theo loại <b>Triangle</b> hay <b>Rectangle</b></div>
+                    <div>• Tại sao <span style="font-family: 'Courier New', Courier, monospace; color: #0e7490;">show_area()</span> trong lớp <b>figure</b> là ảo thuần túy?</div>
+                    <div>• Tại sao khai báo <b>x</b> và <b>y</b> là <b>protected</b>?</div>
+                </div>
+            </div>
+
+            <!-- Khối 3 -->
+            <div style="border-left: 5px solid #84cc16; background: #f8fafc; border-radius: 6px; padding: 12px 18px;">
+                <div style="font-weight: 700; font-size: 17px; color: #1e293b; margin-bottom: 6px;">
+                    ▪ Cần bổ sung thêm lớp mới?
+                </div>
+                <div style="font-weight: 700; font-size: 17px; color: #1e293b; margin-bottom: 6px;">
+                    ▪ Xem <span style="font-family: 'Courier New', Courier, monospace; color: #0e7490;">poly_hinh2.cpp</span>
+                </div>
+                <div style="padding-left: 22px;">
+                    <div>• Sử dụng chung interface <span style="font-family: 'Courier New', Courier, monospace; color: #0e7490;">show_area()</span> cho lớp <b>Circle</b></div>
+                    <div>• Khởi tạo 1 giá trị: dùng đối mặc định trong <span style="font-family: 'Courier New', Courier, monospace; color: #0e7490;">set_dim(...)</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide-footer" style="display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; font-size: 11px; color: #94a3b8; padding-top: 10px; border-top: 1px solid rgba(148,163,184,0.2); margin-top: 12px;">
+        <span>Lập trình hướng đối tượng</span>
+        <span>30</span>
+    </div>
+</div>
+
+
+
+
+
 </body>
 <!-- MATHJAX: đặt trước </body> nếu file chưa có --> 
  <script> 
