@@ -1,0 +1,23 @@
+{
+  "files": {
+    "UTC ducdvgtvt - Nội dung on_tap.pdf": {
+      "name": "UTC ducdvgtvt - Nội dung on_tap.pdf",
+      "kind": "pdf",
+      "mime": "application/pdf",
+      "size": 170512,
+      "id": "ae32717875fe049e0d1196980f49a49c",
+      "key": "TU5IQUVOQzEBsKElWRGVTGX58JmPhqbIdgAAACDKrRA1qHI6NZHrAvayT2zc5/3UjXTfhjqoMQ2qaYEZD6wM5oFrgZ6ox3rObIQf8gWyeCz2zvVM/yw6vy8=",
+      "parts": [
+        {
+          "i": 0,
+          "size": 170512,
+          "repo": "repository-mnha-database-1"
+        }
+      ],
+      "createdAt": "2026-11-01T16:13:05.162Z",
+      "updatedAt": "2026-11-01T16:13:05.162Z"
+    }
+  },
+  "v": 1,
+  "updatedAt": "2026-11-01T16:13:05.463Z"
+}
