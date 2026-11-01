@@ -1,0 +1,22 @@
+{
+  "files": {
+    "UTC ducdvgtvt - Nội dung on_tap.pdf": {
+      "name": "UTC ducdvgtvt - Nội dung on_tap.pdf",
+      "kind": "pdf",
+      "mime": "application/pdf",
+      "size": 170512,
+      "id": "2fe03550564488fa5e9edbda4b1e68c0",
+      "parts": [
+        {
+          "i": 0,
+          "size": 170512,
+          "repo": "repository-mnha-database-1"
+        }
+      ],
+      "createdAt": "2026-11-01T10:58:28.265Z",
+      "updatedAt": "2026-11-01T10:58:28.265Z"
+    }
+  },
+  "v": 1,
+  "updatedAt": "2026-11-01T10:58:28.355Z"
+}
