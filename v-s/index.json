@@ -103,9 +103,22 @@
       "keyHint": "32ce",
       "createdBy": "data-node",
       "updatedAt": "2026-11-02T01:35:06.522Z"
+    },
+    {
+      "id": "data-node-8",
+      "url": "https://repository-mnha-data-2.onrender.com",
+      "createdAt": "2026-11-02T01:47:15.714Z",
+      "enabled": true,
+      "health": null,
+      "name": "data-node-8",
+      "note": "",
+      "keyEnc": "v2.P106Vx7aerVtCOJC.xO9iMawRUaXE9iCUvQ5WiA.qqxNtBrDgeI_cv3f6S4Rnk0JRV9i8QKf6abMLw6pDC4YRCRujHWLBnANyT1tX0qVcanaU4IBRPObRrolGfBtiiis9etXx72LnAERVpU4kP8",
+      "keyHint": "ee5e",
+      "createdBy": "data-node",
+      "updatedAt": "2026-11-02T01:47:15.714Z"
     }
   ],
   "v": 1,
   "createdAt": "2026-10-25T10:07:15.197Z",
-  "updatedAt": "2026-11-02T01:35:06.753Z"
+  "updatedAt": "2026-11-02T01:47:16.004Z"
 }
