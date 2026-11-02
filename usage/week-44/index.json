@@ -35,23 +35,23 @@
     "data-node-8": {
       "days": {
         "2026-11-02": {
-          "in": 0,
-          "out": 17920,
-          "originIn": 30231,
+          "in": 56,
+          "out": 22749,
+          "originIn": 55555,
           "originOut": 0,
-          "req": 9,
+          "req": 12,
           "cfUp": 0,
           "cfDown": 0,
           "cfReq": 0,
           "fbUp": 0
         }
       },
-      "updatedAt": "2026-11-02T01:47:12.481Z"
+      "updatedAt": "2026-11-02T01:48:03.165Z"
     }
   },
   "v": 2,
   "week": 44,
   "from": "2026-11-02",
   "to": "2026-11-08",
-  "updatedAt": "2026-11-02T01:47:25.884Z"
+  "updatedAt": "2026-11-02T01:48:03.165Z"
 }
