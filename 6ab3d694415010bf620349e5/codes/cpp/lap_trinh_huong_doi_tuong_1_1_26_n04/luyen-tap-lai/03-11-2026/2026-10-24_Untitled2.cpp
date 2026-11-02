@@ -100,6 +100,17 @@ int main(){
 	return 0;
 }
 
+
+
+
+
+
+
+
+
+
+
+
 //==============occ/claude-opus-5====================
 //Bài làm tốt, đáp ứng đầy đủ 4 yêu cầu của đề: 
 //nhập n xe con, lọc xe < 1 tấn và <= 5 chỗ, đếm xe có trọng lượng < x, 
