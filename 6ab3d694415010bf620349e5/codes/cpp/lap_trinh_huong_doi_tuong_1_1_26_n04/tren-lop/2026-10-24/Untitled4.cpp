@@ -37,14 +37,14 @@ class DiemMau : public Toado {
                 cin >> mau;
             } while(mau < 1 || mau > 3);         // bắt nhập lại nếu sai
         }
-        void xuat() const {
+        void xuat(){
             Toado::xuat();                       // in x, y bằng hàm của cha
             cout << ", mau = ";
             if(mau == 1) cout << "Do";
             else if(mau == 2) cout << "Vang";
             else cout << "Xanh";
         }
-        int getMau() const {
+        int getMau(){
             return mau;
         }
 };
