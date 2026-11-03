@@ -1,0 +1,23 @@
+{
+  "files": {
+    "jshou.edu.vn_houjs_article_view_1332.pdf": {
+      "name": "jshou.edu.vn_houjs_article_view_1332.pdf",
+      "kind": "pdf",
+      "mime": "application/pdf",
+      "size": 2380639,
+      "id": "e5611f6dbb06c58f973c48621f1f2ca9",
+      "key": "TU5IQUVOQzEBYLCWtYqbZsS8R1bl3RdygQAAACAxYhll8fMpVCqPL+Houy5zwdeZ4hvWMXP/t7RFGz2yt0GhseLAx/pg6gK6RHmmeFOU5N6Vb2zvljNNrM4=",
+      "parts": [
+        {
+          "i": 0,
+          "size": 2380639,
+          "repo": "repository-mnha-database-1"
+        }
+      ],
+      "createdAt": "2026-11-03T11:43:12.733Z",
+      "updatedAt": "2026-11-03T11:43:12.733Z"
+    }
+  },
+  "v": 1,
+  "updatedAt": "2026-11-03T11:43:12.844Z"
+}
