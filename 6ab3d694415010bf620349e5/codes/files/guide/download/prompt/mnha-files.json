@@ -1,0 +1,23 @@
+{
+  "files": {
+    "de.txt": {
+      "name": "de.txt",
+      "kind": "text",
+      "mime": "text/plain",
+      "size": 221,
+      "id": "60a8d9f33d98a8533d2031ef2e91cce1",
+      "key": "TU5IQUVOQzEBLzSFWghpKcNK6knx4SrTpgAAACBcyoJG4Vi4s3IhmKLlDG0rLH1zChxmqct0pmslhnFXJ9C350Ei/JG2aT5GcTGG2SP3pdOVyd2XawY/krQ=",
+      "parts": [
+        {
+          "i": 0,
+          "size": 221,
+          "repo": "repository-mnha-database-1"
+        }
+      ],
+      "createdAt": "2026-11-03T14:59:05.092Z",
+      "updatedAt": "2026-11-03T14:59:05.092Z"
+    }
+  },
+  "v": 1,
+  "updatedAt": "2026-11-03T14:59:05.184Z"
+}
