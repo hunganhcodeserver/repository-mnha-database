@@ -21,6 +21,9 @@ class Toado {
         void xuat(){
             cout << "(x, y) = (" << x << ", " << y << ")";
         }
+        double khoangCach(){ // lỗi sai: ban đầu thiếu hàm khoangCach() trong lớp, nên main gọi d[i].khoangCach() báo lỗi "has no member named khoangCach"; x, y là private nên phải định nghĩa hàm này trong Toado (DiemMau kế thừa được) để tính khoảng cách từ điểm đến gốc tọa độ
+            return sqrt(x * x + y * y);
+        }
 };
 
 class DiemMau : public Toado {
