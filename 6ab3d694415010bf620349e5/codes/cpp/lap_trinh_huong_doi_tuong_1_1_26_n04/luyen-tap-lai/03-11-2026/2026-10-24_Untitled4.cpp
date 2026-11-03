@@ -11,13 +11,14 @@ class Toado{
 			x = 0.0;
 			y = 0.0;
 		}
-		void nhap(){
+		virtual ~Toado(){} // SUA: destructor ao de delete qua con tro co so an toan
+		virtual void nhap(){ // SUA: them virtual
 			cout << "Nhap x = ";
 			cin >> x;
 			cout << "Nhap y = ";
 			cin >> y;
 		}
-		void xuat(){
+		virtual void xuat(){ // SUA: them virtual
 			cout << "(x, y) = (" << x << ", " << y << ")";
 		}
 		double khoangCach(){
@@ -55,8 +56,10 @@ class DiemMau : public Toado{
 
 int main(){
 	int n;
-	cout << "Nhap n = ";
-	cin >> n;
+	do{ // SUA: kiem tra n hop le (n > 0)
+		cout << "Nhap n = ";
+		cin >> n;
+	} while(n <= 0); // SUA
 	
 	vector<DiemMau*> d(n);
 	//vector<DiemMau> d(n);
@@ -85,7 +88,7 @@ int main(){
 	
 	cout << "\nCac diem xa goc toa do nhat (khoang cach = " << maxKC << "):\n";
     for(int i = 0; i < n; i++){
-        if(d[i]->khoangCach() == maxKC){
+        if(fabs(d[i]->khoangCach() - maxKC) < 1e-9){ // SUA: so sanh so thuc bang sai so epsilon thay cho ==
             d[i]->xuat();
             cout << ", khoang cach: " << d[i]->khoangCach();
             cout << endl;
