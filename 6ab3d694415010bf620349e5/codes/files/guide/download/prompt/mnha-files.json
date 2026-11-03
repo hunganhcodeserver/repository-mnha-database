@@ -16,8 +16,25 @@
       ],
       "createdAt": "2026-11-03T14:59:05.092Z",
       "updatedAt": "2026-11-03T14:59:05.092Z"
+    },
+    "de-va-loi-giai.txt": {
+      "name": "de-va-loi-giai.txt",
+      "kind": "text",
+      "mime": "text/plain",
+      "size": 345,
+      "id": "101db8968433bdfe914d30e9c1edb393",
+      "key": "TU5IQUVOQzEBQwZLRA9QFylUT5+RLEGYMgAAACCCFBbZ5OQQXsJ9E7MY2crsct0W8rvIB3PIb3vryPZZDKhsWsCNzVrVsPh9oqWUwl7z+hJJvh+9V/jbGWA=",
+      "parts": [
+        {
+          "i": 0,
+          "size": 345,
+          "repo": "repository-mnha-database-1"
+        }
+      ],
+      "createdAt": "2026-11-03T14:59:10.773Z",
+      "updatedAt": "2026-11-03T14:59:10.773Z"
     }
   },
   "v": 1,
-  "updatedAt": "2026-11-03T14:59:05.184Z"
+  "updatedAt": "2026-11-03T14:59:10.875Z"
 }
