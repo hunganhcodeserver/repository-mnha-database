@@ -1,0 +1,23 @@
+{
+  "files": {
+    "docs.google.com_presentation.txt": {
+      "name": "docs.google.com_presentation.txt",
+      "kind": "text",
+      "mime": "text/plain",
+      "size": 447,
+      "id": "de392c25e9e163098134f45c14af93b6",
+      "key": "TU5IQUVOQzEBzMH2Dt/qwX22ICTaSKMecgAAACBKnhxvPl0kqnthp54Oqg8vGkXPLcTgswI5eljfnuzutwiSPPwB3YvqfhUOEAZNvSztqtDIC4nUmgteUWA=",
+      "parts": [
+        {
+          "i": 0,
+          "size": 447,
+          "repo": "repository-mnha-database-1"
+        }
+      ],
+      "createdAt": "2026-11-03T07:50:18.040Z",
+      "updatedAt": "2026-11-03T07:50:18.040Z"
+    }
+  },
+  "v": 1,
+  "updatedAt": "2026-11-03T07:50:18.138Z"
+}
