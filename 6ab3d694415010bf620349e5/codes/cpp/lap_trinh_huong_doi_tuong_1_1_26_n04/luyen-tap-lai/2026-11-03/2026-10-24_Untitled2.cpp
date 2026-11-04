@@ -1,3 +1,7 @@
+//Lop truu tuong, Ham ao thuan tuy (virtual = 0), Ham huy ao, Ke thua (public), 
+//Da hinh, Con tro, Cap phat dong (new/delete), vector<XeCon*>, 
+//Goi ham lop cha (Xe::nhap, Xe::xuat)
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -40,12 +44,12 @@ class XeCon : public Xe{
 			cout << "So cho ngoi = "; cin >> soChoNgoi;
 			cout << endl;
 		}
-		void xuat(){ // lỗi sai: ban đầu viết "void nhap()" lần thứ hai (trùng tên, không biên dịch được); hàm này in thông tin nên phải đặt tên xuat
-			Xe::xuat(); // lỗi sai: ban đầu gọi Xe::nhap(); hàm xuất phải gọi Xe::xuat() để in biển số và trọng lượng
+		void xuat(){
+			Xe::xuat();
 			cout << " | So cho ngoi: " << soChoNgoi;
 			cout << endl;
 		}
-		int getSoChoNgoi(){ // lỗi sai: ban đầu thiếu override hàm thuần ảo getSoChoNgoi() của Xe; XeCon phải định nghĩa hàm này, nếu không XeCon là lớp trừu tượng và "new XeCon" báo lỗi
+		int getSoChoNgoi(){
 			return soChoNgoi;
 		}
 };
@@ -67,8 +71,8 @@ int main(){
 	cout << "== Xe con (< 1 tan, <= 5 cho ngoi) ==" << endl;
 	for(int i = 0; i < n; i++){
 		if(ds[i]->getTrongLuong() < 1 && ds[i]->getSoChoNgoi() <= 5){
-			ds[i]->xuat(); // lỗi sai: ban đầu viết "xuat" thiếu cặp ngoặc (), đó chỉ là tên hàm chứ chưa gọi hàm
-			cout << endl; // lỗi sai: ban đầu thiếu xuống dòng, các xe sẽ bị in dính vào nhau trên một dòng
+			ds[i]->xuat();
+			cout << endl;
 		}
 	}
 	
@@ -89,9 +93,9 @@ int main(){
 	}
 	cout << "\n==Xe con co so cho ngoi nhieu nhat==\n";
 	for(int i = 0; i < n; i++){
-		if(ds[i]->getSoChoNgoi() == maxChoNgoi){ // lỗi sai: ban đầu viết "getSoChoNgoi == maxCho", thiếu () khi gọi hàm và sai tên biến (maxCho chưa khai báo, phải là maxChoNgoi)
-			ds[i]->xuat(); // lỗi sai: ban đầu viết "xuat" thiếu cặp ngoặc ()
-			cout << endl; // lỗi sai: ban đầu thiếu xuống dòng giữa các xe
+		if(ds[i]->getSoChoNgoi() == maxChoNgoi){
+			ds[i]->xuat();
+			cout << endl;
 		}
 	}
 	for(int i = 0; i < n; i++){
