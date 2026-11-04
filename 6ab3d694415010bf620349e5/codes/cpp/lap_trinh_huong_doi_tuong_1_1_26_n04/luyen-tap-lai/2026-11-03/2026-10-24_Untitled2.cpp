@@ -99,35 +99,3 @@ int main(){
 	}
 	return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-//==============occ/claude-opus-5====================
-//Bài làm tốt, đáp ứng đầy đủ 4 yêu cầu của đề: 
-//nhập n xe con, lọc xe < 1 tấn và <= 5 chỗ, đếm xe có trọng lượng < x, 
-//và tìm các xe có số chỗ ngồi nhiều nhất (dùng 2 lượt quét nên in được 
-//tất cả xe đạt max — đúng yêu cầu 'các xe'). 
-//Kế thừa đúng cú pháp (public), có destructor ảo cho lớp cơ sở, 
-//gọi lại Xe::nhap()/Xe::xuat() trong lớp dẫn xuất để tái sử dụng code, 
-//dùng getline(cin >> ws, ...) để đọc biển số có khoảng trắng, 
-//và có delete giải phóng bộ nhớ ở cuối. 
-//Các lỗi đã được sinh viên tự phát hiện và sửa 
-//(thiếu dấu (), gọi sai Xe::nhap() trong hàm xuất, 
-//thiếu override hàm thuần ảo) đều sửa đúng hướng. 
-//Chỉ còn hai điểm về thiết kế OOP cần lưu ý: 
-//(1) khai báo getSoChoNgoi() thuần ảo trong lớp Xe là không hợp lý 
-//vì 'số chỗ ngồi' là thuộc tính riêng của XeCon, 
-//khiến Xe trở thành lớp trừu tượng không cần thiết; 
-//(2) nhap()/xuat() trong Xe chưa khai báo virtual nên XeCon chỉ che (hide) 
-//chứ không ghi đè (override) — chương trình vẫn chạy đúng vì 
-//mảng khai báo là XeCon*, nhưng nếu dùng Xe* thì sẽ gọi sai hàm. 
-//Nên bổ sung thêm getter cho biển số và cân nhắc kiểm tra n > 0.
