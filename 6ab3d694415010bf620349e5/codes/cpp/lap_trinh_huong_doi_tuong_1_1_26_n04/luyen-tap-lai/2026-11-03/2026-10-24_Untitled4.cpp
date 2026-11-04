@@ -1,3 +1,8 @@
+//Lop co so, Lop dan xuat, Ke thua (public), Ham ao (virtual), 
+//Ham huy ao, Da hinh, Con tro, Cap phat dong (new/delete), 
+//vector<DiemMau*>, Mang dem (dem[4]), Do-while kiem tra nhap, 
+//fabs (so sanh so thuc voi epsilon)
+
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -11,14 +16,14 @@ class Toado{
 			x = 0.0;
 			y = 0.0;
 		}
-		virtual ~Toado(){} // SUA: destructor ao de delete qua con tro co so an toan
-		virtual void nhap(){ // SUA: them virtual
+		virtual ~Toado(){}
+		virtual void nhap(){
 			cout << "Nhap x = ";
 			cin >> x;
 			cout << "Nhap y = ";
 			cin >> y;
 		}
-		virtual void xuat(){ // SUA: them virtual
+		virtual void xuat(){
 			cout << "(x, y) = (" << x << ", " << y << ")";
 		}
 		double khoangCach(){
@@ -56,15 +61,15 @@ class DiemMau : public Toado{
 
 int main(){
 	int n;
-	do{ // SUA: kiem tra n hop le (n > 0)
+	do{
 		cout << "Nhap n = ";
 		cin >> n;
-	} while(n <= 0); // SUA
+	} while(n <= 0);
 	
 	vector<DiemMau*> d(n);
 	//vector<DiemMau> d(n);
 	for(int i = 0; i < n; i++){
-		d[i] = new DiemMau(); // SUA: cap phat bang new cho tung phan tu
+		d[i] = new DiemMau();
 		cout << "\nDiem thu " << i+1 << "\n";
 		d[i]->nhap();
 		//d[i].nhap();
@@ -88,7 +93,7 @@ int main(){
 	
 	cout << "\nCac diem xa goc toa do nhat (khoang cach = " << maxKC << "):\n";
     for(int i = 0; i < n; i++){
-        if(fabs(d[i]->khoangCach() - maxKC) < 1e-9){ // SUA: so sanh so thuc bang sai so epsilon thay cho ==
+        if(fabs(d[i]->khoangCach() - maxKC) < 1e-9){
             d[i]->xuat();
             cout << ", khoang cach: " << d[i]->khoangCach();
             cout << endl;
