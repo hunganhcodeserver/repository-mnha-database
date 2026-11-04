@@ -4,19 +4,19 @@
       "name": "2026-10-28.docx",
       "kind": "word",
       "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-      "size": 1517898,
-      "id": "e259af867f13f08ee80bc850fbba11dc",
-      "key": "TU5IQUVOQzEBtyUuiU8pCEqmP28ffnYJFgAAACAi4yoERI+849TRgGQbyUcFNoBGFxV/y+xt3tDW+RnLsP/I8hf738JxovtjnI6mUYTOYlcJ7l2m7qvojEo=",
+      "size": 137342,
+      "id": "e8fd2c18432d09a03c7c15dc651a774f",
+      "key": "TU5IQUVOQzEBfYa5NhQ87KlEXEhO/vfA9AAAACCBkSpQi06uitbsBptQMh+ZVTXhgzLN5ViJGnDXexMC1PfO4THhz3QRi/HfkyfEQ44nrJapIls7//Er99o=",
       "parts": [
         {
           "i": 0,
-          "size": 1517898,
+          "size": 137342,
           "repo": "repository-mnha-database-1"
         }
       ],
       "public": true,
       "createdAt": "2026-11-02T01:51:47.741Z",
-      "updatedAt": "2026-11-02T10:14:49.444Z"
+      "updatedAt": "2026-11-04T00:32:45.984Z"
     },
     "2026-11-03.docx": {
       "name": "2026-11-03.docx",
@@ -38,6 +38,6 @@
     }
   },
   "v": 1,
-  "updatedAt": "2026-11-03T16:04:24.452Z",
+  "updatedAt": "2026-11-04T00:32:47.285Z",
   "shared": true
 }
