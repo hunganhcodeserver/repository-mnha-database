@@ -54,11 +54,14 @@ int main(){
 		cin >> *d[i];
 	}
 	cout << "\n==========Data sau khi nhap:==========\n";
+	double total = 0.0;
 	for(int i = 0; i < n; i++){
 		cout << "Diem " << i + 1 << ":" << endl;
 		cout << *d[i] << ", khoang cach: " << d[i]->kc() << endl;
+		total += d[i]->kc();
 	}
 	cout << endl;
+	cout << "Tong tat ca cac diem den goc toa do = " << total;
 	arrangeMinKC(d);
 	for(int i = 0; i < n; i++){
 		delete d[i];
