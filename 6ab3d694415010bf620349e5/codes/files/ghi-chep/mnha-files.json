@@ -1,0 +1,23 @@
+{
+  "files": {
+    "Bảng 2026-10-27.pdf": {
+      "name": "Bảng 2026-10-27.pdf",
+      "kind": "pdf",
+      "mime": "application/pdf",
+      "size": 211454,
+      "id": "3f14abf5508eb93b78e5aa1aeb4216f5",
+      "key": "TU5IQUVOQzEBvr9YYR6GieEXRRo+ZjBKmgAAACAGeS2jOXbf8xXerzdi7+n4l7YHbH53wlTpN4gMG5036QIy8DxIY/GueAq9PuuxA5kHW8ZW5oGNBprFx+g=",
+      "parts": [
+        {
+          "i": 0,
+          "size": 211454,
+          "repo": "repository-mnha-database-1"
+        }
+      ],
+      "createdAt": "2026-11-05T09:17:33.467Z",
+      "updatedAt": "2026-11-05T09:17:33.467Z"
+    }
+  },
+  "v": 1,
+  "updatedAt": "2026-11-05T09:17:33.598Z"
+}
