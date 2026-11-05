@@ -17,8 +17,25 @@
       "createdAt": "2026-11-05T14:49:50.380Z",
       "updatedAt": "2026-11-05T14:49:50.380Z",
       "public": true
+    },
+    "2026-11-05.docx": {
+      "name": "2026-11-05.docx",
+      "kind": "word",
+      "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size": 16231,
+      "id": "e9d4cfe296c3b984bc859c64ad41b7df",
+      "key": "TU5IQUVOQzEBrZRVjZgN8RmmkO80PTKRrAAAACA98Tg/+PPh1ra0hvdPIRBHd/kDeqSIig1/fZn1RQZT83du6h7+9S4A79A1sbYImlzbUafllbkgMOb3M/g=",
+      "parts": [
+        {
+          "i": 0,
+          "size": 16231,
+          "repo": "repository-mnha-database-1"
+        }
+      ],
+      "createdAt": "2026-11-05T17:06:52.699Z",
+      "updatedAt": "2026-11-05T17:06:52.699Z"
     }
   },
   "v": 1,
-  "updatedAt": "2026-11-05T14:50:06.449Z"
+  "updatedAt": "2026-11-05T17:06:52.814Z"
 }
