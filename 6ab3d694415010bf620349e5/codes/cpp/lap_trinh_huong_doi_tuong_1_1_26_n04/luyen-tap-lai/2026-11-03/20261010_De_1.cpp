@@ -1,3 +1,9 @@
+//Lop truu tuong, Ham ao thuan tuy (virtual = 0), Ham huy ao, Ke thua (public), 
+//Da hinh, Thuoc tinh protected (lop con truy cap truc tiep), 
+//Thuoc tinh private (lop con dung getter), Ham tao co doi + goi ham tao lop cha (: 
+//ShapePrivate(w, h)), Con tro lop co so, Cap phat dong (new/delete), 
+//vector<ShapeProtected*>, vector<ShapePrivate*>, Do-while kiem tra nhap
+
 #include<bits/stdc++.h>
 
 using namespace std;
