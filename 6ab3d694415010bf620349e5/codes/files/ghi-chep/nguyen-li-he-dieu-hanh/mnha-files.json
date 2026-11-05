@@ -17,9 +17,26 @@
       "createdAt": "2026-11-05T14:47:30.172Z",
       "updatedAt": "2026-11-05T14:47:30.172Z",
       "public": true
+    },
+    "example_Round_Robin.png": {
+      "name": "example_Round_Robin.png",
+      "kind": "image",
+      "mime": "image/png",
+      "size": 3551892,
+      "id": "6e3522d9df358ad0cd284492911aa2a3",
+      "key": "TU5IQUVOQzEBB3ZnnVk+/47CLjniwbvkCAAAACB6T5BCZkzh58U1q5SFS61HRCKnMDMzPWNmJ6jdDk1kifRide/8e4Q56Uxhot/9coUiHNd6kdfiSYERnwg=",
+      "parts": [
+        {
+          "i": 0,
+          "size": 3551892,
+          "repo": "repository-mnha-database-1"
+        }
+      ],
+      "createdAt": "2026-11-05T14:48:05.104Z",
+      "updatedAt": "2026-11-05T14:48:05.104Z"
     }
   },
   "v": 1,
   "shared": true,
-  "updatedAt": "2026-11-05T14:48:04.070Z"
+  "updatedAt": "2026-11-05T14:48:05.276Z"
 }
