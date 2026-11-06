@@ -1,6 +1,24 @@
 {
-  "files": {},
+  "files": {
+    "De_thi_va_loi_giai_CTDL.pdf": {
+      "name": "De_thi_va_loi_giai_CTDL.pdf",
+      "kind": "pdf",
+      "mime": "application/pdf",
+      "size": 104798,
+      "id": "494d88fe8127b67518b86550ec8b6e13",
+      "key": "TU5IQUVOQzEBebQLHjIGdof87OQj74V6RQAAACAHlYXgkEiBQhjyvNSJgCYlkAYrsKRocyVnGb2ntgyVl8115c/u0FsVBPJT52IdMLvD+M1JS3+9FpFpUPM=",
+      "parts": [
+        {
+          "i": 0,
+          "size": 104798,
+          "repo": "repository-mnha-database-1"
+        }
+      ],
+      "createdAt": "2026-11-06T16:24:21.366Z",
+      "updatedAt": "2026-11-06T16:24:21.366Z"
+    }
+  },
   "v": 1,
   "shared": true,
-  "updatedAt": "2026-11-06T16:23:56.841Z"
+  "updatedAt": "2026-11-06T16:24:21.461Z"
 }
