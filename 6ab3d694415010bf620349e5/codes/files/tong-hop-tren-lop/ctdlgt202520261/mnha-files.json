@@ -1,0 +1,28 @@
+{
+  "files": {
+    "2026-10-17.pdf": {
+      "name": "2026-10-17.pdf",
+      "kind": "pdf",
+      "mime": "application/pdf",
+      "size": 6978409,
+      "id": "438c0e0488749500e258d97aee498581",
+      "key": "TU5IQUVOQzEBBr79/EGSBwYdL5L1cqV7YQAAACB743oGZP9XXtLT9ghZLqpEW55HthS1oLQK4LWx+Q2Rz747QKu1l4/NLdT6qzC/4l9BQqrvmW/ZafyYALI=",
+      "parts": [
+        {
+          "i": 0,
+          "size": 3670016,
+          "repo": "repository-mnha-database-1"
+        },
+        {
+          "i": 1,
+          "size": 3308393,
+          "repo": "repository-mnha-database-1"
+        }
+      ],
+      "createdAt": "2026-11-06T17:18:21.375Z",
+      "updatedAt": "2026-11-06T17:18:21.375Z"
+    }
+  },
+  "v": 1,
+  "updatedAt": "2026-11-06T17:18:21.476Z"
+}
