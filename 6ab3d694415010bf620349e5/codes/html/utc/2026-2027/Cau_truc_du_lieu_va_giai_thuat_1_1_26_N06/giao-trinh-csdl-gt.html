@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cấu trúc dữ liệu và Giải thuật – Tài liệu bài giảng</title>
+<style>
+@page { size: A4 portrait; margin: 18mm 16mm 20mm 16mm; }
+*{ box-sizing:border-box; }
+html{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+body{ font-family:"Times New Roman",Times,serif; font-size:12pt; line-height:1.5; color:#111; margin:0; background:#e5e7eb; }
+.page{ width:210mm; margin:10mm auto; padding:18mm 16mm; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,.2); }
+@media print{
+  body{ background:#fff; }
+  .page{ width:auto; margin:0; padding:0; box-shadow:none; }
+  .noprint{ display:none !important; }
+}
+.cover{ text-align:center; min-height:255mm; display:flex; flex-direction:column; justify-content:center; align-items:center; page-break-after:always; break-after:page; }
+.cover .school{ font-size:13pt; font-weight:bold; text-transform:uppercase; }
+.cover h1{ font-size:28pt; margin:30mm 0 6mm; text-transform:uppercase; border:none; }
+.cover .sub{ font-size:15pt; font-style:italic; }
+.cover .author{ margin-top:35mm; font-size:13pt; }
+h1{ font-size:18pt; text-transform:uppercase; border-bottom:2px solid #1e3a8a; padding-bottom:3mm; margin:0 0 6mm; color:#1e3a8a; page-break-before:always; break-before:page; }
+h1.first{ page-break-before:auto; break-before:auto; }
+h2{ font-size:14pt; margin:7mm 0 3mm; color:#1e3a8a; break-after:avoid; }
+h3{ font-size:12.5pt; margin:5mm 0 2mm; break-after:avoid; }
+p{ margin:0 0 3mm; text-align:justify; }
+ul,ol{ margin:0 0 3mm; padding-left:7mm; }
+li{ margin-bottom:1mm; }
+pre{ font-family:"Courier New",monospace; font-size:10pt; line-height:1.4; background:#f3f4f6; border:1px solid #d1d5db; border-left:3px solid #1e3a8a; padding:3mm 4mm; margin:2mm 0 4mm; white-space:pre-wrap; break-inside:avoid; }
+code{ font-family:"Courier New",monospace; font-size:10.5pt; background:#f3f4f6; padding:0 1mm; }
+table{ width:100%; border-collapse:collapse; margin:2mm 0 4mm; font-size:11pt; break-inside:avoid; }
+th,td{ border:1px solid #6b7280; padding:1.5mm 2.5mm; text-align:left; vertical-align:top; }
+th{ background:#e5e7eb; }
+.note{ border:1px solid #1e3a8a; background:#eff6ff; padding:3mm 4mm; margin:3mm 0 4mm; break-inside:avoid; }
+.warn{ border:1px solid #b45309; background:#fffbeb; padding:3mm 4mm; margin:3mm 0 4mm; break-inside:avoid; }
+.def{ border-left:4px solid #047857; background:#ecfdf5; padding:3mm 4mm; margin:3mm 0 4mm; break-inside:avoid; }
+.arr{ display:inline-flex; margin:1mm 0; }
+.arr span{ min-width:10mm; text-align:center; border:1px solid #111; padding:1mm 2mm; margin-right:-1px; background:#e0f2fe; font-family:"Courier New",monospace; font-size:10.5pt; }
+.arr span.e{ background:#fff; border-style:dashed; color:#fff; }
+.arr span.h{ background:#fde68a; }
+.toc li{ margin-bottom:1.5mm; }
+.btn{ position:fixed; right:12px; top:12px; padding:8px 14px; background:#1e3a8a; color:#fff; border:0; border-radius:6px; font:14px Arial; cursor:pointer; }
+.foot{ text-align:center; font-size:10pt; color:#555; margin-top:8mm; }
+</style>
+</head>
+<body>
+<button class="btn noprint" onclick="window.print()">In / Lưu PDF (A4 dọc)</button>
+
+<div class="page">
+
+<!-- BÌA -->
+<div class="cover">
+  <div class="school">Trường Đại học Giao thông vận tải<br>Khoa Công nghệ Thông tin</div>
+  <h1 class="first">Cấu trúc dữ liệu<br>và Giải thuật</h1>
+  <div class="sub">Tài liệu bài giảng (bản in)</div>
+  <div class="author">TS. Lê Huy<br>lehuydip@gmail.com<br><br>2026</div>
+</div>
+
+<!-- MỤC LỤC -->
+<h1 class="first" style="page-break-before:auto">Mục lục</h1>
+<ol class="toc">
+  <li>Tổng quan môn học</li>
+  <li>Chương 04: Phân tích các thuật toán</li>
+  <li>Chương 05: Đệ quy và giải thuật đệ quy</li>
+  <li>Chương 06: Mảng và Vector</li>
+  <li>Chương 07: Danh sách liên kết</li>
+</ol>
+
+<!-- TỔNG QUAN -->
+<h1>Tổng quan môn học</h1>
+
+<h2>1. Các đối tượng nghiên cứu</h2>
+<ul>
+  <li><b>Các cấu trúc dữ liệu chuẩn:</b> vector, danh sách (list), ngăn xếp (stack), hàng đợi (queue), cây (tree), đồ thị (graph), …</li>
+  <li><b>Các thuật toán chuẩn:</b> sắp xếp (sorting), tìm kiếm (searching).</li>
+  <li><b>Phân tích độ phức tạp:</b> về thời gian và không gian (bộ nhớ) của thuật toán.</li>
+  <li><b>Kỹ năng:</b> lựa chọn thuật toán, cấu trúc dữ liệu và cài đặt thuật toán.</li>
+</ul>
+
+<h2>2. Tài liệu tham khảo</h2>
+<ol>
+  <li>Michael T. Goodrich, Roberto Tamassia – <i>Data Structures and Algorithms in C++</i>.</li>
+  <li>Cormen, Leiserson, Rivest, Stein – <i>Introduction to Algorithms</i>, MIT Press.</li>
+  <li>Lê Minh Hoàng – <i>Thuật toán và lập trình</i>, ĐH Sư phạm Hà Nội.</li>
+  <li>Nguyễn Văn Long – <i>Cấu trúc dữ liệu và giải thuật</i>, NXB GTVT.</li>
+  <li>Đỗ Xuân Lôi – <i>Cấu trúc dữ liệu và giải thuật</i>, NXB Khoa học kỹ thuật.</li>
+  <li>Robert Sedgewick – <i>Cẩm nang thuật toán</i> (vol 1, 2), NXB KHKT.</li>
+  <li>Phạm Văn Ất – <i>Lập trình hướng đối tượng và C++</i>, NXB GTVT.</li>
+  <li>Website: http://www.Datastructures.net</li>
+</ol>
+
+<h2>3. Cấu trúc dữ liệu</h2>
+<p>Cấu trúc dữ liệu giống cách bố trí sách trong thư viện: sách vẫn là những cuốn đó, nhưng tổ chức tốt thì tìm kiếm và sử dụng nhanh hơn nhiều.</p>
+<table>
+<tr><th>Tổ chức đơn giản</th><th>Tổ chức phân cấp</th></tr>
+<tr><td>Sách 1, Sách 2, Sách 3, …, Sách n</td>
+<td>Sách → Khoa học (Toán học, Vật lý, Công nghệ thông tin → Lập trình, Cơ sở dữ liệu, Trí tuệ nhân tạo, <b>Cấu trúc dữ liệu</b>); Kinh tế; Văn học</td></tr>
+</table>
+
+<h2>4. Thuật toán và các cách biểu diễn</h2>
+<p>Một bài toán → một thuật toán → nhiều cách biểu diễn. Ví dụ: giải phương trình bậc nhất <code>ax + b = 0</code> (Input: a, b; Output: nghiệm x / vô nghiệm / vô số nghiệm).</p>
+<ol>
+  <li><b>Ngôn ngữ tự nhiên:</b> B1. Nhập a, b. B2. Nếu a ≠ 0 thì x = −b/a. B3. Nếu a = 0 và b = 0 thì vô số nghiệm. B4. Nếu a = 0 và b ≠ 0 thì vô nghiệm. B5. Kết thúc. (Dễ hiểu cho con người.)</li>
+  <li><b>Lưu đồ (flowchart):</b> trực quan, dễ theo dõi (xem bảng ký hiệu ở Chương 04).</li>
+  <li><b>Mã giả:</b> gần với ngôn ngữ lập trình.</li>
+  <li><b>Ngôn ngữ lập trình (C++):</b> máy tính có thể thực thi.</li>
+</ol>
+<pre>Algorithm GiaiPT(a, b)
+  Input : a, b
+  Output: nghiệm của ax + b = 0
+  if a ≠ 0 then
+      x ← -b / a ; Output x
+  else if b = 0 then
+      Output "Vô số nghiệm"
+  else
+      Output "Vô nghiệm"</pre>
+
+<h2>5. Chương trình</h2>
+<p><b>Khái niệm:</b> chương trình là tập hợp dãy các lệnh điều khiển máy tính thực hiện; là cách diễn tả thuật toán bằng một ngôn ngữ lập trình chính xác để máy hiểu được.</p>
+<pre>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    double a, b;
+    cout &lt;&lt; "Nhap a: ";  cin &gt;&gt; a;
+    cout &lt;&lt; "Nhap b: ";  cin &gt;&gt; b;
+    if (a != 0) {
+        double x = -b / a;
+        cout &lt;&lt; "Phuong trinh co nghiem x = " &lt;&lt; x;
+    } else {
+        if (b == 0) cout &lt;&lt; "Phuong trinh co vo so nghiem";
+        else        cout &lt;&lt; "Phuong trinh vo nghiem";
+    }
+    return 0;
+}</pre>
+<p>Ví dụ chạy: a = 2, b = −6 → x = 3 (kiểm tra: 2·3 + (−6) = 0); a = 0, b = 0 → vô số nghiệm; a = 0, b = 5 → vô nghiệm.</p>
+<h3>Các bước khi viết một chương trình</h3>
+<ol>
+  <li><b>Soạn thảo</b> chương trình bằng một trình soạn thảo văn bản.</li>
+  <li><b>Dịch</b> chương trình (Pascal, C/C++, …) ra mã máy (đuôi <code>.com</code>, <code>.exe</code>). Java, C# được dịch sang ngôn ngữ trung gian và dịch ra mã máy khi chạy.</li>
+  <li><b>Chạy chương trình và gỡ lỗi</b> (nếu có).</li>
+</ol>
+
+<!-- CHƯƠNG 04 -->
+<h1>Chương 04: Phân tích các thuật toán</h1>
+
+<h2>1. Thuật toán (Algorithm)</h2>
+<div class="def">Thuật toán là một danh sách có thứ tự gồm các câu lệnh rõ ràng, thực thi được; khi áp dụng cho một bài toán sẽ tạo ra lời giải sau một số bước <b>hữu hạn</b>.</div>
+<p><b>Input</b> (dữ liệu vào) → <b>Algorithm</b> (các bước xử lý) → <b>Output</b> (kết quả). Ví dụ: Input là nội dung email, Output là “thư rác” hoặc “không phải thư rác”.</p>
+<p><b>Ví dụ: tìm phần tử lớn nhất</b> của A = [3, 7, 2, 9, 5]: ban đầu Max = 3; 7 &gt; 3 → Max = 7; 2 giữ nguyên; 9 &gt; 7 → Max = 9; 5 giữ nguyên. Kết quả Max = 9.</p>
+<pre>Max ← A[0]
+for i ← 1 to n-1 do
+    if A[i] &gt; Max then
+        Max ← A[i]
+return Max</pre>
+
+<h2>2. Các ký hiệu trong lưu đồ</h2>
+<table>
+<tr><th>Ký hiệu</th><th>Tên</th><th>Ý nghĩa</th></tr>
+<tr><td>Mũi tên</td><td>Đường nối (Line)</td><td>Luồng thực hiện từ thành phần này sang thành phần tiếp theo</td></tr>
+<tr><td>Hình chữ nhật</td><td>Xử lý (Process)</td><td>Một thao tác hoặc một bước xử lý</td></tr>
+<tr><td>Hình bình hành</td><td>Vào/Ra (Input/Output)</td><td>Nhập hoặc xuất dữ liệu</td></tr>
+<tr><td>Hình thoi</td><td>Quyết định (Decision)</td><td>Điều kiện rẽ nhánh</td></tr>
+<tr><td>Hình ô-van</td><td>Bắt đầu/Kết thúc (Start/Stop)</td><td>Điểm bắt đầu hoặc kết thúc</td></tr>
+<tr><td>Hình tròn</td><td>Điểm nối</td><td>Liên kết tiếp theo (khi lưu đồ vượt quá trang)</td></tr>
+</table>
+
+<h2>3. Vì sao phải đánh giá thuật toán?</h2>
+<p>Một bài toán có thể có nhiều thuật toán; cần biết thuật toán nào hiệu quả hơn: chạy nhanh hay chậm? Khi n tăng, thời gian tăng thế nào? Có dùng nhiều bộ nhớ không? Có phù hợp với dữ liệu lớn không? Kết quả mong muốn là biết T(n) tăng theo n ra sao: O(1), O(n), O(n²), …</p>
+<p><b>Kích thước đầu vào</b> n: quy mô dữ liệu thuật toán phải xử lý (mảng 5 phần tử ⇒ n = 5). <b>Thời gian chạy</b> T(n): lượng công việc thuật toán cần để xử lý dữ liệu vào – không chỉ là số giây, mà là lượng công việc.</p>
+
+<h2>4. Độ phức tạp không gian (Space Complexity)</h2>
+<p>Lượng bộ nhớ thuật toán cần để lưu: dữ liệu vào, các biến, dữ liệu trung gian, kết quả ra.</p>
+<pre>for (int i = 0; i &lt; n - 1; i++)
+    for (int j = n - 1; j &gt; i; j--)
+        if (A[j] &lt; A[j - 1]) {
+            int tg = A[j];
+            A[j] = A[j - 1];
+            A[j - 1] = tg;
+        }</pre>
+<ul>
+  <li>Mảng dữ liệu: <code>A[n]</code>; biến điều khiển: <code>n, i, j</code>; biến tạm: <code>tg</code>.</li>
+  <li>Ví dụ n = 5, A = [5, 2, 8, 1, 4]: mảng 5 × 4 byte = 20 byte; 4 biến đơn × 4 byte = 16 byte; tổng = <b>36 byte</b>.</li>
+</ul>
+
+<h2>5. Đo thời gian: thực nghiệm và lý thuyết</h2>
+<div class="warn"><b>Vì sao không chỉ đo bằng giây?</b> Cùng một thuật toán, máy A chạy 0,8 s, máy B chạy 0,3 s – không kết luận được bản chất thuật toán. Thời gian phụ thuộc CPU, RAM, compiler, hệ điều hành và chỉ phản ánh một lần chạy cụ thể. Phân tích lý thuyết dùng T(n) để so sánh tổng quát.</div>
+<h3>Phương pháp thực nghiệm</h3>
+<p>Cài đặt (C++) → tạo dữ liệu với n khác nhau → đo thời gian (<code>chrono</code>) → ghi kết quả (µs/ms).</p>
+<pre>auto start = high_resolution_clock::now();
+int Max = arrayMax(A.data(), n);
+auto stop = high_resolution_clock::now();</pre>
+<table>
+<tr><th>n</th><th>Thời gian đo được</th></tr>
+<tr><td>1.000</td><td>0,001 s</td></tr>
+<tr><td>10.000</td><td>0,008 s</td></tr>
+<tr><td>100.000</td><td>0,075 s</td></tr>
+<tr><td>1.000.000</td><td>0,72 s</td></tr>
+</table>
+<p>Quan sát: n tăng ⇒ thời gian chạy tăng. Kết quả phụ thuộc CPU, compiler, hệ điều hành, dữ liệu test.</p>
+<h3>Phương pháp phân tích lý thuyết</h3>
+<p>Đánh giá thuật toán không cần chạy trên máy cụ thể, dựa vào cấu trúc thuật toán để xác định lượng công việc theo n. Bốn bước: (1) viết mã giả; (2) đếm số lần mỗi dòng chạy; (3) xây dựng hàm T(n); (4) kết luận Big-O (tốc độ tăng trưởng).</p>
+<pre>int arrayMax(const int A[], int n) {
+    int Max = A[0];
+    for (int i = 1; i &lt; n; i++)
+        if (A[i] &gt; Max)
+            Max = A[i];
+    return Max;
+}</pre>
+<h3>Đếm số lần thực hiện</h3>
+<table>
+<tr><th>Dòng lệnh</th><th>Số lần</th><th>Ghi chú</th></tr>
+<tr><td>Max ← A[0]</td><td>1</td><td>Thực hiện 1 lần</td></tr>
+<tr><td>for i ← 1 to n-1</td><td>n−1</td><td>A[1], …, A[n−1]</td></tr>
+<tr><td>if A[i] &gt; Max</td><td>n−1</td><td>n−1 phép so sánh</td></tr>
+<tr><td>Max ← A[i]</td><td>k</td><td>Tùy vị trí của giá trị lớn nhất</td></tr>
+<tr><td>return</td><td>1</td><td></td></tr>
+</table>
+
+<h2>6. Mã giả (pseudocode)</h2>
+<ul>
+  <li><b>Tập trung vào ý tưởng:</b> thấy logic mà ít bị nhiễu bởi cú pháp.</li>
+  <li><b>Dễ phân tích:</b> đếm được vòng lặp, phép so sánh, phép gán.</li>
+  <li><b>Dễ chuyển sang code:</b> mã giả tốt phải đủ rõ để người khác cài đặt mà không cần hỏi thêm.</li>
+  <li><b>Dễ trao đổi học thuật:</b> giáo trình, công trình khoa học thường dùng pseudocode.</li>
+</ul>
+<table>
+<tr><th>Ký hiệu</th><th>Ý nghĩa</th><th>Ví dụ</th></tr>
+<tr><td>←</td><td>Phép gán</td><td>Max ← A[0]</td></tr>
+<tr><td>=</td><td>So sánh bằng</td><td>if x = 0 then</td></tr>
+<tr><td>if … then</td><td>Rẽ nhánh theo điều kiện</td><td>if A[i] &gt; Max then</td></tr>
+<tr><td>for … do</td><td>Lặp số lần xác định</td><td>for i ← 1 to n-1 do</td></tr>
+<tr><td>while … do</td><td>Lặp khi điều kiện còn đúng</td><td>while i &lt; n do</td></tr>
+<tr><td>return</td><td>Trả kết quả</td><td>return Max</td></tr>
+</table>
+<p><b>Bài tập:</b> (1) Viết mã giả giải phương trình bậc nhất ax + b = 0. (2) Ghi đủ Input/Output kèm tiền điều kiện. (3) Đổi bài cho bạn ngồi cạnh để bạn cài đặt bằng C++ mà không được hỏi thêm.</p>
+
+<h2>7. Mô hình máy truy nhập ngẫu nhiên (RAM)</h2>
+<p><b>Phép toán cơ sở (primitive operations)</b> được xem là tốn thời gian cố định, O(1): gán (<code>x ← 5</code>), truy cập mảng (<code>x ← A[i]</code>), tính toán (<code>x + y</code>), so sánh (<code>x &lt; y</code>), gọi hàm (<code>f(x)</code>), trả về (<code>return x</code>).</p>
+<table>
+<tr><th>Thao tác</th><th>Chi phí mỗi lần</th><th>Số lần</th><th>Tổng</th></tr>
+<tr><td>Max ← A[0]</td><td>truy cập (1) + gán (1)</td><td>1</td><td>2</td></tr>
+<tr><td>i ← 1</td><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>i &lt; n</td><td>1</td><td>n</td><td>n</td></tr>
+<tr><td>i++</td><td>cộng (1) + gán (1)</td><td>n−1</td><td>2(n−1)</td></tr>
+<tr><td>A[i] &gt; Max</td><td>truy cập (1) + so sánh (1)</td><td>n−1</td><td>2(n−1)</td></tr>
+<tr><td>Max ← A[i]</td><td>truy cập (1) + gán (1)</td><td>k</td><td>2k</td></tr>
+<tr><td>return Max</td><td>1</td><td>1</td><td>1</td></tr>
+<tr><th colspan="3" style="text-align:right">Tổng</th><th>5n + 2k</th></tr>
+</table>
+
+<h2>8. Tốc độ tăng trưởng (growth rate)</h2>
+<p>Mô tả T(n) tăng nhanh đến mức nào khi n tăng. Các dạng thường gặp: 1, log n, n, n log n, n², n³, 2ⁿ. Ký hiệu biểu diễn: Big-O.</p>
+<ul>
+  <li>T(n) = 7n − 2 ⇒ <b>O(n)</b></li>
+  <li>T(n) = 3n² + 20n + 5 ⇒ <b>O(n²)</b></li>
+</ul>
+
+<!-- CHƯƠNG 05 -->
+<h1>Chương 05: Đệ quy và giải thuật đệ quy</h1>
+
+<h2>1. Khái niệm</h2>
+<div class="def"><b>Đệ quy (Recursion)</b> là kỹ thuật trong đó một hàm tự gọi chính nó một hoặc nhiều lần để giải quyết bài toán bằng cách chia nhỏ thành các bài toán con có cấu trúc tương tự nhưng quy mô nhỏ hơn.</div>
+<p>Ví dụ giai thừa: n! = 1 nếu n = 0; n! = n × (n−1)! nếu n ≥ 1. Giai thừa biến bài toán lớn thành bài toán nhỏ hơn cho đến trường hợp cơ sở 0! = 1.</p>
+
+<h2>2. Hai thành phần bắt buộc</h2>
+<ul>
+  <li><b>Trường hợp cơ sở (base case):</b> trường hợp nhỏ nhất giải trực tiếp, không đệ quy tiếp. VD: 0! = 1.</li>
+  <li><b>Bước đệ quy (recursive step):</b> các trường hợp còn lại được đưa về trường hợp nhỏ hơn. VD: n! = n × (n−1)!.</li>
+</ul>
+<p>Quá trình thu nhỏ phải đạt tới trường hợp cơ sở sau hữu hạn bước.</p>
+<div class="warn"><b>Có trường hợp cơ sở nhưng vẫn có thể sai.</b> Hàm sau chỉ dừng khi n chẵn không âm; với n lẻ, n − 2 không bao giờ chạm 0 (lặp vô hạn, tràn ngăn xếp):
+<pre>long long tongChan(int n) {
+    if (n == 0) return 0;
+    return n + tongChan(n - 2);
+}</pre>
+Tương tự, <code>faultyFactorial(-1)</code> với điều kiện dừng <code>n == 0 || n == 1</code> sẽ gọi với −2, −3, … mãi mãi.</div>
+
+<h2>3. Cấu trúc một hàm đệ quy</h2>
+<pre>HamDeQuy(ThamSo):
+    // 1. Trường hợp cơ sở
+    if DieuKienCoSo: return KetQuaCoSo
+    // 2. Bước đệ quy
+    return KetHop( HamDeQuy(BaiToanNhoHon) )</pre>
+<pre>long long GiaiThua(int n) {
+    if (n == 0) return 1;          // cơ sở
+    return n * GiaiThua(n - 1);    // bước đệ quy
+}</pre>
+<p><b>Luồng thực thi GiaiThua(4):</b> gọi xuống GiaiThua(4) → (3) → (2) → (1) → (0) (cơ sở: 0! = 1), sau đó trả ngược lên: 1! = 1×1, 2! = 2×1, 3! = 3×2, 4! = 4×6 = 24. Mỗi lời gọi là một lần thực thi riêng; kết quả trả ngược theo thứ tự LIFO. “Nhìn code một chiều; hiểu thực thi hai chiều.”</p>
+
+<h2>4. Giải thuật đệ quy và hàm đệ quy</h2>
+<table>
+<tr><th>Giải thuật đệ quy</th><th>Hàm đệ quy</th></tr>
+<tr><td>Cách giải bài toán; mô tả quan hệ giữa bài toán và bài toán con; biểu diễn bằng toán học, mã giả; thiết kế thuật toán</td>
+<td>Cách cài đặt trong chương trình; chứa lời gọi tới chính hàm đó; viết bằng C++, Python, Java, …; cài đặt</td></tr>
+</table>
+<pre>Thuật toán Tong(n):
+    Nếu n = 0: trả về 0
+    Ngược lại: trả về n + Tong(n - 1)
+
+int Tong(int n) {
+    if (n == 0) return 0;
+    return n + Tong(n - 1);
+}</pre>
+<p><b>Đệ quy trực tiếp:</b> hàm gọi chính nó (như <code>GiaiThua</code>). <b>Đệ quy gián tiếp:</b> hàm gọi hàm khác rồi hàm đó quay lại gọi hàm ban đầu, ví dụ:</p>
+<pre>bool LaLe(int n);                 // khai báo trước
+bool LaChan(int n) { if (n == 0) return true;  return LaLe(n - 1); }
+bool LaLe(int n)   { if (n == 0) return false; return LaChan(n - 1); }</pre>
+
+<h2>5. Khi nào nghĩ đến đệ quy?</h2>
+<ol>
+  <li><b>Phân tích được:</b> bài toán P giải được thông qua bài toán P′ cùng dạng nhưng dữ liệu đã thay đổi. VD: S(n) = n + S(n−1).</li>
+  <li><b>Có điều kiện dừng:</b> chuỗi P → P′ → P″ → … hữu hạn và cuối cùng đạt bài toán giải trực tiếp. VD: S(5) → S(4) → … → S(1) = 1.</li>
+</ol>
+<h3>Quy trình thiết kế giải thuật đệ quy</h3>
+<ol>
+  <li>Xác định bài toán và trạng thái.</li>
+  <li>Xác định trường hợp cơ sở.</li>
+  <li>Thu nhỏ bài toán (về bài toán cùng loại nhưng nhỏ hơn).</li>
+  <li>Xây dựng lời gọi đệ quy và kết hợp kết quả.</li>
+  <li>Kiểm tra tính dừng: mọi lời gọi có chắc chắn tiến tới trường hợp cơ sở không?</li>
+</ol>
+
+<h2>6. Các dạng đệ quy</h2>
+<p><b>Hàm n!:</b></p>
+<pre>int factorial(int n) {
+    if (n == 0) return 1;
+    else return n * factorial(n - 1);
+}</pre>
+<p><b>Dãy Fibonacci</b> (0; 1; 1; 2; 3; 5; 8; 13; 21; 34; 55; …): F(n) = 1 nếu n ≤ 2; F(n) = F(n−2) + F(n−1) nếu n &gt; 2.</p>
+<pre>int Fibonacci(int n) {
+    if (n &lt;= 2) return 1;
+    else return Fibonacci(n - 2) + Fibonacci(n - 1);
+}</pre>
+<ul>
+  <li><b>Đệ quy tuyến tính:</b> mỗi lần chạy chỉ có một lời gọi đệ quy (như giai thừa): F(4) → F(3) → F(2) → F(1).</li>
+  <li><b>Đệ quy nhị phân:</b> mỗi lần chạy có hai lời gọi đệ quy (như Fibonacci): F(4) → F(3), F(2); F(3) → F(2), F(1); …</li>
+</ul>
+<p>Cần xét số lời gọi đệ quy thực sự được thực hiện trong một lần chạy, không chỉ đếm số lần tên hàm xuất hiện trong mã nguồn.</p>
+
+<h2>7. Ưu – nhược điểm</h2>
+<table>
+<tr><th>Ưu thế chính</th><th>Chi phí chính</th></tr>
+<tr><td>Mã nguồn ngắn gọn, trực quan, dễ hiểu; xử lý tốt cấu trúc dữ liệu phân cấp; nền tảng cho thuật toán nâng cao</td>
+<td>Tốn bộ nhớ; có thể tràn ngăn xếp; có thể tính lặp lại nhiều lần</td></tr>
+</table>
+
+<h2>8. Bài tập</h2>
+<ol>
+  <li>Lập hàm đệ quy tính giá trị đa thức.</li>
+  <li>Lập hàm đệ quy tìm ước số chung của 2 số nguyên dương.</li>
+  <li>Lập hàm đệ quy tìm giá trị min của một dãy n số thực.</li>
+  <li>Viết hàm đệ quy kiểm tra một chữ cái có trong một xâu ký tự hay không.</li>
+</ol>
+
+<!-- CHƯƠNG 06 -->
+<h1>Chương 06: Mảng và Vector</h1>
+
+<h2>1. Cấu trúc dữ liệu là gì?</h2>
+<p>Cấu trúc dữ liệu chia thành <b>tuyến tính (linear)</b> – như mảng, các phần tử xếp thành dãy, và <b>phi tuyến (non-linear)</b> – như đồ thị, cây.</p>
+
+<h2>2. Mảng</h2>
+<p><b>Vì sao cần mảng?</b> Lưu điểm 40 sinh viên: dùng 40 biến <code>d1, d2, …, d40</code> thì không dùng được vòng lặp và thêm sinh viên phải sửa mã nhiều nơi; dùng mảng <code>double d[40]</code> thì có một tên chung, phân biệt bằng chỉ số i, một vòng lặp xử lý mọi phần tử.</p>
+<pre>double d[40];
+double tong = 0;
+for (int i = 0; i &lt; 40; i++) tong += d[i];
+double tb = tong / 40;</pre>
+<div class="def"><b>Mảng:</b> dãy phần tử <b>cùng kiểu</b>, nằm <b>liên tiếp</b> trong bộ nhớ, chỉ số từ 0 (n phần tử mang chỉ số 0 … n−1), kích thước cố định khi tạo.</div>
+<p>Ví dụ <code>int A[6] = {7, 3, 9, 1, 5, 8};</code> – A[4] là phần tử thứ năm, có giá trị 5.</p>
+<div class="arr"><span>7</span><span>3</span><span>9</span><span>1</span><span>5</span><span>8</span></div>
+<h3>Khai báo và khởi tạo</h3>
+<pre>int a[5];                 // chưa khởi tạo
+int b[5] = {1, 2, 3, 4, 5};
+int c[5] = {1, 2};        // còn lại = 0
+int d[5] = {};            // tất cả bằng 0
+int e[] = {4, 8, 15};     // tự suy ra 3 phần tử</pre>
+<h3>Đọc và ghi bằng chỉ số</h3>
+<pre>int x = A[1];   // đọc: x = 3
+A[1] = 8;       // ghi: thay 3 bằng 8</pre>
+<p>Chỉ số hợp lệ: 0 ≤ i &lt; n. Đọc/ghi là O(1) (tính địa chỉ bằng công thức).</p>
+
+<h2>3. Phân loại mảng</h2>
+<h3>Mảng 1 chiều</h3>
+<p>Danh sách phần tử trên một hàng, cùng kiểu, mỗi phần tử gắn một chỉ số. VD: SV = [8, 5, 9, 6, 9, 7] thì SV[2] = 9; kích thước mảng = 6.</p>
+<h3>Mảng 2 chiều</h3>
+<p>Bảng gồm m hàng × n cột; phần tử xác định bằng hai chỉ số <code>M[i][j]</code>. Ví dụ <code>int M[3][4]</code> (3 hàng, 4 cột). C/C++ lưu trải phẳng theo hàng (row-major):</p>
+<pre>k = i * n + j
+Loc(M[i][j]) = Base + k * w
+Ví dụ M[1][2], n = 4, w = 4, Base = 1000: k = 1*4 + 2 = 6; Loc = 1000 + 6*4 = 1024</pre>
+<p>Phân bố bộ nhớ của <code>int a[4][3]</code>: các phần tử có thể được sắp kế tiếp nhau “hết dòng này đến dòng khác” (row-major, dùng trong C/C++) hoặc “hết cột này đến cột khác” (column-major).</p>
+<h3>Mảng nhiều chiều</h3>
+<p>Mảng 3 chiều <code>B[p][i][j]</code>: nhiều lớp (page), mỗi lớp là một mảng 2 chiều. Ví dụ <code>int B[2][3][4]</code>: 2 lớp × 3 hàng × 4 cột.</p>
+<pre>k = (p * n2 + i) * n3 + j
+Ví dụ B[1][0][2]: k = (1*3 + 0)*4 + 2 = 14; Loc = 1000 + 14*4 = 1056</pre>
+
+<h2>4. Thao tác trên mảng</h2>
+<h3>Chèn phần tử</h3>
+<p>Chèn 99 vào vị trí r = 1 của [10, 20, 30, 40] (n = 4): dồn từ cuối về, rồi mới ghi.</p>
+<div class="arr"><span>10</span><span>20</span><span>30</span><span>40</span><span class="e">0</span></div> ban đầu<br>
+<div class="arr"><span>10</span><span>20</span><span>20</span><span>30</span><span>40</span></div> sau khi dồn<br>
+<div class="arr"><span>10</span><span class="h">99</span><span>20</span><span>30</span><span>40</span></div> sau khi ghi 99 (n = 5)
+<pre>// Chèn e vào vị trí r; cần 0 &lt;= r &lt;= n, n &lt; capacity
+for (int k = n - 1; k &gt;= r; --k)
+    V[k + 1] = V[k];
+V[r] = e;
+++n;</pre>
+<p>Số phần tử phải dồn: n − r = 3; xấu nhất r = 0 phải dồn cả n phần tử.</p>
+<h3>Xóa phần tử</h3>
+<pre>// Xóa phần tử ở vị trí r; cần 0 &lt;= r &lt; n
+for (int k = r; k &lt; n - 1; ++k)
+    V[k] = V[k + 1];
+--n;</pre>
+<p>Ô cuối vẫn chứa giá trị cũ trong bộ nhớ nhưng nằm ngoài size nên không còn thuộc mảng.</p>
+<h3>Chi phí</h3>
+<table>
+<tr><th>Thao tác (mảng n phần tử)</th><th>Thời gian</th><th>Vì sao</th></tr>
+<tr><td>Đọc / ghi A[r]</td><td>O(1)</td><td>Tính địa chỉ bằng công thức</td></tr>
+<tr><td>Thêm / bớt ở cuối (còn chỗ)</td><td>O(1)</td><td>Không phải dồn phần tử nào</td></tr>
+<tr><td>Chèn vào vị trí r</td><td>O(n)</td><td>Dồn n − r phần tử sang phải</td></tr>
+<tr><td>Xóa ở vị trí r</td><td>O(n)</td><td>Dồn n − r − 1 phần tử sang trái</td></tr>
+<tr><td>Tìm giá trị (chưa sắp xếp)</td><td>O(n)</td><td>Xét lần lượt từng phần tử</td></tr>
+<tr><td>Tìm giá trị (đã sắp xếp)</td><td>O(log n)</td><td>Tìm kiếm nhị phân</td></tr>
+</table>
+
+<h2>5. Vector</h2>
+<p><b>Bài toán:</b> nhập điểm thi từ tệp, không biết trước số sinh viên. Chọn mảng nhỏ (<code>int diem[100]</code>) thì tệp 150 dòng bị ghi ra ngoài mảng; chọn quá lớn (<code>int diem[1000000]</code>) thì phí bộ nhớ. Giải pháp: <code>vector&lt;int&gt; diem;</code> – mảng tự lớn.</p>
+<div class="def"><b>Vector</b> = một mảng động được bọc trong một lớp, cùng các phép toán quản lý nó. Là dãy có thứ tự, chỉ số từ 0, số phần tử thay đổi được, cùng kiểu T.</div>
+<h3>Giao diện và cài đặt bên trong</h3>
+<ul>
+  <li>Lấy/thay phần tử: <code>v[r]</code>, <code>v.at(r)</code>, <code>v[r] = x</code>.</li>
+  <li>Chèn/xóa tại r: <code>v.insert(v.begin() + r, x)</code>, <code>v.erase(v.begin() + r)</code>.</li>
+  <li>Hỏi kích thước: <code>v.size()</code>, <code>v.empty()</code>.</li>
+  <li>Bên trong: vùng nhớ A (mảng cấp phát động), <b>size</b> (số phần tử đang có), <b>capacity</b> (số ô đã cấp phát). Luôn có 0 ≤ size ≤ capacity; chỉ số hợp lệ 0 ≤ i &lt; size.</li>
+</ul>
+<p>Ví dụ size() = 4, capacity() = 7: <code>v[4]</code> là truy cập sai vì chỉ số hợp lệ tính theo size, không theo capacity. Khi size == capacity, vùng nhớ đã đầy và lần thêm kế tiếp phải mở rộng.</p>
+<div class="arr"><span>12</span><span>7</span><span>25</span><span>9</span><span class="e">0</span><span class="e">0</span><span class="e">0</span></div>
+<h3>Khởi tạo</h3>
+<pre>#include &lt;vector&gt;
+using namespace std;
+
+vector&lt;int&gt; a;                 // rỗng
+vector&lt;int&gt; b(4);              // 4 phần tử bằng 0
+vector&lt;int&gt; c(4, 7);           // 4 phần tử bằng 7
+vector&lt;int&gt; d = {12, 7, 25};   // danh sách khởi tạo</pre>
+<div class="warn">Dễ nhầm: <code>vector&lt;int&gt; b(4);</code> → 4 phần tử bằng 0 (số lượng); <code>vector&lt;int&gt; b{4};</code> → 1 phần tử có giá trị 4 (giá trị).</div>
+<h3>Thêm, xóa, chèn</h3>
+<ul>
+  <li><b>push_back khi còn chỗ:</b> ghi vào ô size rồi tăng size; không phần tử nào dời chỗ, capacity giữ nguyên: O(1).</li>
+  <li><b>push_back khi đã đầy:</b> (1) cấp phát vùng mới gấp đôi (4 → 8 ô); (2) chuyển các phần tử cũ sang; (3) giải phóng vùng cũ; (4) ghi phần tử mới, tăng size. Vùng nhớ đổi địa chỉ nên mọi con trỏ, tham chiếu, iterator cũ mất hiệu lực. Chi phí: O(n).</li>
+  <li><b>pop_back:</b> chỉ giảm size, không trả về giá trị (cần thì gọi <code>back()</code> trước); gọi trên vector rỗng là hành vi không xác định nên kiểm tra <code>empty()</code>; capacity giữ nguyên (<code>pop_back()</code> và <code>clear()</code> không trả lại bộ nhớ).</li>
+</ul>
+<pre>if (!v.empty()) {
+    int x = v.back();   // lấy trước
+    v.pop_back();       // rồi xóa
+}</pre>
+<ul>
+  <li><b>insert tại r:</b> dịch từ cuối về rồi mới ghi. VD chèn 10 vào vị trí 2 của [4, 8, 15, 16, 23]: phải dịch n − r = 5 − 2 = 3 phần tử; xấu nhất r = 0 dịch cả n: O(n).</li>
+</ul>
+<pre>INSERT(r, x)
+    kiểm tra 0 &lt;= r &lt;= n
+    nếu đầy: mở rộng vùng nhớ
+    for i = n downto r+1: A[i] = A[i-1]
+    A[r] = x
+    n = n + 1</pre>
+<div class="note"><b>Hai cái giá của bộ nhớ liền nhau:</b> (1) chèn/xóa ở vị trí r phải dồn n − r phần tử, O(n); (2) mở rộng phải chép toàn bộ sang vùng nhớ mới, mọi iterator vô hiệu. Nguyên nhân: thứ tự phần tử gắn chặt với vị trí trong bộ nhớ. Thực nghiệm: chèn 10⁵ số int vào đầu một <code>std::vector</code> mất khoảng 340–380 ms.</div>
+
+<!-- CHƯƠNG 07 -->
+<h1>Chương 07: Danh sách liên kết</h1>
+
+<h2>1. Nút và liên kết</h2>
+<ul>
+  <li><b>Vector:</b> các phần tử nằm liền nhau (địa chỉ 1000, 1004, 1008, 1012); thứ tự = vị trí trong bộ nhớ.</li>
+  <li><b>Danh sách liên kết:</b> các nút nằm rải rác trong bộ nhớ, nối với nhau bằng con trỏ; thứ tự = chuỗi liên kết.</li>
+</ul>
+<p>Mỗi nút giữ một phần tử (<code>elem</code>) và địa chỉ của nút kế tiếp (<code>next</code>); <code>nullptr</code> ở nút cuối. Ví dụ danh sách 7, 3, 9, 1 với biến đầu chứa địa chỉ 2048:</p>
+<table>
+<tr><th>Địa chỉ nút</th><th>elem</th><th>next</th></tr>
+<tr><td>2048</td><td>7</td><td>1040</td></tr>
+<tr><td>1040</td><td>3</td><td>3104</td></tr>
+<tr><td>3104</td><td>9</td><td>1560</td></tr>
+<tr><td>1560</td><td>1</td><td>nullptr</td></tr>
+</table>
+<p>Xếp theo địa chỉ bộ nhớ (1040, 1560, 2048, 3104) thì thứ tự bộ nhớ khác hoàn toàn thứ tự danh sách.</p>
+
+<h2>2. Danh sách liên kết đơn (Singly Linked List)</h2>
+<ul>
+  <li>Mỗi node gồm <b>data</b> (dữ liệu) và <b>next pointer</b> (con trỏ tới node kế tiếp).</li>
+  <li>“Đơn” nghĩa là mỗi node chỉ có một con trỏ, chỉ đi được một chiều từ trước ra sau.</li>
+  <li>Next pointer trỏ tới NULL (<code>nullptr</code>) thì đó là node cuối cùng.</li>
+  <li>Danh sách giữ hai con trỏ: <b>head</b> (nút đầu) và <b>tail</b> (nút cuối).</li>
+</ul>
+<pre>10 → 20 → 30 → NULL
+↑ head        ↑ tail</pre>
+
+<h2>3. Duyệt danh sách</h2>
+<p>Con trỏ p lần lượt đứng ở từng nút cho tới khi p = nullptr.</p>
+<pre>for (Node&lt;T&gt;* p = head; p != nullptr; p = p-&gt;next)
+    cout &lt;&lt; p-&gt;elem &lt;&lt; ' ';
+
+Node&lt;T&gt;* node_at(size_t i) {   // nút thứ i
+    Node&lt;T&gt;* p = head;
+    while (i &gt; 0 &amp;&amp; p != nullptr) {
+        p = p-&gt;next;
+        --i;
+    }
+    return p;
+}</pre>
+<div class="note">Tới nút thứ i phải đi qua i liên kết: <b>O(n)</b>. Không có công thức địa chỉ nên không có toán tử <code>[]</code>.</div>
+
+<h2>4. push_front: thêm vào đầu</h2>
+<pre>void push_front(const T&amp; e) {
+    Node&lt;T&gt;* q = new Node&lt;T&gt;{e, head};  // 1. nút mới trỏ vào nút đầu cũ
+    head = q;                            // 2. head chuyển sang nút mới
+    if (tail == nullptr) tail = q;       // danh sách vốn rỗng
+    ++n;
+}</pre>
+<p>Không phần tử nào phải dồn dù danh sách dài bao nhiêu: <b>O(1)</b> (so với O(n) khi chèn đầu vector).</p>
+
+<h2>5. push_back: thêm vào cuối</h2>
+<pre>void push_back(const T&amp; e) {
+    Node&lt;T&gt;* q = new Node&lt;T&gt;{e, nullptr};
+    if (tail == nullptr) head = q;   // rỗng: vừa là đầu vừa là cuối
+    else                 tail-&gt;next = q;
+    tail = q;
+    ++n;
+}</pre>
+<p>Nút cuối cũ trỏ sang nút mới, rồi tail chuyển sang nút mới. Nhờ có con trỏ <code>tail</code>, thao tác là O(1); nếu không có tail thì phải duyệt tới nút cuối: O(n).</p>
+
+<div class="foot">— Hết —</div>
+</div>
+</body>
+</html>
