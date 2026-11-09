@@ -1,0 +1,23 @@
+{
+  "timestamp": 1792808003951,
+  "lang": "cpp",
+  "file": "Untitled1.cpp",
+  "dir": "lap_trinh_huong_doi_tuong_1_1_26_n04/tren-lop/2026-10-24",
+  "source": "#include <bits/stdc++.h>\nusing namespace std;\n\nusing ll = long long;\n\nclass Vehicle{\n    private:\n        string brand;\n        double speed;\n    public:\n        Vehicle(){\n            brand = \"\";\n            speed = 0.0;\n        }\n        virtual ~Vehicle(){}\n        void nhap(){\n            cout << \"Vui long nhap hang: \";\n            getline(cin >> ws, brand);\n            cout << \"Vui long nhap toc do: \";\n            cin >> speed;\n        }\n        virtual void move(){\n            cout << \"Xe di chuyen bang: \";\n        }\n        void xuat(){\n            cout << \"Hang: \" << brand << \" | Toc do: \" << speed;\n        }\n};\n\nclass Car : public Vehicle{\n    public:\n        void move(){\n            Vehicle::move();\n            cout << \"Dong co\\n\";\n        }\n};\n\nclass Bicycle : public Vehicle{\n    public:\n        void move(){\n            Vehicle::move();\n            cout << \"Suc nguoi\\n\";\n        }\n};\n\nclass Motorcycle : public Vehicle{\n    public:\n        void move(){\n            Vehicle::move();\n            cout << \"Dong co\\n\";\n        }\n};\n\nint main() {\n    // freopen(\"input.txt\", \"r\", stdin);\n    // freopen(\"output.txt\", \"w\", stdout);\n    int n;\n    cout << \"Vui long nhap n: \";\n    cin >> n;\n    vector<Vehicle*> ds(n);\n    for(int i = 0; i < n; i++){\n        cout << \"Xe thu \" << i + 1 << \":\\n\";\n        int loai;\n        do {\n            cout << \"Chon loai (1: Car, 2: Bicycle, 3: Motorcycle): \"\n            cin >> loai;\n\t\t    if (loai == 1) ds[i] = new Car;\n\t\t    else if (loai == 2) ds[i] = new Bicycle;\n\t\t    else if (loai == 3) ds[i] = new Motorcycle;\n\t\t    else cout << \"Vui long chon lai!\\n\";\n        } while(loai < 1 || loai > 3);\n    }\n    cout << \"\\n===== DANH SACH XE =====\\n\";\n    for (int i = 0; i < n; i++) {\n        ds[i]->xuat();\n    }\n    for (int i = 0; i < n; i++) delete ds[i];\n    return 0;\n}\n",
+  "kind": "cpp",
+  "status": "error",
+  "compile": {
+    "ok": false,
+    "output": "main.cpp: In function 'int main()':\nmain.cpp:65:70: error: expected ';' before 'cin'\n   65 |             cout << \"Chon loai (1: Car, 2: Bicycle, 3: Motorcycle): \"\n      |                                                                      ^\n      |                                                                      ;\n   66 |             cin >> loai;\n      |             ~~~                                                       \n"
+  },
+  "console": "",
+  "inputs": [],
+  "exitCode": null,
+  "signal": null,
+  "error": "Lỗi biên dịch",
+  "outputFiles": {},
+  "inputFiles": [],
+  "startedAt": "2026-10-24T02:13:12.911Z",
+  "finishedAt": "2026-10-24T02:13:23.719Z",
+  "durationMs": 10808
+}

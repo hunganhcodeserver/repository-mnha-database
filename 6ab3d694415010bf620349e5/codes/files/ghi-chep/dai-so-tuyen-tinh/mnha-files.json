@@ -1,0 +1,42 @@
+{
+  "files": {
+    "bai-tap-chuong-4-va-5.docx": {
+      "name": "bai-tap-chuong-4-va-5.docx",
+      "kind": "word",
+      "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size": 75491,
+      "id": "a4003887b614387173b7ffb4fc5c7759",
+      "key": "TU5IQUVOQzEBjZA+dPIzZiSBdEZJetYkhwAAACBHbgIWlqmD2OHt0LoQ+ivMkeRakych0XnP+anMRT5pdb5jSxBavDbP0RE6Omod+Ro+wa+JqNXfW1Am93k=",
+      "parts": [
+        {
+          "i": 0,
+          "size": 75491,
+          "repo": "repository-mnha-database-1"
+        }
+      ],
+      "createdAt": "2026-11-05T14:49:50.380Z",
+      "updatedAt": "2026-11-05T14:49:50.380Z",
+      "public": true
+    },
+    "2026-11-05.docx": {
+      "name": "2026-11-05.docx",
+      "kind": "word",
+      "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size": 25728,
+      "id": "6e61599d14abac6acedda238676c285a",
+      "key": "TU5IQUVOQzEBg4uTp7ZT70roFK3xL9KzxwAAACAG0NoDBqcmjhyRxvNaVIjt/+y7mGwRpDS5rGYcZQqaMZAhPxMRQw+doqjf8Mz0vVhjJ0/5mbCHw7lg47M=",
+      "parts": [
+        {
+          "i": 0,
+          "size": 25728,
+          "repo": "repository-mnha-database-1"
+        }
+      ],
+      "createdAt": "2026-11-05T17:06:52.699Z",
+      "updatedAt": "2026-11-06T04:58:41.637Z",
+      "public": true
+    }
+  },
+  "v": 1,
+  "updatedAt": "2026-11-06T04:58:51.708Z"
+}

@@ -1,0 +1,24 @@
+{
+  "timestamp": 1792669788507,
+  "lang": "cpp",
+  "file": "main.cpp",
+  "dir": "",
+  "origin": "https://github.com/hoangmanhkhiem/BTL_CTDL_64_002/blob/master/PhanA/main.cpp",
+  "source": "#include \"DanhSachPhuongTien.hpp\"\n#include <iostream>\n\nusing namespace std;\n\nvoid Menu() {\n    cout << \"1. Nhap danh sach phuong tien\" << endl;\n    cout << \"2. Xuat danh sach phuong tien\" << endl;\n    cout << \"3. Cap nhat thoi gian ra\" << endl;\n    cout << \"4. Tim kiem phuong tien theo bien so\" << endl;\n    cout << \"5. Tim kiem phuong tien theo thoi gian vao bai\" << endl;\n    cout << \"6. Tim kiem phuong tien dang gui\" << endl;\n    cout << \"7. Hien thi top 3 phuong tien gui nhieu nhat\" << endl;\n    cout << \"8. Thoat\" << endl;\n}\n\nint main() {\n    DanhSachPhuongTien dsPhuongTien;\n    int chon;\n    do {\n        Menu();\n        cout << \"Nhap lua chon: \";\n        cin >> chon;\n        switch (chon) {\n            case 1:\n                dsPhuongTien.NhapDanhSach();\n                break;\n            case 2:\n                dsPhuongTien.XuatDanhSach();\n                break;\n            case 3: {\n                string bienSo;\n                ThoiGian thoiGianRa;\n                cout << \"Nhap bien so: \";\n                cin >> bienSo;\n                cout << \"Nhap thoi gian ra: \" << endl;\n                cin >> thoiGianRa;\n                dsPhuongTien.CapNhatThoiGianRa(bienSo, thoiGianRa);\n                break;\n            }\n            case 4: {\n                string bienSoTimKiem;\n                cout << \"Nhap bien so can tim: \";\n                cin >> bienSoTimKiem;\n                dsPhuongTien.TimKiem(bienSoTimKiem);\n                break;\n            }\n            case 5: {\n                cout << \"Nhap thoi gian vao bai can tim: \" << endl;\n                int ngay, thang, nam;\n                cout << \"Nhap ngay: \";\n                cin >> ngay;\n                cout << \"Nhap thang: \";\n                cin >> thang;\n                cout << \"Nhap nam: \";\n                cin >> nam;\n                dsPhuongTien.TimKiem(ngay, thang, nam);\n                break;\n            }\n            case 6:\n                dsPhuongTien.TimKiemPhuongTienDangGui();\n                break;\n            case 7:\n                dsPhuongTien.HienthiTop3PhuongTienGuiNhieuNhat();\n                break;\n            case 8:\n                break;\n            default:\n                cout << \"Lua chon khong hop le\" << endl;\n                break;\n        }\n    } while (chon != 8);\n    return 0;\n}",
+  "kind": "cpp",
+  "status": "error",
+  "compile": {
+    "ok": false,
+    "output": "main.cpp:1:10: fatal error: DanhSachPhuongTien.hpp: No such file or directory\n    1 | #include \"DanhSachPhuongTien.hpp\"\n      |          ^~~~~~~~~~~~~~~~~~~~~~~~\ncompilation terminated.\n"
+  },
+  "console": "",
+  "inputs": [],
+  "exitCode": null,
+  "signal": null,
+  "error": "Lỗi biên dịch",
+  "outputFiles": {},
+  "inputFiles": [],
+  "startedAt": "2026-10-22T11:49:47.553Z",
+  "finishedAt": "2026-10-22T11:49:47.907Z",
+  "durationMs": 354
+}

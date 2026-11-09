@@ -1,0 +1,66 @@
+{
+  "nodes": {
+    "main": {
+      "days": {
+        "2026-10-25": {
+          "in": 226,
+          "out": 196160,
+          "originIn": 577057,
+          "originOut": 0,
+          "req": 59
+        }
+      },
+      "updatedAt": "2026-10-25T10:54:50.384Z"
+    },
+    "data-node-1": {
+      "days": {
+        "2026-10-25": {
+          "in": 118,
+          "out": 30994,
+          "originIn": 113575,
+          "originOut": 0,
+          "req": 8
+        }
+      },
+      "updatedAt": "2026-10-25T10:39:12.366Z"
+    },
+    "data-node": {
+      "days": {
+        "2026-10-25": {
+          "in": 0,
+          "out": 7537,
+          "originIn": 55960,
+          "originOut": 0,
+          "req": 3
+        }
+      },
+      "updatedAt": "2026-10-25T10:41:30.618Z"
+    },
+    "data-node-2": {
+      "days": {
+        "2026-10-25": {
+          "in": 56,
+          "out": 18056,
+          "originIn": 120988,
+          "originOut": 0,
+          "req": 10
+        }
+      },
+      "updatedAt": "2026-10-25T10:48:40.036Z"
+    },
+    "data-node-3": {
+      "days": {
+        "2026-10-25": {
+          "in": 56,
+          "out": 21650,
+          "originIn": 208546,
+          "originOut": 0,
+          "req": 11
+        }
+      },
+      "updatedAt": "2026-10-25T11:01:16.040Z"
+    }
+  },
+  "v": 1,
+  "updatedAt": "2026-10-25T11:01:16.040Z"
+}

@@ -1,0 +1,50 @@
+{
+  "timestamp": 1792814912854,
+  "lang": "emu8086",
+  "file": "1.asm",
+  "dir": "",
+  "source": "; Emu8086 - Hello\n.model small\n.stack 100h\n.data\nmsg db 'Hello, MNHA!$'\n.code\nmain proc\n    mov ax, @data\n    mov ds, ax\n    lea dx, msg\n    mov ah, 9\n    int 21h\n    mov ah, 4ch\n    int 21h\nmain endp\nend main\n",
+  "kind": "emu8086",
+  "status": "ok",
+  "assemble": {
+    "ok": true,
+    "errors": []
+  },
+  "console": "Hello, MNHA!",
+  "screen": [
+    "Hello, MNHA!"
+  ],
+  "inputs": [],
+  "regs": {
+    "AX": "4C10",
+    "BX": "0000",
+    "CX": "0000",
+    "DX": "0000",
+    "SI": "0000",
+    "DI": "0000",
+    "BP": "0000",
+    "SP": "00FE",
+    "CS": "0711",
+    "DS": "0710",
+    "ES": "0700",
+    "SS": "0714",
+    "IP": "0007"
+  },
+  "flags": {
+    "CF": 0,
+    "PF": 0,
+    "AF": 0,
+    "ZF": 0,
+    "SF": 0,
+    "TF": 0,
+    "IF": 1,
+    "DF": 0,
+    "OF": 0
+  },
+  "steps": 6,
+  "exitCode": 16,
+  "error": null,
+  "startedAt": "2026-10-24T04:08:32.845Z",
+  "finishedAt": "2026-10-24T04:08:32.853Z",
+  "durationMs": 8
+}

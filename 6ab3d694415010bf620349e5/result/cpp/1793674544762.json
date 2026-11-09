@@ -1,0 +1,34 @@
+{
+  "timestamp": 1793674544762,
+  "lang": "cpp",
+  "file": "Untitled4.cpp",
+  "dir": "lap_trinh_huong_doi_tuong_1_1_26_n04/tren-lop/2026-10-24",
+  "source": "#include <bits/stdc++.h>\nusing namespace std;\n\nusing ll = long long;\n\nclass Toado {\n    private:\n        double x;\n        double y;\n    public:\n        Toado(){\n            x = 0.0;\n            y = 0.0;\n        }\n        void nhap(){\n            cout << \"Nhap hoanh do (x): \";\n            cin >> x;\n            cout << \"Nhap tung do (y): \";\n            cin >> y;\n        }\n        void xuat(){\n            cout << \"(x, y) = (\" << x << \", \" << y << \")\";\n        }\n        double khoangCach(){ \n            // lỗi sai: ban đầu thiếu hàm khoangCach() trong lớp, \n            // nên main gọi d[i].khoangCach() báo lỗi \"has no member named khoangCach\"; \n            // x, y là private nên phải định nghĩa hàm này trong Toado (DiemMau kế thừa được) \n            // để tính khoảng cách từ điểm đến gốc tọa độ\n            return sqrt(x * x + y * y);\n        }\n};\n\nclass DiemMau : public Toado {\n    private:\n        int mau;\n    public:\n        DiemMau() : Toado() {\n            mau = 1;\n        }\n        void nhap(){\n            Toado::nhap();                       // nhập x, y bằng hàm của cha\n            do {\n                cout << \"Nhap ma mau (1-Do, 2-Vang, 3-Xanh): \";\n                cin >> mau;\n            } while(mau < 1 || mau > 3);         // bắt nhập lại nếu sai\n        }\n        void xuat(){\n            Toado::xuat();                       // in x, y bằng hàm của cha\n            cout << \", mau = \";\n            if(mau == 1) cout << \"Do\";\n            else if(mau == 2) cout << \"Vang\";\n            else cout << \"Xanh\";\n        }\n        int getMau(){\n            return mau;\n        }\n};\n\nint main() {\n    // freopen(\"input.txt\", \"r\", stdin);\n    // freopen(\"output.txt\", \"w\", stdout);\n    int n;\n    cout << \"Nhap so n = \";\n    cin >> n;\n\n    vector<DiemMau> d(n);\n    for(int i = 0; i < n; i++){\n        cout << \"\\nDiem thu \" << i + 1 << \":\\n\";\n        d[i].nhap();\n    }\n\n    // 1. Thống kê số điểm mỗi màu\n    int dem[4] = {0};                            // dùng dem[1], dem[2], dem[3]\n    for(int i = 0; i < n; i++){\n        dem[d[i].getMau()]++;\n    }\n    cout << \"\\nSo diem Do: \" << dem[1];\n    cout << \"\\nSo diem Vang: \" << dem[2];\n    cout << \"\\nSo diem Xanh: \" << dem[3] << \"\\n\";\n\n    // 2. Tìm khoảng cách lớn nhất\n    double maxKC = 0;\n    for(int i = 0; i < n; i++){\n        maxKC = max(maxKC, d[i].khoangCach());\n    }\n\n    // 3. In tất cả điểm có khoảng cách = max (có thể có nhiều điểm bằng nhau)\n    cout << \"\\nCac diem xa goc toa do nhat (khoang cach = \" << maxKC << \"):\\n\";\n    for(int i = 0; i < n; i++){\n        if(d[i].khoangCach() == maxKC){\n            d[i].xuat();\n            cout << \"\\n\";\n        }\n    }\n    return 0;\n}",
+  "kind": "cpp",
+  "status": "ok",
+  "compile": {
+    "ok": true,
+    "output": ""
+  },
+  "console": "Nhap so n = 3\n\nDiem thu 1:\nNhap hoanh do (x): 3\nNhap tung do (y): 6\nNhap ma mau (1-Do, 2-Vang, 3-Xanh): 2\n\nDiem thu 2:\nNhap hoanh do (x): 4\nNhap tung do (y): 3\nNhap ma mau (1-Do, 2-Vang, 3-Xanh): 1\n\nDiem thu 3:\nNhap hoanh do (x): 8\nNhap tung do (y): 7\nNhap ma mau (1-Do, 2-Vang, 3-Xanh): 3\n\nSo diem Do: 1\nSo diem Vang: 1\nSo diem Xanh: 1\n\nCac diem xa goc toa do nhat (khoang cach = 10.6301):\n(x, y) = (8, 7), mau = Xanh\n",
+  "inputs": [
+    "3",
+    "3",
+    "6",
+    "2",
+    "4",
+    "3",
+    "1",
+    "8",
+    "7",
+    "3"
+  ],
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "outputFiles": {},
+  "inputFiles": [],
+  "startedAt": "2026-11-03T02:54:57.367Z",
+  "finishedAt": "2026-11-03T02:55:43.969Z",
+  "durationMs": 46602
+}

@@ -1,0 +1,35 @@
+{
+  "timestamp": 1792670602113,
+  "lang": "cpp",
+  "file": "NoiSuyNewtonTrenLuoiKhongDeu.cpp",
+  "dir": "",
+  "origin": "https://github.com/chunglop0781/tai-lieu-hoc-tap/blob/main/giai-tich-so-utc/code-go/nhap-le/NoiSuyNewtonTrenLuoiKhongDeu.cpp",
+  "source": "#include<stdio.h>\r\n#include<stdlib.h>\r\n#include<string.h>\r\n#include<math.h>\r\n\r\nvoid NoiSuyNewtonTrenLuoiKhongDeu(int n, double x[], double y[]){\r\n    double xCanTinh;\r\n    printf(\"Nhap xCanTinh = \"); scanf(\"%lf\", &xCanTinh);\r\n    double F[100];\r\n    double ketQua = y[0];\r\n    double tich = xCanTinh - x[0];\r\n    for (int i = 0; i < n; i++){\r\n        F[i] = (y[i + 1] - y[i])/(x[i+1]-x[i]);\r\n    }\r\n    ketQua = ketQua + F[0] * tich;\r\n    for(int j = 2; j <= n; j++){\r\n        for(int i = 0; i <= n - j; i++){\r\n            F[i] = (F[i + 1] - F[i])/(x[i+j]-x[i]);\r\n        }\r\n        tich = tich * (xCanTinh - x[j-1]);\r\n        ketQua = ketQua + F[0] * tich;\r\n    }\r\n    printf(\"\\nKet qua = %lf\\n\", ketQua);\r\n}\r\n\r\nint main(){\r\n    int n;\r\n    double x[100], y[100];\r\n    printf(\"Nhap bac cua da thuc n = \"); scanf(\"%d\", &n);\r\n    printf(\"Nhap cac gia tri cua x:\\n\");\r\n    for(int i = 0; i <= n; i++){\r\n       printf(\"x[%d] = \", i); scanf(\"%lf\", &x[i]);\r\n    }\r\n    printf(\"Nhap cac gia tri cua y:\\n\");\r\n\tfor(int i = 0; i <= n; i++){\r\n        printf(\"y[%d] = \", i); scanf(\"%lf\", &y[i]);\r\n    }\r\n    NoiSuyNewtonTrenLuoiKhongDeu(n, x, y);\r\n}",
+  "kind": "cpp",
+  "status": "ok",
+  "compile": {
+    "ok": true,
+    "output": ""
+  },
+  "console": "Nhap bac cua da thuc n = 3\nNhap cac gia tri cua x:\nx[0] = 1\nx[1] = 3\nx[2] = 6\nx[3] = 8\nNhap cac gia tri cua y:\ny[0] = 1\ny[1] = 4\ny[2] = 6\ny[3] = 12\nNhap xCanTinh = 5.6\n\nKet qua = 5.473829\n",
+  "inputs": [
+    "3",
+    "1",
+    "3",
+    "6",
+    "8",
+    "1",
+    "4",
+    "6",
+    "12",
+    "5.6"
+  ],
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "outputFiles": {},
+  "inputFiles": [],
+  "startedAt": "2026-10-22T12:02:43.594Z",
+  "finishedAt": "2026-10-22T12:03:21.688Z",
+  "durationMs": 38094
+}

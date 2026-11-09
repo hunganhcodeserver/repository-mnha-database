@@ -1,0 +1,31 @@
+{
+  "timestamp": 1792827618973,
+  "lang": "cpp",
+  "file": "Untitled3.cpp",
+  "dir": "lap_trinh_huong_doi_tuong_1_1_26_n04/tren-lop/2026-10-24",
+  "source": "#include <bits/stdc++.h>\nusing namespace std;\n\nusing ll = long long;\n\nclass Diem {\n    private:\n        double x;\n        double y;\n    public:\n        Diem(){\n            x = 0.0;\n            y = 0.0;\n        }\n        friend istream& operator >>(istream &is, Diem &d){\n            cout << \"Nhap hoanh do (x): \";\n            is >> d.x;\n            cout << \"Nhap tung do (y): \";\n            is >> d.y;\n            return is;\n        }\n        friend ostream& operator <<(ostream &os, Diem d){\n            os << \"(x, y) = (\" << d.x << \", \" << d.y << \")\";\n            return os;\n        }\n        double khoangCach() const {\n            return sqrt(x * x + y * y);\n        }\n};\n\nvoid inKhoangCach(vector<Diem> d){\n    int n = d.size();\n    sort(d.begin(), d.end(), [](const Diem &a, const Diem &b){\n        return a.khoangCach() < b.khoangCach();\n    });\n    cout << \"\\nCAC DIEM THEO KHOANG CACH DEN GOC TOA DO (TANG DAN):\\n\";\n    double dem = 0;\n    for(int i = 0; i < n; i++){\n        cout << d[i] << \" -> khoang cach = \" << d[i].khoangCach() << \"\\n\";\n        dem += d[i].khoangCach();\n    }\n    cout << \"\\n=> DIEM GAN GOC TOA DO NHAT: \" << d[0] << \" -> khoang cach = \" << d[0].khoangCach() << \"\\n\";\n    cout << \"\\n=> TONG KHOANG CACH CAC DIEM = \" << fixed << setprecision(2) << dem;\n}\n\nint main() {\n    // freopen(\"input.txt\", \"r\", stdin);\n    // freopen(\"output.txt\", \"w\", stdout);\n    int n;\n    cout << \"Nhap so n_diem = \";\n    cin >> n;\n    vector <Diem> d(n);\n    cout << \"\\nVUI LONG NHAP TUNG DIEM:\\n\";\n    for(int i = 0; i < n; i++){\n        cout << \"Diem \" << i+1 << \":\\n\";\n        cin >> d[i];\n    }\n    cout << \"\\nTUNG DIEM SAU KHI NHAP DU LIEU:\\n\";\n    for(int i = 0; i < n; i++){\n        cout << d[i];\n    }\n    inKhoangCach(d);\n    return 0;\n}\n",
+  "kind": "cpp",
+  "status": "ok",
+  "compile": {
+    "ok": true,
+    "output": ""
+  },
+  "console": "Nhap so n_diem = 3\n\nVUI LONG NHAP TUNG DIEM:\nDiem 1:\nNhap hoanh do (x): 1\nNhap tung do (y): 6\nDiem 2:\nNhap hoanh do (x): 5\nNhap tung do (y): 3\nDiem 3:\nNhap hoanh do (x): 4\nNhap tung do (y): 2\n\nTUNG DIEM SAU KHI NHAP DU LIEU:\n(x, y) = (1, 6)(x, y) = (5, 3)(x, y) = (4, 2)\nCAC DIEM THEO KHOANG CACH DEN GOC TOA DO (TANG DAN):\n(x, y) = (4, 2) -> khoang cach = 4.47214\n(x, y) = (5, 3) -> khoang cach = 5.83095\n(x, y) = (1, 6) -> khoang cach = 6.08276\n\n=> DIEM GAN GOC TOA DO NHAT: (x, y) = (4, 2) -> khoang cach = 4.47214\n\n=> TONG KHOANG CACH CAC DIEM = 16.39",
+  "inputs": [
+    "3",
+    "1",
+    "6",
+    "5",
+    "3",
+    "4",
+    "2"
+  ],
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "outputFiles": {},
+  "inputFiles": [],
+  "startedAt": "2026-10-24T07:39:40.337Z",
+  "finishedAt": "2026-10-24T07:40:17.578Z",
+  "durationMs": 37241
+}

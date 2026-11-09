@@ -1,0 +1,32 @@
+{
+  "timestamp": 1792808976865,
+  "lang": "cpp",
+  "file": "Untitled2.cpp",
+  "dir": "lap_trinh_huong_doi_tuong_1_1_26_n04/tren-lop/2026-10-24",
+  "source": "#include <bits/stdc++.h>\nusing namespace std;\n\nclass Xe {\nprivate:\n    string bienSoXe;\n    double trongLuong;\npublic:\n    Xe() {\n        bienSoXe = \"\";\n        trongLuong = 0.0;\n    }\n    virtual ~Xe() {}\n    void nhap() {\n        cout << \"Vui long nhap bien so xe: \";\n        getline(cin >> ws, bienSoXe);\n        cout << \"Vui long nhap trong luong (tan): \";\n        cin >> trongLuong;\n    }\n    void xuat() {\n        cout << \"Bien so: \" << bienSoXe << \" | Trong luong: \" << trongLuong << \" tan\";\n    }\n    double getTrongLuong() {\n        return trongLuong;\n    }\n    virtual int demChoNgoi() = 0;\n};\n\nclass XeCon : public Xe {\nprivate:\n    int soChoNgoi;\npublic:\n    XeCon() {\n        soChoNgoi = 0;\n    }\n    void nhap() {\n        Xe::nhap();\n        cout << \"Vui long nhap so cho ngoi: \";\n        cin >> soChoNgoi;\n    }\n    void xuat() {\n        Xe::xuat();\n        cout << \" | So cho ngoi: \" << soChoNgoi << endl;\n    }\n    int demChoNgoi() {\n        return soChoNgoi;\n    }\n};\n\nint main() {\n    int n;\n    cout << \"Vui long nhap n: \";\n    cin >> n;\n    vector<XeCon*> ds(n);\n    for (int i = 0; i < n; i++) {\n        cout << \"\\nXe con thu \" << i + 1 << \":\\n\";\n        ds[i] = new XeCon;\n        ds[i]->nhap();\n    }\n    cout << \"\\n== Xe con < 1 tan va <= 5 cho ngoi ==\\n\";\n    for (int i = 0; i < n; i++) {\n        if (ds[i]->getTrongLuong() < 1 && ds[i]->demChoNgoi() <= 5) {\n            ds[i]->xuat();\n        }\n    }\n    double x;\n    cout << \"\\nNhap so thuc x: \";\n    cin >> x;\n    int dem = 0;\n    for (int i = 0; i < n; i++) {\n        if (ds[i]->getTrongLuong() < x) dem++;\n    }\n    cout << \"So xe con co trong luong nho hon \" << x << \": \" << dem << endl;\n    int maxCho = 0;\n    for (int i = 0; i < n; i++) {\n        if (ds[i]->demChoNgoi() > maxCho) maxCho = ds[i]->demChoNgoi();\n    }\n    cout << \"\\n== Xe con co so cho ngoi nhieu nhat ==\\n\";\n    for (int i = 0; i < n; i++) {\n        if (ds[i]->demChoNgoi() == maxCho) ds[i]->xuat();\n    }\n    for (int i = 0; i < n; i++) delete ds[i];\n    return 0;\n}",
+  "kind": "cpp",
+  "status": "ok",
+  "compile": {
+    "ok": true,
+    "output": ""
+  },
+  "console": "Vui long nhap n: 2\n\nXe con thu 1:\nVui long nhap bien so xe: 36A11354\nVui long nhap trong luong (tan): 5.4\nVui long nhap so cho ngoi: 4\n\nXe con thu 2:\nVui long nhap bien so xe: 29B28545\nVui long nhap trong luong (tan): 7.5\nVui long nhap so cho ngoi: 4\n\n== Xe con < 1 tan va <= 5 cho ngoi ==\n\nNhap so thuc x: 3\nSo xe con co trong luong nho hon 3: 0\n\n== Xe con co so cho ngoi nhieu nhat ==\nBien so: 36A11354 | Trong luong: 5.4 tan | So cho ngoi: 4\nBien so: 29B28545 | Trong luong: 7.5 tan | So cho ngoi: 4\n",
+  "inputs": [
+    "2",
+    "36A11354",
+    "5.4",
+    "4",
+    "29B28545",
+    "7.5",
+    "4",
+    "3"
+  ],
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "outputFiles": {},
+  "inputFiles": [],
+  "startedAt": "2026-10-24T02:28:46.060Z",
+  "finishedAt": "2026-10-24T02:29:36.668Z",
+  "durationMs": 50608
+}

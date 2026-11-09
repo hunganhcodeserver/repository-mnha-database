@@ -1,0 +1,56 @@
+{
+  "timestamp": 1793582718886,
+  "lang": "emu8086",
+  "file": "2026-10-28-dem-so-chan-le-day.asm",
+  "dir": "MASM-TASM",
+  "source": "; Emu8086 - Hello\n.model small\n.stack 100h\n.data\n    ms1 db 'Nhap day so: $'\n    ms2 db 10, 13, 'Day so vua nhap: $'\n    ms3 db 10, 13, 'So chu so chan: $'\n    ms4 db 10, 13, 'So chu so le: $'\n    s db 21 dup(?)\n    dem_chan db 0          ; so chu so chan\n    dem_le   db 0          ; so chu so le\n.code\nmain proc\n    mov ax, @data\n    mov ds, ax\n    \n    ;thong bao nhap\n    lea dx, ms1\n    mov ah, 9\n    int 21h\n    \n    ;tao s[i]\n    lea si, s        ; si trỏ đầu mảng s\n    mov cx, 20       ; tối đa 20 ký tự\n    xor bx, bx       ; bx = số ký tự đã nhập\n    \nnhap:\n    ; Trạng thái trước lần lặp 1: SI = 0, BX = 0, CX = 20, s = [?, ?, ?, ...]\n    mov ah, 1        ; AH = 01h (chọn hàm đọc 1 ký tự)\n    int 21h          ; gõ '1' -> AL = 49 (31h)\n    cmp al, 13       ; so 49 với 13 -> 49 ≠ 13 -> ZF = 0\n    je xong          ; ZF = 0 -> KHÔNG nhảy, chạy tiếp xuống dưới\n    sub al, 48       ; AL = 49 - 48 = 1\n    mov [si], al     ; s[0] = 1 (ghi vào ô mà SI = 0 đang trỏ)\n    inc si           ; SI = 0 + 1 = 1\n    inc bx           ; BX = 0 + 1 = 1\n    loop nhap        ; CX = 20 - 1 = 19, khác 0 -> quay lại nhap\n    ; Trạng thái sau lần lặp 1: AL = 1, SI = 1, BX = 1, CX = 19, s = [1, ?, ?, ...]\n    \nxong:   \n    mov al, '$'          ; AL = '$'\n    mov [si], al         ; them '$' vao cuoi mang (SI dang tro o trong)\n\n    ;thong bao xuat\n    lea dx, ms2\n    mov ah, 9\n    int 21h\n    lea dx, s\n    mov ah, 9\n    int 21h\n    \n    ;duyet s, dem chan / le\n    xor bx, bx           ; BL = so chan = 0, BH = so le = 0\n    lea si, s            ; SI quay ve dau mang\n    \n    ;xuat s[i]\n    cmp bx, 0        ; không nhập gì thì khỏi in\n    je thoat\n    mov cx, bx       ; CX = số phần tử cần in\n    lea si, s        ; SI quay lại đầu mảng s\n    \nxuat:\n    mov dl, [si]     ; DL = s[SI]\n    add dl, 48       ; số -> ký tự ASCII\n    mov ah, 2        ; in ký tự trong DL\n    int 21h\n    inc si           ; SI++\n    loop xuat        ; CX--, khác 0 thì in tiếp\n\nthoat:\n    mov ah, 4ch\n    int 21h\nmain endp\nend main\n\n\n\n; ----------------------------------------------------------------------------------------------------------\n; Thanh ghi | Đang giữ gì                                         | Dùng kiểm tra \"có nhập gì không\"?\n; ----------------------------------------------------------------------------------------------------------\n; SI        | Địa chỉ ô nhớ đang trỏ tới (ô ghi tiếp / ô '$')     | KHÔNG, SI là địa chỉ, không phải số lượng\n; CX        | Bộ đếm của loop, đếm ngược từ 20                    | KHÔNG, không cho biết đã nhập bao nhiêu\n; AL        | Ký tự vừa gõ (Enter = 13) / ký tự đang xét          | CÓ khi duyệt, AL = '$' ngay lần đầu là\n;           | trong s / thương của DIV                            | chưa nhập gì\n; AH        | Chọn hàm (01h, 09h, 02h); sau DIV là số dư          | KHÔNG, AH chỉ là số hiệu hàm hoặc số dư\n; BL        | Số chữ số CHẴN đã đếm (inc bl)                      | KHÔNG, BL chỉ đếm chẵn, không đếm ký tự\n; BH        | Số chữ số LẺ đã đếm (inc bh)                        | KHÔNG, BH chỉ đếm lẻ, không đếm ký tự\n; DH        | Hàng đơn vị cất tạm khi in số                       | KHÔNG, DH chỉ là 1 chữ số cất tạm\n; DL        | Ký tự cần in ra (hàm 02h, add dl, 30h)              | KHÔNG, DL chỉ là 1 ký tự đang in\n; DX        | Địa chỉ chuỗi cần in (hàm 09h, lea dx, ...)         | KHÔNG, DX là địa chỉ chuỗi\n; ----------------------------------------------------------------------------------------------------------\n",
+  "kind": "emu8086",
+  "status": "ok",
+  "assemble": {
+    "ok": true,
+    "errors": []
+  },
+  "console": "Nhap day so: 54\r\n\rDay so vua nhap: \u0005\u0004",
+  "screen": [
+    "Nhap day so: 54",
+    "Day so vua nhap: \u0005\u0004"
+  ],
+  "inputs": [
+    "5",
+    "4",
+    ""
+  ],
+  "regs": {
+    "AX": "4C24",
+    "BX": "0000",
+    "CX": "0012",
+    "DX": "0046",
+    "SI": "0046",
+    "DI": "0000",
+    "BP": "0000",
+    "SP": "00FE",
+    "CS": "0716",
+    "DS": "0710",
+    "ES": "0700",
+    "SS": "071F",
+    "IP": "0027"
+  },
+  "flags": {
+    "CF": 0,
+    "PF": 1,
+    "AF": 0,
+    "ZF": 1,
+    "SF": 0,
+    "TF": 0,
+    "IF": 1,
+    "DF": 0,
+    "OF": 0
+  },
+  "steps": 43,
+  "exitCode": 36,
+  "error": null,
+  "startedAt": "2026-11-02T01:25:16.841Z",
+  "finishedAt": "2026-11-02T01:25:18.886Z",
+  "durationMs": 2007,
+  "runIn": "browser"
+}

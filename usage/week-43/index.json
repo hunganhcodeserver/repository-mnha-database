@@ -1,0 +1,200 @@
+{
+  "nodes": {
+    "main": {
+      "days": {
+        "2026-10-26": {
+          "in": 6386335,
+          "out": 3747048,
+          "originIn": 35771968,
+          "originOut": 5917837,
+          "req": 296,
+          "cfUp": 0,
+          "cfDown": 0,
+          "cfReq": 0,
+          "fbUp": 0
+        },
+        "2026-10-27": {
+          "in": 23164939,
+          "out": 4869859,
+          "originIn": 6052844,
+          "originOut": 21278954,
+          "req": 437,
+          "cfUp": 0,
+          "cfDown": 0,
+          "cfReq": 0,
+          "fbUp": 0
+        },
+        "2026-10-28": {
+          "in": 8736303,
+          "out": 1173565,
+          "originIn": 1694337,
+          "originOut": 8331750,
+          "req": 261,
+          "cfUp": 0,
+          "cfDown": 0,
+          "cfReq": 0,
+          "fbUp": 0
+        },
+        "2026-10-29": {
+          "in": 7458,
+          "out": 22,
+          "originIn": 43106,
+          "originOut": 7139,
+          "req": 2,
+          "cfUp": 0,
+          "cfDown": 0,
+          "cfReq": 0,
+          "fbUp": 0
+        },
+        "2026-10-30": {
+          "in": 1106177,
+          "out": 237977,
+          "originIn": 120076,
+          "originOut": 1055556,
+          "req": 66,
+          "cfUp": 0,
+          "cfDown": 0,
+          "cfReq": 0,
+          "fbUp": 0
+        },
+        "2026-10-31": {
+          "in": 0,
+          "out": 1742528,
+          "originIn": 1571373,
+          "originOut": 0,
+          "req": 29,
+          "cfUp": 0,
+          "cfDown": 0,
+          "cfReq": 0,
+          "fbUp": 0
+        },
+        "2026-11-01": {
+          "in": 181952,
+          "out": 351262,
+          "originIn": 253305,
+          "originOut": 188007,
+          "req": 107,
+          "cfUp": 0,
+          "cfDown": 0,
+          "cfReq": 0,
+          "fbUp": 0
+        }
+      },
+      "updatedAt": "2026-11-01T16:13:52.431Z"
+    },
+    "data-node-4": {
+      "days": {
+        "2026-10-26": {
+          "in": 0,
+          "out": 4020,
+          "originIn": 0,
+          "originOut": 0,
+          "req": 4,
+          "cfUp": 0,
+          "cfDown": 0,
+          "cfReq": 0,
+          "fbUp": 0
+        },
+        "2026-10-27": {
+          "in": 0,
+          "out": 1005,
+          "originIn": 0,
+          "originOut": 0,
+          "req": 1,
+          "cfUp": 0,
+          "cfDown": 0,
+          "cfReq": 0,
+          "fbUp": 0
+        },
+        "2026-10-28": {
+          "in": 0,
+          "out": 8542,
+          "originIn": 14000,
+          "originOut": 0,
+          "req": 4,
+          "cfUp": 0,
+          "cfDown": 0,
+          "cfReq": 0,
+          "fbUp": 0
+        }
+      },
+      "updatedAt": "2026-10-28T14:54:28.208Z"
+    },
+    "data-node": {
+      "days": {
+        "2026-10-26": {
+          "in": 0,
+          "out": 1680,
+          "originIn": 29807090,
+          "originOut": 0,
+          "req": 7,
+          "cfUp": 0,
+          "cfDown": 0,
+          "cfReq": 0,
+          "fbUp": 0
+        },
+        "2026-10-27": {
+          "in": 107293,
+          "out": 42948,
+          "originIn": 93731980,
+          "originOut": 104634,
+          "req": 95,
+          "cfUp": 0,
+          "cfDown": 0,
+          "cfReq": 0,
+          "fbUp": 0
+        },
+        "2026-10-28": {
+          "in": 0,
+          "out": 11045,
+          "originIn": 60139472,
+          "originOut": 0,
+          "req": 19,
+          "cfUp": 0,
+          "cfDown": 0,
+          "cfReq": 0,
+          "fbUp": 0
+        },
+        "2026-10-30": {
+          "in": 0,
+          "out": 6030,
+          "originIn": 4248380,
+          "originOut": 0,
+          "req": 6,
+          "cfUp": 0,
+          "cfDown": 0,
+          "cfReq": 0,
+          "fbUp": 0
+        },
+        "2026-10-31": {
+          "in": 0,
+          "out": 446,
+          "originIn": 7460,
+          "originOut": 0,
+          "req": 4,
+          "cfUp": 0,
+          "cfDown": 0,
+          "cfReq": 0,
+          "fbUp": 0
+        },
+        "2026-11-01": {
+          "in": 468,
+          "out": 1296,
+          "originIn": 19618,
+          "originOut": 0,
+          "req": 9,
+          "cfUp": 0,
+          "cfDown": 0,
+          "cfReq": 0,
+          "fbUp": 0
+        }
+      },
+      "updatedAt": "2026-11-01T10:58:25.927Z"
+    }
+  },
+  "v": 2,
+  "week": 43,
+  "from": "2026-10-26",
+  "to": "2026-11-01",
+  "updatedAt": "2026-11-01T16:13:52.431Z"
+}
