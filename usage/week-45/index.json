@@ -45,9 +45,20 @@
           "cfDown": 0,
           "cfReq": 0,
           "fbUp": 0
+        },
+        "2026-11-13": {
+          "in": 0,
+          "out": 454,
+          "originIn": 7250,
+          "originOut": 0,
+          "req": 2,
+          "cfUp": 0,
+          "cfDown": 0,
+          "cfReq": 0,
+          "fbUp": 0
         }
       },
-      "updatedAt": "2026-11-13T00:19:29.886Z"
+      "updatedAt": "2026-11-14T00:19:28.916Z"
     },
     "main": {
       "days": {
@@ -94,9 +105,20 @@
           "cfDown": 0,
           "cfReq": 0,
           "fbUp": 0
+        },
+        "2026-11-13": {
+          "in": 6394,
+          "out": 671081,
+          "originIn": 921975,
+          "originOut": 8796,
+          "req": 260,
+          "cfUp": 0,
+          "cfDown": 0,
+          "cfReq": 0,
+          "fbUp": 0
         }
       },
-      "updatedAt": "2026-11-13T00:19:29.886Z"
+      "updatedAt": "2026-11-14T00:19:28.916Z"
     },
     "data-node-6": {
       "days": {
@@ -143,9 +165,20 @@
           "cfDown": 0,
           "cfReq": 0,
           "fbUp": 0
+        },
+        "2026-11-13": {
+          "in": 0,
+          "out": 569,
+          "originIn": 0,
+          "originOut": 0,
+          "req": 2,
+          "cfUp": 0,
+          "cfDown": 0,
+          "cfReq": 0,
+          "fbUp": 0
         }
       },
-      "updatedAt": "2026-11-13T00:19:29.886Z"
+      "updatedAt": "2026-11-14T00:19:28.916Z"
     },
     "data-node": {
       "days": {
@@ -192,9 +225,20 @@
           "cfDown": 0,
           "cfReq": 0,
           "fbUp": 0
+        },
+        "2026-11-13": {
+          "in": 0,
+          "out": 5324,
+          "originIn": 71310,
+          "originOut": 0,
+          "req": 45,
+          "cfUp": 0,
+          "cfDown": 0,
+          "cfReq": 0,
+          "fbUp": 0
         }
       },
-      "updatedAt": "2026-11-13T00:19:29.886Z"
+      "updatedAt": "2026-11-14T00:19:28.916Z"
     },
     "data-node-3": {
       "days": {
@@ -241,9 +285,20 @@
           "cfDown": 0,
           "cfReq": 0,
           "fbUp": 0
+        },
+        "2026-11-13": {
+          "in": 0,
+          "out": 451,
+          "originIn": 0,
+          "originOut": 0,
+          "req": 2,
+          "cfUp": 0,
+          "cfDown": 0,
+          "cfReq": 0,
+          "fbUp": 0
         }
       },
-      "updatedAt": "2026-11-13T00:19:29.886Z"
+      "updatedAt": "2026-11-14T00:19:28.916Z"
     },
     "data-node-1": {
       "days": {
@@ -290,9 +345,20 @@
           "cfDown": 0,
           "cfReq": 0,
           "fbUp": 0
+        },
+        "2026-11-13": {
+          "in": 0,
+          "out": 451,
+          "originIn": 0,
+          "originOut": 0,
+          "req": 2,
+          "cfUp": 0,
+          "cfDown": 0,
+          "cfReq": 0,
+          "fbUp": 0
         }
       },
-      "updatedAt": "2026-11-13T00:19:29.886Z"
+      "updatedAt": "2026-11-14T00:19:28.916Z"
     },
     "data-node-4": {
       "days": {
@@ -339,9 +405,20 @@
           "cfDown": 0,
           "cfReq": 0,
           "fbUp": 0
+        },
+        "2026-11-13": {
+          "in": 0,
+          "out": 451,
+          "originIn": 0,
+          "originOut": 0,
+          "req": 2,
+          "cfUp": 0,
+          "cfDown": 0,
+          "cfReq": 0,
+          "fbUp": 0
         }
       },
-      "updatedAt": "2026-11-13T00:19:29.886Z"
+      "updatedAt": "2026-11-14T00:19:28.916Z"
     },
     "data-node-2": {
       "days": {
@@ -388,9 +465,20 @@
           "cfDown": 0,
           "cfReq": 0,
           "fbUp": 0
+        },
+        "2026-11-13": {
+          "in": 0,
+          "out": 451,
+          "originIn": 0,
+          "originOut": 0,
+          "req": 2,
+          "cfUp": 0,
+          "cfDown": 0,
+          "cfReq": 0,
+          "fbUp": 0
         }
       },
-      "updatedAt": "2026-11-13T00:19:29.886Z"
+      "updatedAt": "2026-11-14T00:19:28.916Z"
     },
     "data-node-7": {
       "days": {
@@ -451,5 +539,5 @@
   "week": 45,
   "from": "2026-11-09",
   "to": "2026-11-15",
-  "updatedAt": "2026-11-13T00:19:29.886Z"
+  "updatedAt": "2026-11-14T00:19:28.916Z"
 }
