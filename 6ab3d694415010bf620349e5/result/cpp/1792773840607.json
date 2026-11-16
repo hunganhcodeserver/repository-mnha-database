@@ -1,0 +1,28 @@
+{
+  "timestamp": 1792773840607,
+  "lang": "cpp",
+  "file": "Untitled4.cpp",
+  "dir": "lap_trinh_huong_doi_tuong_1_1_26_n04/thuc-hanh/2026-10-17",
+  "source": "// Du lieu cua Shape la protected\n\n#include <bits/stdc++.h>\nusing namespace std;\n\nclass Shape{\n\tprotected:\n\t\tdouble width;\n\t\tdouble height;\n\tpublic:\n\t\tShape(){\n\t\t\twidth = 0;\n\t\t\theight = 0;\n\t\t}\n\t\tvirtual ~Shape(){\n\t\t}\n\t\tvirtual void nhap(){\n\t\t\tcout << \"Nhap chieu rong (Chieu rong day): \";\n\t\t\tcin >> width;\n\t\t\tcout << \"Nhap chieu dai (Chieu cao): \";\n\t\t\tcin >> height;\n\t\t}\n\t\tvirtual double area() const = 0;\n\t\tvirtual void xuat(){\n\t\t\tcout << \"Chieu rong: \" << width << \" | Chieu dai: \" << height << \" | Dien tich: \" << fixed << setprecision(2) << area() << endl;\n\t\t}\n};\n\nclass Triangle : public Shape{\n\tpublic:\n\t\tdouble area() const override{\n\t\t\treturn 0.5 * width * height;\n\t\t}\n};\n\nclass Rectangle : public Shape{\n\tpublic:\n\t\tdouble area() const override{\n\t\t\treturn width * height;\n\t\t}\n};\n\nint main(){\n    int n;\n    cout << \"Nhap n: \";\n    cin >> n;\n    vector<Shape*> ds(n);\n    for (int i = 0; i < n; i++) {\n    \tcout << \"--- Hinh \" << i + 1 << \" ---\\n\";\n    \tint loai = 0;\n    \tdo{\n    \t\tcout << \"Chon loai (1. Hinh tam giac, 2. Hinh chu nhat): \";\n    \t\tcin >> loai;\n            if (loai == 1) ds[i] = new Triangle;\n            else if (loai == 2) ds[i] = new Rectangle;\n            else cout << \"Vui long chon lai!\\n\";\n\t\t} while (loai < 1 || loai > 2);\n\t\tds[i]->nhap();\n\t}\n    cout << \"\\n===== DANH SACH HINH =====\\n\";\n    for (int i = 0; i < n; i++){\n    \tds[i]->xuat();\n\t}\n    for (int i = 0; i < n; i++) delete ds[i];\n    return 0;\n}",
+  "kind": "cpp",
+  "status": "ok",
+  "compile": {
+    "ok": true,
+    "output": ""
+  },
+  "console": "Nhap n: 1\n--- Hinh 1 ---\nChon loai (1. Hinh tam giac, 2. Hinh chu nhat): 2\nNhap chieu rong (Chieu rong day): 4\nNhap chieu dai (Chieu cao): 6\n\n===== DANH SACH HINH =====\nChieu rong: 4 | Chieu dai: 6 | Dien tich: 24.00\n",
+  "inputs": [
+    "1",
+    "2",
+    "4",
+    "6"
+  ],
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "outputFiles": {},
+  "inputFiles": [],
+  "startedAt": "2026-10-23T16:43:33.700Z",
+  "finishedAt": "2026-10-23T16:44:00.204Z",
+  "durationMs": 26504
+}

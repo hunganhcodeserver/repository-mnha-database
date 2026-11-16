@@ -1,0 +1,43 @@
+{
+  "files": {
+    "Bảng 2026-10-27.pdf": {
+      "name": "Bảng 2026-10-27.pdf",
+      "kind": "pdf",
+      "mime": "application/pdf",
+      "size": 211454,
+      "id": "4d4bf924d3a69ae189772a16e1c2026a",
+      "key": "TU5IQUVOQzEBfbAbWC4h9XmtzqqLPfZdnAAAACB1vAdCFft3gH50BusVwzP4mRsup9FtpgtfbImWPh0zhgVPI/YXthSgQnxg+v6+DcSQcQUUA7197I6J4EE=",
+      "parts": [
+        {
+          "i": 0,
+          "size": 211454,
+          "repo": "repository-mnha-database-1"
+        }
+      ],
+      "createdAt": "2026-11-05T14:47:30.172Z",
+      "updatedAt": "2026-11-05T14:47:30.172Z",
+      "public": true
+    },
+    "example_Round_Robin.png": {
+      "name": "example_Round_Robin.png",
+      "kind": "image",
+      "mime": "image/png",
+      "size": 3551892,
+      "id": "6e3522d9df358ad0cd284492911aa2a3",
+      "key": "TU5IQUVOQzEBB3ZnnVk+/47CLjniwbvkCAAAACB6T5BCZkzh58U1q5SFS61HRCKnMDMzPWNmJ6jdDk1kifRide/8e4Q56Uxhot/9coUiHNd6kdfiSYERnwg=",
+      "parts": [
+        {
+          "i": 0,
+          "size": 3551892,
+          "repo": "repository-mnha-database-1"
+        }
+      ],
+      "createdAt": "2026-11-05T14:48:05.104Z",
+      "updatedAt": "2026-11-05T14:48:05.104Z",
+      "public": true
+    }
+  },
+  "v": 1,
+  "shared": true,
+  "updatedAt": "2026-11-05T14:48:25.625Z"
+}
