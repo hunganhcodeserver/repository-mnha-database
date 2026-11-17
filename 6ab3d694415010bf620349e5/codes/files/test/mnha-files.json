@@ -1,0 +1,63 @@
+{
+  "files": {
+    "[Offline] IM_Slide khai giảng Pre.pptx": {
+      "name": "[Offline] IM_Slide khai giảng Pre.pptx",
+      "kind": "powerpoint",
+      "mime": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+      "size": 32542460,
+      "id": "b7cbc07f77b8dda0884f25e48d079ed0",
+      "key": "TU5IQUVOQzEBnIN6flcq2JJrSMT5KQT8lgAAACDHrEqW/VqzLr3X7mH2pK1SjRvHQCn2p5aEeigX8WYwtElR8u4xHLgA3nZNF5PSTuaXc6rDFitvhoI4OLA=",
+      "parts": [
+        {
+          "i": 0,
+          "size": 3670016,
+          "repo": "repository-mnha-database-1"
+        },
+        {
+          "i": 1,
+          "size": 3670016,
+          "repo": "repository-mnha-database-1"
+        },
+        {
+          "i": 2,
+          "size": 3670016,
+          "repo": "repository-mnha-database-1"
+        },
+        {
+          "i": 3,
+          "size": 3670016,
+          "repo": "repository-mnha-database-1"
+        },
+        {
+          "i": 4,
+          "size": 3670016,
+          "repo": "repository-mnha-database-1"
+        },
+        {
+          "i": 5,
+          "size": 3670016,
+          "repo": "repository-mnha-database-1"
+        },
+        {
+          "i": 6,
+          "size": 3670016,
+          "repo": "repository-mnha-database-1"
+        },
+        {
+          "i": 7,
+          "size": 3670016,
+          "repo": "repository-mnha-database-1"
+        },
+        {
+          "i": 8,
+          "size": 3182332,
+          "repo": "repository-mnha-database-1"
+        }
+      ],
+      "createdAt": "2026-11-17T08:04:13.770Z",
+      "updatedAt": "2026-11-17T08:04:13.770Z"
+    }
+  },
+  "v": 1,
+  "updatedAt": "2026-11-17T08:04:13.917Z"
+}
