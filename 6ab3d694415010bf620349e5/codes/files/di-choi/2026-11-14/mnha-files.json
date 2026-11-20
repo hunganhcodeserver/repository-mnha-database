@@ -1,0 +1,33 @@
+{
+  "files": {
+    "2026-11-20 17-49-52_1313.jpeg": {
+      "name": "2026-11-20 17-49-52_1313.jpeg",
+      "kind": "image",
+      "mime": "image/jpeg",
+      "size": 9481982,
+      "id": "3bf6a2372ec1c3a302e9d99cee2ab462",
+      "key": "TU5IQUVOQzEBdhAb26K5SRqWFbYFbnF6YgAAACCmViU35VXbsAXg1SNB4gZwnZVl7tp2QDzH5dlItmipflVClUr9DmpBSXl2vdUi8XVvJoEeR5sR+KyyJzk=",
+      "parts": [
+        {
+          "i": 0,
+          "size": 3670016,
+          "repo": "repository-mnha-database-1"
+        },
+        {
+          "i": 1,
+          "size": 3670016,
+          "repo": "repository-mnha-database-1"
+        },
+        {
+          "i": 2,
+          "size": 2141950,
+          "repo": "repository-mnha-database-1"
+        }
+      ],
+      "createdAt": "2026-11-20T15:51:21.849Z",
+      "updatedAt": "2026-11-20T15:51:21.849Z"
+    }
+  },
+  "v": 1,
+  "updatedAt": "2026-11-20T15:51:21.945Z"
+}
