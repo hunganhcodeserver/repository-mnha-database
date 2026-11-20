@@ -127,9 +127,36 @@
       ],
       "createdAt": "2026-11-20T15:55:36.468Z",
       "updatedAt": "2026-11-20T15:55:36.468Z"
+    },
+    "2026-11-20 17-49-55_1314.jpeg": {
+      "name": "2026-11-20 17-49-55_1314.jpeg",
+      "kind": "image",
+      "mime": "image/jpeg",
+      "size": 8326848,
+      "id": "63c9dc7d2d709b6c3347ef07e4a3846e",
+      "key": "TU5IQUVOQzEBahjK+WOwoFGADujBechxVwAAACCyntdEmvxWjKUtK6aYjzj/X2BlRGUdwkgjZ1RkGom5jOBv2WSTHDrMjVZtPF77UamUwP05vnK/YYti674=",
+      "parts": [
+        {
+          "i": 0,
+          "size": 3670016,
+          "repo": "repository-mnha-database-1"
+        },
+        {
+          "i": 1,
+          "size": 3670016,
+          "repo": "repository-mnha-database-1"
+        },
+        {
+          "i": 2,
+          "size": 986816,
+          "repo": "repository-mnha-database-1"
+        }
+      ],
+      "createdAt": "2026-11-20T15:56:07.785Z",
+      "updatedAt": "2026-11-20T15:56:07.785Z"
     }
   },
   "v": 1,
-  "updatedAt": "2026-11-20T15:55:36.580Z",
+  "updatedAt": "2026-11-20T15:56:07.893Z",
   "shared": true
 }
