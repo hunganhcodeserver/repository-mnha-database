@@ -1,5 +1,10 @@
 {
   "v": 1,
-  "updatedAt": "2026-11-20T04:50:48.897Z",
-  "sessions": {}
+  "updatedAt": "2026-11-20T04:50:49.959Z",
+  "sessions": {
+    "2640b1d6a8aff0a6bff35fbf640bdb99d706efea927c4842c5db51f1128a00ec": {
+      "exp": 1795236649547,
+      "data": "v1.6TWWtBCqRRGr5Qfm.usFIlHlI14PQWay01DA5LQ.2bCVkiklU9FtlFWtdZ4Oc-ZpGMSrWlcLQnhTew3m4ajbpm4pPdG16TF-nEByGyAnIad9FVc54BSazfy1NnHblxYazuxQoMq8-9YYa_x5JJPfoxXhtDXn8kn7ldDU853OfQXJtUaNejVjYJkUiwM3zYUBH6kdAGXtybwGjlNGgBVAvXwd_YRpr2xPGIUbh9O3OSUjmaT7fOu-RW6r0w-_JwI0YxR8E-8wmXIzrg4NoCIwR-rM_-F7IsmkBYVdTpPrIgrUlhiIIsfk-XL_ResTY_FqrUOVQS8VDOVosmRIqVUTLFjUhhPLqPnRMYtkspcgxkM"
+    }
+  }
 }
