@@ -32,8 +32,24 @@ class Vector {
         cap = k;
         if(cap > 0){
             v = new T[cap];
+            for(int i = 0; i < n; i++){
+                v[i] = x;
+            }
+        }
+        else{
+            v = nullptr;
         }
     }
-    
-    
-}
+    ~Vector(){
+        delete[] v;
+    }
+    int size(){
+        return n;
+    }
+    int capacity(){
+        return cap;
+    }
+    bool empty(){
+        return n == 0;
+    }
+};
