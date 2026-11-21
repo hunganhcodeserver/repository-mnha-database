@@ -95,5 +95,6 @@ class Vector {
             }
             extend(newCap);
         }
+        v[n] = x;
     }
 };
