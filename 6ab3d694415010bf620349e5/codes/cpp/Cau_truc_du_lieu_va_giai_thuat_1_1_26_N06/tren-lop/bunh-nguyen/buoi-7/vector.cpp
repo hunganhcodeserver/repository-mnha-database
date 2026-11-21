@@ -1,5 +1,5 @@
-#include <bits/stdc++.h>
-using namespace std;
+#ifndef vector.cpp
+#define vector.cpp
 
 template<class T>
 class Vector {
@@ -115,4 +115,22 @@ class Vector {
             extend(newCap);
         }
     }
+    
+    //xoa phan tu tai vi tri k
+    void erase(int k){
+        if(k < 0 || k >= n){
+            return ;
+        }
+        for(int i = k; i < n-1; i++){
+            v[i] = v[i+1];
+        }
+    }
+    
+    //Iterator
+    typedef T* iterator;
+    iterator begin(){
+        return v;
+    }
 };
+
+#endif
