@@ -68,13 +68,32 @@ class Vector {
     }
     
     //Tang kich thuoc (capacity)
-    extend(int newCap){
+    void extend(int newCap){
         if(newCap <= cap){
             return ;
         }
-    T *temp = new T[newCapp];
-    for(int i = 0; i < n; i++){
-        temp[i] = v[i];
+        T *temp = new T[newCapp];
+        for(int i = 0; i < n; i++){
+            temp[i] = v[i];
+        }
+        delete[] v;
+        
+        v = temp;
+        cap = newCap;
     }
+    
+    //them 1 phan tu vao cuoi
+    push_back(T x){
+        if(n == cap){
+            int newCap; //capacity moi
+            
+            if(cap == 0){//rong
+                newCap = 1;
+            }
+            else{
+                newCap = cap*2;
+            }
+            extend(newCap);
+        }
     }
 };
