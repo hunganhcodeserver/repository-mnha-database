@@ -55,4 +55,15 @@ class Vector {
     bool empty(){
         return n == 0;
     }
+    
+    //lay ra gia tri phan tu cuoi
+    T& back(){
+        return v[n-1];
+    }
+    
+    //xoa phan tu cuoi cung
+    void pop_back(){
+        if(n > 0)
+            n--;
+    }
 };
