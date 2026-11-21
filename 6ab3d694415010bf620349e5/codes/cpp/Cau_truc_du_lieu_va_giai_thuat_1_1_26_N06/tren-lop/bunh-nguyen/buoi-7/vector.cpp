@@ -104,5 +104,20 @@ class Vector {
         if(k < 0 || k > n){
             return ;
         }
+        moRong();
+    }
+    
+    void moRong(){
+        if(n == cap){
+            int newCap;//capacity moi
+            
+            if(cap == 0){//rong
+                newCap = 1;
+            }
+            else{
+                newCap = cap*2;
+            }
+            extend(newCap);
+        }
     }
 };
