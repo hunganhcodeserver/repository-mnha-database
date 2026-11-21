@@ -90,7 +90,7 @@ class Vector {
     }
     
     //chen x vao vi tri k
-    insert(T x, int k){
+    void insert(T x, int k){
         if(k < 0 || k > n){
             return ;
         }
@@ -98,6 +98,8 @@ class Vector {
         for(int i = n; i > k; i--){
             v[i] = v[i-1];
         }
+        v[k] = x;
+        n++;
     }
     
     void moRong(){
