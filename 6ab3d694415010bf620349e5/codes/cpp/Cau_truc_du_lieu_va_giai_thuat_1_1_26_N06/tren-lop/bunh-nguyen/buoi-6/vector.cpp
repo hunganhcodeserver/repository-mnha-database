@@ -66,4 +66,15 @@ class Vector {
         if(n > 0)
             n--;
     }
+    
+    //Tang kich thuoc (capacity)
+    extend(int newCap){
+        if(newCap <= cap){
+            return ;
+        }
+    T *temp = new T[newCapp];
+    for(int i = 0; i < n; i++){
+        temp[i] = v[i];
+    }
+    }
 };
