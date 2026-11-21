@@ -95,6 +95,9 @@ class Vector {
             return ;
         }
         moRong();
+        for(int i = n; i > k; i--){
+            v[i] = v[i-1];
+        }
     }
     
     void moRong(){
