@@ -98,4 +98,11 @@ class Vector {
         v[n] = x;
         n++;
     }
+    
+    //chen x vao vi tri k
+    insert(T x, int k){
+        if(k < 0 || k > n){
+            return ;
+        }
+    }
 };
