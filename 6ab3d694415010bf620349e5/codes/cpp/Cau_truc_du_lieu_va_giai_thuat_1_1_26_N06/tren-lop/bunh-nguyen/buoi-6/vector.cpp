@@ -43,12 +43,15 @@ class Vector {
     ~Vector(){
         delete[] v;
     }
+    
     int size(){
         return n;
     }
+    
     int capacity(){
         return cap;
     }
+    
     bool empty(){
         return n == 0;
     }
