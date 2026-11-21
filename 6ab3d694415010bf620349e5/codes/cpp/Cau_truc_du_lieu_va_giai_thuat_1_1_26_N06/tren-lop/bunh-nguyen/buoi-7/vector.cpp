@@ -84,17 +84,6 @@ class Vector {
     
     //them 1 phan tu vao cuoi
     push_back(T x){
-        if(n == cap){
-        //     int newCap; //capacity moi
-            
-        //     if(cap == 0){//rong
-        //         newCap = 1;
-        //     }
-        //     else{
-        //         newCap = cap*2;
-        //     }
-        //     extend(newCap);
-        // }
         moRong();
         v[n] = x;
         n++;
