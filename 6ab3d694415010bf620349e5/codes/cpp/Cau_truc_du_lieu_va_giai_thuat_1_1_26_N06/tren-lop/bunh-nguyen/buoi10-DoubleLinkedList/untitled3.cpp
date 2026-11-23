@@ -63,8 +63,12 @@ void DList<T>::push_front(T x){
         Head = newNode;
         Trail = newNode;
     }else{
-        
+        // =========CHU Y KHI TAO NODE MOI ROI NHET VAO DAU=========
+        newNode->next = Head;
+        Head->prev = newNode;
+        Head = newNode;
     }
+    n++;
 }
 
 int main() {
