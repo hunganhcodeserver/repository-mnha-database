@@ -1,0 +1,63 @@
+{
+  "timestamp": 1792659487141,
+  "lang": "emu8086",
+  "file": "test.asm",
+  "dir": "test",
+  "source": ".model small\n.stack 100h\n.data\nms1 db 'nhap day ki tu: $'\nms2 db 13, 10, 'day ky tu vua nhap: $'\nms3 db 13, 10, 'day chu hoa: $'\nms4 db 13, 10, 'khong co chu hoa$'\nms5 db 13, 10, 'day chu thuong: $'\nms6 db 13, 10, 'khong co chu thuong$'\nms7 db 13, 10, 'day so: $'\nms8 db 13, 10, 'khong co so$'\ns db 21 dup (?)\ns1 db 21 dup (?)\ns2 db 21 dup (?)\ns3 db 21 dup (?)\n.code\n main proc\n \n mov ax, @data\n mov ds, ax\n \n; =============================================================\n; ======================NHAP DAY KI TU=========================\n; =============================================================\n ; ====== in \"nhap day ki tu: \" ======\n mov ah, 9\n lea dx, ms1\n int 21h\n xor si, si ; si = 0 (chỉ số mảng s)\nnhap1: \n mov ah, 1\n int 21h\n cmp al, 13\n je stop1 ; gặp Enter thì thoát\n mov s[si], al ; lưu ký tự vừa nhập vào mảng s (s[0] -> s[20])\n inc si ; tăng chỉ số mảng s / sang ô kế tiếp\n cmp si, 20 ; kiểm tra xem đã nhập đủ 20 ký tự chưa\n jb nhap1 ; (jump if below): si < 20 thì quay lại nhập tiếp\nstop1:\n mov s[si], '$' ; kết thúc chuỗi để in bằng hàm 9\n mov cx, si ; lưu số ký tự vừa nhập vào cx (cx = số ký tự đã nhập)\n ; ====== in \"day ky tu vua nhap: \" ======\n mov ah, 9\n lea dx, ms2\n int 21h\n ; ====== in \"day ky tu vua nhap: \" ======\n mov ah, 9\n lea dx, s\n int 21h\n; =============================================================\n; ======================LOC CHU HOA============================\n; =============================================================\nlocchuhoa:\n xor si, si ; si = 0 (chỉ số đọc s)\n xor di, di ; di = 0 (di = chỉ số ghi s2)\nlochoa:\n cmp si, cx ; đã duyệt hết chưa?\n jae stop2 ; si >= số ký tự thì thoát\n mov al, s[si] ; lấy ký tự thứ si trong mảng s\n ; ===================================================================\n ;JB (Jump if Below): Nhảy nếu \"nhỏ hơn\" (Jump if Below)\n ;JBE (Jump if Below or Equal): Nhảy nếu \"nhỏ hơn hoặc bằng\" (Jump if Below or Equal)\n ;JA (Jump if Above): Nhảy nếu \"lớn hơn\" (Jump if Above)\n ;JAE (Jump if Above or Equal): Nhảy nếu \"lớn hơn hoặc bằng\" (Jump if Above or Equal)\n cmp al, 'A' ; so sánh với 'A'\n jb boquahoa ; nếu al < 'A' thì bỏ qua ký tự này\n cmp al, 'Z' ; so sánh với 'Z'\n ja boquahoa ; nếu al > 'Z' thì bỏ qua ký tự này\n ; ===================================================================\n mov s2[di], al ; lưu ký tự hoa vào mảng s2\n inc di ; tăng chỉ số mảng s2 / sang ô kế tiếp\nboquahoa:\n inc si ; tăng chỉ số mảng s / sang ô kế tiếp\n jmp lochoa ; quay lại kiểm tra ký tự tiếp theo\nstop2:\n mov s2[di], '$' ; kết thúc chuỗi để in bằng hàm 9\n cmp di, 0 ; có chữ hoa nào không?\n je khongcochuhoa ; nếu cx = 0 thì nhảy đến không có chữ hoa\n ; ====== in \"day chu hoa: \" + dãy chữ hoa ======\n mov ah, 9\n lea dx, ms3\n int 21h\n mov ah, 9\n lea dx, s2\n int 21h\n ; jmp ketthuc\n jmp locchuthuong\nkhongcochuhoa:\n mov ah, 9\n lea dx, ms4\n int 21h\n; =============================================================\n; ======================LOC CHU THUONG=========================\n; =============================================================\nlocchuthuong:\n xor si, si ; si = 0 (chỉ số đọc s)\n xor di, di ; di = 0 (di = chỉ số ghi s3)\nlocthuong:\n cmp si, cx ; đã duyệt hết chưa?\n jae stop3 ; si >= số ký tự thì thoát\n mov al, s[si] ; lấy ký tự thứ si trong mảng s\n ; ===================================================================\n ;JB (Jump if Below): Nhảy nếu \"nhỏ hơn\" (Jump if Below)\n ;JBE (Jump if Below or Equal): Nhảy nếu \"nhỏ hơn hoặc bằng\" (Jump if Below or Equal)\n ;JA (Jump if Above): Nhảy nếu \"lớn hơn\" (Jump if Above)\n ;JAE (Jump if Above or Equal): Nhảy nếu \"lớn hơn hoặc bằng\" (Jump if Above or Equal)\n cmp al, 'a' ; so sánh với 'a'\n jb boquathuong ; nếu al < 'a' thì bỏ qua ký tự này\n cmp al, 'z' ; so sánh với 'z'\n ja boquathuong ; nếu al > 'z' thì bỏ qua ký tự này\n ; ===================================================================\n mov s1[di], al ; lưu ký tự thường vào mảng s1\n inc di ; tăng chỉ số mảng s1 / sang ô kế tiếp\nboquathuong:\n inc si ; tăng chỉ số mảng s / sang ô kế tiếp\n jmp locthuong ; quay lại kiểm tra ký tự tiếp theo\nstop3:\n mov s1[di], '$' ; kết thúc chuỗi để in bằng hàm 9\n cmp di, 0 ; có chữ thường nào không?\n je khongcochuthuong ; nếu cx = 0 thì nhảy đến không có chữ thường\n ; ====== in \"day chu thuong: \" + dãy chữ thường ======\n mov ah, 9\n lea dx, ms5 ; \"day chu thuong: \"\n int 21h\n mov ah, 9\n lea dx, s1\n int 21h\n ; jmp ketthuc\n jmp locchuso\nkhongcochuthuong:\n mov ah, 9\n lea dx, ms6 ; \"khong co chu thuong\"\n int 21h\n; =============================================================\n; ======================LOC SO=================================\n; =============================================================\nlocchuso:\n xor si, si ; si = 0 (chỉ số đọc s)\n xor di, di ; di = 0 (di = chỉ số ghi s3)\nlocso:\n cmp si, cx ; đã duyệt hết chưa?\n jae stop4 ; si >= số ký tự thì thoát\n mov al, s[si] ; lấy ký tự thứ si trong mảng s\n ; ===================================================================\n ;JB (Jump if Below): Nhảy nếu \"nhỏ hơn\" (Jump if Below)\n ;JBE (Jump if Below or Equal): Nhảy nếu \"nhỏ hơn hoặc bằng\" (Jump if Below or Equal)\n ;JA (Jump if Above): Nhảy nếu \"lớn hơn\" (Jump if Above)\n ;JAE (Jump if Above or Equal): Nhảy nếu \"lớn hơn hoặc bằng\" (Jump if Above or Equal)\n cmp al, '0' ; so sánh với '0'\n jb boquaso ; nếu al < '0' thì bỏ qua ký tự này\n cmp al, '9' ; so sánh với '9'\n ja boquaso ; nếu al > '9' thì bỏ qua ký tự này\n ; ===================================================================\n mov s3[di], al ; lưu ký tự số vào mảng s3\n inc di ; tăng chỉ số mảng s3 / sang ô kế tiếp\nboquaso:\n inc si ; tăng chỉ số mảng s / sang ô kế tiếp\n jmp locso ; quay lại kiểm tra ký tự tiếp theo\nstop4:\n mov s3[di], '$' ; kết thúc chuỗi để in bằng hàm 9\n cmp di, 0 ; có số nào không?\n je khongcoso ; nếu di = 0 thì nhảy đến không có số\n ; ====== in \"day so: \" + dãy số ======\n mov ah, 9\n lea dx, ms7 ; \"day so: \"\n int 21h\n mov ah, 9\n lea dx, s3\n int 21h\n jmp ketthuc\nkhongcoso:\n mov ah, 9\n lea dx, ms8 ; \"khong co so\"\n int 21h\nketthuc: \n mov ah, 4ch\n int 21h\n main endp\nend main",
+  "kind": "emu8086",
+  "status": "ok",
+  "assemble": {
+    "ok": true,
+    "errors": []
+  },
+  "console": "nhap day ki tu: AbCd123\r\r\nday ky tu vua nhap: AbCd123\r\nday chu hoa: AC\r\nday chu thuong: bd\r\nday so: 123",
+  "screen": [
+    "nhap day ki tu: AbCd123",
+    "day ky tu vua nhap: AbCd123",
+    "day chu hoa: AC",
+    "day chu thuong: bd",
+    "day so: 123"
+  ],
+  "inputs": [
+    "A",
+    "b",
+    "C",
+    "d",
+    "1",
+    "2",
+    "3",
+    ""
+  ],
+  "regs": {
+    "AX": "4C33",
+    "BX": "0000",
+    "CX": "0007",
+    "DX": "00CC",
+    "SI": "0007",
+    "DI": "0003",
+    "BP": "0000",
+    "SP": "00FE",
+    "CS": "071F",
+    "DS": "0710",
+    "ES": "0700",
+    "SS": "0734",
+    "IP": "0066"
+  },
+  "flags": {
+    "CF": 0,
+    "PF": 1,
+    "AF": 0,
+    "ZF": 0,
+    "SF": 0,
+    "TF": 0,
+    "IF": 1,
+    "DF": 0,
+    "OF": 0
+  },
+  "steps": 304,
+  "exitCode": 51,
+  "error": null,
+  "startedAt": "2026-10-22T08:57:54.422Z",
+  "finishedAt": "2026-10-22T08:58:07.141Z",
+  "durationMs": 12719
+}

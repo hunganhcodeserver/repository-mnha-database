@@ -1,0 +1,57 @@
+{
+  "timestamp": 1793197975451,
+  "lang": "emu8086",
+  "file": "2026-10-28-dem-so-chan-le-day.asm",
+  "dir": "MASM-TASM",
+  "source": "; Emu8086 - Hello\n.model small\n.stack 100h\n.data\n    ms1 db 'Nhap day so: $'\n    ms2 db 10, 13, 'Day so vua nhap: $'\n    ms3 db 10, 13, 'So chu so chan: $'\n    ms4 db 10, 13, 'So chu so le: $'\n    s db 21 dup(?)\n    dem_chan db 0          ; so chu so chan\n    dem_le   db 0          ; so chu so le\n.code\nmain proc\n    mov ax, @data\n    mov ds, ax\n    \n    ;thong bao nhap\n    lea dx, ms1\n    mov ah, 9\n    int 21h\n    \n    ;tao s[i]\n    lea si, s        ; si trỏ đầu mảng s\n    mov cx, 20       ; tối đa 20 ký tự\n    xor bx, bx       ; bx = số ký tự đã nhập\n    \nnhap:\n    ; Trạng thái trước lần lặp 1: SI = 0, BX = 0, CX = 20, s = [?, ?, ?, ...]\n    mov ah, 1        ; AH = 01h (chọn hàm đọc 1 ký tự)\n    int 21h          ; gõ '1' -> AL = 49 (31h)\n    cmp al, 13       ; so 49 với 13 -> 49 ≠ 13 -> ZF = 0\n    je xong          ; ZF = 0 -> KHÔNG nhảy, chạy tiếp xuống dưới\n    sub al, 48       ; AL = 49 - 48 = 1\n    mov [si], al     ; s[0] = 1 (ghi vào ô mà SI = 0 đang trỏ)\n    inc si           ; SI = 0 + 1 = 1\n    inc bx           ; BX = 0 + 1 = 1\n    loop nhap        ; CX = 20 - 1 = 19, khác 0 -> quay lại nhap\n    ; Trạng thái sau lần lặp 1: AL = 1, SI = 1, BX = 1, CX = 19, s = [1, ?, ?, ...]\n    \nxong:   \n    ;thong bao xuat\n    lea dx, ms2\n    mov ah, 9\n    int 21h\n    \n    ;xuat s[i]\n    cmp bx, 0        ; không nhập gì thì khỏi in\n    je thoat\n    mov cx, bx       ; CX = số phần tử cần in\n    lea si, s        ; SI quay lại đầu mảng s\n    \nxuat:\n    mov dl, [si]     ; DL = s[SI]\n    add dl, 48       ; số -> ký tự ASCII\n    mov ah, 2        ; in ký tự trong DL\n    int 21h\n    inc si           ; SI++\n    loop xuat        ; CX--, khác 0 thì in tiếp\n\nthoat:\n    mov ah, 4ch\n    int 21h\nmain endp\nend main\n\n\n\n; ----------------------------------------------------------------------------------------------\n; Thanh ghi | Đang giữ gì                           | Dùng kiểm tra \"có nhập gì không\"?         |\n; ----------------------------------------------------------------------------------------------\n; BX        | Số ký tự đã nhập (inc bx mỗi lần lưu) | CÓ, BX = 0 là chưa nhập ký tự nào         |\n; CX        | Bộ đếm của loop, đếm ngược từ 20      | KHÔNG, không cho biết đã nhập bao nhiêu   |\n; SI        | Địa chỉ ô nhớ đang trỏ tới            | KHÔNG, SI là địa chỉ, không phải số lượng |\n; AL        | Ký tự vừa gõ gần nhất (Enter = 13)    | KHÔNG, AL chỉ là phím cuối cùng           |\n; DL        | Ký tự cần in ra (hàm 02h, add dl, 48) | KHÔNG, DL chỉ là 1 ký tự đang in          |\n; ----------------------------------------------------------------------------------------------\n",
+  "kind": "emu8086",
+  "status": "ok",
+  "assemble": {
+    "ok": true,
+    "errors": []
+  },
+  "console": "Nhap day so: 1465\r\n\rDay so vua nhap: 1465",
+  "screen": [
+    "Nhap day so: 1465",
+    "Day so vua nhap: 1465"
+  ],
+  "inputs": [
+    "1",
+    "4",
+    "6",
+    "5",
+    ""
+  ],
+  "regs": {
+    "AX": "4C35",
+    "BX": "0004",
+    "CX": "0000",
+    "DX": "0035",
+    "SI": "004A",
+    "DI": "0000",
+    "BP": "0000",
+    "SP": "00FE",
+    "CS": "0716",
+    "DS": "0710",
+    "ES": "0700",
+    "SS": "071D",
+    "IP": "0020"
+  },
+  "flags": {
+    "CF": 0,
+    "PF": 0,
+    "AF": 0,
+    "ZF": 0,
+    "SF": 0,
+    "TF": 0,
+    "IF": 1,
+    "DF": 0,
+    "OF": 0
+  },
+  "steps": 80,
+  "exitCode": 53,
+  "error": null,
+  "startedAt": "2026-10-28T14:32:45.242Z",
+  "finishedAt": "2026-10-28T14:32:55.451Z",
+  "durationMs": 10209
+}

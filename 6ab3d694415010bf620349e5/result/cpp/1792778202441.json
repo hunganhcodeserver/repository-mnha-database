@@ -1,0 +1,37 @@
+{
+  "timestamp": 1792778202441,
+  "lang": "cpp",
+  "file": "Untitled2_Xau-nhi-phan-AB.cpp",
+  "dir": "Cau_truc_du_lieu_va_giai_thuat_1_1_26_N06/28tech/Untitled10",
+  "source": "#include <bits/stdc++.h>\nusing namespace std;\n\nint n, a[1000];\nbool ok;\n\nvoid ktao(){\n    for(int i = 1; i <= n; i++){\n        a[i] = 0;\n    }\n}\n\nvoid sinh(){\n    int i = n;\n    while(i >= 1 && a[i] == 1){\n        a[i] = 0;\n        --i;\n    }\n    if(i == 0){\n        ok = false;      // đã là cấu hình cuối\n    } else {\n        a[i] = 1;        // sửa a[1] -> a[i]\n    }\n}\n\nint main() {\n    freopen(\"input2.txt\", \"r\", stdin);\n    cin >> n;\n    ktao();\n    ok = true;           // thêm dòng này\n    while(ok){\n        for(int i = 1; i <= n; i++){\n            if(a[i] == 0) cout << \"B\";\n            else cout << \"A\";\n        }\n        cout << endl;    // xuống dòng\n        sinh();          // đưa ra ngoài vòng for\n    }\n    return 0;\n}",
+  "kind": "cpp",
+  "status": "ok",
+  "compile": {
+    "ok": true,
+    "output": ""
+  },
+  "console": "BBB\nBBA\nBAB\nBAA\nABB\nABA\nAAB\nAAA\n",
+  "inputs": [],
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "outputFiles": {
+    "input1.txt": {
+      "content": "11111100001111\r\n",
+      "changed": false,
+      "isNew": false
+    },
+    "input2.txt": {
+      "content": "3\r\n",
+      "changed": false,
+      "isNew": false
+    }
+  },
+  "inputFiles": [
+    "input1.txt",
+    "input2.txt"
+  ],
+  "startedAt": "2026-10-23T17:56:30.046Z",
+  "finishedAt": "2026-10-23T17:56:42.062Z",
+  "durationMs": 12016
+}

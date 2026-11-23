@@ -1,0 +1,46 @@
+{
+  "repos": [
+    {
+      "id": "mnha-media-20261025-112258",
+      "owner": "hunganhcodeserver-data",
+      "repo": "mnha-media-20261025-112258",
+      "branch": "main",
+      "createdAt": "2026-10-25T11:23:00.969Z",
+      "bytes": 397077200,
+      "full": false,
+      "fullAt": "2026-10-25T11:23:03.558Z",
+      "note": "",
+      "private": false,
+      "updatedAt": "2026-10-25T12:04:49.743Z"
+    },
+    {
+      "id": "mnha-media-20261025-112257",
+      "owner": "hunganhcodeserver-data",
+      "repo": "mnha-media-20261025-112257",
+      "branch": "main",
+      "createdAt": "2026-10-25T11:23:02.167Z",
+      "bytes": 0,
+      "full": false,
+      "fullAt": "2026-10-25T11:23:02.285Z",
+      "note": "",
+      "private": false
+    },
+    {
+      "id": "mnha-media-20261025-112258",
+      "owner": "hunganhcodeserver-data",
+      "repo": "mnha-media-20261025-112258",
+      "branch": "main",
+      "createdAt": "2026-10-25T11:23:02.290Z",
+      "bytes": 0,
+      "full": false,
+      "fullAt": null,
+      "note": "",
+      "private": false
+    }
+  ],
+  "limitBytes": 524288000,
+  "v": 1,
+  "createdAt": "2026-10-25T11:23:01.061Z",
+  "active": "mnha-media-20261025-112258",
+  "updatedAt": "2026-10-25T12:04:49.743Z"
+}

@@ -1,0 +1,23 @@
+{
+  "files": {
+    "download-slide-lms-utc.txt": {
+      "name": "download-slide-lms-utc.txt",
+      "kind": "text",
+      "mime": "text/plain",
+      "size": 2064,
+      "id": "97e1cc5b1be79f7fdfade820bf1380fd",
+      "key": "TU5IQUVOQzEBqLOyZ69IQspSNikSj/fq3AAAACCLfTZZA6GSmKjZZ+qxmQMQx9xSIytnCDtaqjUruWXn/ERXGOBfhElJ0iUIZyje/k8En32mGZpxPkrqFTM=",
+      "parts": [
+        {
+          "i": 0,
+          "size": 2064,
+          "repo": "repository-mnha-database-1"
+        }
+      ],
+      "createdAt": "2026-11-03T14:58:27.757Z",
+      "updatedAt": "2026-11-03T14:58:27.757Z"
+    }
+  },
+  "v": 1,
+  "updatedAt": "2026-11-03T14:58:27.878Z"
+}

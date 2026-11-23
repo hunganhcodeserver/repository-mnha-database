@@ -1,0 +1,53 @@
+{
+  "timestamp": 1792729491377,
+  "lang": "emu8086",
+  "file": "Chu_thuong_thanh_hoa.asm",
+  "dir": "MySource",
+  "source": ".model small\n.stack 100h\n.data\n    s1 db \"Nhap chu thuong: $\"\n    s2 db 10, 13, \"Chu hoa: $\"\n.code\n    main proc\n        mov ax, @data\n        mov ds, ax\n    \n        mov ah, 9\n        lea dx, s1\n        int 21h\n        \n        mov ah, 1\n        int 21h \n        mov bl, al\n        \n        mov ah, 9\n        lea dx, s2\n        int 21h\n        \n        sub bl, 32   \n        mov dl, bl\n        \n        mov ah, 2 ;in ki tu tu thanh dl        \n        int 21h\n        \n        mov ah, 4ch\n        int 21h\n    main endp\nend main",
+  "kind": "emu8086",
+  "status": "ok",
+  "assemble": {
+    "ok": true,
+    "errors": []
+  },
+  "console": "Nhap chu thuong: r\n\rChu hoa: R",
+  "screen": [
+    "Nhap chu thuong: r",
+    "Chu hoa: R"
+  ],
+  "inputs": [
+    "r"
+  ],
+  "regs": {
+    "AX": "4C52",
+    "BX": "0052",
+    "CX": "0000",
+    "DX": "0052",
+    "SI": "0000",
+    "DI": "0000",
+    "BP": "0000",
+    "SP": "00FE",
+    "CS": "0712",
+    "DS": "0710",
+    "ES": "0700",
+    "SS": "0717",
+    "IP": "0011"
+  },
+  "flags": {
+    "CF": 0,
+    "PF": 0,
+    "AF": 0,
+    "ZF": 0,
+    "SF": 0,
+    "TF": 0,
+    "IF": 1,
+    "DF": 0,
+    "OF": 0
+  },
+  "steps": 16,
+  "exitCode": 82,
+  "error": null,
+  "startedAt": "2026-10-23T04:24:47.487Z",
+  "finishedAt": "2026-10-23T04:24:51.377Z",
+  "durationMs": 3890
+}
