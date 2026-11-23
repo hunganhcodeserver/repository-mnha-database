@@ -134,6 +134,7 @@ void DList<T>::erase(T x){
         pop_back();
         return ;
     }
+    current->prev->next;
 }
 
 int main() {
