@@ -53,6 +53,8 @@ class DList{
         }
         
         void push_front(T x);
+        
+        void push_back(T x);
 };
 
 void DList<T>::push_front(T x){
@@ -67,6 +69,20 @@ void DList<T>::push_front(T x){
         newNode->next = Head;
         Head->prev = newNode;
         Head = newNode;
+    }
+    n++;
+}
+
+void DList<T>::push_back(T x){
+    Node<T>* newNode = new Node<T>(x);
+    //Neu danh sach rong
+    if(empty()){
+        Head = newNode;
+        Trail = newNode;
+    } else {
+        newNode->prev = Trail;
+        trail->next = newNode;
+        Trail = newNode;
     }
     n++;
 }
