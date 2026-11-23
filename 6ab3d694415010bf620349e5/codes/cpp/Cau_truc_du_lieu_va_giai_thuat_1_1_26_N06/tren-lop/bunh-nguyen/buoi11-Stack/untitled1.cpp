@@ -27,6 +27,8 @@ class Stack{
     bool isEmpty(){
         return top == nullptr;
     }
+    
+    //Them 1 node vao
     void push(T x){
         Node<T>* p = new Node<T>(x);
     }
