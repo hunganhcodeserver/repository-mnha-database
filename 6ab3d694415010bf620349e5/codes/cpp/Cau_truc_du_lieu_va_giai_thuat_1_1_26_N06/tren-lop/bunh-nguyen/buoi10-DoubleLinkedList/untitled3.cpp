@@ -8,6 +8,11 @@ class Node{
         T elem;
         Node<T>* prev;
         Node<T>* next;
+        Node(T x){
+            elem = x;
+            prev = nullptr;
+            next = nullptr;
+        }
 }
 
 int main() {
