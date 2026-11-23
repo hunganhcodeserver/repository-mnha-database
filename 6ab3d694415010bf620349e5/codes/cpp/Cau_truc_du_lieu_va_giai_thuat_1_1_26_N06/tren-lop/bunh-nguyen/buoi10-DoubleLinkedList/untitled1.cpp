@@ -243,6 +243,9 @@ class SingleLinkedList{
         Node<Element>* p = head;
         while(p != nullptr){
             cout << p->getNext() << " ";
+            p = p->getNext();
         }
+        cout << "List: ";
+        list.print();
     }
 };
