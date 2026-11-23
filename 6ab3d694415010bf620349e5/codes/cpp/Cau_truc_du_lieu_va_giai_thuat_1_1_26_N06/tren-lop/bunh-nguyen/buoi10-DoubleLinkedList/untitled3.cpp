@@ -143,9 +143,16 @@ void DList<T>::erase(T x){
 int main() {
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
-    int a, b;
-    cout << "Nhap a, b: ";
-    cin >> a >> b;
-    cout << "Tong = " << a + b << endl;
+    DList<int> ds;
+    ds.push_front(10);
+    ds.push_front(20);
+    ds.push_front(30);
+    
+    ds.erase(50);
+    
+    // int a, b;
+    // cout << "Nhap a, b: ";
+    // cin >> a >> b;
+    // cout << "Tong = " << a + b << endl;
     return 0;
 }
