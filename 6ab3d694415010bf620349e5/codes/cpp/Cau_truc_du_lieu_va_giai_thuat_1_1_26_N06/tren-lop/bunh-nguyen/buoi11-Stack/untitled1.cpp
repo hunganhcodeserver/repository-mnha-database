@@ -17,6 +17,19 @@ class Node{
 template <class T>
 class Stack{
     Node<T>* top;
+    
+    Stack(){
+        top = nullptr;
+    }
+    ~Stack(){
+        
+    }
+    bool isEmpty(){
+        return top == nullptr;
+    }
+    void push(T x){
+        Node<T>* p = new Node<T>(x);
+    }
 };
 
 int main() {
