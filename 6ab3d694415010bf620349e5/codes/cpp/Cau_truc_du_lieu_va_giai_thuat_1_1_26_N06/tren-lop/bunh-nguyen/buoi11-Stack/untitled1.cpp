@@ -31,6 +31,8 @@ class Stack{
     //Them 1 node vao
     void push(T x){
         Node<T>* p = new Node<T>(x);
+        p->next = top;
+        top = p;
     }
 };
 
