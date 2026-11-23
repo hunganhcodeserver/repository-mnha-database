@@ -55,6 +55,25 @@ class DList{
         void push_front(T x);
         
         void push_back(T x);
+        
+        //Xoa phan tu dau
+        void pop_front(){
+            if(empty()){
+                return ;
+            }
+            
+            Node<T>*temp = Head;
+            Head = Head->next;
+            //truong hop list chi co 1 node
+            if(Head != nullptr){
+                Head->prev = nullptr;
+            }
+            else {
+                Trail = nullptr;
+            }
+            delete temp;
+            n--;
+        }
 };
 
 void DList<T>::push_front(T x){
@@ -85,6 +104,19 @@ void DList<T>::push_back(T x){
         Trail = newNode;
     }
     n++;
+}
+
+void DList<T>::erase(T x){
+    if(empty()){
+        return ;
+    }
+    
+    Node<T>* current = Head;
+    
+    //Tim Node co gia tri x- Duyet
+    while(current != nullptr && current->elem != x){
+        current = current->next;
+    }
 }
 
 int main() {
