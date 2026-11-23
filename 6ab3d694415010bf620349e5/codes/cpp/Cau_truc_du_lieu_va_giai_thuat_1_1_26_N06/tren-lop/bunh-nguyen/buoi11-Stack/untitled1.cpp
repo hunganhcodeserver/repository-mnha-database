@@ -6,6 +6,7 @@ using namespace std;
 template <class T>
 
 class Node{
+  public:
     T data;
     Node<T>* next;
     Node(T x){
@@ -50,7 +51,7 @@ class Stack{
     T& peek(){
         if(isEmpty()){
             cout << "stack rong";
-            return;
+            return T();
         }
         return top->data;
     }
