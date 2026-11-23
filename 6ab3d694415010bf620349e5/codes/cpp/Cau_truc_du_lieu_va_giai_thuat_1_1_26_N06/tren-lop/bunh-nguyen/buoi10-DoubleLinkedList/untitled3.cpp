@@ -128,6 +128,12 @@ void DList<T>::erase(T x){
         pop_front(); //xoa phan tu dau
         return ;
     }
+    
+    //Neu thay x o cuoi
+    if(current == Trail){
+        pop_back();
+        return ;
+    }
 }
 
 int main() {
