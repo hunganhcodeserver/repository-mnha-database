@@ -1,2 +1,3 @@
+stack - lưu trữ các đối tượng dưới dạng danh sách
 
-hap-du-lieu-input-vao-day
++) Thêm và lấy đối tượng ra được thực hiện ở cùng 1 đầu danh sách
