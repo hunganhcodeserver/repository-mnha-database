@@ -3,6 +3,7 @@ using namespace std;
 
 template <class T>
 
+//Lop mau Node
 class Node{
     public:
         T elem;
@@ -13,6 +14,57 @@ class Node{
             prev = nullptr;
             next = nullptr;
         }
+};
+
+//Lop mau DLIST
+template <class T>
+class DList{
+    private:
+        int n;
+        Node<T>* Head;
+        Node<T>* Trail;
+    public:
+        
+        DList(){
+            n = 0;
+            Head = nullptr;
+            Trail = nullptr;
+        }
+        //Destructor
+        
+        //size()
+        int size(){
+            return n;
+        }
+        
+        //empty
+        bool empty(){
+            return n == 0;
+        }
+        
+        //lay ra gia tri dau tien
+        T& front(){
+            return Head->elem;
+        }
+        
+        //lay ra gia tri cuoi
+        T& back(){
+            return Trail->elem;
+        }
+        
+        void push_front(T x);
+};
+
+void DList<T>::push_front(T x){
+    Node<T*> newNode = new Node<T>(x);
+    
+    //Neu danh sach rong
+    if(empty()){
+        Head = newNode;
+        Trail = newNode;
+    }else{
+        
+    }
 }
 
 int main() {
