@@ -28,7 +28,7 @@ class Stack{
         return top == nullptr;
     }
     
-    //Them 1 node vao
+    //Them 1 node vao dau - giong voi singleLinkedList
     void push(T x){
         Node<T>* p = new Node<T>(x);
         p->next = top;
