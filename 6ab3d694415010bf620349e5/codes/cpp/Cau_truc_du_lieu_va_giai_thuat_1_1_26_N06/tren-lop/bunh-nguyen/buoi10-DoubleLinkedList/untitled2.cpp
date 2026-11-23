@@ -1,12 +1,14 @@
 #include <bits/stdc++.h>
+#include "untitled1.cpp"
+
 using namespace std;
 
+
+
 int main() {
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
-    int a, b;
-    cout << "Nhap a, b: ";
-    cin >> a >> b;
-    cout << "Tong = " << a + b << endl;
+    SingleLinkedList<int> list;
+    list.push_front(10);
+    list.push_front(20);
+    list.push_front(30);
     return 0;
 }
