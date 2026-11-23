@@ -34,6 +34,13 @@ class Stack{
         p->next = top;
         top = p;
     }
+    
+    void pop(){
+        if(isEmpty()){
+            cout << "stack rong";
+            return ;
+       }
+    }
 };
 
 int main() {
