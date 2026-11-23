@@ -35,11 +35,32 @@ class Stack{
         top = p;
     }
     
+    //xoa phan tu tren cung
     void pop(){
         if(isEmpty()){
             cout << "stack rong";
             return ;
-       }
+        }
+        Node<T> *p = top;
+        top = top->next;
+        delete p;
+    }
+    
+    //lay gia tri phan tu top
+    T& peek(){
+        if(isEmpty()){
+            cout << "stack rong";
+            return;
+        }
+        return top->data;
+    }
+    void printf(){
+        Node <T>*p = top;
+        while(p != nullptr){
+            cout << p->data << " ";
+            p = p->next;
+        }
+        cout << endl;
     }
 };
 
