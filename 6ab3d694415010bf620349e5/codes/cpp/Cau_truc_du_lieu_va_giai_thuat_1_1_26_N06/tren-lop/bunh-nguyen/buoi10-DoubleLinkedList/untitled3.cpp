@@ -113,9 +113,20 @@ void DList<T>::erase(T x){
     
     Node<T>* current = Head;
     
-    //Tim Node co gia tri x- Duyet
+    //Tim Node co gia tri x - Duyet
     while(current != nullptr && current->elem != x){
         current = current->next;
+    }
+    
+    //Khong tim thay x
+    if(current == nullptr){
+        return ;
+    }
+    
+    //Neu thay x o dau
+    if(current == Head){
+        pop_front(); //xoa phan tu dau
+        return ;
     }
 }
 
