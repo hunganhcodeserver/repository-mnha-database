@@ -238,4 +238,11 @@ class SingleLinkedList{
         tail = nullptr;
         n = 0;
     }
+    
+    void print(){
+        Node<Element>* p = head;
+        while(p != nullptr){
+            cout << p->getNext() << " ";
+        }
+    }
 };
