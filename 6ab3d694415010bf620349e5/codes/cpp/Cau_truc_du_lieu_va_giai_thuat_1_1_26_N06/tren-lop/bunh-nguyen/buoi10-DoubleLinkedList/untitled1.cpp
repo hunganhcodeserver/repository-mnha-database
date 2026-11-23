@@ -245,7 +245,7 @@ class SingleLinkedList{
             cout << p->getNext() << " ";
             p = p->getNext();
         }
-        cout << "List: ";
+        cout << endl;
         list.print();
     }
 };
