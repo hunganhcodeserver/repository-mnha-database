@@ -1,3 +1,4 @@
 stack - lưu trữ các đối tượng dưới dạng danh sách
 
 +) Thêm và lấy đối tượng ra được thực hiện ở cùng 1 đầu danh sách
++) Stack được gọi là danh sách kiểu LIFO
