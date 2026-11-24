@@ -73,6 +73,11 @@ int main() {
     // cin >> a >> b;
     // cout << "Tong = " << a + b << endl;
     
+    Stack<int> st;
+    st.push(5);
+    st.push(3);
+    st.printf();
+    
     return 0;
 }
 
