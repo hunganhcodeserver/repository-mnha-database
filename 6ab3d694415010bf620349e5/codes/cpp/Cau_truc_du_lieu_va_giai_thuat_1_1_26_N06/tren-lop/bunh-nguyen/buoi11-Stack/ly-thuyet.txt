@@ -9,4 +9,4 @@ stack - lưu trữ các đối tượng dưới dạng danh sách
 Sử dụng 2 stack
 
 OpStack: lưu các toán tử
-ExpStack: lưu biểu thức dạng
+ExpStack: lưu biểu thức dạng hậu tố
