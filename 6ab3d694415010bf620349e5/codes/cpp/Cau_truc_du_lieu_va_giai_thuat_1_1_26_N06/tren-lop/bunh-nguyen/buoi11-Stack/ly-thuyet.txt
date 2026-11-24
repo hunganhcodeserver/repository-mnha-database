@@ -26,5 +26,11 @@ Thuật toán:
            -) push toán tử vừa đọc vào OpStack
         . Nếu toán tử trên đỉnh --có độ ưu tiên cao hơn hoặc bằng-- toán tử vừa đọc:
            -) pop toán tử trên đỉnh OpStack push vào ExpStack, lặp lại 
-              cho đến khi thoả mãn điều kiện (1)
-
+              cho đến khi thoả mãn điều kiện (1) thì push toán tử vừa
+              đọc vào OpStack
+    +) Khi duyệt hết: pop tất cả toán tử còn lại trong OpStack và push vào ExpStack
+    +) Đọc các phần tử của ExpStack theo thứ tự hậu tố để thu kết quả
+    
+    //====================================
+    //=============ĐỘ ƯU TIÊN=============  *, /, +, -, ), (
+    //====================================
