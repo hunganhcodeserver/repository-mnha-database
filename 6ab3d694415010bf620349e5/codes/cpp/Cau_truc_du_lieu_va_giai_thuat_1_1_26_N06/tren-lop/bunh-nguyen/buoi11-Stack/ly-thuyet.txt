@@ -10,3 +10,13 @@ Sử dụng 2 stack
 
 OpStack: lưu các toán tử
 ExpStack: lưu biểu thức dạng hậu tố <lưu các toán hạng>
+
+Thuật toán:
+- Duyệt các biểu thức trung tố từ trái sang phải
+    +) Nếu gặp toán hạng
+        . push toán hạng vào ExpStack
+    +) Nếu gặp "(":
+        . push vào OpStack
+    +) Nếu gặp ")":
+        . pop các toán tử vào OpStack và push vào ExpStack cho đến khi gặp ngoặc "("
+
