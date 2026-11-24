@@ -18,5 +18,5 @@ Thuật toán:
     +) Nếu gặp "(":
         . push vào OpStack
     +) Nếu gặp ")":
-        . pop các toán tử vào OpStack và push vào ExpStack cho đến khi gặp ngoặc "("
+        . pop các toán tử vào OpStack và push vào ExpStack cho đến khi gặp ngoặc "(", pop - bỏ dấu ")"
 
