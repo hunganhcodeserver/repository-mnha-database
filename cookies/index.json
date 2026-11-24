@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "updatedAt": "2026-11-24T23:58:45.412Z",
+  "updatedAt": "2026-11-24T23:58:46.148Z",
   "sessions": {
     "157784506452beaa4bcbf6ad24d1c32dafd39ef4308d0cf943e20dd604efbfbd": {
       "exp": 1795622687092,
@@ -45,6 +45,10 @@
     "470f57e809c7dbca3716d600bbd266a81cbb7039ea5fb356ec1f4d0710b53fc9": {
       "exp": 1795651120517,
       "data": "v1.pOFuUI5zGM3Gj1XU.fCwZBGd0yeSymAZaIB5zkQ.gi8HbXbLU60VRIxl9IeEcU1eoiSYo2RbBuZ9jB2NlDOYgBkpsUnpaRFVxjCUpv6BSvCaFhhgOb8N6tiPJzRMTB26FchcNqWCXmANKyqWrZfJBuyQR_ybgDoYx8b2-KqQMZvgNLgl8kXSSMx1sGZZ2-ColCfMaotv7--J6BtdX-YL2GHry63a9vVZjjk7T8NHHCZytQ"
+    },
+    "a042ff90c22cfdae9d31a49406845728ee11cf208cc138b474806b8a21419ce9": {
+      "exp": 1795651118988,
+      "data": "v1.LpHFhAJQi77VFcuz.GyDclF4KsI_HB1rgW_WdWw.l3HfcC-3MZxdj6Cq9r3q3QUSW3kfDdBC_UwjHnQyX4CDi-9AiaYB_jFkXR2nVBbL-GnmWY1gBZ9-Ky0c9O4GmGUlK-MRVDs3qu01ch810vo3UtCZGEXRG-lvDFFhcZN5RlQ6PyZHH8fig7UGAIWwXYbguKvOweTWy2Wqbynbn6IV0I4G4RajUhJkQ7Vn9vVq0g32bg"
     }
   }
 }
