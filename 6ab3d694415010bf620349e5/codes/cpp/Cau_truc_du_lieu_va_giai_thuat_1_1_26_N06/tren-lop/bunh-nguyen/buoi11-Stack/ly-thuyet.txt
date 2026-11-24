@@ -18,5 +18,13 @@ Thuật toán:
     +) Nếu gặp "(":
         . push vào OpStack
     +) Nếu gặp ")":
-        . pop các toán tử vào OpStack và push vào ExpStack cho đến khi gặp ngoặc "(", pop - bỏ dấu ")"
+        . pop các toán tử vào OpStack và push vào ExpStack 
+          cho đến khi gặp ngoặc "(", pop - bỏ dấu ")"
+    +) Nếu gặp toán tử:
+        . Nếu OpStack rỗng push toán tử vào OpStack
+        . Nếu toán tử trên đỉnh --có độ ưu tiên thấp hơn-- toán tử vừa đọc:
+           -) push toán tử vừa đọc vào OpStack
+        . Nếu toán tử trên đỉnh --có độ ưu tiên cao hơn hoặc bằng-- toán tử vừa đọc:
+           -) pop toán tử trên đỉnh OpStack push vào ExpStack, lặp lại 
+              cho đến khi thoả mãn điều kiện (1)
 
