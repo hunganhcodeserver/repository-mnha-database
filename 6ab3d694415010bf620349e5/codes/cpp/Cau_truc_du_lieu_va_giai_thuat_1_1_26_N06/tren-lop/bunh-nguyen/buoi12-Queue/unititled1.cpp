@@ -28,7 +28,15 @@ class Queue{
             return num == 0;
         }
         
+        //lay ra gia tri cuoi cung
+        T& front(){
+            return a[F];
+        }
         
+        //lay ra gia tri cuoi cung
+        T& back(){
+            return a[L-1];
+        }
 };
 
 int main() {
