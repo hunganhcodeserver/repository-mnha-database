@@ -5,6 +5,11 @@ template <class T>
 
 class Node{ //dai dien cho 1 node
     T elem;
+    vector<Node<T>*> child;
+    
+    Node(T x){
+        elem = x;
+    }
 }
 
 int main() {
