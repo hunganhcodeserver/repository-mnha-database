@@ -1,2 +1,1 @@
-
-hap-du-lieu-input-vao-day
+Tập hợp các nút với quan hệ cha con giữa các nút. Trong đó có 1 nút gọi là gốc và không có cha.
