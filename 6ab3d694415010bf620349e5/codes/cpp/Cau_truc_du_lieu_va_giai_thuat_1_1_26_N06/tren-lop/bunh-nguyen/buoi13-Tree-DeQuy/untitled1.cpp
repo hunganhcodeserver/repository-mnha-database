@@ -10,7 +10,7 @@ class Node{ //dai dien cho 1 node
     Node(T x){
         elem = x;
     }
-}
+};
 
 int main() {
     // freopen("input.txt", "r", stdin);
