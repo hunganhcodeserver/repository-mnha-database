@@ -46,6 +46,7 @@ class Queue{
             }
             a[L] = x;
             L = (L+1)%100; // (L+1)%N
+            num++;
         }
 };
 
