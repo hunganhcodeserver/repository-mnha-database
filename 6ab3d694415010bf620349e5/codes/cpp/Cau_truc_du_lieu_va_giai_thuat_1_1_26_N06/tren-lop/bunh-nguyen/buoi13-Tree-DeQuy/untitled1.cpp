@@ -24,9 +24,11 @@ class Tree{
             root = nullptr;
         }
         
+        //lay node goc
         Node<T>* getRoot(){
             return root;
         }
+        
 };
 
 int main() {
