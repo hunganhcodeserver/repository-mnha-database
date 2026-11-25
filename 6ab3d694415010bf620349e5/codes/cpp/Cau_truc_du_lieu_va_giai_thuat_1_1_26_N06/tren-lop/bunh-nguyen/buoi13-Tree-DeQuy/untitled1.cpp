@@ -4,6 +4,7 @@ using namespace std;
 template <class T>
 
 class Node{ //dai dien cho 1 node
+public:
     T elem;
     vector<Node<T>*> child;
     
