@@ -17,5 +17,6 @@ int main() {
         }
         q.push(x);
     }
+    cout << q.size();
     return 0;
 }
