@@ -17,6 +17,18 @@ class Queue{
         Queue(){
             F = L = num = 0;
         }
+        
+        //size
+        int size(){
+            return num;
+        }
+        
+        //empty
+        bool isEmpty(){
+            return num == 0;
+        }
+        
+        
 };
 
 int main() {
