@@ -1,0 +1,23 @@
+{
+  "files": {
+    "stack2-queue1.xlsx": {
+      "name": "stack2-queue1.xlsx",
+      "kind": "excel",
+      "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "size": 12562,
+      "id": "a1d480ed7f20c3365fc309a6c9bd67b3",
+      "key": "TU5IQUVOQzEBLZ1JwPlY8gA9YJ1/jBnW5QAAACDQi+KOpDwDd0JK56AugIa2nmu+8Z1Zt1vnakNCpqYBUFLPts06kspT5tATyITzXECakQeWEDcjcC7bk0g=",
+      "parts": [
+        {
+          "i": 0,
+          "size": 12562,
+          "repo": "repository-mnha-database-1"
+        }
+      ],
+      "createdAt": "2026-11-25T03:41:41.408Z",
+      "updatedAt": "2026-11-25T03:41:41.408Z"
+    }
+  },
+  "v": 1,
+  "updatedAt": "2026-11-25T03:41:41.505Z"
+}
