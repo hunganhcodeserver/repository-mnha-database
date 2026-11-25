@@ -16,7 +16,17 @@ class Node{ //dai dien cho 1 node
 template<class T>
 
 class Tree{
-    
+    private:
+        Node<T>* root; //nut goc
+    public:
+        //khoi tao
+        Tree(){
+            root = nullptr;
+        }
+        
+        Node<T>* getRoot(){
+            return root;
+        }
 };
 
 int main() {
