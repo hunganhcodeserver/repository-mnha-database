@@ -4,13 +4,19 @@ using namespace std;
 template <class T>
 
 class Node{ //dai dien cho 1 node
-public:
-    T elem;
-    vector<Node<T>*> child;
+    public:
+        T elem;
+        vector<Node<T>*> child;
+        
+        Node(T x){
+            elem = x;
+        }
+};
+
+template<class T>
+
+class Tree{
     
-    Node(T x){
-        elem = x;
-    }
 };
 
 int main() {
