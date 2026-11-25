@@ -1,2 +1,9 @@
-
-hap-du-lieu-input-vao-day
+Lab 01: Cài đặt ngăn xếp (Stack) theo hướng đối tượng
+Yêu cầu: Viết chương trình C++ xây dựng lớp Stack, thực hiện các chức năng:
+1. Cài đặt ngăn xếp bằng mảng động hoặc danh sách liên kết.
+2. Thêm phần tử vào ngăn xếp bằng push(x).
+3. Lấy và xóa phần tử ở đỉnh ngăn xếp bằng top() và pop().
+4. Kiểm tra ngăn xếp rỗng bằng isEmpty().
+5. Hiển thị các phần tử của ngăn xếp.
+6. Ứng dụng Stack để kiểm tra tính hợp lệ của dấu ngoặc trong biểu thức toán học.
+Dữ liệu: 10, 20, 30, 40, 50; biểu thức ({[]}) và ([)].
