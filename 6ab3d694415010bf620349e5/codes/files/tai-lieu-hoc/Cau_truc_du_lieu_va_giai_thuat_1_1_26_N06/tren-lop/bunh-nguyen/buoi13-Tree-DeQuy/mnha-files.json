@@ -1,0 +1,23 @@
+{
+  "files": {
+    "Tree-DeQuy-1.xlsx": {
+      "name": "Tree-DeQuy-1.xlsx",
+      "kind": "excel",
+      "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "size": 287036,
+      "id": "0509e508fede8409f5587a5951f0dbac",
+      "key": "TU5IQUVOQzEBnVpLPU3m/Pvrp+sy+IIWywAAACCqTzZAsH8VlU1ymB9lWMkN90/tYxp0JMrnAwuIovbGP+GEUOzOlfmBINYu3l8p/p5wvlb/PNlwG2DrWpg=",
+      "parts": [
+        {
+          "i": 0,
+          "size": 287036,
+          "repo": "repository-mnha-database-1"
+        }
+      ],
+      "createdAt": "2026-11-25T18:08:42.101Z",
+      "updatedAt": "2026-11-25T18:08:42.101Z"
+    }
+  },
+  "v": 1,
+  "updatedAt": "2026-11-25T18:08:42.226Z"
+}
