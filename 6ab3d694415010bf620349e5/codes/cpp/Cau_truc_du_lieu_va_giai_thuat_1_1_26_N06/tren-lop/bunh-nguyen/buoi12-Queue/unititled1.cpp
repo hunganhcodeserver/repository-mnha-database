@@ -38,6 +38,15 @@ class Queue{
             return a[(L-1+100)%100];
             // a[(L-1+N)%N]
         }
+        
+        void push(T x){
+            if(num == 100){
+                cout<<"Mang day";
+                return;
+            }
+            a[L] = x;
+            L = (L+1)%100; // (L+1)%N
+        }
 };
 
 int main() {
