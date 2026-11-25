@@ -12,8 +12,11 @@ class Queue{
         T a[100]; //chua cac phan tu - doi tuong
         int F; //chi vi tri cua phan tu dau tien
         int L; //chi o trong tiep theo đe them phan tu
-        int num;
-        
+        int num; //so phan tu trong mang
+    public:
+        Queue(){
+            F = L = num = 0;
+        }
 };
 
 int main() {
