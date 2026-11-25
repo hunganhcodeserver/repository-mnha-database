@@ -10,7 +10,7 @@ int main() {
     cin >> n;
     
     for(int i = 0; i < n; i++){
-        cout << "Chieu cao bup be " << i+1;
+        cout << "Chieu cao bup be " << i+1 << ": ";
         cin >>x;
         if(!q.empty() && q.front() - x >= 3){
             q.pop();
