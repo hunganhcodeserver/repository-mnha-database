@@ -17,6 +17,6 @@ int main() {
         }
         q.push(x);
     }
-    cout << q.size();
+    cout << "So bup be it nhat: " << q.size();
     return 0;
 }
