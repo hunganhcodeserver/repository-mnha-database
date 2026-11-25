@@ -48,6 +48,15 @@ class Queue{
             L = (L+1)%100; // (L+1)%N
             num++;
         }
+        
+        void pop(){
+            if(isEmpty()){
+                cout << "Mang rong";
+                return ;
+            }
+            
+            F = (F+1)%100; // (F+1)%N
+        }
 };
 
 int main() {
