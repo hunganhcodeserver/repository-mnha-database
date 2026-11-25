@@ -4,7 +4,7 @@ using namespace std;
 template <class T>
 
 class Node{ //dai dien cho 1 node
-    
+    T elem;
 }
 
 int main() {
