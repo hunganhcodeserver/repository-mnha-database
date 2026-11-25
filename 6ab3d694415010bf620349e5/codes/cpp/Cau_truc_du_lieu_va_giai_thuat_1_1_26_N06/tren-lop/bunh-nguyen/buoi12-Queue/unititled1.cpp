@@ -36,6 +36,7 @@ class Queue{
         //lay ra gia tri cuoi cung
         T& back(){
             return a[(L-1+100)%100];
+            // a[(L-1+N)%N]
         }
 };
 
