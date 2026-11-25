@@ -15,7 +15,7 @@ int main() {
         if(!q.empty() && q.front() - x >= 3){
             q.pop();
         }
-        q.push(x);
+        q.push(x); //dua vao queue
     }
     cout << "So bup be it nhat: " << q.size();
     return 0;
