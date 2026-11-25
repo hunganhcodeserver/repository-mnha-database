@@ -28,7 +28,7 @@ class Queue{
             return num == 0;
         }
         
-        //lay ra gia tri cuoi cung
+        //lay ra gia tri dau tien
         T& front(){
             return a[F];
         }
