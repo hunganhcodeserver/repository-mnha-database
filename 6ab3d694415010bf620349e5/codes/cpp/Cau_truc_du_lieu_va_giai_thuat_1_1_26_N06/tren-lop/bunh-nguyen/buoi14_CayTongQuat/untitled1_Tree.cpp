@@ -29,6 +29,16 @@ class Tree{
             return root;
         }
         
+        //lay tong so node
+        int size(Node<T>* H){
+            if(H == nullptr){
+                return 0;
+            }
+            int dem = 1;
+            for(int i = 0; i < H->child.size(); i++){
+                dem += size(H->child[i]);
+            }
+        }
        
 };
 
