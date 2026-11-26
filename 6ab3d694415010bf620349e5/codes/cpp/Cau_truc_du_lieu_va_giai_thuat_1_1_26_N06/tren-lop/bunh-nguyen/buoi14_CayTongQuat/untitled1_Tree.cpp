@@ -52,6 +52,16 @@ class Tree{
                 preOder(p);
             }
         }
+        
+        //Duyet sau: Trai - phai - goc
+        void postOrder(Node<T>* H){
+            if(H == nullptr){
+               return;
+            }
+            for(Node<T>* p : H->child){
+                postOrder(p);
+            }
+            cout << H->elem << " ";        }
 };
 
 int main() {
