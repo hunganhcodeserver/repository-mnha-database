@@ -1,0 +1,31 @@
+{
+  "timestamp": 1795706167360,
+  "lang": "cpp",
+  "file": "Lab1-MaiNgocHungAnh-1795663238191.cpp",
+  "dir": "Cau_truc_du_lieu_va_giai_thuat_1_1_26_N06/thuc-hanh/lab01",
+  "source": "#include <iostream>\n#include <stdexcept>\n#include <string>\nusing namespace std;\n\ntemplate <class T>\nclass Node {\npublic:\n    T data;\n    Node<T>* next;\n    Node(T x) {\n        data = x;\n        next = nullptr;\n    }\n};\n\ntemplate <class T>\nclass Stack {\nprivate:\n    Node<T>* topNode;\n\npublic:\n    Stack() {\n        topNode = nullptr;\n    }\n\n    ~Stack() {\n        while (!isEmpty()) {\n            pop();\n        }\n    }\n\n    bool isEmpty() {\n        return topNode == nullptr;\n    }\n\n    void push(T x) {\n        Node<T>* p = new Node<T>(x);\n        p->next = topNode;\n        topNode = p;\n    }\n\n    void pop() {\n        if (isEmpty()) {\n            cout << \"Stack rong!\" << endl;\n            return;\n        }\n        Node<T>* p = topNode;\n        topNode = topNode->next;\n        delete p;\n    }\n\n    T top() {\n        if (isEmpty()) {\n            throw runtime_error(\"Stack rong!\");\n        }\n        return topNode->data;\n    }\n\n    void display() {\n        if (isEmpty()) {\n            cout << \"Stack rong!\" << endl;\n            return;\n        }\n        Node<T>* p = topNode;\n        while (p != nullptr) {\n            cout << p->data << \" \";\n            p = p->next;\n        }\n        cout << endl;\n    }\n};\n\nbool isValidParentheses(const string& expr) {\n    Stack<char> st;\n    for (char c : expr) {\n        if (c == '(' || c == '[' || c == '{') {\n            st.push(c);\n        } else if (c == ')' || c == ']' || c == '}') {\n            if (st.isEmpty()) return false;\n            char open = st.top();\n            st.pop();\n            if ((c == ')' && open != '(') ||\n                (c == ']' && open != '[') ||\n                (c == '}' && open != '{')) {\n                return false;\n            }\n        }\n    }\n    return st.isEmpty();\n}\n\nint main() {\n    Stack<int> st;\n    int data[] = {10, 20, 30, 40, 50};\n    for (int x : data) {\n        st.push(x);\n    }\n\n    cout << \"Cac phan tu trong Stack (tu dinh xuong day): \";\n    st.display();\n\n    cout << \"Phan tu o dinh (top): \" << st.top() << endl;\n    st.pop();\n    cout << \"Sau khi pop(), cac phan tu con lai: \";\n    st.display();\n\n    cout << \"Stack co rong khong? \" << (st.isEmpty() ? \"Co\" : \"Khong\") << endl;\n\n    string expr1 = \"({[]})\";\n    string expr2 = \"([)]\";\n    cout << \"Bieu thuc \" << expr1 << \": \"\n         << (isValidParentheses(expr1) ? \"Hop le\" : \"Khong hop le\") << endl;\n    cout << \"Bieu thuc \" << expr2 << \": \"\n         << (isValidParentheses(expr2) ? \"Hop le\" : \"Khong hop le\") << endl;\n\n    return 0;\n}",
+  "kind": "cpp",
+  "status": "ok",
+  "compile": {
+    "ok": true,
+    "output": ""
+  },
+  "console": "Cac phan tu trong Stack (tu dinh xuong day): 50 40 30 20 10 \nPhan tu o dinh (top): 50\nSau khi pop(), cac phan tu con lai: 40 30 20 10 \nStack co rong khong? Khong\nBieu thuc ({[]}): Hop le\nBieu thuc ([)]: Khong hop le\n",
+  "inputs": [],
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "outputFiles": {
+    "de-bai-lam.txt": {
+      "content": "Lab 01: Cài đặt ngăn xếp (Stack) theo hướng đối tượng\nYêu cầu: Viết chương trình C++ xây dựng lớp Stack, thực hiện các chức năng:\n1. Cài đặt ngăn xếp bằng mảng động hoặc danh sách liên kết.\n2. Thêm phần tử vào ngăn xếp bằng push(x).\n3. Lấy và xóa phần tử ở đỉnh ngăn xếp bằng top() và pop().\n4. Kiểm tra ngăn xếp rỗng bằng isEmpty().\n5. Hiển thị các phần tử của ngăn xếp.\n6. Ứng dụng Stack để kiểm tra tính hợp lệ của dấu ngoặc trong biểu thức toán học.\nDữ liệu: 10, 20, 30, 40, 50; biểu thức ({[]}) và ([)].",
+      "changed": false,
+      "isNew": false
+    }
+  },
+  "inputFiles": [
+    "de-bai-lam.txt"
+  ],
+  "startedAt": "2026-11-26T15:16:04.374Z",
+  "finishedAt": "2026-11-26T15:16:07.229Z",
+  "durationMs": 2855
+}
