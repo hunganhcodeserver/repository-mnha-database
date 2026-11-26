@@ -2,9 +2,11 @@
 using namespace std;
 
 void dayGiam(int n){
-    if(n == 0){
+    if(n == 0){ //dieu kien dung
         return ;
     }
+    cout << n << " ";
+    dayGiam(n-1);
 }
 
 int main() {
