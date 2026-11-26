@@ -73,6 +73,9 @@ class Tree{
             if(H->elem == x){
                 dem++;
             }
+            for(Node<T> *p : H->child){
+                dem += count(p, x);
+            }
         }
 };
 
