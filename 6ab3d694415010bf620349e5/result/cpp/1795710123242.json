@@ -1,0 +1,23 @@
+{
+  "timestamp": 1795710123242,
+  "lang": "cpp",
+  "file": "deQuy1.cpp",
+  "dir": "Cau_truc_du_lieu_va_giai_thuat_1_1_26_N06/tren-lop/bunh-nguyen/buoi14_CayTongQuat",
+  "source": "#include <bits/stdc++.h>\nusing namespace std;\n\nvoid dayGiam(int n){\n    if(n == 0){ //dieu kien dung\n        return ;\n    }\n    cout << n << \" \";\n    dayGiam(n-1); //loi goi de quy\n}\n\nvoid dayTang(int n){\n    if(n == 0){ //dieu kien dung\n        return ; //khi ket thuc \n    }\n    dayTang(n-1); //loi goi de quy\n    cout << n << \" \";\n}\n\nint sum(int n){ \n    if(n == 0){\n        return 0; \n    }\n    return n + sum(n-1);\n}\n\nint giaiThua(int n){\n    if(n == 0 || n == 1){\n        return 1;\n    }\n    return n * giaiThua(n-1);\n}\n\nint main() {\n    // freopen(\"input.txt\", \"r\", stdin);\n    // freopen(\"output.txt\", \"w\", stdout);\n    \n    dayGiam(10);\n    cout << endl;\n    \n    dayTang(10);\n    cout << endl;\n    \n    cout << sum(5);\n    cout << endl;\n    \n    cout << giaiThua(5);\n    cout << endl;\n    \n    return 0;\n}\n",
+  "kind": "cpp",
+  "status": "ok",
+  "compile": {
+    "ok": true,
+    "output": ""
+  },
+  "console": "10 9 8 7 6 5 4 3 2 1 \n1 2 3 4 5 6 7 8 9 10 \n15\n120\n",
+  "inputs": [],
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "outputFiles": {},
+  "inputFiles": [],
+  "startedAt": "2026-11-26T16:21:52.503Z",
+  "finishedAt": "2026-11-26T16:22:03.182Z",
+  "durationMs": 10679
+}
