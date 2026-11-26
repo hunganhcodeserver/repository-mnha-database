@@ -21,6 +21,7 @@ if sum(int n){
     if(n == 0){
         return ;
     }
+    return n + sum(n-1);
 }
 
 int main() {
