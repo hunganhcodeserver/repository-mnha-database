@@ -23,11 +23,13 @@ class Node{ //dai dien cho 1 node
 //
 //=================*) Luu y: chua de thi nho dung kieu day het=================
 //
+// template <class T>
+//
 // class Node{ //dai dien cho 1 node
 //     public:
 //         T elem;
 //         vector<Node<T>*> child; //vector chua dia chi cac Node con
-        
+//        
 //         Node(T x){
 //             elem = x;
 //         }
