@@ -20,6 +20,9 @@ class Node{ //dai dien cho 1 node
 //==========================================
 //==================DI THI==================
 //==========================================
+//
+//=================*) Luu y: chua de thi nho dung kieu day het=================
+//
 // class Node{ //dai dien cho 1 node
 //     public:
 //         T elem;
