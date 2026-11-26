@@ -63,6 +63,8 @@ class Tree{
             }
             cout << H->elem << " ";
         }
+        
+        //dem tat ca cac Node cua cay H chua x
 };
 
 int main() {
