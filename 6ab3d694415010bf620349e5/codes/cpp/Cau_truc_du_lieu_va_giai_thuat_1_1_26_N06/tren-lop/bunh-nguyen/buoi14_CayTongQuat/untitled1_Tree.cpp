@@ -61,7 +61,8 @@ class Tree{
             for(Node<T>* p : H->child){
                 postOrder(p);
             }
-            cout << H->elem << " ";        }
+            cout << H->elem << " ";
+        }
 };
 
 int main() {
