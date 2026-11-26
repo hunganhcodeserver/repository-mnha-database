@@ -37,9 +37,14 @@ int main() {
     
     dayGiam(10);
     cout << endl;
+    
     dayTang(10);
     cout << endl;
+    
     cout << sum(5);
+    cout << endl;
+    
+    cout << giaiThua(5);
     cout << endl;
     
     return 0;
