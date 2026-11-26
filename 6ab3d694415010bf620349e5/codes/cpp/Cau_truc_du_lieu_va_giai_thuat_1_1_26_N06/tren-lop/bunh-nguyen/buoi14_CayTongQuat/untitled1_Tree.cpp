@@ -30,9 +30,11 @@ class Node{ //dai dien cho 1 node
         vector<Node<T>*> child; //vector chua dia chi cac Node con
 //        int dem = 0; //su dung khi de hoi void count(...)
         int h = 0, k; //su dung hoi void high
+        
         Node(T x){
             elem = x;
         }
+        
         int count(Node<T>* H, T x){
             if(H == nullptr){
                 return 0;
@@ -46,6 +48,7 @@ class Node{ //dai dien cho 1 node
             }
             return dem;
         }
+        
         // void count2(Node<T>* H, T x){
         //     if(H == nullptr){
         //         return 0;
@@ -57,6 +60,7 @@ class Node{ //dai dien cho 1 node
         //         count(p, x);
         //     }
         // }
+        
         void high(Node<T>* H){
             if(H == nullptr){
                 return ;
@@ -68,6 +72,46 @@ class Node{ //dai dien cho 1 node
                 k++;
                 high(p);
                 k--;
+            }
+        }
+        
+        int high2(Node<T>*H){
+            if(H == nullptr){
+                return -1;
+            }
+            int h = -1;
+            for(Node<T>*p : H->child){
+                int k = high2(p);
+                if(k > h){
+                    h = k;
+                }
+            }
+            return h+1;
+        }
+        
+        Node<T>*find(Node<T>*H,T x){
+            if(H == nullptr){
+                return nullptr;
+            }
+            if(H->elem == x){
+                return ;
+            }
+            for(Node<T>*p : H->child){
+                Node<T>* k = find(p,x); //luu dia chi node tim duoc
+                if(k != nullptr){
+                    return k;
+                }
+            }
+            return nullptr;
+        }
+        
+        void insert(Node<T>*H, T x, Node<T> *p){
+            if(H == nullptr || p == nullptr){
+                return;
+            }
+            Node<T>*k = find (H,x);
+            if(k!=nullptr){
+                k->child.push_back(p);
             }
         }
 };
