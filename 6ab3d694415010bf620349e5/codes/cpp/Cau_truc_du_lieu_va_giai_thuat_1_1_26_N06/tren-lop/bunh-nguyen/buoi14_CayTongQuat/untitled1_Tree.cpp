@@ -29,6 +29,7 @@ class Node{ //dai dien cho 1 node
         T elem;
         vector<Node<T>*> child; //vector chua dia chi cac Node con
 //        int dem = 0; //su dung khi de hoi void count(...)
+        int h = 0, k; //su dung hoi void high
         Node(T x){
             elem = x;
         }
@@ -60,17 +61,14 @@ class Node{ //dai dien cho 1 node
             if(H == nullptr){
                 return ;
             }
-            if(H->child.empty()){
-                h = 0;
-                return;
+            if(k > h){ //cap nhat chieu cao lon nhat
+                h = k;
             }
-            for(Node<T>* p : H->child){
-                int k = high(p);
-                if(k > h){
-                    h = k;
-                }
+            for(Node<T>*p : H->child){
+                k++;
+                high(p);
+                k--;
             }
-            h = h + 1;
         }
 };
 //==========================================
