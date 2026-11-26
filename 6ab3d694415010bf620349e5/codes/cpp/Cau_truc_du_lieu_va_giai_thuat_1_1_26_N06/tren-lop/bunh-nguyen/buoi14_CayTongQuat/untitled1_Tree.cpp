@@ -38,6 +38,7 @@ class Tree{
             for(int i = 0; i < H->child.size(); i++){
                 dem += size(H->child[i]);
             }
+            return dem;
         }
        
 };
