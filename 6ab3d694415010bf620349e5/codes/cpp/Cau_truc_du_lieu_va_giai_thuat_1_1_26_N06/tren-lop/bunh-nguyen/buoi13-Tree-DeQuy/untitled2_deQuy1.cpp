@@ -13,7 +13,7 @@ int main() {
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
     
-    
+    dayGiam(10);
     
     
     return 0;
