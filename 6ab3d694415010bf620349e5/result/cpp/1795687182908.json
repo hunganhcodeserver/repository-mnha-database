@@ -1,0 +1,23 @@
+{
+  "timestamp": 1795687182908,
+  "lang": "cpp",
+  "file": "untitled2_deQuy1.cpp",
+  "dir": "Cau_truc_du_lieu_va_giai_thuat_1_1_26_N06/tren-lop/bunh-nguyen/buoi13-Tree-DeQuy",
+  "source": "#include <bits/stdc++.h>\nusing namespace std;\n\nvoid dayGiam(int n){\n    if(n == 0){ //dieu kien dung\n        return ;\n    }\n    cout << n << \" \";\n    dayGiam(n-1);\n}\n\nint main() {\n    // freopen(\"input.txt\", \"r\", stdin);\n    // freopen(\"output.txt\", \"w\", stdout);\n    \n    dayGiam(10);\n    \n    \n    return 0;\n}\n",
+  "kind": "cpp",
+  "status": "ok",
+  "compile": {
+    "ok": true,
+    "output": ""
+  },
+  "console": "10 9 8 7 6 5 4 3 2 1 ",
+  "inputs": [],
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "outputFiles": {},
+  "inputFiles": [],
+  "startedAt": "2026-11-26T09:59:31.359Z",
+  "finishedAt": "2026-11-26T09:59:42.266Z",
+  "durationMs": 10907
+}
