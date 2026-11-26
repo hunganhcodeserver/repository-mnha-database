@@ -9,6 +9,14 @@ void dayGiam(int n){
     dayGiam(n-1); //loi goi de quy
 }
 
+void dayTang(int n){
+    if(n == 0){ //dieu kien dung
+        return ;
+    }
+    cout << n << " ";
+    dayTang(n-1); //loi goi de quy
+}
+
 int main() {
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
