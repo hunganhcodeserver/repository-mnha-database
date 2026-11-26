@@ -17,6 +17,12 @@ void dayTang(int n){
     cout << n << " ";
 }
 
+if sum(int n){
+    if(n == 0){
+        return ;
+    }
+}
+
 int main() {
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
