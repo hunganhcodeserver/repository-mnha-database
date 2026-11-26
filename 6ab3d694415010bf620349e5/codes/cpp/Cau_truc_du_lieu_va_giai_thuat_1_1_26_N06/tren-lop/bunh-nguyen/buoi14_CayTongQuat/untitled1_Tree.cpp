@@ -13,6 +13,10 @@ class Node{ //dai dien cho 1 node
         }
 };
 
+//==========================================
+//==================DI THI==================
+//==========================================
+
 template<class T>
 
 class Tree{
@@ -76,6 +80,7 @@ class Tree{
             for(Node<T> *p : H->child){
                 dem += count(p, x);
             }
+            return dem;
         }
 };
 
