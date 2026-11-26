@@ -60,6 +60,17 @@ class Node{ //dai dien cho 1 node
             if(H == nullptr){
                 return ;
             }
+            if(H->child.empty()){
+                h = 0;
+                return;
+            }
+            for(Node<T>* p : H->child){
+                int k = high(p);
+                if(k > h){
+                    h = k;
+                }
+            }
+            h = h + 1;
         }
 };
 //==========================================
