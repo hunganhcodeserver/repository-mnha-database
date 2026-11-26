@@ -11,10 +11,10 @@ void dayGiam(int n){
 
 void dayTang(int n){
     if(n == 0){ //dieu kien dung
-        return ;
+        return ; //khi ket thuc
     }
-    cout << n << " ";
     dayTang(n-1); //loi goi de quy
+    cout << n << " ";
 }
 
 int main() {
@@ -22,6 +22,7 @@ int main() {
     // freopen("output.txt", "w", stdout);
     
     dayGiam(10);
+    dayTang(10);
     
     
     return 0;
