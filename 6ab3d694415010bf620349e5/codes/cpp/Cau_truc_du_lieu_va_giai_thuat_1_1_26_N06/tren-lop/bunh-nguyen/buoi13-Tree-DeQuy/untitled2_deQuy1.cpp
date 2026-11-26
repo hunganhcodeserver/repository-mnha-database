@@ -6,7 +6,7 @@ void dayGiam(int n){
         return ;
     }
     cout << n << " ";
-    dayGiam(n-1);
+    dayGiam(n-1); //loi goi de quy
 }
 
 int main() {
