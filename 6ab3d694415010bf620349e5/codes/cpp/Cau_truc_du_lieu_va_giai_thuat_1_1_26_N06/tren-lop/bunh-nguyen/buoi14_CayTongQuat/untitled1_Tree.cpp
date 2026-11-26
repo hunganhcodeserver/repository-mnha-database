@@ -71,7 +71,7 @@ class Tree{
             }
             int dem = 0;
             if(H->elem == x){
-                
+                dem++;
             }
         }
 };
