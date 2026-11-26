@@ -65,6 +65,15 @@ class Tree{
         }
         
         //dem tat ca cac Node cua cay H chua x
+        int count(Node<T>* H, T x){
+            if(H == nullptr){
+                return 0;
+            }
+            int dem = 0;
+            if(H->elem == x){
+                
+            }
+        }
 };
 
 int main() {
