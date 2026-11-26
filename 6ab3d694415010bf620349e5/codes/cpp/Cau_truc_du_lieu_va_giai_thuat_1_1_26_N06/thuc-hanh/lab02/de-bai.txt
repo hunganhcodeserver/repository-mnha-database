@@ -1,2 +1,9 @@
-
-hap-du-lieu-input-vao-day
+Lab 02: Cài đặt hàng đợi (Queue) theo hướng đối tượng
+Yêu cầu: Viết chương trình C++ xây dựng lớp Queue, thực hiện các chức năng:
+1.	Cài đặt hàng đợi bằng mảng vòng (Circular Array) hoặc danh sách liên kết.
+2.	Thêm phần tử vào cuối hàng đợi bằng enqueue(x).
+3.	Lấy và xóa phần tử ở đầu hàng đợi bằng front() và dequeue().
+4.	Kiểm tra hàng đợi rỗng bằng isEmpty().
+5.	Hiển thị các phần tử theo thứ tự từ đầu đến cuối hàng đợi.
+6.	Mô phỏng hệ thống phục vụ khách hàng theo thứ tự đến trước, phục vụ trước.
+Dữ liệu: Thêm lần lượt 10, 20, 30, 40, 50; thực hiện hai lần dequeue(), sau đó thêm 60, 70.
