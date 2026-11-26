@@ -13,9 +13,43 @@ class Node{ //dai dien cho 1 node
         }
 };
 
+
+
+
+
 //==========================================
 //==================DI THI==================
 //==========================================
+// class Node{ //dai dien cho 1 node
+//     public:
+//         T elem;
+//         vector<Node<T>*> child; //vector chua dia chi cac Node con
+        
+//         Node(T x){
+//             elem = x;
+//         }
+//         int count(Node<T>* H, T x){
+//             if(H == nullptr){
+//                 return 0;
+//             }
+//             int dem = 0;
+//             if(H->elem == x){
+//                 dem++;
+//             }
+//             for(Node<T> *p : H->child){
+//                 dem += count(p, x);
+//             }
+//             return dem;
+//         }
+// };
+//==========================================
+//==========================================
+//==========================================
+
+
+
+
+
 
 template<class T>
 
