@@ -24,6 +24,13 @@ int sum(int n){
     return n + sum(n-1);
 }
 
+int giaiThua(int n){
+    if(n == 0 || n == 1){
+        return 1;
+    }
+    return n * giaiThua(n-1);
+}
+
 int main() {
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
