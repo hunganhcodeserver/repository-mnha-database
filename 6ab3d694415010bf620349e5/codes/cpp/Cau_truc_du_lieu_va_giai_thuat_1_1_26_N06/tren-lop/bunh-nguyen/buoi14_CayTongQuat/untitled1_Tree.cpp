@@ -42,11 +42,16 @@ class Tree{
         }
         
         //Duyet truoc: Goc - trai - phai
-       void preOrder(Node<T>* H){
-           if(H == nullptr){
+        void preOrder(Node<T>* H){
+            if(H == nullptr){
                return;
-           }
-       }
+            }
+            cout << H->elem << " ";
+            
+            for(Node<T>* p : H->child){
+                preOder(p);
+            }
+        }
 };
 
 int main() {
