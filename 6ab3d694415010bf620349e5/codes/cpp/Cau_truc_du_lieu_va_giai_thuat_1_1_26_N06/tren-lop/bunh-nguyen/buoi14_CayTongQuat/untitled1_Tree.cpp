@@ -40,6 +40,8 @@ class Tree{
             }
             return dem;
         }
+        
+        //Duyet truoc: Goc - trai - phai
        
 };
 
