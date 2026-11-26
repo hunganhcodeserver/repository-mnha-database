@@ -11,7 +11,7 @@ void dayGiam(int n){
 
 void dayTang(int n){
     if(n == 0){ //dieu kien dung
-        return ; //khi ket thuc
+        return 0; //khi ket thuc
     }
     dayTang(n-1); //loi goi de quy
     cout << n << " ";
@@ -30,7 +30,7 @@ int main() {
     
     dayGiam(10);
     dayTang(10);
-    
+    cout << sum(5);
     
     return 0;
 }
