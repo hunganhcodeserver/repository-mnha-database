@@ -1,0 +1,23 @@
+{
+  "files": {
+    "bt-el-2026-11-27.pdf": {
+      "name": "bt-el-2026-11-27.pdf",
+      "kind": "pdf",
+      "mime": "application/pdf",
+      "size": 259415,
+      "id": "aa274d6592b5be307c5a8130a588e349",
+      "key": "TU5IQUVOQzEB7f2Ii/3wxk1UolLDuLhnLwAAACCKwPCaIEUiifLAE6Ct2I9E3ulALLB26OFZbCw/K/4SwlPcMBLOlc5MyQGvb6ytUzcj8Fx8ld4aSYuz8+o=",
+      "parts": [
+        {
+          "i": 0,
+          "size": 259415,
+          "repo": "repository-mnha-database-1"
+        }
+      ],
+      "createdAt": "2026-11-27T15:00:07.548Z",
+      "updatedAt": "2026-11-27T15:00:07.548Z"
+    }
+  },
+  "v": 1,
+  "updatedAt": "2026-11-27T15:00:07.646Z"
+}
