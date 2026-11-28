@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
 class AdvancedSorting{
@@ -20,17 +21,20 @@ public:
         for(int i = 0; i < n; i++){
             cout << a[i] << " ";
         }
+
         cout << endl;
     }
 
-    void merge(int l, int m, int r){
+    void merge(int l, int m, int r, int &ss){
         int b[100];
 
         int i = l;
         int j = m + 1;
-        int k = 0;
+        int k = l;
 
         while(i <= m && j <= r){
+            ss++;
+
             if(a[i] < a[j]){
                 b[k] = a[i];
                 i++;
@@ -39,6 +43,7 @@ public:
                 b[k] = a[j];
                 j++;
             }
+
             k++;
         }
 
@@ -54,31 +59,39 @@ public:
             k++;
         }
 
-        for(int i = 0; i < k; i++){
-            a[l + i] = b[i];
+        for(i = l; i <= r; i++){
+            a[i] = b[i];
         }
     }
 
-    void mergeSort(int l, int r){
+    void mergeSort(int l, int r, int &ss){
         if(l >= r){
             return;
         }
 
         int m = (l + r) / 2;
 
-        mergeSort(l, m);
-        mergeSort(m + 1, r);
+        mergeSort(l, m, ss);
+        mergeSort(m + 1, r, ss);
 
-        merge(l, m, r);
+        merge(l, m, r, ss);
     }
 
-    int partition(int l, int r){
+    void mergeSort(int &ss){
+        mergeSort(0, n - 1, ss);
+    }
+
+    int partition(int l, int r, int &ss){
         int x = a[r];
+
         int i = l - 1;
 
         for(int j = l; j < r; j++){
+            ss++;
+
             if(a[j] < x){
                 i++;
+
                 swap(a[i], a[j]);
             }
         }
@@ -88,111 +101,122 @@ public:
         return i + 1;
     }
 
-    void quickSort(int l, int r){
+    void quickSort(int l, int r, int &ss){
         if(l >= r){
             return;
         }
 
-        int k = partition(l, r);
+        int p = partition(l, r, ss);
 
-        quickSort(l, k - 1);
-        quickSort(k + 1, r);
+        quickSort(l, p - 1, ss);
+        quickSort(p + 1, r, ss);
     }
 
-    void heap(int n, int i){
+    void quickSort(int &ss){
+        quickSort(0, n - 1, ss);
+    }
+
+    void heap(int n, int i, int &ss){
         int lon = i;
+
         int trai = 2 * i + 1;
         int phai = 2 * i + 2;
 
-        if(trai < n && a[trai] > a[lon]){
-            lon = trai;
+        if(trai < n){
+            ss++;
+
+            if(a[trai] > a[lon]){
+                lon = trai;
+            }
         }
 
-        if(phai < n && a[phai] > a[lon]){
-            lon = phai;
+        if(phai < n){
+            ss++;
+
+            if(a[phai] > a[lon]){
+                lon = phai;
+            }
         }
 
         if(lon != i){
             swap(a[i], a[lon]);
-            heap(n, lon);
+
+            heap(n, lon, ss);
         }
     }
 
-    void heapSort(){
+    void heapSort(int &ss){
         for(int i = n / 2 - 1; i >= 0; i--){
-            heap(n, i);
+            heap(n, i, ss);
         }
 
         for(int i = n - 1; i > 0; i--){
             swap(a[0], a[i]);
-            heap(i, 0);
+
+            heap(i, 0, ss);
         }
-    }
-
-    void mergeSort(){
-        mergeSort(0, n - 1);
-    }
-
-    void quickSort(){
-        quickSort(0, n - 1);
     }
 };
 
 int main(){
-    AdvancedSorting a;
+    int x;
+    int ss;
 
-    a.nhap();
+    cout << "MERGE SORT\n";
 
-    cout << "\nDay ban dau: ";
-    a.xuat();
+    AdvancedSorting a1;
 
-    // Merge Sort
-    clock_t start = clock();
+    a1.nhap();
 
-    a.mergeSort();
+    cout << "Day ban dau: ";
+    a1.xuat();
 
-    clock_t finish = clock();
+    ss = 0;
 
-    cout << "\nMerge Sort: ";
-    a.xuat();
+    a1.mergeSort(ss);
 
-    cout << "Thoi gian: "
-         << (double)(finish - start) / CLOCKS_PER_SEC
-         << " giay" << endl;
+    cout << "Day sau khi sap xep: ";
+    a1.xuat();
 
-    // nhap lai
-    cout << "\nNhap lai day cho Quick Sort:\n";
-    a.nhap();
+    cout << "So phep so sanh = " << ss << endl;
 
-    start = clock();
 
-    a.quickSort();
+    cout << "\nQUICK SORT\n";
 
-    finish = clock();
+    AdvancedSorting a2;
 
-    cout << "Quick Sort: ";
-    a.xuat();
+    a2.nhap();
 
-    cout << "Thoi gian: "
-         << (double)(finish - start) / CLOCKS_PER_SEC
-         << " giay" << endl;
+    cout << "Day ban dau: ";
+    a2.xuat();
 
-    // nhap lai
-    cout << "\nNhap lai day cho Heap Sort:\n";
-    a.nhap();
+    ss = 0;
 
-    start = clock();
+    a2.quickSort(ss);
 
-    a.heapSort();
+    cout << "Day sau khi sap xep: ";
+    a2.xuat();
 
-    finish = clock();
+    cout << "So phep so sanh = " << ss << endl;
 
-    cout << "Heap Sort: ";
-    a.xuat();
 
-    cout << "Thoi gian: "
-         << (double)(finish - start) / CLOCKS_PER_SEC
-         << " giay" << endl;
+    cout << "\nHEAP SORT\n";
+
+    AdvancedSorting a3;
+
+    a3.nhap();
+
+    cout << "Day ban dau: ";
+    a3.xuat();
+
+    ss = 0;
+
+    a3.heapSort(ss);
+
+    cout << "Day sau khi sap xep: ";
+    a3.xuat();
+
+    cout << "So phep so sanh = " << ss << endl;
 
     return 0;
 }
