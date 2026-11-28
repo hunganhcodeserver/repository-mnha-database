@@ -1,0 +1,26 @@
+{
+  "timestamp": 1795851640517,
+  "lang": "cpp",
+  "file": "bupBeNga-tucode.cpp",
+  "dir": "Cau_truc_du_lieu_va_giai_thuat_1_1_26_N06/tren-lop/bunh-nguyen/buoi12-Queue",
+  "source": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    // freopen(\"input.txt\", \"r\", stdin);\n    // freopen(\"output.txt\", \"w\", stdout);\n    int n,x;\n    queue<int> q;\n    cout<<\"Nhap so luong bup be: \";\n    cin >> n;\n    \n    for(int i = 0; i < n; i++){\n        cout << \"Chieu cao bup be \" << i+1 << \": \";\n        cin >>x;\n        if(!q.empty() && q.front() - x >= 3){\n            q.pop();\n        }\n        q.push(x); //dua vao queue\n    }\n    cout << \"So bup be it nhat: \" << q.size();\n    return 0;\n}\n",
+  "kind": "cpp-browser",
+  "status": "ok",
+  "console": "Nhap so luong bup be: 5\nChieu cao bup be 1: 10\nChieu cao bup be 2: 5\nChieu cao bup be 3: 9\nChieu cao bup be 4: 6\nChieu cao bup be 5: 7\nSo bup be it nhat: 4",
+  "inputs": [
+    "5",
+    "10",
+    "5",
+    "9",
+    "6",
+    "7"
+  ],
+  "exitCode": 0,
+  "error": null,
+  "files": {},
+  "finishedAt": "2026-11-28T07:40:40.517Z",
+  "durationMs": 18850,
+  "runMs": 21,
+  "waitMs": 18829,
+  "steps": 186
+}
