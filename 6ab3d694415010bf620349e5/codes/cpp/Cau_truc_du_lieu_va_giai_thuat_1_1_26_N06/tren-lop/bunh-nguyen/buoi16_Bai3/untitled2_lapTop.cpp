@@ -118,7 +118,7 @@ class QLLT{
 
 int main(){
     // Doc input tu file
-    freopen("input.txt", "r", stdin);
+    freopen("input1.txt", "r", stdin);
     // Khong freopen output
     // => cout van in ra man hinh
     QLLT ql;
