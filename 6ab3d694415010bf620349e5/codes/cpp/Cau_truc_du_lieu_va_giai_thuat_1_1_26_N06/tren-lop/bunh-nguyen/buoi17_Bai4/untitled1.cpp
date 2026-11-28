@@ -91,6 +91,15 @@ void quickSort(int a[], int L, int R){
     while(a[j] > chot){
         j--;
     }
+    
+    if(i <= j){
+        int tmp = a[i];
+        a[i] = a[j];
+        a[j] = tmp;
+        
+        i++;
+        j--;
+    }
 }
 
 int main() {
