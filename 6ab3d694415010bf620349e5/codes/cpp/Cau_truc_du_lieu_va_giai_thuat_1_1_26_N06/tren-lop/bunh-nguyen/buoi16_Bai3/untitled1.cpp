@@ -110,6 +110,7 @@ class QLSV{
 };
 
 int main() {
+    freopen("input.txt", "r", stdin);
     QLSV ql;
     SinhVien sv1, sv2;
     cout << "Nhap sinh vien 1:\n";
@@ -118,7 +119,6 @@ int main() {
     cin >> sv2;
     ql.them(sv1);
     ql.them(sv2);
-
     cout << "\nDanh sach sinh vien:\n";
     ql.in();
     string ma;
