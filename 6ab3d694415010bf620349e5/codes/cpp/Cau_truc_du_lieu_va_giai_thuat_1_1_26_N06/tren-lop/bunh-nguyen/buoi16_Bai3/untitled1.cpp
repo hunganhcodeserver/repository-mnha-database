@@ -16,6 +16,32 @@ class SinhVien{
         string getMa(){
             return ma;
         }
+        int getNam(){
+            return nam;
+        }
+        friend istream& operator>>(istream& in, SinhVien& sv){
+            cout << "Nhap ma: ";
+            getline(in>>ws, sv.ma);
+            
+            cout << "Nhap ho ten: ";
+            getline(in>>ws, sv.ht);
+            
+            cout << "Nhap nam: ";
+            in >> sv.nam;
+            
+            cout << "Nhap gioi tinh: ";
+            getline(in>>ws, sv.gt);
+            
+            cout << "Nhap lop: ";
+            getline(in>>ws, a.lop);
+            
+            return in;
+        }
+        friend ostream& operator<<(ostream& out, SinhVien& a){
+            out << "MSV: " << a.ma << ", Ho ten: " 
+            << a.ht << ", Nam: " << a.nam << 
+            ", Gioi tinh: " << a.gt << ", Lop: " << a.lop << endl;
+        }
 };
 
 int main() {
