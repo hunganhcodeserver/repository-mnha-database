@@ -41,6 +41,7 @@ class SinhVien{
             out << "MSV: " << a.ma << ", Ho ten: " 
             << a.ht << ", Nam: " << a.nam << 
             ", Gioi tinh: " << a.gt << ", Lop: " << a.lop << endl;
+            return out;
         }
 };
 
