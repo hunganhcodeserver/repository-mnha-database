@@ -100,6 +100,12 @@ void quickSort(int a[], int L, int R){
         i++;
         j--;
     }
+    
+    //Sap xep doan con ben trai
+    quickSort(a,L,j);
+    
+    //Sap xep doan con ben phai
+    quickSort(a,i,R);
 }
 
 int main() {
