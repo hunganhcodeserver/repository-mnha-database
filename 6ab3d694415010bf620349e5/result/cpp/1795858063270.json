@@ -1,0 +1,22 @@
+{
+  "timestamp": 1795858063270,
+  "lang": "cpp",
+  "file": "test.c",
+  "dir": "Cau_truc_du_lieu_va_giai_thuat_1_1_26_N06/tren-lop/bunh-nguyen/buoi16_Bai3",
+  "source": "#include <stdio.h>\n\nint main() {\n    // freopen(\"input.txt\", \"r\", stdin);\n    // freopen(\"output.txt\", \"w\", stdout);\n    int a, b;\n    printf(\"Nhap a, b: \");\n    scanf(\"%d %d\", &a, &b);\n    printf(\"Tong = %d\\n\", a + b);\n    return 0;\n}\n",
+  "kind": "cpp-browser",
+  "status": "ok",
+  "console": "Nhap a, b: 34\n56\nTong = 90\n",
+  "inputs": [
+    "34",
+    "56"
+  ],
+  "exitCode": 0,
+  "error": null,
+  "files": {},
+  "finishedAt": "2026-11-28T09:27:43.270Z",
+  "durationMs": 4567,
+  "runMs": 22,
+  "waitMs": 4545,
+  "steps": 17
+}
