@@ -72,6 +72,27 @@ bool binary_search(int *a, int L, int R, int x){
     }
 }
 
+void quickSort(int a[], int L, int R){
+    if(L >= R){
+        return;
+    }
+    
+    int i = L;
+    int j = R;
+    
+    int chot = a[L + (R - L)/2];
+    
+    //tim phan tu ben trai
+    while(a[i] < chot){
+        i++;
+    }
+    
+    //tim phan tu ben phai
+    while(a[j] > chot){
+        j--;
+    }
+}
+
 int main() {
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
