@@ -134,12 +134,12 @@ int main(){
     cout << "\n===== DANH SACH LAPTOP =====" << endl;
     ql.in();
     string hang;
-    cout << "\nNhap hang can tinh tong tien: ";
+    cout << "\nNhap hang can tinh tong tien: " << endl;
     getline(cin >> ws, hang);
     cout << "Tong tien cua hang " << hang << " = "
          << ql.tinhTong(hang) << endl;
     string ma;
-    cout << "\nNhap ma laptop can tim: ";
+    cout << "\nNhap ma laptop can tim: " << endl;
     getline(cin >> ws, ma);
     int vt = ql.timKiemNhiPhan(ma);
     if(vt != -1){
