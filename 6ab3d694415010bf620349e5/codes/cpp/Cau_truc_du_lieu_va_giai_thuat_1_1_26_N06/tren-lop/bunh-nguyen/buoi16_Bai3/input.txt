@@ -1,2 +1,11 @@
-
-hap-du-lieu-input-vao-day
+SV001
+Nguyen Van An
+2004
+Nam
+CNTT1
+SV002
+Tran Thi Binh
+2005
+Nu
+CNTT2
+SV001
