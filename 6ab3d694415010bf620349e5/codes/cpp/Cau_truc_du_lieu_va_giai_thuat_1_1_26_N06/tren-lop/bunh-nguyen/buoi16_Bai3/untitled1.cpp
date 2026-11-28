@@ -54,6 +54,22 @@ class QLSV{
             ds.push_back(a);
         }
         
+        void xoa(SinhVien sv){
+            int viTri = timKiemNhiPhan(ma);
+            if(viTri == -1){
+                cout << "Khong tim thay";
+                return;
+            }
+            ds.erase(ds.begin()+viTri);
+        }
+        
+        void in(){
+            for(SinhVien a : ds){
+                cout << a << endl;
+            }
+            
+        }
+        
         int timKiemNhiPhan(string ma){
             int left = 0;
             int right = (int)ds.size() - 1;
@@ -73,6 +89,22 @@ class QLSV{
                     right = mid - 1;
                 }
             }
+            return -1;
+        }
+        
+        int timKiemTuanTu(string ma){
+            // for(int i = 0; i < (int)ds.size(); i++){
+            //     if(ds[i].getMa() == ma){
+            //         return i;
+            //     }
+            // }
+            
+            for(SinhVien a : ds){
+                if(ds[i].getMa() == ma){
+                    return i;
+                }
+            }
+            
             return -1;
         }
 };
