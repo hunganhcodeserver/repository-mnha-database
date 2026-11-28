@@ -99,10 +99,13 @@ class QLSV{
             //     }
             // }
             
+            int i = 0;
+            
             for(SinhVien a : ds){
                 if(a.getMa() == ma){
                     return i;
                 }
+                i++;
             }
             
             return -1;
