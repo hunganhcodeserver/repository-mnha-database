@@ -1,0 +1,26 @@
+{
+  "timestamp": 1795854426696,
+  "lang": "cpp",
+  "file": "code.cpp",
+  "dir": "Cau_truc_du_lieu_va_giai_thuat_1_1_26_N06/thuc-hanh/lab04-SortingArray",
+  "source": "#include <bits/stdc++.h>\nusing namespace std;\n\nclass SortingArray{\nprivate:\n    int a[100];\n    int n;\n\npublic:\n    void nhap(){\n        cout << \"Nhap n: \";\n        cin >> n;\n\n        for(int i = 0; i < n; i++){\n            cin >> a[i];\n        }\n    }\n\n    void xuat(){\n        for(int i = 0; i < n; i++){\n            cout << a[i] << \" \";\n        }\n        cout << endl;\n    }\n\n    void bubbleSort(){\n        int ss = 0, doi = 0;\n\n        for(int i = 0; i < n - 1; i++){\n            for(int j = 0; j < n - i - 1; j++){\n                ss++;\n\n                if(a[j] > a[j + 1]){\n                    swap(a[j], a[j + 1]);\n                    doi++;\n                }\n            }\n        }\n\n        cout << \"Bubble Sort: \";\n        xuat();\n        cout << \"So phep so sanh: \" << ss << endl;\n        cout << \"So lan hoan doi: \" << doi << endl;\n    }\n\n    void selectionSort(){\n        int ss = 0, doi = 0;\n\n        for(int i = 0; i < n - 1; i++){\n            int k = i;\n\n            for(int j = i + 1; j < n; j++){\n                ss++;\n\n                if(a[j] < a[k]){\n                    k = j;\n                }\n            }\n\n            if(k != i){\n                swap(a[i], a[k]);\n                doi++;\n            }\n        }\n\n        cout << \"Selection Sort: \";\n        xuat();\n        cout << \"So phep so sanh: \" << ss << endl;\n        cout << \"So lan hoan doi: \" << doi << endl;\n    }\n\n    void insertionSort(){\n        int ss = 0, dich = 0;\n\n        for(int i = 1; i < n; i++){\n            int x = a[i];\n            int j = i - 1;\n\n            while(j >= 0){\n                ss++;\n\n                if(a[j] > x){\n                    a[j + 1] = a[j];\n                    dich++;\n                    j--;\n                }\n                else{\n                    break;\n                }\n            }\n\n            a[j + 1] = x;\n        }\n\n        cout << \"Insertion Sort: \";\n        xuat();\n        cout << \"So phep so sanh: \" << ss << endl;\n        cout << \"So lan dich chuyen: \" << dich << endl;\n    }\n};\n\nint main(){\n    SortingArray a;\n\n    cout << \"Nhap day so: \";\n    a.nhap();\n\n    cout << \"\\nDay ban dau: \";\n    a.xuat();\n\n    cout << endl;\n    a.bubbleSort();\n\n    a.nhap();\n\n    cout << endl;\n    a.selectionSort();\n\n    a.nhap();\n\n    cout << endl;\n    a.insertionSort();\n\n    return 0;\n}",
+  "kind": "cpp-browser",
+  "status": "ok",
+  "console": "Nhap day so: Nhap n: 8\n64 25 12 22 11 35 18 40\n\nDay ban dau: 64 25 12 22 11 35 18 40 \n\nBubble Sort: 11 12 18 22 25 35 40 64 \nSo phep so sanh: 28\nSo lan hoan doi: 15\nNhap n: 8\n64 25 12 22 11 35 18 40\n\nSelection Sort: 11 12 18 22 25 35 40 64 \nSo phep so sanh: 28\nSo lan hoan doi: 5\nNhap n: 8\n64 25 12 22 11 35 18 40\n\nInsertion Sort: 11 12 18 22 25 35 40 64 \nSo phep so sanh: 19\nSo lan dich chuyen: 15\n",
+  "inputs": [
+    "8",
+    "64 25 12 22 11 35 18 40",
+    "8",
+    "64 25 12 22 11 35 18 40",
+    "8",
+    "64 25 12 22 11 35 18 40"
+  ],
+  "exitCode": 0,
+  "error": null,
+  "files": {},
+  "finishedAt": "2026-11-28T08:27:06.696Z",
+  "durationMs": 10380,
+  "runMs": 63,
+  "waitMs": 10317,
+  "steps": 3124
+}
