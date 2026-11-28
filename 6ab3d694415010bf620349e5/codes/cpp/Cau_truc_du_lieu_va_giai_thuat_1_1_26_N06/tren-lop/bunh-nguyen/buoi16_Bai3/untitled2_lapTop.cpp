@@ -24,22 +24,22 @@ class lapTop{
         }
 
         friend istream& operator>>(istream& is, lapTop& a){
-            cout << "Nhap ma: ";
+            cout << "Nhap ma: " << endl;
             getline(is >> ws, a.ma);
 
-            cout << "Nhap hang: ";
+            cout << "Nhap hang: " << endl;
             getline(is >> ws, a.hang);
 
-            cout << "Nhap ten may: ";
+            cout << "Nhap ten may: " << endl;
             getline(is >> ws, a.ten);
 
-            cout << "Nhap cau hinh: ";
+            cout << "Nhap cau hinh: " << endl;
             getline(is >> ws, a.cauHinh);
 
-            cout << "Nhap gia: ";
+            cout << "Nhap gia: " << endl;
             is >> a.gia;
 
-            cout << "Nhap so luong: ";
+            cout << "Nhap so luong: " << endl;
             is >> a.sl;
 
             return is;
