@@ -1,2 +1,21 @@
-
-hap-du-lieu-input-vao-day
+3
+LT01
+Dell
+Dell Inspiron 15
+Core i5, RAM 16GB, SSD 512GB
+15000000
+2
+LT02
+HP
+HP Pavilion 14
+Core i5, RAM 8GB, SSD 512GB
+14000000
+3
+LT03
+Dell
+Dell Vostro 15
+Core i7, RAM 16GB, SSD 512GB
+18000000
+1
+Dell
+LT02
