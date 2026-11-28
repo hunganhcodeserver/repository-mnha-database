@@ -54,7 +54,27 @@ class QLSV{
             ds.push_back(a);
         }
         
-        
+        int timKiemNhiPhan(string ma){
+            int left = 0;
+            int right = (int)ds.size() - 1;
+            
+            while(left <= right){
+                int mid = (left + right)/2;
+                
+                if(ds[mid].getMa() == ma){
+                    return mid;
+                }
+                
+                if(ds[mid].getMa < ma){
+                    left = mid + 1;
+                }
+                
+                else{
+                    right = mid - 1;
+                }
+            }
+            return -1;
+        }
 };
 
 int main() {
