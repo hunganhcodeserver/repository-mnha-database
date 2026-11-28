@@ -50,6 +50,28 @@ void bubbleSort(int a[], int n){
     }
 }
 
+bool binary_search(int *a, int L, int R, int x){
+    if(L > R){
+        return false;
+    }
+    int mid = L(R-L)/2;
+    
+    //tim o giua
+    if(a[mid] == x){
+        return true;
+    }
+    
+    //tim nua ben trai
+    if(x < a[mid]){
+        return binary_search(a, L, mid-1, x);
+    }
+    
+    //tim nua ben phai
+    if(x > a[mid]){
+        return binary_search(a, mid+1, R, x);
+    }
+}
+
 int main() {
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
