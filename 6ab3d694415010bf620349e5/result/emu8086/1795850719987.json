@@ -1,0 +1,61 @@
+{
+  "timestamp": 1795850719987,
+  "lang": "emu8086",
+  "file": "bai10-2026-11-18-dem-chu-so-chan-le.asm",
+  "dir": "luyen-tap-lai/2026-11-18",
+  "source": ".model small\n.stack 100h\n.data\n  ms1 db 'nhap day so: $'\n  ms2 db 13, 10, 'day so vua nhap: $'\n  ms3 db 13, 10, 'so chu so chan: $'\n  ms4 db 13, 10, 'so chu so le: $'\n  s   db 21 dup (?)  ; 20 ký tự + $\n.code\nmain proc\n  mov ax, @data\n  mov ds, ax         ; nạp DS\n\n  mov ah, 9\n  lea dx, ms1\n  int 21h            ; in lời nhắc\n\n  xor si, si         ; si = 0\nnhap:\n  mov ah, 1\n  int 21h         ; AL = ký tự vừa gõ\n  cmp al, 13      ; là Enter?\n  je stop1        ; đúng thì dừng\n  mov s[si], al   ; cất vào ô si\n  inc si\n  cmp si, 20      ; đủ 20 ký tự?\n  jb nhap         ; si < 20: nhập tiếp\nstop1:\n  mov s[si], '$'  ; đóng chuỗi s\n  mov ah, 9\n  lea dx, ms2\n  int 21h         ; in nhãn\n  lea dx, s\n  int 21h         ; in dãy vừa nhập\n  xor si, si     ; si = 0\n  xor bx, bx     ; BL = chẵn, BH = lẻ\nduyet:\n  mov al, s[si]  ; lấy ký tự\n  cmp al, '$'    ; hết dãy?\n  je xong\n  cmp al, '0'\n  jb tiep        ; nhỏ hơn '0': bỏ qua\n  cmp al, '9'\n  ja tiep        ; lớn hơn '9': bỏ qua\n  mov ah, 0      ; AX = mã ASCII\n  mov cl, 2      ; số chia\n  div cl         ; AH = số dư\n  cmp ah, 0      ; dư 0?\n  jne so_le      ; dư 1: số lẻ\n  inc bl         ; số chẵn\n  jmp tiep\nso_le:\n  inc bh         ; số lẻ\ntiep:\n  inc si\n  jmp duyet\n\nxong:\n  mov ah, 9\n  lea dx, ms3\n  int 21h     ; in 'so chu so chan: '\n  mov al, bl\n  call in_so  ; in BL\n  mov ah, 9\n  lea dx, ms4\n  int 21h     ; in 'so chu so le: '\n  mov al, bh\n  call in_so  ; in BH\n  mov ah, 4ch\n  int 21h     ; thoát về DOS\nmain endp\nin_so proc\n  push ax\n  push bx\n  push dx      ; cất AX, BX, DX\n  mov ah, 0    ; xoá AH trước div\n  mov bl, 10   ; số chia\n  div bl       ; AL = chục, AH = đơn vị\n  mov bh, ah   ; cất đơn vị sang BH\n  cmp al, 0    ; chục = 0?\n  je donvi     ; bỏ số 0 đầu\n  mov dl, al\n  add dl, 30h  ; số thành ký tự\n  mov ah, 2\n  int 21h      ; in chữ số chục\ndonvi:\n  mov dl, bh\n  add dl, 30h\n  mov ah, 2\n  int 21h  ; in chữ số đơn vị\n  pop dx   ; ngược thứ tự push\n  pop bx\n  pop ax\n  ret\nin_so endp\nend main\n",
+  "kind": "emu8086",
+  "status": "ok",
+  "assemble": {
+    "ok": true,
+    "errors": []
+  },
+  "console": "nhap day so: 45643\r\r\nday so vua nhap: 45643\r\nso chu so chan: 3\r\nso chu so le: 2",
+  "screen": [
+    "nhap day so: 45643",
+    "day so vua nhap: 45643",
+    "so chu so chan: 3",
+    "so chu so le: 2"
+  ],
+  "inputs": [
+    "4",
+    "5",
+    "6",
+    "4",
+    "3",
+    ""
+  ],
+  "regs": {
+    "AX": "4C02",
+    "BX": "0203",
+    "CX": "0002",
+    "DX": "0035",
+    "SI": "0005",
+    "DI": "0000",
+    "BP": "0000",
+    "SP": "00FE",
+    "CS": "0716",
+    "DS": "0710",
+    "ES": "0700",
+    "SS": "0725",
+    "IP": "0033"
+  },
+  "flags": {
+    "CF": 0,
+    "PF": 0,
+    "AF": 0,
+    "ZF": 0,
+    "SF": 0,
+    "TF": 0,
+    "IF": 1,
+    "DF": 0,
+    "OF": 0
+  },
+  "steps": 184,
+  "exitCode": 2,
+  "error": null,
+  "startedAt": "2026-11-28T07:25:15.116Z",
+  "finishedAt": "2026-11-28T07:25:19.987Z",
+  "durationMs": 4975,
+  "runIn": "browser"
+}
