@@ -45,6 +45,18 @@ class SinhVien{
         }
 };
 
+class QLSV{
+    private:
+        vector<SinhVien> ds;
+    public:
+        //Them sinh vien
+        void them(SinhVien sv){
+            ds.push_back(a);
+        }
+        
+        
+};
+
 int main() {
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
