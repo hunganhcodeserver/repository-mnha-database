@@ -29,6 +29,11 @@ void selectionSort(int a[], int n){
                 min = j;
             }
         }
+        if(min != i){
+            int tmp = a[i];
+            a[i] = a[min];
+            a[min] = tmp;
+        }
     }
 }
 
