@@ -1,12 +1,11 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <stdio.h>
 
 int main() {
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
     int a, b;
-    cout << "Nhap a, b: ";
-    cin >> a >> b;
-    cout << "Tong = " << a + b << endl;
+    printf("Nhap a, b: ");
+    scanf("%d %d", &a, &b);
+    printf("Tong = %d\n", a + b);
     return 0;
 }
