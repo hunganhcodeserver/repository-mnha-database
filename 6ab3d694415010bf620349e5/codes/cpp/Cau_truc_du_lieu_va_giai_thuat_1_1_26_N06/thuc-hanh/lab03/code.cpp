@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
 template <class T>
@@ -214,7 +215,7 @@ public:
         show(H->right, k + 1);
 
         for(int i = 0; i < k; i++){
-            cout << "    ";
+            cout << " ";
         }
 
         cout << H->elem << endl;
@@ -254,7 +255,6 @@ int main(){
 
     cout << "Ke vi = " << T.successor(x) << endl;
     cout << "Tien nhiem = " << T.predecessor(x) << endl;
-
     cout << "Chieu cao = " << T.height() << endl;
 
     cout << "\nCau truc BST:\n";
