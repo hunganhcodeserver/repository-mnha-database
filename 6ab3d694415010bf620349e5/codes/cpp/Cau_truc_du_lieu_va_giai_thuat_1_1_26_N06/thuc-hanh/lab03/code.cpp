@@ -163,6 +163,10 @@ public:
         return phai + 1;
     }
 
+    int height(){
+        return height(root);
+    }
+
     void xoa(Node<T>*& H, T x){
         if(H == nullptr){
             return;
@@ -251,7 +255,7 @@ int main(){
     cout << "Ke vi = " << T.successor(x) << endl;
     cout << "Tien nhiem = " << T.predecessor(x) << endl;
 
-    cout << "Chieu cao = " << T.height(T.find(T.find(nullptr, x), x)) << endl;
+    cout << "Chieu cao = " << T.height() << endl;
 
     cout << "\nCau truc BST:\n";
     T.show();
