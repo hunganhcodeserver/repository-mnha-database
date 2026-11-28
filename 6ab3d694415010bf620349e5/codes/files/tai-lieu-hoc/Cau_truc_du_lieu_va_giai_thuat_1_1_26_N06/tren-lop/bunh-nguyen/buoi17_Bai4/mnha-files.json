@@ -1,0 +1,23 @@
+{
+  "files": {
+    "Book1.xlsx": {
+      "name": "Book1.xlsx",
+      "kind": "excel",
+      "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "size": 741712,
+      "id": "376dc1c1daab9eb5134bba7e52a74181",
+      "key": "TU5IQUVOQzEB4WxQo71cyDHnDamJN4C41gAAACBkBnp2x5jThJxygaUpuFilV0k+btzZJk1tBEt2qLhM+uthqRVPR43WIrVI7m3fYlOz+v3FQhI0XVF1OC0=",
+      "parts": [
+        {
+          "i": 0,
+          "size": 741712,
+          "repo": "repository-mnha-database-1"
+        }
+      ],
+      "createdAt": "2026-11-28T11:40:21.366Z",
+      "updatedAt": "2026-11-28T11:40:21.366Z"
+    }
+  },
+  "v": 1,
+  "updatedAt": "2026-11-28T11:40:21.458Z"
+}
