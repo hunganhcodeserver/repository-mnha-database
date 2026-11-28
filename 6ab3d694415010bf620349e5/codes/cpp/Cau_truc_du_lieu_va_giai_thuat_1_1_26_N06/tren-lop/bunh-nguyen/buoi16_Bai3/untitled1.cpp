@@ -33,7 +33,7 @@ class SinhVien{
             getline(in>>ws, sv.gt);
             
             cout << "Nhap lop: ";
-            getline(in>>ws, a.lop);
+            getline(in>>ws, sv.lop);
             
             return in;
         }
@@ -51,11 +51,11 @@ class QLSV{
     public:
         //Them sinh vien
         void them(SinhVien sv){
-            ds.push_back(a);
+            ds.push_back(sv);
         }
         
         void xoa(SinhVien sv){
-            int viTri = timKiemNhiPhan(ma);
+            int viTri = timKiemNhiPhan(sv.getMa());
             if(viTri == -1){
                 cout << "Khong tim thay";
                 return;
@@ -81,7 +81,7 @@ class QLSV{
                     return mid;
                 }
                 
-                if(ds[mid].getMa < ma){
+                if(ds[mid].getMa() < ma){
                     left = mid + 1;
                 }
                 
@@ -100,7 +100,7 @@ class QLSV{
             // }
             
             for(SinhVien a : ds){
-                if(ds[i].getMa() == ma){
+                if(a.getMa() == ma){
                     return i;
                 }
             }
@@ -110,11 +110,34 @@ class QLSV{
 };
 
 int main() {
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
-    int a, b;
-    cout << "Nhap a, b: ";
-    cin >> a >> b;
-    cout << "Tong = " << a + b << endl;
+    QLSV ql;
+    SinhVien sv1, sv2;
+    cout << "Nhap sinh vien 1:\n";
+    cin >> sv1;
+    cout << "\nNhap sinh vien 2:\n";
+    cin >> sv2;
+    ql.them(sv1);
+    ql.them(sv2);
+
+    cout << "\nDanh sach sinh vien:\n";
+    ql.in();
+    string ma;
+    cout << "\nNhap ma sinh vien can tim: ";
+    cin >> ma;
+    int viTri = ql.timKiemTuanTu(ma);
+    if(viTri == -1){
+        cout << "Khong tim thay\n";
+    }
+    else{
+        cout << "Tim thay sinh vien o vi tri: " << viTri << endl;
+    }
+    viTri = ql.timKiemNhiPhan(ma);
+    if(viTri == -1){
+        cout << "Khong tim thay bang tim kiem nhi phan\n";
+    }
+    else{
+        cout << "Tim thay bang tim kiem nhi phan o vi tri: "
+             << viTri << endl;
+    }
     return 0;
 }
