@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void insertSort(int a[], int n){
+void insertionSort(int a[], int n){
     for(int i = 1; i < n; i++){
         //luu phan tu can chen
         int x = a[i];
@@ -16,6 +16,19 @@ void insertSort(int a[], int n){
         }
         a[j+1] = x;
         
+    }
+}
+
+void selectionSort(int a[], int n){
+    for(int i = 0; i < n; i++){
+        //xem a[i] la phan tu nho nhat
+        int min = i;
+        //tim vi tri phan tu nho nhat trong doan con lai
+        for(int j = i + 1; j < n; j++){
+            if(a[j] < a[min]){
+                min = j;
+            }
+        }
     }
 }
 
