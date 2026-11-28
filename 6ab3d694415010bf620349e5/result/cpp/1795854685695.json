@@ -1,0 +1,26 @@
+{
+  "timestamp": 1795854685695,
+  "lang": "cpp",
+  "file": "code.cpp",
+  "dir": "Cau_truc_du_lieu_va_giai_thuat_1_1_26_N06/thuc-hanh/lab05-AdvancedSorting",
+  "source": "#include <bits/stdc++.h>\n\nusing namespace std;\n\nclass AdvancedSorting{\nprivate:\n    int a[100];\n    int n;\n\npublic:\n    void nhap(){\n        cout << \"Nhap n: \";\n        cin >> n;\n\n        for(int i = 0; i < n; i++){\n            cin >> a[i];\n        }\n    }\n\n    void xuat(){\n        for(int i = 0; i < n; i++){\n            cout << a[i] << \" \";\n        }\n\n        cout << endl;\n    }\n\n    void merge(int l, int m, int r, int &ss){\n        int b[100];\n\n        int i = l;\n        int j = m + 1;\n        int k = l;\n\n        while(i <= m && j <= r){\n            ss++;\n\n            if(a[i] < a[j]){\n                b[k] = a[i];\n                i++;\n            }\n            else{\n                b[k] = a[j];\n                j++;\n            }\n\n            k++;\n        }\n\n        while(i <= m){\n            b[k] = a[i];\n            i++;\n            k++;\n        }\n\n        while(j <= r){\n            b[k] = a[j];\n            j++;\n            k++;\n        }\n\n        for(i = l; i <= r; i++){\n            a[i] = b[i];\n        }\n    }\n\n    void mergeSort(int l, int r, int &ss){\n        if(l >= r){\n            return;\n        }\n\n        int m = (l + r) / 2;\n\n        mergeSort(l, m, ss);\n        mergeSort(m + 1, r, ss);\n\n        merge(l, m, r, ss);\n    }\n\n    void mergeSort(int &ss){\n        mergeSort(0, n - 1, ss);\n    }\n\n    int partition(int l, int r, int &ss){\n        int x = a[r];\n\n        int i = l - 1;\n\n        for(int j = l; j < r; j++){\n            ss++;\n\n            if(a[j] < x){\n                i++;\n\n                swap(a[i], a[j]);\n            }\n        }\n\n        swap(a[i + 1], a[r]);\n\n        return i + 1;\n    }\n\n    void quickSort(int l, int r, int &ss){\n        if(l >= r){\n            return;\n        }\n\n        int p = partition(l, r, ss);\n\n        quickSort(l, p - 1, ss);\n        quickSort(p + 1, r, ss);\n    }\n\n    void quickSort(int &ss){\n        quickSort(0, n - 1, ss);\n    }\n\n    void heap(int n, int i, int &ss){\n        int lon = i;\n\n        int trai = 2 * i + 1;\n        int phai = 2 * i + 2;\n\n        if(trai < n){\n            ss++;\n\n            if(a[trai] > a[lon]){\n                lon = trai;\n            }\n        }\n\n        if(phai < n){\n            ss++;\n\n            if(a[phai] > a[lon]){\n                lon = phai;\n            }\n        }\n\n        if(lon != i){\n            swap(a[i], a[lon]);\n\n            heap(n, lon, ss);\n        }\n    }\n\n    void heapSort(int &ss){\n        for(int i = n / 2 - 1; i >= 0; i--){\n            heap(n, i, ss);\n        }\n\n        for(int i = n - 1; i > 0; i--){\n            swap(a[0], a[i]);\n\n            heap(i, 0, ss);\n        }\n    }\n};\n\nint main(){\n    int x;\n    int ss;\n\n    cout << \"MERGE SORT\\n\";\n\n    AdvancedSorting a1;\n\n    a1.nhap();\n\n    cout << \"Day ban dau: \";\n    a1.xuat();\n\n    ss = 0;\n\n    a1.mergeSort(ss);\n\n    cout << \"Day sau khi sap xep: \";\n    a1.xuat();\n\n    cout << \"So phep so sanh = \" << ss << endl;\n\n\n    cout << \"\\nQUICK SORT\\n\";\n\n    AdvancedSorting a2;\n\n    a2.nhap();\n\n    cout << \"Day ban dau: \";\n    a2.xuat();\n\n    ss = 0;\n\n    a2.quickSort(ss);\n\n    cout << \"Day sau khi sap xep: \";\n    a2.xuat();\n\n    cout << \"So phep so sanh = \" << ss << endl;\n\n\n    cout << \"\\nHEAP SORT\\n\";\n\n    AdvancedSorting a3;\n\n    a3.nhap();\n\n    cout << \"Day ban dau: \";\n    a3.xuat();\n\n    ss = 0;\n\n    a3.heapSort(ss);\n\n    cout << \"Day sau khi sap xep: \";\n    a3.xuat();\n\n    cout << \"So phep so sanh = \" << ss << endl;\n\n    return 0;\n}",
+  "kind": "cpp-browser",
+  "status": "ok",
+  "console": "MERGE SORT\nNhap n: 10\n45 12 78 34 23 89 10 56 67 31\nDay ban dau: 45 12 78 34 23 89 10 56 67 31 \nDay sau khi sap xep: 10 12 23 31 34 45 56 67 78 89 \nSo phep so sanh = 24\n\nQUICK SORT\nNhap n: 10\n45 12 78 34 23 89 10 56 67 31\nDay ban dau: 45 12 78 34 23 89 10 56 67 31 \nDay sau khi sap xep: 10 12 23 31 34 45 56 67 78 89 \nSo phep so sanh = 26\n\nHEAP SORT\nNhap n: 10\n45 12 78 34 23 89 10 56 67 31\nDay ban dau: 45 12 78 34 23 89 10 56 67 31 \nDay sau khi sap xep: 10 12 23 31 34 45 56 67 78 89 \nSo phep so sanh = 39\n",
+  "inputs": [
+    "10",
+    "45 12 78 34 23 89 10 56 67 31",
+    "10",
+    "45 12 78 34 23 89 10 56 67 31",
+    "10",
+    "45 12 78 34 23 89 10 56 67 31"
+  ],
+  "exitCode": 0,
+  "error": null,
+  "files": {},
+  "finishedAt": "2026-11-28T08:31:25.695Z",
+  "durationMs": 7840,
+  "runMs": 136,
+  "waitMs": 7704,
+  "steps": 6143
+}
